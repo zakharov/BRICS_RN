@@ -51,6 +51,10 @@ void TrajectoryPlannerNode::publishTrajectory(const geometry_msgs::PoseStamped& 
     
     }
     
+    trRef.back().pose.pose.orientation = goal.pose.orientation;
+    geometry_msgs::Quaternion quat = trRef.back().pose.pose.orientation;
+    ROS_INFO("Goal orientation x=%f y=%f z=%f w=%f", quat.x, quat.y, quat.z, quat.w);
+    
     trajectoryPublisher.publish(trajectory);
 }
 
@@ -58,13 +62,14 @@ TrajectoryPlannerNode::TrajectoryPlannerNode(std::string name, costmap_2d::Costm
         bgpLoader("nav_core", "nav_core::BaseGlobalPlanner"){
     
     ros::NodeHandle node = ros::NodeHandle("~/");
+    ros::NodeHandle globalNode = ros::NodeHandle();
        
     node.param("global_costmap/robot_base_frame", robotBaseFrame, string("base_link"));
     node.param("global_costmap/global_frame", globalFrame, string("map"));
     node.param("global_costmap/trajectory_planner", globalTrajectoryPlanner, string("navfn/NavfnROS"));
         
-    trajectoryPublisher = node.advertise<navigation_trajectory_planner::Trajectory> ("planned_trajectory", 1);
-    goalSubscriber = node.subscribe("goal", 1, &goalCallback); 
+    trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory> ("trajectory", 1);
+    goalSubscriber = globalNode.subscribe("goal", 1, &goalCallback); 
     
      
     planner = bgpLoader.createClassInstance(globalTrajectoryPlanner);
@@ -80,7 +85,6 @@ TrajectoryPlannerNode::~TrajectoryPlannerNode() {
 
 int main(int argc, char **argv) {
 
-  
     std::string name = "trajectory_planner";
     ros::init(argc, argv, name);
     tf::TransformListener tf;
@@ -90,9 +94,6 @@ int main(int argc, char **argv) {
     TrajectoryPlannerNode trajectoryPlannerNode(name, globalCostmap);
     plannerNodeHandle = &trajectoryPlannerNode;
     ros::spin();
-    
-    
-   
-    
+      
     return 0;
 }
