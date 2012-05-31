@@ -51,6 +51,7 @@ void TrajectoryPlannerNode::publishTrajectory(const geometry_msgs::PoseStamped& 
     
     }
     
+    trRef.front().pose.pose.orientation = start.pose.orientation;
     trRef.back().pose.pose.orientation = goal.pose.orientation;
     geometry_msgs::Quaternion quat = trRef.back().pose.pose.orientation;
     ROS_INFO("Goal orientation x=%f y=%f z=%f w=%f", quat.x, quat.y, quat.z, quat.w);

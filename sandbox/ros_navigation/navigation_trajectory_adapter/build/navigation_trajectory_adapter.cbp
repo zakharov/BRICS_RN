@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="navigation_trajectory_adapter" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_genmsg_cpp">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; ROSBUILD_genmsg_cpp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_genmsg_lisp">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; ROSBUILD_genmsg_lisp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_gensrv_cpp">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; ROSBUILD_gensrv_cpp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ROSBUILD_gensrv_lisp">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; ROSBUILD_gensrv_lisp" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="clean-test-results">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean-test-results" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rosbuild_precompile">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rosbuild_precompile" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rosbuild_premsgsrvgen">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rosbuild_premsgsrvgen" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_genmsg">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rospack_genmsg" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_genmsg_libexe">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rospack_genmsg_libexe" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rospack_gensrv">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; rospack_gensrv" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; test" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-future">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; test-future" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-results">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; test-results" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="test-results-run">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; test-results-run" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="tests">
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; tests" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="trajectory_adapter_node">
+         <Option output="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/bin/trajectory_adapter_node" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/include" />
+            <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/cpp/include" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/cfg/cpp" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/include" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/laser_pipeline/laser_geometry/include" />
+            <Add directory="/home/alexey/workspace/navigation/voxel_grid/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/visualization_msgs/msg_gen/cpp/include" />
+            <Add directory="/home/alexey/workspace/navigation/map_server/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/srv_gen/cpp/include" />
+            <Add directory="/usr/include/yaml-cpp" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl_ros/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl_ros/cfg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet_topic_tools/include" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet/include" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/bondcpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/bond/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/smclib/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/include/pcl-1.1" />
+            <Add directory="/usr/include/vtk-5.2" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/mpi" />
+            <Add directory="/usr/include/tcl8.5" />
+            <Add directory="/usr/include/python2.6" />
+            <Add directory="/usr/lib/jvm/default-java/include" />
+            <Add directory="/usr/include/libxml2" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/msg_gen/cpp/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/cminpack/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/flann/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv/cpp" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bullet/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
+            <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
+            <Add directory="/opt/ros/electric/stacks/pluginlib" />
+            <Add directory="/home/alexey/workspace/navigation/nav_core/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/geometry_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosbag/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rostest/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp_serialization/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp_traits/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/xmlrpcpp/src" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosconsole/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/rostime/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/cpp_common/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/rosgraph_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/std_msgs/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/std_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/ros/core/roslib/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/ros/core/roslib/include" />
+            <Add directory="/opt/ros/electric/ros/tools/rospack" />
+            <Add directory="/opt/ros/electric/ros/tools/rospack/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; trajectory_adapter_node" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="trajectory_adapter_node/fast">
+         <Option output="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/bin/trajectory_adapter_node" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/bin" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/include" />
+            <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/cpp/include" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/cfg/cpp" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/include" />
+            <Add directory="/home/alexey/workspace/navigation/costmap_2d/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/laser_pipeline/laser_geometry/include" />
+            <Add directory="/home/alexey/workspace/navigation/voxel_grid/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/visualization_msgs/msg_gen/cpp/include" />
+            <Add directory="/home/alexey/workspace/navigation/map_server/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/srv_gen/cpp/include" />
+            <Add directory="/usr/include/yaml-cpp" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl_ros/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl_ros/cfg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet_topic_tools/include" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet/include" />
+            <Add directory="/opt/ros/electric/stacks/nodelet_core/nodelet/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/bondcpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/bond/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bond_core/smclib/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/include/pcl-1.1" />
+            <Add directory="/usr/include/vtk-5.2" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/mpi" />
+            <Add directory="/usr/include/tcl8.5" />
+            <Add directory="/usr/include/python2.6" />
+            <Add directory="/usr/lib/jvm/default-java/include" />
+            <Add directory="/usr/include/libxml2" />
+            <Add directory="/usr/include/freetype2" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/msg_gen/cpp/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/cminpack/include" />
+            <Add directory="/opt/ros/electric/stacks/perception_pcl/flann/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv/cpp" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/tf/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/sensor_msgs/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/bullet/include" />
+            <Add directory="/opt/ros/electric/stacks/geometry/angles/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
+            <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
+            <Add directory="/opt/ros/electric/stacks/pluginlib" />
+            <Add directory="/home/alexey/workspace/navigation/nav_core/include" />
+            <Add directory="/opt/ros/electric/stacks/common_msgs/geometry_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosbag/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rostest/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/srv_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp_serialization/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp_traits/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/xmlrpcpp/src" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosconsole/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/rostime/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/cpp_common/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/rosgraph_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/std_msgs/include" />
+            <Add directory="/opt/ros/electric/stacks/ros_comm/messages/std_msgs/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/ros/core/roslib/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/ros/core/roslib/include" />
+            <Add directory="/opt/ros/electric/ros/tools/rospack" />
+            <Add directory="/opt/ros/electric/ros/tools/rospack/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; trajectory_adapter_node/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/Makefile&quot; clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/src/TrajectoryAdapterNode.cpp">
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

@@ -49,7 +49,7 @@ TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name
             
     twistPublisher = globalNode.advertise<geometry_msgs::Twist> ("cmd_vel", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("trajectory", 1, &trajectoryCallback); 
+    trajectorySubscriber = globalNode.subscribe("adapted_trajectory", 1, &trajectoryCallback); 
     
 }
 

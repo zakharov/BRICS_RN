@@ -1,0 +1,14 @@
+<package>
+  <description brief="A trajectory adapter">
+  </description>
+  <author>Alexey Zakharov</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url></url>
+  <depend package="rosconsole"/>
+  <depend package="roscpp"/>
+  <depend package="navigation_trajectory_planner"/>  
+  
+</package>
+
+
