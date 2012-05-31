@@ -1,0 +1,17 @@
+<package>
+ <description brief="A trajctory planner">
+
+ </description>
+ <author></author>
+ <license>BSD</license>
+ <review status="" notes=""/>
+ <url></url>
+ <depend package="rosconsole"/>
+ <depend package="roscpp"/>
+ <depend package="nav_msgs"/>
+ <depend package="costmap_2d"/>
+ <depend package="tf"/>
+ <depend package="geometry_msgs"/>
+ <depend package="pluginlib"/>
+ <depend package="nav_core"/>
+</package>
