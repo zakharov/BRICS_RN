@@ -23,6 +23,7 @@ void odomCallback(const nav_msgs::Odometry& odometry)
 void trajectoryCallback(const navigation_trajectory_planner::Trajectory& trajectory)
 {
     followerNodeHandle->setActualTrajectory(trajectory);
+    ROS_INFO("Got new trajectory size: %d", trajectory.trajectory.size());
 }
 
 void  TrajectoryFollowerNode::setActualOdometry(const nav_msgs::Odometry& odometry) {
@@ -112,7 +113,7 @@ int main(int argc, char **argv) {
     TrajectoryFollowerNode trajectoryFollowerNode(name);
     followerNodeHandle = &trajectoryFollowerNode;
     
-    ros::Rate r(10); // 10 Hz
+    ros::Rate r(100); // 10 Hz
     while (ros::ok()) {
         ros::spinOnce();
         trajectoryFollowerNode.controlLoop();

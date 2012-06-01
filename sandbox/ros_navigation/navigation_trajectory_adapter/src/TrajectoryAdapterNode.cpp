@@ -31,9 +31,12 @@ void  TrajectoryAdapterNode::setActualOdometry(const nav_msgs::Odometry& odometr
 }
 
 void  TrajectoryAdapterNode::setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
+    adaptedTrajectory.trajectory.clear();
     prune(trajectory, adaptedTrajectory);
-    publishTrajectory(adaptedTrajectory);
+   
 }
+
+
 
 void TrajectoryAdapterNode::publishTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
     trajectoryPublisher.publish(trajectory);
@@ -114,9 +117,62 @@ TrajectoryAdapterNode::~TrajectoryAdapterNode() {
     
 }
 
+double getDistance(const nav_msgs::Odometry& odom1, const nav_msgs::Odometry& odom2) {
+    double x1 = odom1.pose.pose.position.x;
+    double y1 = odom1.pose.pose.position.y;
+    double x2 = odom2.pose.pose.position.x;
+    double y2 = odom2.pose.pose.position.y;
+    
+    return sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+}
+
+bool TrajectoryAdapterNode::slideWindow(const navigation_trajectory_planner::Trajectory& globalTrajectory, 
+        const nav_msgs::Odometry& actualOdometry,
+        navigation_trajectory_planner::Trajectory& localTrajectory) {
+    
+    using namespace navigation_trajectory_planner;
+    
+    Trajectory::_trajectory_type& localTrajectoryRef = localTrajectory.trajectory;
+    const Trajectory::_trajectory_type& globalTrajectoryRef = globalTrajectory.trajectory;
+
+    if (globalTrajectory.trajectory.empty()) {
+        localTrajectoryRef.push_back(actualOdometry);
+        return false;
+    }
+    
+    double min = getDistance(globalTrajectoryRef[0], actualOdometry);
+    unsigned int minIndex = 0;
+    
+    for (unsigned int i = 1; i < globalTrajectoryRef.size(); i++) {
+        double actual = getDistance(globalTrajectoryRef[i], actualOdometry);
+        if (actual < min) {
+            min = actual;
+            minIndex = i;
+        }
+    }
+    
+    if (minIndex >= globalTrajectoryRef.size()) {
+        localTrajectoryRef.push_back(globalTrajectoryRef.back());
+        return false;
+    }
+    
+    
+    
+    
+    
+    for (unsigned int i = minIndex + 1; i < globalTrajectoryRef.size(); i++) {
+        localTrajectoryRef.push_back(globalTrajectoryRef[i]);
+    }
+    
+    return true;
+}
+
 void TrajectoryAdapterNode::controlLoop() {
+    navigation_trajectory_planner::Trajectory trajectory;
     
-    
+    slideWindow(adaptedTrajectory, actualOdometry, trajectory);
+    ROS_INFO("Publishing trajectory with size %d", trajectory.trajectory.size());
+    publishTrajectory(trajectory);
     
 }
 
@@ -129,7 +185,7 @@ int main(int argc, char **argv) {
     TrajectoryAdapterNode trajectoryAdapterNode(name);
     adapterNodeHandle = &trajectoryAdapterNode;
     
-    ros::Rate r(100); // 10 Hz
+    ros::Rate r(20); // 10 Hz
     while (ros::ok()) {
         ros::spinOnce();
         trajectoryAdapterNode.controlLoop();

@@ -25,6 +25,9 @@ public:
     void setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory);
     void publishTrajectory(const navigation_trajectory_planner::Trajectory& trajectory);
     void prune(const navigation_trajectory_planner::Trajectory& globalTrajectory, navigation_trajectory_planner::Trajectory& localTrajectory);
+    bool slideWindow(const navigation_trajectory_planner::Trajectory& globalTrajectory, 
+        const nav_msgs::Odometry& actualOdometry,
+        navigation_trajectory_planner::Trajectory& localTrajectory);
 
      
     virtual ~TrajectoryAdapterNode();
