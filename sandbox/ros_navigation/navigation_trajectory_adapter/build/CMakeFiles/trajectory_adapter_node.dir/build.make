@@ -94,10 +94,10 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/geometry/tf/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/eigen/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/laser_pipeline/laser_geometry/manifest.xml
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/navigation/voxel_grid/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/voxel_grid/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/common_msgs/visualization_msgs/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/common/yaml_cpp/manifest.xml
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/navigation/map_server/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/map_server/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/perception_pcl/cminpack/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/perception_pcl/flann/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/perception_pcl/pcl/manifest.xml
@@ -109,8 +109,8 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/nodelet_core/nodelet_topic_tools/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/perception_pcl/pcl_ros/manifest.xml
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/navigation/costmap_2d/manifest.xml
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/navigation/nav_core/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/costmap_2d/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/nav_core/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/messages/std_msgs/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/messages/rosgraph_msgs/msg_gen/generated
@@ -130,7 +130,7 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/nodelet_core/nodelet/srv_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv_gen/generated
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/navigation/costmap_2d/msg_gen/generated
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/costmap_2d/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@echo "Building CXX object CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o"

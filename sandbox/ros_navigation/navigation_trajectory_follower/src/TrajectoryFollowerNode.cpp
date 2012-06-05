@@ -6,8 +6,14 @@
  */
 
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
-#include "omnidrive_controller/OmniDrivePositionController.h"
 #include "tf/transform_datatypes.h"
+#include "nav_msgs/Odometry.h"
+#include "kdl/trajectory_composite.hpp"
+#include "kdl/path_composite.hpp"
+#include "kdl/path_line.hpp"
+#include "kdl/rotational_interpolation_sa.hpp"
+#include "kdl/velocityprofile_trap.hpp"
+#include "kdl/trajectory_segment.hpp"
 
 
 using namespace std;
@@ -30,9 +36,56 @@ void  TrajectoryFollowerNode::setActualOdometry(const nav_msgs::Odometry& odomet
     actualOdometry = odometry;
 }
 
+void TrajectoryFollowerNode::createKDLFrame(const nav_msgs::Odometry& odometry, KDL::Frame& frame) {
+    
+    geometry_msgs::Pose pose = odometry.pose.pose;
+    
+    KDL::Rotation orientation(KDL::Rotation::Quaternion(pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w));
+    KDL::Vector origin(pose.position.x, pose.position.y, pose.position.z);
+    
+    frame = KDL::Frame(orientation, origin);
+}
+
+KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory) {
+    
+    using namespace navigation_trajectory_planner;
+    
+    Trajectory::_trajectory_type::const_iterator it = trajectory.trajectory.begin();
+    
+    if (it != trajectory.trajectory.end()) {
+    
+        KDL::Path_Composite* pathComposite = new KDL::Path_Composite();
+        KDL::Frame temp, start, end;
+        createKDLFrame(*it, temp);
+        ++it;
+        
+        while(it != trajectory.trajectory.end()) {
+            start = temp;
+            createKDLFrame(*it, end);
+            temp = end;
+ 
+            KDL::Path_Line* pathLineSegment = new KDL::Path_Line(start, end, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
+            pathComposite->Add(pathLineSegment);
+            
+            ++it;
+        }
+        
+        KDL::VelocityProfile* velpref = new KDL::VelocityProfile_Trap(0.5, 0.05);
+        velpref->SetProfile(0, pathComposite->PathLength());
+        return new KDL::Trajectory_Segment(pathComposite, velpref);
+    }
+    
+    return NULL;
+}
+
 void  TrajectoryFollowerNode::setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
-    this->actualTrajectory.trajectory.clear();
-    this->actualTrajectory = trajectory;
+    actualTrajectory.trajectory.clear();
+    actualTrajectory = trajectory;
+    
+    if (actualTrajectoryKDL != NULL)
+        delete actualTrajectoryKDL;
+    
+    actualTrajectoryKDL = createTrajectoryKDL(this->actualTrajectory);
 }
 
 void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
@@ -41,12 +94,10 @@ void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
 
 TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name) {
     
-    VelocityRamp ramp1, ramp2;
-    controller = new OmniDrivePositionController(ramp1,ramp2, Odometry(Pose2D(0.01,0.01,0.01)));
-    
     ros::NodeHandle node = ros::NodeHandle("~/");
     ros::NodeHandle globalNode = ros::NodeHandle();
     
+    actualTrajectoryKDL = NULL;
             
     twistPublisher = globalNode.advertise<geometry_msgs::Twist> ("cmd_vel", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
@@ -54,53 +105,44 @@ TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name
     
 }
 
-double getYaw (const geometry_msgs::Quaternion& orientation) {
-    tf::Quaternion btOrientation;
-    tf::quaternionMsgToTF(orientation, btOrientation);
-    btScalar yaw, pitch, roll;
-    btMatrix3x3(btOrientation).getEulerYPR(yaw, pitch, roll);
-    return yaw;
+TrajectoryFollowerNode::~TrajectoryFollowerNode() {
+   
 }
 
-TrajectoryFollowerNode::~TrajectoryFollowerNode() {
-    delete controller;
+double vectorLength(double x1, double x2, double y1, double y2) {
+    return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
 
 void TrajectoryFollowerNode::controlLoop() {
-    double x = this->actualOdometry.pose.pose.position.x;
-    double y = this->actualOdometry.pose.pose.position.y;
-    geometry_msgs::Quaternion quat = this->actualOdometry.pose.pose.orientation;
-    double phi = getYaw(quat);
+   
+   // double x = this->actualOdometry.pose.pose.position.x;
+   // double y = this->actualOdometry.pose.pose.position.y;
+   // geometry_msgs::Quaternion quat = this->actualOdometry.pose.pose.orientation;
+   KDL::Frame desiredPose = actualTrajectoryKDL->Pos(actualTime);
+   KDL::Twist desiredTwist = actualTrajectoryKDL->Pos(actualTime);
+   
+   double dPosX = desiredPose.p(0);
+   double dPosY = desiredPose.p(1);
+   
+   double dVelX = desiredTwist.vel(0);
+   double dVelY = desiredTwist.vel(1);
+   
+   double aPosX = actualOdometry.pose.pose.position.x;
+   double aPosY = actualOdometry.pose.pose.position.y;
+   
+   double aVelX = actualOdometry.twist.twist.linear.x;
+   double aVelY = actualOdometry.twist.twist.linear.y;
+   
+   double positionError = vectorLength(dPosX, dPosY, aPosX, aPosY);
+   double velocityError = vectorLength(dVelX, dVelY, aVelX, aVelY);
+
+   double gain = 1;
+   double error = gain*positionError + velocityError; 
+   
+   ROS_INFO("Desired odom: dPosX=%f, dPosY=%f; Actual odom: aPosX=%f, aPosY=%f", dPosX, dPosY, aPosX, aPosY);
+   ROS_INFO("Desired vel: dVelX=%f, dVelY=%f; Actual vel: aVelX=%f, aVelY=%f", dVelX, dVelY, aVelX, aVelY);
+   ROS_INFO("Error = %f, positionError=%f, velocityError=%f", error, positionError, velocityError);
     
-    Odometry odom(Pose2D(x,y,phi));
-    Odometry newOdom = controller->computeNewOdometry(odom);
-
-    geometry_msgs::Twist twist;
-    
-    twist.linear.x = newOdom.getTwist2D().getX();
-    twist.linear.y = newOdom.getTwist2D().getY();
-    twist.angular.z = newOdom.getTwist2D().getTheta();
-    
-    publishTwist(twist);
-
-  //  ROS_INFO("%f, %f, %f", twist.linear.x, twist.linear.y, twist.angular.z );
-
-    if (controller->isTargetOdometryReached() && actualTrajectory.trajectory.size() > 0) {
-
-       
-        nav_msgs::Odometry odom = actualTrajectory.trajectory.front();
-        x = odom.pose.pose.position.x;
-        y = odom.pose.pose.position.y;
-        quat = odom.pose.pose.orientation;
-        
-        phi = getYaw(quat);
-       
-        Odometry target(Pose2D(x, y, phi));
-        
-        ROS_INFO("Setting a new goal x=%f y=%f phi=%f", x, y, phi);
-        controller->setTargetOdometry(target);
-        actualTrajectory.trajectory.erase(actualTrajectory.trajectory.begin());
-    }
 }
 
 int main(int argc, char **argv) {

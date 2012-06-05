@@ -13,7 +13,8 @@
   <depend package="nav_core"/>
   <depend package="navigation_trajectory_planner"/>  
   <depend package="tf"/>
-
+  <depend package="tf"/>
+  <depend package="orocos_kdl"/>
 </package>
 
 

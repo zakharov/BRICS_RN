@@ -5,7 +5,7 @@
       <Option title="navigation_trajectory_adapter" />
       <Option makefile_is_custom="1" />
       <Option compiler="gcc" />
-      <Option virtualFolders="CMake Files\;" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\share\;CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\;CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\;CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\;CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Compiler\;CMake Files\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\opt\ros\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\roslang\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\roslang\cmake\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\roslisp\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\roslisp\cmake\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\rospy\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\rospy\cmake\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\cpp\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\cpp\roscpp\;CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\cpp\roscpp\cmake\;" />
       <Build>
       <Target title="all">
          <Option working_dir="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build" />
@@ -196,13 +196,13 @@
          <Compiler>
             <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/include" />
             <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/cpp/include" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/cfg/cpp" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/include" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/cfg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/laser_pipeline/laser_geometry/include" />
-            <Add directory="/home/alexey/workspace/navigation/voxel_grid/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/voxel_grid/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/visualization_msgs/msg_gen/cpp/include" />
-            <Add directory="/home/alexey/workspace/navigation/map_server/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/map_server/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/srv_gen/cpp/include" />
             <Add directory="/usr/include/yaml-cpp" />
@@ -215,11 +215,12 @@
             <Add directory="/opt/ros/electric/stacks/bond_core/bond/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/bond_core/smclib/include" />
             <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/include/pcl-1.1" />
-            <Add directory="/usr/include/vtk-5.2" />
+            <Add directory="/usr/include/vtk-5.4" />
             <Add directory="/usr/include" />
-            <Add directory="/usr/include/mpi" />
+            <Add directory="/usr/lib/openmpi/include" />
+            <Add directory="/usr/lib/openmpi/include/openmpi" />
             <Add directory="/usr/include/tcl8.5" />
-            <Add directory="/usr/include/python2.6" />
+            <Add directory="/usr/include/python2.7" />
             <Add directory="/usr/lib/jvm/default-java/include" />
             <Add directory="/usr/include/libxml2" />
             <Add directory="/usr/include/freetype2" />
@@ -243,7 +244,7 @@
             <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib" />
-            <Add directory="/home/alexey/workspace/navigation/nav_core/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/nav_core/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/geometry_msgs/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosbag/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/include" />
@@ -282,13 +283,13 @@
          <Compiler>
             <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/include" />
             <Add directory="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/cpp/include" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/cfg/cpp" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/include" />
-            <Add directory="/home/alexey/workspace/navigation/costmap_2d/msg_gen/cpp/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/cfg/cpp" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/costmap_2d/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/laser_pipeline/laser_geometry/include" />
-            <Add directory="/home/alexey/workspace/navigation/voxel_grid/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/voxel_grid/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/visualization_msgs/msg_gen/cpp/include" />
-            <Add directory="/home/alexey/workspace/navigation/map_server/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/map_server/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/nav_msgs/srv_gen/cpp/include" />
             <Add directory="/usr/include/yaml-cpp" />
@@ -301,11 +302,12 @@
             <Add directory="/opt/ros/electric/stacks/bond_core/bond/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/bond_core/smclib/include" />
             <Add directory="/opt/ros/electric/stacks/perception_pcl/pcl/include/pcl-1.1" />
-            <Add directory="/usr/include/vtk-5.2" />
+            <Add directory="/usr/include/vtk-5.4" />
             <Add directory="/usr/include" />
-            <Add directory="/usr/include/mpi" />
+            <Add directory="/usr/lib/openmpi/include" />
+            <Add directory="/usr/lib/openmpi/include/openmpi" />
             <Add directory="/usr/include/tcl8.5" />
-            <Add directory="/usr/include/python2.6" />
+            <Add directory="/usr/include/python2.7" />
             <Add directory="/usr/lib/jvm/default-java/include" />
             <Add directory="/usr/include/libxml2" />
             <Add directory="/usr/include/freetype2" />
@@ -329,7 +331,7 @@
             <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib" />
-            <Add directory="/home/alexey/workspace/navigation/nav_core/include" />
+            <Add directory="/opt/ros/electric/stacks/navigation/nav_core/include" />
             <Add directory="/opt/ros/electric/stacks/common_msgs/geometry_msgs/msg_gen/cpp/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/tools/rosbag/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/tools/topic_tools/include" />
@@ -364,6 +366,120 @@
       </Unit>
       <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeGenericSystem.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeFindCodeBlocks.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeCInformation.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeCXXInformation.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPythonInterp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPackageMessage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeParseArguments.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/AddFileDependencies.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CheckFunctionExists.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPythonInterp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/FindPackageMessage.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CMakeParseArguments.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CheckCXXCompilerFlag.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/CheckCXXSourceCompiles.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/Linux.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/UnixPaths.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/Linux-GNU-C.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/Linux-GNU.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/Linux-GNU-CXX.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Platform/Linux-GNU.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Platform\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Compiler/GNU-C.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Compiler\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Compiler/GNU.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Compiler\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Compiler/GNU-CXX.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Compiler\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../usr/share/cmake-2.8/Modules/Compiler/GNU.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\share\cmake-2.8\Modules\Compiler\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/rosbuild/rosbuild.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/rosbuild/private.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/rosbuild/public.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/rosbuild/ProcessorCount.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/rosbuild/rosconfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\rosbuild\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/ros/core/roslang/cmake/roslang.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\ros\core\roslang\cmake\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/stacks/ros_comm/clients/roslisp/cmake/roslisp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\roslisp\cmake\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/stacks/ros_comm/clients/rospy/cmake/rospy.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\rospy\cmake\" />
+      </Unit>
+      <Unit filename="/home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/../../../../../../../opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/cmake/roscpp.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\..\opt\ros\electric\stacks\ros_comm\clients\cpp\roscpp\cmake\" />
       </Unit>
    </Project>
 </CodeBlocks_project_file>

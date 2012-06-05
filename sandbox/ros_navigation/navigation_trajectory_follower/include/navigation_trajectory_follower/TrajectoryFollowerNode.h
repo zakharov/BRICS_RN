@@ -18,7 +18,10 @@
 
 class PositionController;
 
-
+namespace KDL {
+class Trajectory;
+class Frame;
+};
 
 class TrajectoryFollowerNode {
 public:
@@ -34,6 +37,11 @@ public:
     void controlLoop();
     
 private:
+    
+    KDL::Trajectory* createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory);
+    void createKDLFrame(const nav_msgs::Odometry& odometry, KDL::Frame& frame);
+    
+    KDL::Trajectory* actualTrajectoryKDL;
     
     ros::NodeHandle node;
     

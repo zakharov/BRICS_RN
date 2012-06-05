@@ -26,18 +26,22 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeGenericSystem.cmake"
+  "/usr/share/cmake-2.8/Modules/CMakeParseArguments.cmake"
   "/usr/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-2.8/Modules/CheckCXXCompilerFlag.cmake"
   "/usr/share/cmake-2.8/Modules/CheckCXXSourceCompiles.cmake"
   "/usr/share/cmake-2.8/Modules/CheckFunctionExists.cmake"
   "/usr/share/cmake-2.8/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-2.8/Modules/Compiler/GNU-CXX.cmake"
+  "/usr/share/cmake-2.8/Modules/Compiler/GNU.cmake"
   "/usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-2.8/Modules/FindPackageMessage.cmake"
   "/usr/share/cmake-2.8/Modules/FindPythonInterp.cmake"
+  "/usr/share/cmake-2.8/Modules/Platform/Linux-GNU-C.cmake"
+  "/usr/share/cmake-2.8/Modules/Platform/Linux-GNU-CXX.cmake"
+  "/usr/share/cmake-2.8/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-2.8/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-2.8/Modules/Platform/UnixPaths.cmake"
-  "/usr/share/cmake-2.8/Modules/Platform/gcc.cmake"
   )
 
 # The corresponding makefile is:
