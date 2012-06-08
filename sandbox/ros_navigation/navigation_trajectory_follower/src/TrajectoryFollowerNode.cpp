@@ -8,12 +8,16 @@
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
 #include "tf/transform_datatypes.h"
 #include "nav_msgs/Odometry.h"
+#include "geometry_msgs/Twist.h"
 #include "kdl/trajectory_composite.hpp"
 #include "kdl/path_composite.hpp"
+#include <kdl/utilities/utility.h>
+
+#include "VelocityProfile_Trap.h"
 #include "kdl/path_line.hpp"
 #include "kdl/rotational_interpolation_sa.hpp"
-#include "kdl/velocityprofile_trap.hpp"
 #include "kdl/trajectory_segment.hpp"
+#include "kdl/trajectory_composite.hpp"
 
 
 using namespace std;
@@ -33,6 +37,9 @@ void trajectoryCallback(const navigation_trajectory_planner::Trajectory& traject
 }
 
 void  TrajectoryFollowerNode::setActualOdometry(const nav_msgs::Odometry& odometry) {
+    actualAcceleration.linear.x = odometry.twist.twist.linear.x - actualOdometry.twist.twist.linear.x;
+    actualAcceleration.linear.y = odometry.twist.twist.linear.y - actualOdometry.twist.twist.linear.y;
+    
     actualOdometry = odometry;
 }
 
@@ -53,11 +60,41 @@ KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_tr
     Trajectory::_trajectory_type::const_iterator it = trajectory.trajectory.begin();
     
     if (it != trajectory.trajectory.end()) {
+        
+      
+        double aVelX = desiredTwist.vel(0);//actualOdometry.twist.twist.linear.x;
+        double aVelY = desiredTwist.vel(1);//actualOdometry.twist.twist.linear.y;
+        
+       
+        
     
         KDL::Path_Composite* pathComposite = new KDL::Path_Composite();
         KDL::Frame temp, start, end;
+        
+        
+        
+        
         createKDLFrame(*it, temp);
+        
+        KDL::Trajectory_Composite* trajectoryComposite = new KDL::Trajectory_Composite();
+        
         ++it;
+        
+        double dPosX = desiredPose.p(0);
+        double dPosY = desiredPose.p(1);
+   
+        double dVelX = desiredTwist.vel(0);
+        double dVelY = desiredTwist.vel(1);
+        
+        
+        KDL::Frame  last;
+        createKDLFrame(trajectory.trajectory.back(), last);
+        
+        double dX = (last.p(0) - desiredPose.p(0))/KDL::sign( dVelX);
+        double dY = (last.p(1) - desiredPose.p(1))/KDL::sign( dVelY);
+        
+        ROS_INFO("twist.p(0):%f, twist.p(1):%f", dVelX , dVelY );
+        ROS_INFO("last.p(0):%f, last.p(1):%f, desiredPose.p(0):%f, desiredPose.p(1):%f", last.p(0), last.p(1),desiredPose.p(0),desiredPose.p(1) );
         
         while(it != trajectory.trajectory.end()) {
             start = temp;
@@ -70,9 +107,20 @@ KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_tr
             ++it;
         }
         
-        KDL::VelocityProfile* velpref = new KDL::VelocityProfile_Trap(0.5, 0.05);
-        velpref->SetProfile(0, pathComposite->PathLength());
-        return new KDL::Trajectory_Segment(pathComposite, velpref);
+        
+        
+        KDL::VelocityProfile_Trap* velpref =  new KDL::VelocityProfile_Trap(0.5, 0.1);
+       
+                
+        velpref->SetProfile(0,KDL::sign(dX)* sqrt(aVelX*aVelX + aVelY*aVelY), pathComposite->PathLength(),0);
+        ROS_INFO("Duration:%f", pathComposite->PathLength());
+        ROS_INFO("Current speed:%f", (KDL::sign(dY)*KDL::sign(dX))*sqrt(aVelX*aVelX + aVelY*aVelY));
+        ROS_INFO("Current duration:%f", velpref->Duration());
+               
+        trajectoryComposite->Add(new KDL::Trajectory_Segment(pathComposite, velpref));
+        
+        
+        return trajectoryComposite;
     }
     
     return NULL;
@@ -82,10 +130,12 @@ void  TrajectoryFollowerNode::setActualTrajectory(const navigation_trajectory_pl
     actualTrajectory.trajectory.clear();
     actualTrajectory = trajectory;
     
-    if (actualTrajectoryKDL != NULL)
-        delete actualTrajectoryKDL;
+  // if (actualTrajectoryKDL != NULL)
+   //     delete actualTrajectoryKDL;
     
     actualTrajectoryKDL = createTrajectoryKDL(this->actualTrajectory);
+    
+    startTime = ros::Time::now().toSec(); 
 }
 
 void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
@@ -94,6 +144,8 @@ void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
 
 TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name) {
     
+    
+    
     ros::NodeHandle node = ros::NodeHandle("~/");
     ros::NodeHandle globalNode = ros::NodeHandle();
     
@@ -101,7 +153,7 @@ TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name
             
     twistPublisher = globalNode.advertise<geometry_msgs::Twist> ("cmd_vel", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("adapted_trajectory", 1, &trajectoryCallback); 
+    trajectorySubscriber = globalNode.subscribe("trajectory", 1, &trajectoryCallback); 
     
 }
 
@@ -118,30 +170,74 @@ void TrajectoryFollowerNode::controlLoop() {
    // double x = this->actualOdometry.pose.pose.position.x;
    // double y = this->actualOdometry.pose.pose.position.y;
    // geometry_msgs::Quaternion quat = this->actualOdometry.pose.pose.orientation;
-   KDL::Frame desiredPose = actualTrajectoryKDL->Pos(actualTime);
-   KDL::Twist desiredTwist = actualTrajectoryKDL->Pos(actualTime);
+   actualTime = ros::Time::now().toSec() - startTime; 
+    
+   if (actualTrajectoryKDL != NULL && actualTrajectoryKDL->Duration() > 0) { 
+    
+        
+    
+        
+        
+        desiredPose = actualTrajectoryKDL->Pos(actualTime);
+        desiredTwist = actualTrajectoryKDL->Vel(actualTime);
+        
+        KDL::Twist desiredAcc = actualTrajectoryKDL->Acc(actualTime);
+        
+        double dPosX = desiredPose.p(0);
+        double dPosY = desiredPose.p(1);
    
-   double dPosX = desiredPose.p(0);
-   double dPosY = desiredPose.p(1);
+        double dVelX = desiredTwist.vel(0);
+        double dVelY = desiredTwist.vel(1);
+        
+        double dAccX = desiredAcc.vel(0);
+        double dAccY = desiredAcc.vel(1);
    
-   double dVelX = desiredTwist.vel(0);
-   double dVelY = desiredTwist.vel(1);
+        double aPosX = actualOdometry.pose.pose.position.x;
+        double aPosY = actualOdometry.pose.pose.position.y;
    
-   double aPosX = actualOdometry.pose.pose.position.x;
-   double aPosY = actualOdometry.pose.pose.position.y;
+        double aVelX = actualOdometry.twist.twist.linear.x;
+        double aVelY = actualOdometry.twist.twist.linear.y;
+        
+        double aAccX = actualAcceleration.linear.x;
+        double aAccY = actualAcceleration.linear.y;
    
-   double aVelX = actualOdometry.twist.twist.linear.x;
-   double aVelY = actualOdometry.twist.twist.linear.y;
-   
-   double positionError = vectorLength(dPosX, dPosY, aPosX, aPosY);
-   double velocityError = vectorLength(dVelX, dVelY, aVelX, aVelY);
+        double positionXError = dPosX- aPosX;
+        double positionYError = dPosY- aPosY;
+        
+        double velocityXError = dVelX- aVelX;
+        double velocityYError = dVelY- aVelY;
+        
+        double accXError = dAccX- aAccX;
+        double accYError = dAccY- aAccY;
+        //double positionError = vectorLength(dPosX, dPosY, aPosX, aPosY);
+        //double velocityError = vectorLength(dVelX, dVelY, aVelX, aVelY);
 
-   double gain = 1;
-   double error = gain*positionError + velocityError; 
+        //double gain = 1;
+        //double error = gain*positionError + velocityError; 
+        double gain1 = 1;
+        double gain2 = 1;
+        double errorX = gain1*positionXError + velocityXError;
+        double errorY = gain2*positionYError + velocityYError;
+        
+        
+            
+        
+      //  ROS_INFO("Desired acc: dAccX=%f, dAccY=%f; Actual Acc: aAccX=%f, aAccY=%f", dAccX, dAccY, aAccX, aAccY);
+        
+      //  ROS_INFO("Desired odom: dPosX=%f, dPosY=%f; Actual odom: aPosX=%f, aPosY=%f", dPosX, dPosY, aPosX, aPosY);
+      //  ROS_INFO("Desired vel: dVelX=%f, dVelY=%f; Actual vel: aVelX=%f, aVelY=%f", dVelX, dVelY, aVelX, aVelY);
+      //  ROS_INFO("Error = %f, positionError=%f, velocityError=%f", error, positionError, velocityError);
+        
+        geometry_msgs::Twist cmd_vel;
+        
+        cmd_vel.linear.x = desiredTwist.vel(0);
+        cmd_vel.linear.y = desiredTwist.vel(1);
+        cmd_vel.angular.z = 0;
+        
+        
+        publishTwist(cmd_vel);
    
-   ROS_INFO("Desired odom: dPosX=%f, dPosY=%f; Actual odom: aPosX=%f, aPosY=%f", dPosX, dPosY, aPosX, aPosY);
-   ROS_INFO("Desired vel: dVelX=%f, dVelY=%f; Actual vel: aVelX=%f, aVelY=%f", dVelX, dVelY, aVelX, aVelY);
-   ROS_INFO("Error = %f, positionError=%f, velocityError=%f", error, positionError, velocityError);
+   }
     
 }
 

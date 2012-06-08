@@ -12,15 +12,18 @@
 #include <nav_msgs/Odometry.h>
 #include <navigation_trajectory_planner/Trajectory.h>
 #include <geometry_msgs/Twist.h>
+#include <kdl/frames.hpp>
 
 #include <string>
 #include <vector>
 
 class PositionController;
 
+
 namespace KDL {
 class Trajectory;
 class Frame;
+class Trajectory_Composite;
 };
 
 class TrajectoryFollowerNode {
@@ -38,7 +41,9 @@ public:
     
 private:
     
-    KDL::Trajectory* createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory);
+    double actualTime, startTime;
+    
+    KDL::Trajectory*createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory);
     void createKDLFrame(const nav_msgs::Odometry& odometry, KDL::Frame& frame);
     
     KDL::Trajectory* actualTrajectoryKDL;
@@ -54,6 +59,12 @@ private:
     PositionController* controller;
     nav_msgs::Odometry actualOdometry;
     navigation_trajectory_planner::Trajectory actualTrajectory;
+    geometry_msgs::Twist actualAcceleration;
+    KDL::Twist desiredTwist;
+    KDL::Frame desiredPose;
+    
+     KDL::Trajectory_Composite* trajectoryComposite_x;
+     KDL::Trajectory_Composite* trajectoryComposite_y;
     
 };
 

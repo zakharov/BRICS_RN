@@ -23,6 +23,7 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/omnidrive_controller)
 #common commands for building c++ executables and libraries
 rosbuild_add_executable(trajectory_follower_node 
     src/TrajectoryFollowerNode.cpp 
+    src/VelocityProfile_Trap.cpp
 )
 target_link_libraries(trajectory_follower_node  omnidrive_controller)
 
