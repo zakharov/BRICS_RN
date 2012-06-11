@@ -41,21 +41,34 @@
 #ifndef TRAJECTORYPLANNER_H
 #define	TRAJECTORYPLANNER_H
 
-#include <geometry_msgs/PoseStamped.h>
-#include <nav_msgs/Odometry.h>
 #include <vector>
+
+
+namespace KDL {
+class Frame;
+class Path;
+class Path_Composite;
+class Trajectory;
+class Trajectory_Composite;
+}
+
+namespace nav_core {
+class BaseGlobalPlanner;
+}
 
 class TrajectoryPlanner {
 public:
-    TrajectoryPlanner();
+    TrajectoryPlanner(nav_core::BaseGlobalPlanner* planner);
     TrajectoryPlanner(const TrajectoryPlanner& orig);
     virtual ~TrajectoryPlanner();
     
-    bool computePlan(const geometry_msgs::PoseStamped& goal, std::vector<geometry_msgs::PoseStamped>& plan);
-    bool prunePlan(const std::vector<geometry_msgs::PoseStamped>& plan, std::vector<geometry_msgs::PoseStamped>& prunedPlan);
-    bool computeTrajectory(const std::vector<geometry_msgs::PoseStamped>& prunedPlan , std::vector <nav_msgs::Odometry>& trajectory);
+    bool computePath(const KDL::Frame& initial, const KDL::Frame& goal, KDL::Path_Composite& path);
+    bool computeTrajectory(const KDL::Path& path, KDL::Trajectory_Composite& trajectory);
+    
    
 private:
+    
+    nav_core::BaseGlobalPlanner* pathPlanner;
 
 /*    
     class TrajectoryPlannerNode {

@@ -69,6 +69,7 @@ KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_tr
         
     
         KDL::Path_Composite* pathComposite = new KDL::Path_Composite();
+        KDL::Path_Composite* pathComposite1 = new KDL::Path_Composite();
         KDL::Frame temp, start, end;
         
         
@@ -76,7 +77,8 @@ KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_tr
         
         createKDLFrame(*it, temp);
         
-        KDL::Trajectory_Composite* trajectoryComposite = new KDL::Trajectory_Composite();
+        trajectoryComposite_x = new KDL::Trajectory_Composite();
+        trajectoryComposite_y = new KDL::Trajectory_Composite();
         
         ++it;
         
@@ -102,25 +104,29 @@ KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_tr
             temp = end;
  
             KDL::Path_Line* pathLineSegment = new KDL::Path_Line(start, end, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
+            KDL::Path_Line* pathLineSegment1 = new KDL::Path_Line(start, end, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
             pathComposite->Add(pathLineSegment);
-            
+            pathComposite1->Add(pathLineSegment1);
             ++it;
         }
         
         
         
-        KDL::VelocityProfile_Trap* velpref =  new KDL::VelocityProfile_Trap(0.5, 0.1);
+        
+        velpref_x =  new KDL::VelocityProfile_Trap(0.5, 0.1);
+        velpref_y =  new KDL::VelocityProfile_Trap(0.5, 0.1);
        
                 
-        velpref->SetProfile(0,KDL::sign(dX)* sqrt(aVelX*aVelX + aVelY*aVelY), pathComposite->PathLength(),0);
-        ROS_INFO("Duration:%f", pathComposite->PathLength());
-        ROS_INFO("Current speed:%f", (KDL::sign(dY)*KDL::sign(dX))*sqrt(aVelX*aVelX + aVelY*aVelY));
-        ROS_INFO("Current duration:%f", velpref->Duration());
+        velpref_x->SetProfile(0,KDL::sign(dY)*KDL::sign(dX)* sqrt(aVelX*aVelX+aVelY*aVelY), pathComposite->PathLength(),0);
+        velpref_y->SetProfile(0,KDL::sign(dY)* sqrt(aVelY*aVelY), pathComposite1->PathLength(),0);
+        ROS_INFO("signX: %f aVelX: %f", KDL::sign(dX), sqrt(aVelX*aVelX) );
+        ROS_INFO("signY: %f aVelY: %f", KDL::sign(dY), sqrt(aVelY*aVelY) );
                
-        trajectoryComposite->Add(new KDL::Trajectory_Segment(pathComposite, velpref));
+        trajectoryComposite_x->Add(new KDL::Trajectory_Segment(pathComposite, velpref_x));
+        trajectoryComposite_y->Add(new KDL::Trajectory_Segment(pathComposite1, velpref_y));
         
         
-        return trajectoryComposite;
+        return /*trajectoryComposite*/NULL;
     }
     
     return NULL;
@@ -133,7 +139,12 @@ void  TrajectoryFollowerNode::setActualTrajectory(const navigation_trajectory_pl
   // if (actualTrajectoryKDL != NULL)
    //     delete actualTrajectoryKDL;
     
-    actualTrajectoryKDL = createTrajectoryKDL(this->actualTrajectory);
+    
+    trajectoryComposite_x = NULL;
+    trajectoryComposite_y = NULL;
+    
+    
+    /*actualTrajectoryKDL = */createTrajectoryKDL(this->actualTrajectory);
     
     startTime = ros::Time::now().toSec(); 
 }
@@ -144,7 +155,8 @@ void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
 
 TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name) {
     
-    
+    trajectoryComposite_x = NULL;
+    trajectoryComposite_y = NULL;
     
     ros::NodeHandle node = ros::NodeHandle("~/");
     ros::NodeHandle globalNode = ros::NodeHandle();
@@ -172,25 +184,37 @@ void TrajectoryFollowerNode::controlLoop() {
    // geometry_msgs::Quaternion quat = this->actualOdometry.pose.pose.orientation;
    actualTime = ros::Time::now().toSec() - startTime; 
     
-   if (actualTrajectoryKDL != NULL && actualTrajectoryKDL->Duration() > 0) { 
+   if (trajectoryComposite_x != NULL && trajectoryComposite_x->Duration() > 0) { 
     
-        
+       KDL::Frame desiredPoseX = trajectoryComposite_x->Pos(actualTime);
+       KDL::Frame desiredPoseY = trajectoryComposite_x->Pos(actualTime);
+       
+       KDL::Twist desiredTwistX = trajectoryComposite_x->Vel(actualTime);;
+       KDL::Twist desiredTwistY = trajectoryComposite_x->Vel(actualTime);;
     
+       
         
+        //desiredPose = actualTrajectoryKDL->Pos(actualTime);
+        //desiredTwist = actualTrajectoryKDL->Vel(actualTime);
         
-        desiredPose = actualTrajectoryKDL->Pos(actualTime);
-        desiredTwist = actualTrajectoryKDL->Vel(actualTime);
+        desiredPose.p.data[0] = desiredPoseX.p(0);
+        desiredPose.p.data[1] = desiredPoseY.p(1);
+        ROS_INFO("about to fail");
+        desiredTwist.vel.data[0] = desiredTwistX.vel(0);
         
-        KDL::Twist desiredAcc = actualTrajectoryKDL->Acc(actualTime);
-        
+        desiredTwist.vel.data[1] = desiredTwistY.vel(1);
+        ROS_INFO("desiredTwist.vel.data[0]=%f", desiredTwist.vel.data[0]);
+       
+      /*  KDL::Twist desiredAcc = actualTrajectoryKDL->Acc(actualTime);
+        */
         double dPosX = desiredPose.p(0);
         double dPosY = desiredPose.p(1);
    
         double dVelX = desiredTwist.vel(0);
         double dVelY = desiredTwist.vel(1);
         
-        double dAccX = desiredAcc.vel(0);
-        double dAccY = desiredAcc.vel(1);
+      //  double dAccX = desiredAcc.vel(0);
+       // double dAccY = desiredAcc.vel(1);
    
         double aPosX = actualOdometry.pose.pose.position.x;
         double aPosY = actualOdometry.pose.pose.position.y;
@@ -198,8 +222,8 @@ void TrajectoryFollowerNode::controlLoop() {
         double aVelX = actualOdometry.twist.twist.linear.x;
         double aVelY = actualOdometry.twist.twist.linear.y;
         
-        double aAccX = actualAcceleration.linear.x;
-        double aAccY = actualAcceleration.linear.y;
+  //      double aAccX = actualAcceleration.linear.x;
+   //     double aAccY = actualAcceleration.linear.y;
    
         double positionXError = dPosX- aPosX;
         double positionYError = dPosY- aPosY;
@@ -207,8 +231,8 @@ void TrajectoryFollowerNode::controlLoop() {
         double velocityXError = dVelX- aVelX;
         double velocityYError = dVelY- aVelY;
         
-        double accXError = dAccX- aAccX;
-        double accYError = dAccY- aAccY;
+    //    double accXError = dAccX- aAccX;
+     //   double accYError = dAccY- aAccY;
         //double positionError = vectorLength(dPosX, dPosY, aPosX, aPosY);
         //double velocityError = vectorLength(dVelX, dVelY, aVelX, aVelY);
 
@@ -230,8 +254,8 @@ void TrajectoryFollowerNode::controlLoop() {
         
         geometry_msgs::Twist cmd_vel;
         
-        cmd_vel.linear.x = desiredTwist.vel(0);
-        cmd_vel.linear.y = desiredTwist.vel(1);
+        cmd_vel.linear.x = errorX;//desiredTwist.vel(0);
+        cmd_vel.linear.y = errorY;//desiredTwist.vel(1);
         cmd_vel.angular.z = 0;
         
         

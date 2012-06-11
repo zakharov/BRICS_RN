@@ -24,6 +24,8 @@ namespace KDL {
 class Trajectory;
 class Frame;
 class Trajectory_Composite;
+class VelocityProfile_Trap;
+
 };
 
 class TrajectoryFollowerNode {
@@ -65,6 +67,8 @@ private:
     
      KDL::Trajectory_Composite* trajectoryComposite_x;
      KDL::Trajectory_Composite* trajectoryComposite_y;
+     KDL::VelocityProfile_Trap* velpref_x;
+     KDL::VelocityProfile_Trap* velpref_y;
     
 };
 

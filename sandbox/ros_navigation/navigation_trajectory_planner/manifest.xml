@@ -12,6 +12,7 @@
  <depend package="costmap_2d"/>
  <depend package="tf"/>
  <depend package="geometry_msgs"/>
+ <depend package="orocos_kdl"/>
  <depend package="pluginlib"/>
  <depend package="nav_core"/>
 </package>
