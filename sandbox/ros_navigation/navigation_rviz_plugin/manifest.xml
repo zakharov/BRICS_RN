@@ -1,0 +1,21 @@
+<package>
+  <description brief="navigation_rviz_plugin">
+
+  </description>
+  <author>Melonee Wise</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/nxt_rviz_plugin</url>
+  <depend package="rviz"/>
+  <depend package="roscpp"/>
+  <depend package="navigation_trajectory_planner"/>
+  <depend package="tf"/>
+
+  <export>
+    <rviz plugin="${prefix}/lib/traj.yaml"/>
+  </export>
+
+
+</package>
+
+
