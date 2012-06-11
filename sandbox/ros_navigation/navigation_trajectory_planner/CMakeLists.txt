@@ -28,5 +28,6 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 rosbuild_add_executable(trajectory_planner_node 
     src/TrajectoryPlannerNode.cpp 
+    src/TrajectoryPlanner.cpp 
 )
 
