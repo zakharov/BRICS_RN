@@ -1,0 +1,9 @@
+name: Traj
+library: navigation_rviz_plugin
+displays:
+  -
+    class_name: Traj
+    display_name: Trajectory
+    description: |
+      Displays data from a Trajectory message.
+
