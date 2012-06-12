@@ -46,23 +46,26 @@
 #include <nav_msgs/Odometry.h>
 #include <nav_core/base_global_planner.h>
 #include <pluginlib/class_loader.h>
+#include <tf/transform_datatypes.h>
 
 #include <kdl/frames.hpp>
 #include <kdl/path_composite.hpp>
 #include <kdl/trajectory_composite.hpp>
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 TrajectoryPlanner* plannerNodePtr = NULL;
 ros::Publisher* trajectoryPublisherPtr = NULL;
+costmap_2d::Costmap2DROS* costmap = NULL;
 
 void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
- 
+
     if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
-        ROS_INFO("Received new goal, compute trajectory");
+        trajectoryPublisherPtr->publish(trajectory);
 
     } else {
         ROS_WARN("Trajectory planner returned empty trajectory, skipping.");
@@ -71,17 +74,30 @@ void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
 }
 
 void goalCallback(const geometry_msgs::PoseStamped& goal) {
-   
+
     if (plannerNodePtr != NULL) {
         ROS_INFO("Trajectory planner received new goal, computing a trajectory");
 
         ConversionUtils conversion;
         
-        // Computing a path, given a goal pose
         KDL::Frame goalKDL;
         conversion.poseRosToKdl(goal.pose, goalKDL);
-
+        
+        // getting actual robot pose from the costmap
+        tf::Stamped<tf::Pose> globalPose;
+        costmap->getRobotPose(globalPose);
+        geometry_msgs::PoseStamped globalPoseMsgs;
+        tf::poseStampedTFToMsg(globalPose, globalPoseMsgs);
+        
+        // converting actual pose to KDL data type.
+        // note: everything should be in the global frame
         KDL::Frame initial;
+        conversion.poseRosToKdl(globalPoseMsgs.pose, initial);
+        
+        // Since planner uses ROS implementation, we need a frame id
+        plannerNodePtr->setPathFrameId(goal.header.frame_id); 
+        
+        // Computing a path, given a goal pose
         KDL::Path_Composite path;
         plannerNodePtr->computePath(initial, goalKDL, path);
 
@@ -91,8 +107,10 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
 
         // Finally, publishing a trajectory
         navigation_trajectory_planner::Trajectory trajectoryMsgs;
-        const double dt = 0.1; //TODO move this to configuration;
+        const double dt = 0.2; //TODO move this to configuration;
+        
         conversion.trajectoryKdlToRos(trajectory, trajectoryMsgs.trajectory, dt);
+        trajectoryMsgs.header.frame_id = goal.header.frame_id;
         publishTrajectory(trajectoryMsgs);
     }
 
@@ -108,6 +126,7 @@ int main(int argc, char **argv) {
     // Instantiating a costmap
     tf::TransformListener tf;
     costmap_2d::Costmap2DROS globalCostmap("global_costmap", tf);
+    costmap = &globalCostmap;
     ROS_INFO("Initialize costmap size: %d, %d", globalCostmap.getSizeInCellsX(), globalCostmap.getSizeInCellsY());
 
     // Reading configuration parameters 

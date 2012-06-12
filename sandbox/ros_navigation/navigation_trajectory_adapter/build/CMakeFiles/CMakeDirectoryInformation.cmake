@@ -57,6 +57,7 @@ SET(CMAKE_C_INCLUDE_PATH
   "/opt/ros/electric/stacks/bullet/include"
   "/opt/ros/electric/stacks/geometry/angles/include"
   "/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include"
+  "/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include"
   "/opt/ros/electric/stacks/pluginlib/include"
   "/opt/ros/electric/stacks/pluginlib"
   "/opt/ros/electric/stacks/navigation/nav_core/include"

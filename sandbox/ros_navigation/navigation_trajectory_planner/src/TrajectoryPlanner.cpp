@@ -47,8 +47,6 @@
 #include <kdl/trajectory_segment.hpp>
 #include <nav_core/base_global_planner.h>
 
-
-
 TrajectoryPlanner::TrajectoryPlanner(nav_core::BaseGlobalPlanner* pathPlanner) {
     this->pathPlanner = pathPlanner;
 }
@@ -59,23 +57,27 @@ TrajectoryPlanner::TrajectoryPlanner(const TrajectoryPlanner& orig) {
 TrajectoryPlanner::~TrajectoryPlanner() {
 }
 
+
+void TrajectoryPlanner::setPathFrameId(std::string frameId) {
+    this->frameId = frameId;
+}
+
 bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame& goal, KDL::Path_Composite& path) {
 
     geometry_msgs::PoseStamped initialPoseStamped;
     geometry_msgs::PoseStamped goalPoseStamped;
-    
     ConversionUtils conversion;
-    
-    conversion.poseKdlToRos(initial, initialPoseStamped.pose);
-    conversion.ConversionUtils::poseKdlToRos(goal, goalPoseStamped.pose);
-    
-    
-    std::vector<geometry_msgs::PoseStamped> poseStampedArray;
-       
-    pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
 
+    conversion.poseKdlToRos(initial, initialPoseStamped.pose);
+    initialPoseStamped.header.frame_id = frameId;
+    conversion.ConversionUtils::poseKdlToRos(goal, goalPoseStamped.pose);
+    goalPoseStamped.header.frame_id = frameId;
+
+
+    std::vector<geometry_msgs::PoseStamped> poseStampedArray;
+    pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
     conversion.pathRosToKdl(poseStampedArray, path);
-    
+
     return true;
 }
 
@@ -83,127 +85,16 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
 
     const double maxVel = 1.0;
     const double maxAcc = 0.1;
-    
-    KDL::VelocityProfile_Trap* velocityProfile = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
 
-    KDL::Path* copyPath = const_cast<KDL::Path&>(path).Clone();        // Why KDL has no const version of Clone method?
-                                                                       // They force me to do this!
+    KDL::VelocityProfile_Trap* velocityProfile = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
+    
+    KDL::Path* copyPath = const_cast<KDL::Path&> (path).Clone(); // Why KDL has no const version of Clone method?
+                                                                 // They force me to do this!
+
+    velocityProfile->SetProfile(0, copyPath->PathLength());
     
     KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(copyPath, velocityProfile);
     trajectory.Add(trajectorySegment);
-    
+
     return true;
 }
-
-
-/*
-void TrajectoryPlannerNode::prunePlan(const std::vector<geometry_msgs::PoseStamped>& actualPlan, std::vector<geometry_msgs::PoseStamped>& prunedPlan) {
-
-    if (actualPlan.size() > 2) { //if plan has more than 2 points, try to prune
-
-        vector<geometry_msgs::PoseStamped>::const_iterator it = actualPlan.begin();
-        geometry_msgs::Pose pose1;
-        geometry_msgs::Pose pose2;
-        geometry_msgs::Pose pose3;
-        const float epsilon = 0.1;
-
-        prunedPlan.clear();
-        prunedPlan.push_back(actualPlan.front());
-        it++;
-        pose2 = it->pose;
-        pose3 = (it + 1)->pose;
-
-        while (it != actualPlan.end()) {
-
-            pose1 = actualPlan.back().pose;
-            pose2 = it->pose;
-
-            if ((it + 1) == actualPlan.end()) {
-                prunedPlan.push_back(*(it));
-                ROS_INFO("Adding last point");
-                break;
-            }
-
-            pose3 = (it + 1)->pose;
-
-            float slope1 = (pose2.position.y - pose1.position.y) / (pose2.position.x - pose1.position.x);
-            float slope2 = (pose3.position.y - pose1.position.y) / (pose3.position.x - pose1.position.x);
-
-            if (fabs(slope1 - slope2) > epsilon) {
-
-                prunedPlan.push_back(*(it));
-                ROS_INFO("Adding a point");
-            } else {
-
-                ROS_INFO("Skipping a point");
-            }
-
-            ++it;
-        }
-    } else
-        prunedPlan = actualPlan;
-
-}
-
-void TrajectoryPlannerNode::computeTrajectory(vector <nav_msgs::Odometry>& trajectory) {
-
-
-    tf::Stamped<tf::Pose> robotGlobalPose;
-    globalCostmap.getRobotPose(robotGlobalPose);
-    geometry_msgs::PoseStamped start;
-    tf::poseStampedTFToMsg(robotGlobalPose, start);
-
-    std::vector<geometry_msgs::PoseStamped> path;
-    planner->makePlan(start, goal, path);
-    ROS_INFO("Planned a path, size: %d points", path.size());
-
-    navigation_trajectory_planner::Trajectory trajectory;
-
-    nav_msgs::Odometry odometry;
-
-
-    vector <nav_msgs::Odometry>& trRef = trajectory.trajectory;
-
-    ROS_INFO("Converting path to a trajectory");
-
-
-    for (unsigned int i = 0; i < path.size(); i++) {
-
-        odometry.header = path[i].header;
-        odometry.pose.pose = path[i].pose;
-        trRef.push_back(odometry);
-
-    }
-
-    trRef.front().pose.pose.orientation = start.pose.orientation;
-    trRef.back().pose.pose.orientation = goal.pose.orientation;
-    geometry_msgs::Quaternion quat = trRef.back().pose.pose.orientation;
-    ROS_INFO("Goal orientation x=%f y=%f z=%f w=%f", quat.x, quat.y, quat.z, quat.w);
-
-    trajectoryPublisher.publish(trajectory);
-}
-
-TrajectoryPlannerNode::TrajectoryPlannerNode(std::string name, costmap_2d::Costmap2DROS& costmap) : nodeName(name), globalCostmap(costmap),
-bgpLoader("nav_core", "nav_core::BaseGlobalPlanner") {
-
-    ros::NodeHandle node = ros::NodeHandle("~/");
-    ros::NodeHandle globalNode = ros::NodeHandle();
-
-    node.param("global_costmap/robot_base_frame", robotBaseFrame, string("base_link"));
-    node.param("global_costmap/global_frame", globalFrame, string("map"));
-    node.param("global_costmap/trajectory_planner", globalTrajectoryPlanner, string("navfn/NavfnROS"));
-
-    trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory > ("trajectory", 1);
-    goalSubscriber = globalNode.subscribe("goal", 1, &goalCallback);
-
-
-    planner = bgpLoader.createClassInstance(globalTrajectoryPlanner);
-    planner->initialize(bgpLoader.getName(globalTrajectoryPlanner), &globalCostmap);
-
-}
-
-TrajectoryPlannerNode::~TrajectoryPlannerNode() {
-    delete planner;
-}
-
- * */

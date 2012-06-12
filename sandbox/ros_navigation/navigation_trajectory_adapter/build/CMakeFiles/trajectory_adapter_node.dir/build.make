@@ -110,6 +110,7 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/perception_pcl/pcl_ros/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/costmap_2d/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/nav_core/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/messages/std_msgs/msg_gen/generated

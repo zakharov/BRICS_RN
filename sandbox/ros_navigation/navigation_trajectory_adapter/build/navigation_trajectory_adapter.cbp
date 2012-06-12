@@ -242,6 +242,7 @@
             <Add directory="/opt/ros/electric/stacks/bullet/include" />
             <Add directory="/opt/ros/electric/stacks/geometry/angles/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
+            <Add directory="/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib" />
             <Add directory="/opt/ros/electric/stacks/navigation/nav_core/include" />
@@ -329,6 +330,7 @@
             <Add directory="/opt/ros/electric/stacks/bullet/include" />
             <Add directory="/opt/ros/electric/stacks/geometry/angles/include" />
             <Add directory="/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include" />
+            <Add directory="/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib/include" />
             <Add directory="/opt/ros/electric/stacks/pluginlib" />
             <Add directory="/opt/ros/electric/stacks/navigation/nav_core/include" />

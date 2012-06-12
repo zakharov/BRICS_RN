@@ -21,12 +21,8 @@ set(SOURCE_FILES src/navigation_trajectory_display.cpp
                  src/init.cpp)
 
 
-include(CMakeDetermineSystem)
-if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
-  rosbuild_add_library(${PROJECT_NAME} MODULE ${SOURCE_FILES})
-else(CMAKE_SYSTEM_NAME MATCHES "Darwin")
-  rosbuild_add_library(${PROJECT_NAME} ${SOURCE_FILES})
-endif(CMAKE_SYSTEM_NAME MATCHES "Darwin")
+rosbuild_add_library(${PROJECT_NAME} ${SOURCE_FILES})
+
 
 find_package(wxWidgets REQUIRED)
 include(${wxWidgets_USE_FILE})

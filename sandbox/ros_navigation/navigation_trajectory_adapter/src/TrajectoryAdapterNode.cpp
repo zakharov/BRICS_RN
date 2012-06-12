@@ -108,9 +108,9 @@ TrajectoryAdapterNode::TrajectoryAdapterNode(std::string name) : nodeName(name) 
     ros::NodeHandle node = ros::NodeHandle("~/");
     ros::NodeHandle globalNode = ros::NodeHandle();
                 
-    trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory> ("adapted_trajectory", 1);
+    trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory> ("localTrajectory", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("trajectory", 1, &trajectoryCallback); 
+    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback); 
 }
 
 TrajectoryAdapterNode::~TrajectoryAdapterNode() {
