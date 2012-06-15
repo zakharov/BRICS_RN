@@ -85,13 +85,14 @@ public:
     }
 
     void twistKdlToRos(const KDL::Twist& twistKDL, geometry_msgs::Twist& twistROS) {
+      //  std::cout <<  twistKDL << std::endl;
         twistROS.angular.x = twistKDL.rot.x();
         twistROS.angular.y = twistKDL.rot.y();
         twistROS.angular.z = twistKDL.rot.z();
 
-        twistROS.linear.x = twistKDL.rot.x();
-        twistROS.linear.y = twistKDL.rot.y();
-        twistROS.linear.z = twistKDL.rot.z();
+        twistROS.linear.x = twistKDL.vel.x();
+        twistROS.linear.y = twistKDL.vel.y();
+        twistROS.linear.z = twistKDL.vel.z();
     }
 
     void pathRosToKdl(const std::vector<geometry_msgs::PoseStamped>& poseStampedArray, KDL::Path_Composite& path) {
@@ -101,13 +102,13 @@ public:
 
             geometry_msgs::PoseStamped p1 = poseStampedArray.front();
             geometry_msgs::PoseStamped p2;
-            
+
             for (it = poseStampedArray.begin() + 1; it != poseStampedArray.end(); ++it) {
                 p2 = *it;
                 KDL::Frame f1, f2;
                 poseRosToKdl(p1.pose, f1);
                 poseRosToKdl(p2.pose, f2);
-                
+
                 KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
                 path.Add(pathLine);
 
@@ -129,12 +130,13 @@ public:
 
     void trajectoryKdlToRos(const KDL::Trajectory& trajectroyKDL, std::vector <nav_msgs::Odometry>& trajectoryROS, double dt) {
         double duration = trajectroyKDL.Duration();
-        
+
         if (duration > 0.0 && dt > 0.0) {
 
             for (double time = 0; time <= duration; time += dt) {
                 KDL::Frame poseKDL = trajectroyKDL.Pos(time);
                 KDL::Twist twistKDL = trajectroyKDL.Vel(time);
+            //    ROS_INFO("twist=%f",twistKDL);
 
                 geometry_msgs::Pose poseROS;
                 geometry_msgs::Twist twistROS;

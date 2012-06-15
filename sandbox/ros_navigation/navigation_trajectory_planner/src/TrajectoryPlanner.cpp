@@ -86,14 +86,21 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
     const double maxVel = 1.0;
     const double maxAcc = 0.1;
 
+    double dur = trajectory.Duration();
+
+
     KDL::VelocityProfile_Trap* velocityProfile = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
-    
+
     KDL::Path* copyPath = const_cast<KDL::Path&> (path).Clone(); // Why KDL has no const version of Clone method?
                                                                  // They force me to do this!
 
     velocityProfile->SetProfile(0, copyPath->PathLength());
-    
+
+    ROS_INFO("vel:%f", velocityProfile->Vel(0.1));
+
+
     KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(copyPath, velocityProfile);
+
     trajectory.Add(trajectorySegment);
 
     return true;

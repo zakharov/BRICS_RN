@@ -65,7 +65,11 @@ void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
 
     if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
+        for (int i = 0; i < trajectory.trajectory.size(); i++) {
+            ROS_INFO("tw_x:%f,  tw_y:%f",trajectory.trajectory[i].twist.twist.linear.x, trajectory.trajectory[i].twist.twist.linear.y);
+        }
         trajectoryPublisherPtr->publish(trajectory);
+
 
     } else {
         ROS_WARN("Trajectory planner returned empty trajectory, skipping.");
@@ -79,38 +83,43 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
         ROS_INFO("Trajectory planner received new goal, computing a trajectory");
 
         ConversionUtils conversion;
-        
+
         KDL::Frame goalKDL;
         conversion.poseRosToKdl(goal.pose, goalKDL);
-        
+
+
+
         // getting actual robot pose from the costmap
         tf::Stamped<tf::Pose> globalPose;
         costmap->getRobotPose(globalPose);
         geometry_msgs::PoseStamped globalPoseMsgs;
         tf::poseStampedTFToMsg(globalPose, globalPoseMsgs);
-        
+
         // converting actual pose to KDL data type.
         // note: everything should be in the global frame
         KDL::Frame initial;
         conversion.poseRosToKdl(globalPoseMsgs.pose, initial);
-        
+
         // Since planner uses ROS implementation, we need a frame id
-        plannerNodePtr->setPathFrameId(goal.header.frame_id); 
-        
+        plannerNodePtr->setPathFrameId(goal.header.frame_id);
+
         // Computing a path, given a goal pose
         KDL::Path_Composite path;
         plannerNodePtr->computePath(initial, goalKDL, path);
 
         // Computing a trajectory, given the path
         KDL::Trajectory_Composite trajectory;
+
         plannerNodePtr->computeTrajectory(path, trajectory);
+
 
         // Finally, publishing a trajectory
         navigation_trajectory_planner::Trajectory trajectoryMsgs;
         const double dt = 0.2; //TODO move this to configuration;
-        
+
         conversion.trajectoryKdlToRos(trajectory, trajectoryMsgs.trajectory, dt);
         trajectoryMsgs.header.frame_id = goal.header.frame_id;
+
         publishTrajectory(trajectoryMsgs);
     }
 
@@ -129,7 +138,7 @@ int main(int argc, char **argv) {
     costmap = &globalCostmap;
     ROS_INFO("Initialize costmap size: %d, %d", globalCostmap.getSizeInCellsX(), globalCostmap.getSizeInCellsY());
 
-    // Reading configuration parameters 
+    // Reading configuration parameters
     ros::NodeHandle node = ros::NodeHandle("~/");
     string globalTrajectoryPlanner;
     node.param("global_costmap/trajectory_planner", globalTrajectoryPlanner, string("navfn/NavfnROS"));

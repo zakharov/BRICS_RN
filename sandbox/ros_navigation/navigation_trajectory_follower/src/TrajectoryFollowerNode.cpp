@@ -11,12 +11,12 @@
 #include "geometry_msgs/Twist.h"
 #include <navigation_trajectory_follower/ConversionUtils.h>
 
-#include "VelocityProfile_Trap.h"
+#include "VelocityProfile_Line.h"
 #include "kdl/path_line.hpp"
 #include "kdl/rotational_interpolation_sa.hpp"
 #include "kdl/trajectory_segment.hpp"
 #include "kdl/trajectory_composite.hpp"
-#include "kdl/trajectory_composite.hpp"
+#include "kdl/velocityprofile_spline.hpp"
 #include "kdl/path_composite.hpp"
 #include "kdl/utilities/utility.h"
 
@@ -32,7 +32,7 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 void trajectoryRosToKdl(const navigation_trajectory_planner::Trajectory& trajectoryROS, KDL::Trajectory_Composite& trajectroyKDL) {
     navigation_trajectory_planner::Trajectory::_trajectory_type::const_iterator it;
 
-    const double maxVel = 1.0;
+    double maxVel = 1.0;
     const double maxAcc = 0.1;
 
     ConversionUtils convert;
@@ -52,19 +52,28 @@ void trajectoryRosToKdl(const navigation_trajectory_planner::Trajectory& traject
         convert.twistRosToKdl(odom.twist.twist, twist2);
 
         KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(),0.1);
-        KDL::VelocityProfile_Trap* velprof = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
+        KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
 
-        velprof->SetProfile(0,
+        velprof->SetProfileDuration(0,
                 sqrt(twist1.vel.x()*twist1.vel.x() + twist1.vel.y()*twist1.vel.y()),
                 path->PathLength(),
-                sqrt(twist2.vel.x()*twist2.vel.x() + twist2.vel.y()*twist2.vel.y()));
+                sqrt(twist2.vel.x()*twist2.vel.x() + twist2.vel.y()*twist2.vel.y()),0.2);
 
-        ROS_INFO("start vel: %f, stop vel: %f", sqrt(twist1.vel.x()*twist1.vel.x() + twist1.vel.y()*twist1.vel.y()),
-                 sqrt(twist2.vel.x()*twist2.vel.x() + twist2.vel.y()*twist2.vel.y()));
+        ROS_INFO("Dur: %f",velprof->Duration());
 
         KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
         trajectroyKDL.Add(trajectorySegment);
+        pose1 = pose2;
+        twist1 = twist2;
     }
+    ROS_INFO("Dur: %f",trajectroyKDL.Duration());
+    /*for (double t = 0; t <= trajectroyKDL.Duration(); t = t+1) {
+        KDL::Twist vel = trajectroyKDL.Vel(t);
+        KDL::Frame pos = trajectroyKDL.Pos(t);
+        ROS_INFO("pos:%f,%f vel:%f,%f",pos.p.x(),pos.p.y(), vel.vel.x(), vel.vel.y());
+    }*/
+
+
 }
 
 void trajectoryCallback(const navigation_trajectory_planner::Trajectory& trajectory) {
@@ -74,6 +83,13 @@ void trajectoryCallback(const navigation_trajectory_planner::Trajectory& traject
 
     if (trajectoryComposite != NULL)
         delete trajectoryComposite;
+
+
+    for (int i = 0; i < trajectory.trajectory.size(); i++) {
+        ROS_INFO("pose_x:%f, pose_y:%f",trajectory.trajectory[i].pose.pose.position.x, trajectory.trajectory[i].pose.pose.position.y);
+        ROS_INFO("twist_x:%f, twist_y:%f",trajectory.trajectory[i].twist.twist.linear.x, trajectory.trajectory[i].twist.twist.linear.y);
+    }
+
     trajectoryComposite = new KDL::Trajectory_Composite();
     trajectoryRosToKdl(trajectory, *trajectoryComposite);
     followerNodeHandle->setActualTrajectory(trajectory);
