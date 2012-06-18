@@ -1,292 +1,186 @@
-/*
- * File:   TrajectoryPlannerNode.cpp
- * Author: alexey
+/******************************************************************************
+ * Copyright (c) 2011
+ * GPS GmbH
  *
- * Created on May 30, 2012, 4:21 PM
- */
+ * Author:
+ * Alexey Zakharov
+ *
+ *
+ * This software is published under a dual-license: GNU Lesser General Public
+ * License LGPL 2.1 and BSD license. The dual-license implies that users of this
+ * code may choose which terms they prefer.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the distribution.
+ * * Neither the name of GPS GmbH nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License LGPL as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version or the BSD license.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License LGPL and the BSD license for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License LGPL and BSD license along with this program.
+ *
+ ******************************************************************************/
 
+#include "omnidrive_controller/OmniDrivePositionController.h"
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
 #include "tf/transform_datatypes.h"
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Twist.h"
 #include <navigation_trajectory_follower/ConversionUtils.h>
 
-#include "VelocityProfile_Line.h"
-#include "kdl/path_line.hpp"
-#include "kdl/rotational_interpolation_sa.hpp"
-#include "kdl/trajectory_segment.hpp"
-#include "kdl/trajectory_composite.hpp"
-#include "kdl/velocityprofile_spline.hpp"
-#include "kdl/path_composite.hpp"
-#include "kdl/utilities/utility.h"
-
 using namespace std;
 
-TrajectoryFollowerNode* followerNodeHandle = NULL;
-KDL::Trajectory_Composite* trajectoryComposite = NULL;
+ros::Publisher twistPublisher;
+Odometry actualOdometry;
+PositionController* controller;
+ros::Time startTime;
 
-void odomCallback(const nav_msgs::Odometry& odometry) {
-    followerNodeHandle->setActualOdometry(odometry);
+void poseRosToPose2d(const geometry_msgs::Pose& pose, Pose2D& pose2d) {
+
+    double x = pose.position.x;
+    double y = pose.position.y;
+    double theta = tf::getYaw(pose.orientation);
+
+    pose2d = Pose2D(x, y, theta);
 }
 
-void trajectoryRosToKdl(const navigation_trajectory_planner::Trajectory& trajectoryROS, KDL::Trajectory_Composite& trajectroyKDL) {
+void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
+
+    double x = twist.linear.x;
+    double y = twist.linear.y;
+    double theta = twist.angular.z;
+
+    twist2d = Twist2D(x, y, theta);
+    
+}
+
+void trajectoryRosToOdomVector(const navigation_trajectory_planner::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
+
+    nav_msgs::Odometry odom;
     navigation_trajectory_planner::Trajectory::_trajectory_type::const_iterator it;
 
-    double maxVel = 1.0;
-    const double maxAcc = 0.1;
+    for (it = trajectoryROS.trajectory.begin(); it != trajectoryROS.trajectory.end(); ++it) {
 
-    ConversionUtils convert;
-
-    nav_msgs::Odometry odom = trajectoryROS.trajectory.front();
-
-    KDL::Frame pose1;
-    convert.poseRosToKdl(odom.pose.pose, pose1);
-    KDL::Twist twist1;
-    convert.twistRosToKdl(odom.twist.twist, twist1);
-
-    for (it = trajectoryROS.trajectory.begin() + 1; it != trajectoryROS.trajectory.end(); ++it) {
         odom = *it;
-        KDL::Frame pose2;
-        convert.poseRosToKdl(odom.pose.pose, pose2);
-        KDL::Twist twist2;
-        convert.twistRosToKdl(odom.twist.twist, twist2);
+        Pose2D pose2d;
+        poseRosToPose2d(odom.pose.pose, pose2d);
+        Twist2D twist2d;
+        twistRosToTwist2d(odom.twist.twist, twist2d);
+        odometryVector.push_back(Odometry(pose2d, twist2d));
 
-        KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(),0.1);
-        KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
-
-        velprof->SetProfileDuration(0,
-                sqrt(twist1.vel.x()*twist1.vel.x() + twist1.vel.y()*twist1.vel.y()),
-                path->PathLength(),
-                sqrt(twist2.vel.x()*twist2.vel.x() + twist2.vel.y()*twist2.vel.y()),0.2);
-
-        ROS_INFO("Dur: %f",velprof->Duration());
-
-        KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
-        trajectroyKDL.Add(trajectorySegment);
-        pose1 = pose2;
-        twist1 = twist2;
     }
-    ROS_INFO("Dur: %f",trajectroyKDL.Duration());
-    /*for (double t = 0; t <= trajectroyKDL.Duration(); t = t+1) {
-        KDL::Twist vel = trajectroyKDL.Vel(t);
-        KDL::Frame pos = trajectroyKDL.Pos(t);
-        ROS_INFO("pos:%f,%f vel:%f,%f",pos.p.x(),pos.p.y(), vel.vel.x(), vel.vel.y());
-    }*/
+    
+}
 
+void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
+    
+    pose.position.x = pose2d.getX();
+    pose.position.y = pose2d.getY();
+    tf::Quaternion quat;
+    
+    quat.setRPY(0, 0, pose2d.getTheta());
+    tf::quaternionTFToMsg(quat, pose.orientation);
+    
+}
 
+void twist2dToTwistRos(const Twist2D& twist2d, geometry_msgs::Twist& twist) {
+    
+    twist.linear.x = twist2d.getX();
+    twist.linear.y = twist2d.getY();
+    twist.angular.z = twist2d.getTheta();
+    
+}
+
+void odomCallback(const nav_msgs::Odometry& odometry) {
+    
+    const geometry_msgs::Pose pose = odometry.pose.pose;
+    const geometry_msgs::Twist twist = odometry.twist.twist;
+
+    Pose2D pose2d;
+    Twist2D twist2d;
+
+    poseRosToPose2d(pose, pose2d);
+    twistRosToTwist2d(twist, twist2d);
+
+    actualOdometry = Odometry(pose2d, twist2d);
+    
 }
 
 void trajectoryCallback(const navigation_trajectory_planner::Trajectory& trajectory) {
-    //followerNodeHandle->setActualTrajectory(trajectory);
 
     ROS_INFO("Got new trajectory size: %d", trajectory.trajectory.size());
-
-    if (trajectoryComposite != NULL)
-        delete trajectoryComposite;
-
-
-    for (int i = 0; i < trajectory.trajectory.size(); i++) {
-        ROS_INFO("pose_x:%f, pose_y:%f",trajectory.trajectory[i].pose.pose.position.x, trajectory.trajectory[i].pose.pose.position.y);
-        ROS_INFO("twist_x:%f, twist_y:%f",trajectory.trajectory[i].twist.twist.linear.x, trajectory.trajectory[i].twist.twist.linear.y);
-    }
-
-    trajectoryComposite = new KDL::Trajectory_Composite();
-    trajectoryRosToKdl(trajectory, *trajectoryComposite);
-    followerNodeHandle->setActualTrajectory(trajectory);
-
+    std::vector <Odometry> odometry;
+    trajectoryRosToOdomVector(trajectory, odometry);
+  
+    startTime = ros::Time::now();
+    controller->setTargetTrajectory(odometry);
+ 
 }
 
-void TrajectoryFollowerNode::setActualOdometry(const nav_msgs::Odometry& odometry) {
-    actualAcceleration.linear.x = odometry.twist.twist.linear.x - actualOdometry.twist.twist.linear.x;
-    actualAcceleration.linear.y = odometry.twist.twist.linear.y - actualOdometry.twist.twist.linear.y;
+void publishOdometry(const Odometry& odometry) {
 
-    actualOdometry = odometry;
-}
+    geometry_msgs::Twist twist;
+    geometry_msgs::Pose pose;
+    pose2dToPoseRos(odometry.getPose2D(), pose);
+    twist2dToTwistRos(odometry.getTwist2D(), twist);
 
-void TrajectoryFollowerNode::createKDLFrame(const nav_msgs::Odometry& odometry, KDL::Frame& frame) {
+    nav_msgs::Odometry odomRos;
+    odomRos.pose.pose = pose;
+    odomRos.twist.twist = twist;
+    odomRos.header.stamp = ros::Time::now();
 
-    geometry_msgs::Pose pose = odometry.pose.pose;
-
-    KDL::Rotation orientation(KDL::Rotation::Quaternion(pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w));
-    KDL::Vector origin(pose.position.x, pose.position.y, pose.position.z);
-
-    frame = KDL::Frame(orientation, origin);
-}
-
-/*KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory) {
-
-    using namespace navigation_trajectory_planner;
-
-    Trajectory::_trajectory_type::const_iterator it = trajectory.trajectory.begin();
-
-    if (it != trajectory.trajectory.end()) {
-
-        ConversionUtils convert;
-
-        KDL::Path_Composite* pathComposite = new KDL::Path_Composite();
-
-        KDL::Frame temp;
-
-        convert.poseRosToKdl(it->pose.pose, temp);
-
-
-        ++it;
-
-        double dPosX = desiredPose.p(0);
-        double dPosY = desiredPose.p(1);
-
-        double dVelX = desiredTwist.vel(0);
-        double dVelY = desiredTwist.vel(1);
-
-
-        KDL::Frame last;
-        createKDLFrame(trajectory.trajectory.back(), last);
-
-        double dX = (last.p(0) - desiredPose.p(0)) / KDL::sign(dVelX);
-        double dY = (last.p(1) - desiredPose.p(1)) / KDL::sign(dVelY);
-
-        ROS_INFO("twist.p(0):%f, twist.p(1):%f", dVelX, dVelY);
-        ROS_INFO("last.p(0):%f, last.p(1):%f, desiredPose.p(0):%f, desiredPose.p(1):%f", last.p(0), last.p(1), desiredPose.p(0), desiredPose.p(1));
-
-        while (it != trajectory.trajectory.end()) {
-            start = temp;
-            createKDLFrame(*it, end);
-            temp = end;
-
-            KDL::Path_Line* pathLineSegment = new KDL::Path_Line(start, end, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
-            KDL::Path_Line* pathLineSegment1 = new KDL::Path_Line(start, end, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
-            pathComposite->Add(pathLineSegment);
-            pathComposite1->Add(pathLineSegment1);
-            ++it;
-        }
-
-
-
-
-        velpref_x = new KDL::VelocityProfile_Trap(0.5, 0.1);
-        velpref_y = new KDL::VelocityProfile_Trap(0.5, 0.1);
-
-
-        velpref_x->SetProfile(0, KDL::sign(dY) * KDL::sign(dX) * sqrt(aVelX * aVelX + aVelY * aVelY), pathComposite->PathLength(), 0);
-        velpref_y->SetProfile(0, KDL::sign(dY) * sqrt(aVelY * aVelY), pathComposite1->PathLength(), 0);
-        ROS_INFO("signX: %f aVelX: %f", KDL::sign(dX), sqrt(aVelX * aVelX));
-        ROS_INFO("signY: %f aVelY: %f", KDL::sign(dY), sqrt(aVelY * aVelY));
-
-        trajectoryComposite_x->Add(new KDL::Trajectory_Segment(pathComposite, velpref_x));
-        trajectoryComposite_y->Add(new KDL::Trajectory_Segment(pathComposite1, velpref_y));
-
-
-        return NULL;
-    }
-
-    return NULL;
-}
-*/
-void TrajectoryFollowerNode::setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
-    actualTrajectory.trajectory.clear();
-    actualTrajectory = trajectory;
-
-    startTime = ros::Time::now().toSec();
-}
-
-void TrajectoryFollowerNode::publishTwist(const geometry_msgs::Twist& twist) {
     twistPublisher.publish(twist);
-}
-
-TrajectoryFollowerNode::TrajectoryFollowerNode(std::string name) : nodeName(name) {
-
-    trajectoryComposite_x = NULL;
-    trajectoryComposite_y = NULL;
-
-    ros::NodeHandle node = ros::NodeHandle("~/");
-    ros::NodeHandle globalNode = ros::NodeHandle();
-
-    actualTrajectoryKDL = NULL;
-
-    twistPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel", 1);
-    odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
 
 }
 
-TrajectoryFollowerNode::~TrajectoryFollowerNode() {
-
-}
-
-double vectorLength(double x1, double x2, double y1, double y2) {
-    return sqrt((x1 - x2)*(x1 - x2)+(y1 - y2)*(y1 - y2));
-}
-
-void TrajectoryFollowerNode::controlLoop() {
-
-
-    actualTime = ros::Time::now().toSec() - startTime;
-
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0) {
-
-        KDL::Frame desiredPose = trajectoryComposite->Pos(actualTime);
-        KDL::Twist desiredTwist = trajectoryComposite->Vel(actualTime);
-
-        double dPosX = desiredPose.p.x();
-        double dPosY = desiredPose.p.y();
-
-        double dVelX = desiredTwist.vel.x();
-        double dVelY = desiredTwist.vel.y();
-
-        double aPosX = actualOdometry.pose.pose.position.x;
-        double aPosY = actualOdometry.pose.pose.position.y;
-
-        double aVelX = actualOdometry.twist.twist.linear.x;
-        double aVelY = actualOdometry.twist.twist.linear.y;
-
-        double positionXError = dPosX - aPosX;
-        double positionYError = dPosY - aPosY;
-
-        double velocityXError = dVelX - aVelX;
-        double velocityYError = dVelY - aVelY;
-
-        double positionError = vectorLength(dPosX, dPosY, aPosX, aPosY);
-        double velocityError = vectorLength(dVelX, dVelY, aVelX, aVelY);
-
-
-        double gain1 = 1;
-        double gain2 = 1;
-        double errorX = gain1 * positionXError + velocityXError;
-        double errorY = gain2 * positionYError + velocityYError;
-
-
-
-
-
-        geometry_msgs::Twist cmd_vel;
-
-        cmd_vel.linear.x = errorX; //desiredTwist.vel(0);
-        cmd_vel.linear.y = errorY; //desiredTwist.vel(1);
-        cmd_vel.angular.z = 0;
-
-
-        publishTwist(cmd_vel);
-
-    }
-
+void controlLoop() {
+    
+    double elapsedTime = ros::Duration(ros::Time::now() - startTime).toSec();
+    Odometry newOdometry = controller->computeNewOdometry(actualOdometry, elapsedTime);
+    publishOdometry(newOdometry);
+    
 }
 
 int main(int argc, char **argv) {
 
-
     std::string name = "trajectory_follower";
     ros::init(argc, argv, name);
-    //    tf::TransformListener tf;
 
-    TrajectoryFollowerNode trajectoryFollowerNode(name);
-    followerNodeHandle = &trajectoryFollowerNode;
+    ros::NodeHandle node = ros::NodeHandle("~/");
+    ros::NodeHandle globalNode = ros::NodeHandle();
+
+    ros::Subscriber trajectorySubscriber;
+    ros::Subscriber odomSubscriber;
+    twistPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel", 1);
+    odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
+    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
+
+    controller = new OmniDrivePositionController();
 
     ros::Rate r(100); // 10 Hz
     while (ros::ok()) {
         ros::spinOnce();
-        trajectoryFollowerNode.controlLoop();
+        controlLoop();
         r.sleep();
     }
 
+    delete controller;
+    
     return 0;
 }

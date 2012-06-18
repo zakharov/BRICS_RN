@@ -65,10 +65,10 @@ private:
     KDL::Twist desiredTwist;
     KDL::Frame desiredPose;
 
-     KDL::Trajectory_Composite* trajectoryComposite_x;
-     KDL::Trajectory_Composite* trajectoryComposite_y;
-     KDL::VelocityProfile_Trap* velpref_x;
-     KDL::VelocityProfile_Trap* velpref_y;
+    KDL::Trajectory_Composite* trajectoryComposite_x;
+    KDL::Trajectory_Composite* trajectoryComposite_y;
+    KDL::VelocityProfile_Trap* velpref_x;
+    KDL::VelocityProfile_Trap* velpref_y;
 
 };
 
