@@ -41,8 +41,9 @@
 #define	OMNIDRIVEPOSITIONCONTROLLER_H
 
 #include "PositionController.h"
-#include "VelocityRamp.h"
 #include "Odometry.h"
+
+#include <vector>
 
 namespace KDL {
     class Trajectory_Composite;
@@ -51,44 +52,42 @@ namespace KDL {
 class OmniDrivePositionController : public PositionController  {
 public:
     OmniDrivePositionController();
-    OmniDrivePositionController(const VelocityRamp& linearVelocityRamp, const VelocityRamp& angularVelocitRamp,  const Odometry& tolerance);
     OmniDrivePositionController(const OmniDrivePositionController& orig);
     virtual ~OmniDrivePositionController();
-    
-    
+  
     void setTargetTrajectory(const std::vector<Odometry>& trajectory);
+    const std::vector<Odometry>& getTargetTrajectory() const;
+   
+    void setTargetOdometry(const Odometry& targetOdometry);
+    const Odometry& getTargetOdometry() const;
     
     void setTolerance(const Odometry& tolerance);
-    const Odometry& getTolerance();
+    const Odometry& getTolerance() const;
     
-    void setTargetOdometry(const Odometry& targetOdometry);
-    const Odometry& getTargetOdometry();
     const Odometry& computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec);
-    bool isTargetOdometryReached();
+    bool isTargetReached() const;
     
 private:    
     
-    Twist2D computeLinearVelocity(const Pose2D& actualPose, const Pose2D& initialPose, const Pose2D& goalPose);
-    Twist2D computeAngularVelocity(const Pose2D& actualPose, const Pose2D& initialPose, const Pose2D& goalPose);
     float getDistance(const Pose2D& actualPose, const Pose2D& goalPose);
     float getShortestAngle (float goalAngle, float actualAngle);
-    bool  gotNewTarget();
-    
+    void resetFlags();
+    void targetReached(bool& translation, bool& rotation);
+       
 private:
     
     KDL::Trajectory_Composite* trajectoryComposite;
     
+    Odometry tolerance;
+    std::vector<Odometry> targetTrajectory;
     Odometry targetOdometry;
     Odometry computedOdometry;
-    Odometry initialOdometry;
+    Odometry actualOdometry;
     
-    VelocityRamp linearVelocityRamp;
-    VelocityRamp angularVelocityRamp;
-    
-    bool newTargetFlag;
-    bool linearOdometryReached;
-    bool angularOdometryReached;
-};
+    bool translationFlag;
+    bool rotationFlag;
+  
+ };
 
 #endif	/* OMNIDRIVEPOSITIONCONTROLLER_H */
 

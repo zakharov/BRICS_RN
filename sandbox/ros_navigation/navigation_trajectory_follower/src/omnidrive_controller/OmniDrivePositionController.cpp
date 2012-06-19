@@ -37,6 +37,9 @@
  *
  ******************************************************************************/
 
+#include "OmniDrivePositionController.h"
+#include "ConversionUtils.h"
+
 #include <kdl/frames.hpp>
 #include <kdl/path_composite.hpp>
 #include <kdl/path_line.hpp>
@@ -44,118 +47,141 @@
 #include <kdl/velocityprofile_spline.hpp>
 #include <kdl/trajectory_segment.hpp>
 #include <kdl/trajectory_composite.hpp>
-
-#include "OmniDrivePositionController.h"
 #include <cmath>
 
-#include <ros/ros.h>
-
-//#define DEBUG
-
-#ifdef DEBUG
-#include <iostream>
-#endif
-
 OmniDrivePositionController::OmniDrivePositionController() {
-    
+    tolerance = Odometry(Pose2D(0.1,0.1,0.1));
     trajectoryComposite = new KDL::Trajectory_Composite();
-    
+    resetFlags();
 }
 
-OmniDrivePositionController::OmniDrivePositionController(const VelocityRamp& linearVelocityRamp, const VelocityRamp& angularVelocitRamp, const Odometry& tolerance) {
-
-}
-
-OmniDrivePositionController::OmniDrivePositionController(const OmniDrivePositionController& orig) {
+OmniDrivePositionController::OmniDrivePositionController(const OmniDrivePositionController& orig) : 
+        trajectoryComposite(dynamic_cast<KDL::Trajectory_Composite*>(orig.trajectoryComposite->Clone())) {
     
+    tolerance = orig.getTolerance();
+    targetTrajectory = orig.getTargetTrajectory();
+    targetOdometry = orig.getTargetOdometry();
+    translationFlag = orig.translationFlag;
+    rotationFlag = orig.rotationFlag;
+    //TODO:: implement
 }
 
 OmniDrivePositionController::~OmniDrivePositionController() {
     delete trajectoryComposite;
 }
 
-void pose2dToKdl(const Pose2D& pose2d, KDL::Frame& pose) {
-    pose = KDL::Frame(KDL::Rotation::RPY(0, 0, pose2d.getTheta()), KDL::Vector(pose2d.getX(), pose2d.getY(), 0));
+void OmniDrivePositionController::resetFlags() {
+    translationFlag = false;
+    rotationFlag = false; 
 }
 
-void twist2dToKdl(const Twist2D& twist2d, KDL::Twist& twist) {
-    twist = KDL::Twist(KDL::Vector(twist2d.getX(), twist2d.getY(), 0), KDL::Vector(0, 0, twist2d.getTheta()));
+void OmniDrivePositionController::setTargetOdometry(const Odometry& targetOdometry) {
+    this->targetOdometry = targetOdometry;
+}
+
+const Odometry& OmniDrivePositionController::getTargetOdometry() const {
+    return targetOdometry;
 }
 
 void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometry>& trajectory) {
 
-    ROS_INFO("Got traj: %d", trajectory.size());
+    resetFlags();
     
+    targetTrajectory = trajectory;
+
     trajectoryComposite->Destroy();
     trajectoryComposite = new KDL::Trajectory_Composite();
 
-    std::vector <Odometry>::const_iterator it;
+    if (targetTrajectory.size() > 1) { // if it has more than one setpoint 
+        std::vector <Odometry>::const_iterator it;
 
-    Odometry odom = trajectory.front();
-    KDL::Frame pose1;
-    pose2dToKdl(odom.getPose2D(), pose1);
-    KDL::Twist twist1;
-    twist2dToKdl(odom.getTwist2D(), twist1);
+        Odometry odom = targetTrajectory.front();
+        KDL::Frame pose1;
+        pose2dToFrameKdl(odom.getPose2D(), pose1);
+        KDL::Twist twist1;
+        twist2dToTwistKdl(odom.getTwist2D(), twist1);
 
-    for (it = trajectory.begin() + 1; it != trajectory.end(); ++it) {
-        
-        odom = *it;
-        KDL::Frame pose2;
-        pose2dToKdl(odom.getPose2D(), pose2);
-        KDL::Twist twist2;
-        twist2dToKdl(odom.getTwist2D(), twist2);
+        for (it = targetTrajectory.begin() + 1; it != targetTrajectory.end(); ++it) {
 
-        KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
-        KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
+            odom = *it;
+            KDL::Frame pose2;
+            pose2dToFrameKdl(odom.getPose2D(), pose2);
+            KDL::Twist twist2;
+            twist2dToTwistKdl(odom.getTwist2D(), twist2);
 
-        velprof->SetProfileDuration(0,
-                sqrt(twist1.vel.x() * twist1.vel.x() + twist1.vel.y() * twist1.vel.y()),
-                path->PathLength(),
-                sqrt(twist2.vel.x() * twist2.vel.x() + twist2.vel.y() * twist2.vel.y()), 0.2);
+            KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
+            KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
 
+            velprof->SetProfileDuration(0,
+                    sqrt(twist1.vel.x() * twist1.vel.x() + twist1.vel.y() * twist1.vel.y()),
+                    path->PathLength(),
+                    sqrt(twist2.vel.x() * twist2.vel.x() + twist2.vel.y() * twist2.vel.y()), 0.2);
 
-        std::cout << pose2 << std::endl;
-        
-        KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
-        trajectoryComposite->Add(trajectorySegment);
-        pose1 = pose2;
-        twist1 = twist2;
-         ROS_INFO("Setting trajectory, duration: %f", trajectoryComposite->Duration());
+            KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
+            trajectoryComposite->Add(trajectorySegment);
+            pose1 = pose2;
+            twist1 = twist2;
+
+        }
     }
-
-    ROS_INFO("Setting trajectory, duration: %f", trajectoryComposite->Duration());
 }
 
-void OmniDrivePositionController::setTargetOdometry(const Odometry& targetOdometry) {
-
+const std::vector<Odometry>& OmniDrivePositionController::getTargetTrajectory() const {
+    return targetTrajectory;
 }
 
-const Odometry& OmniDrivePositionController::getTargetOdometry() {
-    return targetOdometry;
+bool OmniDrivePositionController::isTargetReached() const {
+       
+    return translationFlag && rotationFlag;
 }
 
-bool OmniDrivePositionController::isTargetOdometryReached() {
-    return linearOdometryReached && angularOdometryReached;
+void OmniDrivePositionController::targetReached(bool& translation, bool& rotation) {
+    double duration = trajectoryComposite->Duration();
+    KDL::Frame frame = trajectoryComposite->Pos(duration);
+         
+    double roll, pitch, yaw;
+    frame.M.GetRPY(roll, pitch, yaw);
+         
+    Pose2D desiredPose(frame.p.x(), frame.p.x(), yaw);         
+    Pose2D actualPose = actualOdometry.getPose2D();
+         
+    double angDist = getShortestAngle(desiredPose.getTheta(), actualPose.getTheta());
+    double linDist = getDistance(desiredPose, actualPose);
+         
+    translation = false;
+    rotation = false;
+         
+    if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY())
+        translation = true;
+    if (angDist <= tolerance.getPose2D().getTheta())
+        rotation = true;
 }
 
 const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec) {
-   
-   
+
+    this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
     if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0) {
+        targetReached(translationFlag, rotationFlag);
         
         double actualTime = elapsedTimeInSec;
-               
+
         KDL::Frame desiredPose = trajectoryComposite->Pos(actualTime);
         KDL::Twist desiredTwist = trajectoryComposite->Vel(actualTime);
 
+        
+        double r,p,y;
+        desiredPose.M.GetRPY(r,p,y);
+             
         double dPosX = desiredPose.p.x();
         double dPosY = desiredPose.p.y();
-
+        double dPosTheta = y;
+             
         double dVelX = desiredTwist.vel.x();
         double dVelY = desiredTwist.vel.y();
-
+        double dVelTheta = desiredTwist.rot.z();
+        
         double aPosX = actualOdometry.getPose2D().getX();
         double aPosY = actualOdometry.getPose2D().getY();
 
@@ -168,17 +194,14 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double velocityXError = dVelX - aVelX;
         double velocityYError = dVelY - aVelY;
 
-        double positionError = getDistance(Pose2D(dPosX, dPosY, 0), Pose2D(aPosX, aPosY, 0));
-        double velocityError = getDistance(Pose2D(dVelX, dVelY, 0), Pose2D(aVelX, aVelY, 0));
-
         double gain1 = 1;
         double gain2 = 1;
         double errorX = gain1 * positionXError + velocityXError;
         double errorY = gain2 * positionYError + velocityYError;
-        
-        ROS_INFO("error_x:%f, error_y:%f", errorX, errorY);
+        double errorTheta = 0;
+       
 
-        computedOdometry.setTwist2D(Twist2D(errorX, errorY, 0));
+        computedOdometry.setTwist2D(Twist2D(errorX, errorY, errorTheta));
     }
 
     return computedOdometry;
@@ -191,24 +214,13 @@ float OmniDrivePositionController::getShortestAngle(float goalAngle, float actua
 float OmniDrivePositionController::getDistance(const Pose2D& actualPose, const Pose2D& goalPose) {
     return sqrt((actualPose.getX() - goalPose.getX()) * (actualPose.getX() - goalPose.getX()) +
             (actualPose.getY() - goalPose.getY()) * (actualPose.getY() - goalPose.getY()));
-
-}
-
-Twist2D OmniDrivePositionController::computeAngularVelocity(const Pose2D& actualPose, const Pose2D& initialPose, const Pose2D& goalPose) {
-
-    return Twist2D(0, 0, 0);
-}
-
-Twist2D OmniDrivePositionController::computeLinearVelocity(const Pose2D& actualPose, const Pose2D& initialPose, const Pose2D& goalPose) {
-
-
-    return Twist2D(0, 0, 0);
 }
 
 void OmniDrivePositionController::setTolerance(const Odometry& tolerance) {
-    /*  this->tolerance = tolerance;*/
+    this->tolerance = tolerance;
 }
 
-const Odometry& OmniDrivePositionController::getTolerance() {
+const Odometry& OmniDrivePositionController::getTolerance() const {
     /* return tolerance;*/
+    return tolerance;
 }

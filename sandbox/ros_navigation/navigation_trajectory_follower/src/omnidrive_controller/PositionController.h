@@ -48,12 +48,13 @@ class PositionController {
 public:
     
     virtual void setTargetTrajectory(const std::vector <Odometry>& targetOdometry) = 0;
+    virtual const std::vector <Odometry>& getTargetTrajectory() const = 0;
     virtual void setTargetOdometry(const Odometry& targetOdometry) = 0;
-    virtual const Odometry& getTargetOdometry() = 0;
-    virtual bool isTargetOdometryReached() = 0;
+    virtual const Odometry& getTargetOdometry() const = 0;
+    virtual bool isTargetReached() const = 0;
     virtual void setTolerance(const Odometry& tolerance) = 0;
-    virtual const Odometry& getTolerance() = 0;
-    virtual const Odometry& computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec = 0) = 0;
+    virtual const Odometry& getTolerance() const = 0;
+    virtual const Odometry& computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec) = 0;
 
 };
 

@@ -124,7 +124,6 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 
 void trajectoryCallback(const navigation_trajectory_planner::Trajectory& trajectory) {
 
-    ROS_INFO("Got new trajectory size: %d", trajectory.trajectory.size());
     std::vector <Odometry> odometry;
     trajectoryRosToOdomVector(trajectory, odometry);
   
