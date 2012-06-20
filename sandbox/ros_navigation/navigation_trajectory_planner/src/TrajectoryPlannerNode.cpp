@@ -66,11 +66,18 @@ void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
     if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
         for (int i = 0; i < trajectory.trajectory.size(); i++) {
-            ROS_INFO("tw_x:%f,  tw_y:%f",trajectory.trajectory[i].twist.twist.linear.x, trajectory.trajectory[i].twist.twist.linear.y);
+            nav_msgs::Odometry odom = trajectory.trajectory[i];
+            
+            tf::Quaternion bt;
+            double yaw = tf::getYaw(odom.pose.pose.orientation);
+            
+            
+            ROS_INFO("x:%f, y:%f, z:%f, yaw:%f", odom.pose.pose.position.x,
+                    odom.pose.pose.position.y,
+                    odom.pose.pose.position.z,
+                    yaw);
         }
         trajectoryPublisherPtr->publish(trajectory);
-
-
     } else {
         ROS_WARN("Trajectory planner returned empty trajectory, skipping.");
     }

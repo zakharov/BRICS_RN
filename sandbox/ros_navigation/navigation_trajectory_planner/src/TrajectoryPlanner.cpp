@@ -75,7 +75,25 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
 
 
     std::vector<geometry_msgs::PoseStamped> poseStampedArray;
-    pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
+    bool result = pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
+    if (result == true) {       // plan has no orientation
+        poseStampedArray.front() = initialPoseStamped;  
+        std::vector<geometry_msgs::PoseStamped>::iterator it;
+        for (it = poseStampedArray.begin()+1; it != poseStampedArray.end(); ++it) {
+            it->pose.orientation = goalPoseStamped.pose.orientation;
+        }
+        
+        ROS_INFO("Initial pose: %f,%f,%f,%f", initialPoseStamped.pose.orientation.w, 
+                initialPoseStamped.pose.orientation.x, 
+                initialPoseStamped.pose.orientation.y, 
+                initialPoseStamped.pose.orientation.z);
+        ROS_INFO("Goal pose: %f,%f,%f,%f", goalPoseStamped.pose.orientation.w,
+                goalPoseStamped.pose.orientation.x,
+                goalPoseStamped.pose.orientation.y,
+                goalPoseStamped.pose.orientation.z);
+        
+    }
+     
     conversion.pathRosToKdl(poseStampedArray, path);
 
     return true;
@@ -95,9 +113,6 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
                                                                  // They force me to do this!
 
     velocityProfile->SetProfile(0, copyPath->PathLength());
-
-    ROS_INFO("vel:%f", velocityProfile->Vel(0.1));
-
 
     KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(copyPath, velocityProfile);
 

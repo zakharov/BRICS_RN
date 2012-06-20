@@ -109,7 +109,7 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
             KDL::Twist twist2;
             twist2dToTwistKdl(odom.getTwist2D(), twist2);
 
-            KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
+            KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
             KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
 
             velprof->SetProfileDuration(0,
@@ -170,9 +170,14 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         KDL::Frame desiredPose = trajectoryComposite->Pos(actualTime);
         KDL::Twist desiredTwist = trajectoryComposite->Vel(actualTime);
 
+        KDL::Frame initPose = trajectoryComposite->Pos(0);
+        
         
         double r,p,y;
         desiredPose.M.GetRPY(r,p,y);
+        
+        double y1;
+        initPose.M.GetRPY(r,p,y1);
              
         double dPosX = desiredPose.p.x();
         double dPosY = desiredPose.p.y();
@@ -184,23 +189,47 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         
         double aPosX = actualOdometry.getPose2D().getX();
         double aPosY = actualOdometry.getPose2D().getY();
+        double aPosTheta = actualOdometry.getPose2D().getTheta();
 
         double aVelX = actualOdometry.getTwist2D().getX();
         double aVelY = actualOdometry.getTwist2D().getY();
-
+        double aVelTheta = actualOdometry.getTwist2D().getTheta();
+        
         double positionXError = dPosX - aPosX;
         double positionYError = dPosY - aPosY;
+        double positionThetaError = getShortestAngle(dPosTheta,aPosTheta);
 
         double velocityXError = dVelX - aVelX;
         double velocityYError = dVelY - aVelY;
+        double velocityThetaError = dVelTheta - aVelTheta;
 
-        double gain1 = 1;
-        double gain2 = 1;
-        double errorX = gain1 * positionXError + velocityXError;
-        double errorY = gain2 * positionYError + velocityYError;
-        double errorTheta = 0;
+        double gain1 = 0.5;
+        double gain2 = 1.0;
+        
+        
+        
+        double errorX = gain1 * positionXError + gain2 * velocityXError;
+        double errorY = gain1 * positionYError + gain2 * velocityYError;
+        double errorTheta = gain2 * velocityThetaError+ gain1 * positionThetaError;
        
-
+        
+        float x_d0 = (dVelX * cos(aPosTheta) + dVelY * sin(aPosTheta));
+        float y_d0 = (dVelY * cos(aPosTheta) - dVelX * sin(aPosTheta)); 
+        
+        float x_d = (aVelX * cos(aPosTheta) + aVelY * sin(aPosTheta));
+        float y_d = (aVelY * cos(aPosTheta) - aVelX * sin(aPosTheta)); 
+         
+        float x_d1 = (dPosX * cos(aPosTheta) + dPosY * sin(aPosTheta));
+        float y_d1 = (dPosY * cos(aPosTheta) - dPosX * sin(aPosTheta));
+    
+        float x_d2 = (aPosX * cos(aPosTheta) + aPosY * sin(aPosTheta));
+        float y_d2 = (aPosY * cos(aPosTheta) - aPosX * sin(aPosTheta));
+        
+        errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0 - aVelX);
+        errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0 - aVelY);
+       
+         
+         
         computedOdometry.setTwist2D(Twist2D(errorX, errorY, errorTheta));
     }
 
