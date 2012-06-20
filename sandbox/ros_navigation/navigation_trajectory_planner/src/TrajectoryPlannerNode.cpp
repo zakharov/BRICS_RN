@@ -61,17 +61,45 @@ TrajectoryPlanner* plannerNodePtr = NULL;
 ros::Publisher* trajectoryPublisherPtr = NULL;
 costmap_2d::Costmap2DROS* costmap = NULL;
 
-void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
 
-    if (!trajectory.trajectory.empty()) {
+ros::Publisher velPublisher;
+
+void debug(navigation_trajectory_planner::Trajectory& trajectory) {
+   /* if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
         for (int i = 0; i < trajectory.trajectory.size(); i++) {
             nav_msgs::Odometry odom = trajectory.trajectory[i];
-            
+
             tf::Quaternion bt;
             double yaw = tf::getYaw(odom.pose.pose.orientation);
-            
-            
+
+
+            ROS_INFO("x:%f, y:%f, z:%f, yaw:%f", odom.pose.pose.position.x,
+                    odom.pose.pose.position.y,
+                    odom.pose.pose.position.z,
+                    yaw);
+        
+            velPublisher.publish(odom.twist.twist);
+            ros::Rate r(10); // 100 Hz
+            r.sleep();
+        }
+    }
+    */
+}
+
+
+void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
+
+    if (!trajectory.trajectory.empty()) {
+        debug(trajectory);
+        ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
+        for (int i = 0; i < trajectory.trajectory.size(); i++) {
+            nav_msgs::Odometry odom = trajectory.trajectory[i];
+
+            tf::Quaternion bt;
+            double yaw = tf::getYaw(odom.pose.pose.orientation);
+
+
             ROS_INFO("x:%f, y:%f, z:%f, yaw:%f", odom.pose.pose.position.x,
                     odom.pose.pose.position.y,
                     odom.pose.pose.position.z,
@@ -132,6 +160,8 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
 
 }
 
+
+
 int main(int argc, char **argv) {
 
     // initializing ROS node
@@ -155,6 +185,9 @@ int main(int argc, char **argv) {
     ros::Publisher trajectoryPublisher;
     trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory > ("globalTrajectory", 1);
     trajectoryPublisherPtr = &trajectoryPublisher;
+
+
+    velPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel1", 1);
 
     ros::Subscriber goalSubscriber;
     goalSubscriber = globalNode.subscribe("goal", 1, &goalCallback);

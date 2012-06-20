@@ -109,7 +109,7 @@ public:
                 poseRosToKdl(p1.pose, f1);
                 poseRosToKdl(p2.pose, f2);
 
-                KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
+                KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, new KDL::RotationalInterpolation_SingleAxis(), 0.5);
                 path.Add(pathLine);
 
                 p1 = p2;

@@ -109,7 +109,7 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
             KDL::Twist twist2;
             twist2dToTwistKdl(odom.getTwist2D(), twist2);
 
-            KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.01);
+            KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.001);
             KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
 
             velprof->SetProfileDuration(0,
@@ -199,11 +199,14 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double positionYError = dPosY - aPosY;
         double positionThetaError = getShortestAngle(dPosTheta,aPosTheta);
 
+       
+        
+        
         double velocityXError = dVelX - aVelX;
         double velocityYError = dVelY - aVelY;
         double velocityThetaError = dVelTheta - aVelTheta;
 
-        double gain1 = 0.5;
+        double gain1 = 1.0;
         double gain2 = 1.0;
         
         

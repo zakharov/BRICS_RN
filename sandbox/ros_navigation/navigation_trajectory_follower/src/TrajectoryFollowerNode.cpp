@@ -172,7 +172,7 @@ int main(int argc, char **argv) {
 
     controller = new OmniDrivePositionController();
 
-    ros::Rate r(100); // 10 Hz
+    ros::Rate r(100); // 100 Hz
     while (ros::ok()) {
         ros::spinOnce();
         controlLoop();

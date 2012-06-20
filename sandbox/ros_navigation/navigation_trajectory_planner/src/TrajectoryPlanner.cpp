@@ -62,6 +62,10 @@ void TrajectoryPlanner::setPathFrameId(std::string frameId) {
     this->frameId = frameId;
 }
 
+float getShortestAngle(float goalAngle, float actualAngle) {
+    return atan2(sin(goalAngle - actualAngle), cos(goalAngle - actualAngle));
+}
+
 bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame& goal, KDL::Path_Composite& path) {
 
     geometry_msgs::PoseStamped initialPoseStamped;
@@ -79,9 +83,34 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
     if (result == true) {       // plan has no orientation
         poseStampedArray.front() = initialPoseStamped;  
         std::vector<geometry_msgs::PoseStamped>::iterator it;
-        for (it = poseStampedArray.begin()+1; it != poseStampedArray.end(); ++it) {
-            it->pose.orientation = goalPoseStamped.pose.orientation;
+        
+        ConversionUtils convert;
+        
+        
+        
+        double start = tf::getYaw(initialPoseStamped.pose.orientation);
+        
+        double end = tf::getYaw(goalPoseStamped.pose.orientation);
+        
+        
+        double step = getShortestAngle(end, start) / poseStampedArray.size();
+       
+        
+        
+        for (it = poseStampedArray.begin(); it != poseStampedArray.end(); ++it) {
+            
+           
+            
+            KDL::Frame f(KDL::Rotation::RPY(0,0,start), KDL::Vector(0,0,0));
+            start = start + step;
+            
+            geometry_msgs::Pose f1;
+            convert.poseKdlToRos(f,f1);
+            
+            it->pose.orientation = f1.orientation;
         }
+        
+       
         
         ROS_INFO("Initial pose: %f,%f,%f,%f", initialPoseStamped.pose.orientation.w, 
                 initialPoseStamped.pose.orientation.x, 
@@ -91,6 +120,7 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
                 goalPoseStamped.pose.orientation.x,
                 goalPoseStamped.pose.orientation.y,
                 goalPoseStamped.pose.orientation.z);
+      
         
     }
      
