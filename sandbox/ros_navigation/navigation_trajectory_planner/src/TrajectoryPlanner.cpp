@@ -131,7 +131,7 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
 
 bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory_Composite& trajectory) {
 
-    const double maxVel = 1.0;
+    const double maxVel = 0.5;
     const double maxAcc = 0.1;
 
     double dur = trajectory.Duration();

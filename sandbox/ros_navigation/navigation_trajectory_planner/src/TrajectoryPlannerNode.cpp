@@ -65,7 +65,7 @@ costmap_2d::Costmap2DROS* costmap = NULL;
 ros::Publisher velPublisher;
 
 void debug(navigation_trajectory_planner::Trajectory& trajectory) {
-   /* if (!trajectory.trajectory.empty()) {
+    if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
         for (int i = 0; i < trajectory.trajectory.size(); i++) {
             nav_msgs::Odometry odom = trajectory.trajectory[i];
@@ -84,7 +84,7 @@ void debug(navigation_trajectory_planner::Trajectory& trajectory) {
             r.sleep();
         }
     }
-    */
+    
 }
 
 

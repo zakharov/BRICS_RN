@@ -162,7 +162,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0) {
+    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && elapsedTimeInSec <= trajectoryComposite->Duration()) {
         targetReached(translationFlag, rotationFlag);
         
         double actualTime = elapsedTimeInSec;
@@ -206,7 +206,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double velocityYError = dVelY - aVelY;
         double velocityThetaError = dVelTheta - aVelTheta;
 
-        double gain1 = 1.0;
+        double gain1 = 1;
         double gain2 = 1.0;
         
         
@@ -228,8 +228,8 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         float x_d2 = (aPosX * cos(aPosTheta) + aPosY * sin(aPosTheta));
         float y_d2 = (aPosY * cos(aPosTheta) - aPosX * sin(aPosTheta));
         
-        errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0 - aVelX);
-        errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0 - aVelY);
+        errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0);
+        errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0);
        
          
          
