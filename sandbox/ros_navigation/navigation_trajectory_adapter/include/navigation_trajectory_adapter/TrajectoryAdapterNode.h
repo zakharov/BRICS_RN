@@ -30,6 +30,15 @@ public:
         navigation_trajectory_planner::Trajectory& localTrajectory);
 
      
+    bool collisionCheck(const navigation_trajectory_planner::Trajectory& trajectory, 
+        const nav_msgs::Odometry& actualPose,
+        const nav_msgs::Odometry newGoalPose);
+    
+    void replan(const navigation_trajectory_planner::Trajectory& trajectory, 
+        const nav_msgs::Odometry& actualPose, 
+        const nav_msgs::Odometry& goalPose, 
+        navigation_trajectory_planner::Trajectory& newTrajectory);
+    
     virtual ~TrajectoryAdapterNode();
     void controlLoop();
     

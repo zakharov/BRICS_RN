@@ -61,8 +61,8 @@ void TrajectoryAdapterNode::setActualOdometry(const nav_msgs::Odometry& odometry
 
 void TrajectoryAdapterNode::setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
     adaptedTrajectory.trajectory.clear();
-    prune(trajectory, adaptedTrajectory);
-
+ //   prune(trajectory, adaptedTrajectory);
+    adaptedTrajectory = trajectory;
 }
 
 void TrajectoryAdapterNode::publishTrajectory(const navigation_trajectory_planner::Trajectory& trajectory) {
@@ -183,10 +183,6 @@ bool TrajectoryAdapterNode::slideWindow(const navigation_trajectory_planner::Tra
         return false;
     }
 
-
-
-
-
     for (unsigned int i = minIndex + 1; i < globalTrajectoryRef.size(); i++) {
         localTrajectoryRef.push_back(globalTrajectoryRef[i]);
     }
@@ -194,13 +190,40 @@ bool TrajectoryAdapterNode::slideWindow(const navigation_trajectory_planner::Tra
     return true;
 }
 
+bool  TrajectoryAdapterNode::collisionCheck(const navigation_trajectory_planner::Trajectory& trajectory, 
+        const nav_msgs::Odometry& actualPose,
+        const nav_msgs::Odometry newGoalPose) {
+    
+    return false;
+} 
+
+void  TrajectoryAdapterNode::replan(const navigation_trajectory_planner::Trajectory& trajectory, 
+        const nav_msgs::Odometry& actualPose, 
+        const nav_msgs::Odometry& goalPose, 
+        navigation_trajectory_planner::Trajectory& newTrajectory) {
+    
+    
+} 
+
 void TrajectoryAdapterNode::controlLoop() {
-    navigation_trajectory_planner::Trajectory trajectory;
+    navigation_trajectory_planner::Trajectory* trajectoryRef;
+    navigation_trajectory_planner::Trajectory originalTrajectory;
+    navigation_trajectory_planner::Trajectory updatedTrajectory;
 
-    slideWindow(adaptedTrajectory, actualOdometry, trajectory);
-    ROS_INFO("Publishing trajectory with size %d", trajectory.trajectory.size());
-    publishTrajectory(trajectory);
-
+    slideWindow(adaptedTrajectory, actualOdometry, originalTrajectory);
+    ROS_INFO("Publishing trajectory with size %d", originalTrajectory.trajectory.size());
+    
+    nav_msgs::Odometry newGoalPose;
+    bool collision = collisionCheck(originalTrajectory, actualOdometry, newGoalPose);
+       
+    if (collision) {
+        replan(originalTrajectory, actualOdometry, newGoalPose, updatedTrajectory);
+        trajectoryRef = &updatedTrajectory;
+    } else
+        trajectoryRef = &originalTrajectory;
+                
+                
+    publishTrajectory(*trajectoryRef);
 }
 
 int main(int argc, char **argv) {

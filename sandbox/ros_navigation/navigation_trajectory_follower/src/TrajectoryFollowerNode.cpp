@@ -168,7 +168,7 @@ int main(int argc, char **argv) {
     ros::Subscriber odomSubscriber;
     twistPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
+    trajectorySubscriber = globalNode.subscribe("localTrajectory", 1, &trajectoryCallback);
 
     controller = new OmniDrivePositionController();
 
