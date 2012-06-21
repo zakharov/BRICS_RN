@@ -78,15 +78,14 @@ void debug(navigation_trajectory_planner::Trajectory& trajectory) {
                     odom.pose.pose.position.y,
                     odom.pose.pose.position.z,
                     yaw);
-        
+
             velPublisher.publish(odom.twist.twist);
             ros::Rate r(10); // 100 Hz
             r.sleep();
         }
     }
-    
-}
 
+}
 
 void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
 
@@ -159,8 +158,6 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
     }
 
 }
-
-
 
 int main(int argc, char **argv) {
 

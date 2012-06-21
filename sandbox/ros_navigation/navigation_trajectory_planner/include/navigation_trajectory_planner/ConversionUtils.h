@@ -85,7 +85,7 @@ public:
     }
 
     void twistKdlToRos(const KDL::Twist& twistKDL, geometry_msgs::Twist& twistROS) {
-      //  std::cout <<  twistKDL << std::endl;
+        //  std::cout <<  twistKDL << std::endl;
         twistROS.angular.x = twistKDL.rot.x();
         twistROS.angular.y = twistKDL.rot.y();
         twistROS.angular.z = twistKDL.rot.z();
@@ -136,7 +136,7 @@ public:
             for (double time = 0; time <= duration; time += dt) {
                 KDL::Frame poseKDL = trajectroyKDL.Pos(time);
                 KDL::Twist twistKDL = trajectroyKDL.Vel(time);
-            //    ROS_INFO("twist=%f",twistKDL);
+                //    ROS_INFO("twist=%f",twistKDL);
 
                 geometry_msgs::Pose poseROS;
                 geometry_msgs::Twist twistROS;

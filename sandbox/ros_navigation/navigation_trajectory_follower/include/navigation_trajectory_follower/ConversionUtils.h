@@ -82,7 +82,7 @@ public:
 
     void twistRosToKdl(const geometry_msgs::Twist& twistROS, KDL::Twist& twistKDL) {
         twistKDL = KDL::Twist(KDL::Vector(twistROS.linear.x, twistROS.linear.y, twistROS.linear.z),
-                              KDL::Vector(twistROS.angular.x, twistROS.angular.y, twistROS.angular.z));
+                KDL::Vector(twistROS.angular.x, twistROS.angular.y, twistROS.angular.z));
     }
 
     void twistKdlToRos(const KDL::Twist& twistKDL, geometry_msgs::Twist& twistROS) {
