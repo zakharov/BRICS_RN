@@ -15,4 +15,11 @@
  <depend package="orocos_kdl"/>
  <depend package="pluginlib"/>
  <depend package="nav_core"/>
+ <depend package="navigation_trajectory_msgs"/>
+
+ <export>
+    <cpp cflags="-I${prefix}/cfg/cpp -I${prefix}/include `rosboost-cfg --cflags`" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib `rosboost-cfg --lflags thread` -ltrajectory_planner"/>
+ </export>
+
+
 </package>

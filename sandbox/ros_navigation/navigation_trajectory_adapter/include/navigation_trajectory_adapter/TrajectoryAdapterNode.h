@@ -10,7 +10,7 @@
 
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
-#include <navigation_trajectory_planner/Trajectory.h>
+#include <navigation_trajectory_msgs/Trajectory.h>
 
 #include <string>
 #include <vector>
@@ -22,22 +22,22 @@ public:
     TrajectoryAdapterNode(const TrajectoryAdapterNode& orig);
     
     void setActualOdometry(const nav_msgs::Odometry& odometry);
-    void setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory);
-    void publishTrajectory(const navigation_trajectory_planner::Trajectory& trajectory);
-    void prune(const navigation_trajectory_planner::Trajectory& globalTrajectory, navigation_trajectory_planner::Trajectory& localTrajectory);
-    bool slideWindow(const navigation_trajectory_planner::Trajectory& globalTrajectory, 
+    void setActualTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory);
+    void publishTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory);
+    void prune(const navigation_trajectory_msgs::Trajectory& globalTrajectory, navigation_trajectory_msgs::Trajectory& localTrajectory);
+    bool slideWindow(const navigation_trajectory_msgs::Trajectory& globalTrajectory, 
         const nav_msgs::Odometry& actualOdometry,
-        navigation_trajectory_planner::Trajectory& localTrajectory);
+        navigation_trajectory_msgs::Trajectory& localTrajectory);
 
      
-    bool collisionCheck(const navigation_trajectory_planner::Trajectory& trajectory, 
+    bool collisionCheck(const navigation_trajectory_msgs::Trajectory& trajectory, 
         const nav_msgs::Odometry& actualPose,
-        const nav_msgs::Odometry newGoalPose);
+        nav_msgs::Odometry& newGoalPose);
     
-    void replan(const navigation_trajectory_planner::Trajectory& trajectory, 
+    void replan(const navigation_trajectory_msgs::Trajectory& trajectory, 
         const nav_msgs::Odometry& actualPose, 
         const nav_msgs::Odometry& goalPose, 
-        navigation_trajectory_planner::Trajectory& newTrajectory);
+        navigation_trajectory_msgs::Trajectory& newTrajectory);
     
     virtual ~TrajectoryAdapterNode();
     void controlLoop();
@@ -53,8 +53,8 @@ private:
     std::string nodeName;
     
     nav_msgs::Odometry actualOdometry;
-    navigation_trajectory_planner::Trajectory actualTrajectory;
-    navigation_trajectory_planner::Trajectory adaptedTrajectory;
+    navigation_trajectory_msgs::Trajectory actualTrajectory;
+    navigation_trajectory_msgs::Trajectory adaptedTrajectory;
     
 };
 

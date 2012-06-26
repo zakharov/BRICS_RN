@@ -70,10 +70,10 @@ void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
     
 }
 
-void trajectoryRosToOdomVector(const navigation_trajectory_planner::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
+void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
 
     nav_msgs::Odometry odom;
-    navigation_trajectory_planner::Trajectory::_trajectory_type::const_iterator it;
+    navigation_trajectory_msgs::Trajectory::_trajectory_type::const_iterator it;
 
     for (it = trajectoryROS.trajectory.begin(); it != trajectoryROS.trajectory.end(); ++it) {
 
@@ -122,7 +122,7 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
     
 }
 
-void trajectoryCallback(const navigation_trajectory_planner::Trajectory& trajectory) {
+void trajectoryCallback(const navigation_trajectory_msgs::Trajectory& trajectory) {
 
     std::vector <Odometry> odometry;
     trajectoryRosToOdomVector(trajectory, odometry);

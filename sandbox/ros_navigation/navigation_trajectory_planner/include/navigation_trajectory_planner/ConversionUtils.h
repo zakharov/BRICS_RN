@@ -46,7 +46,7 @@
 #include <kdl/trajectory_composite.hpp>
 #include <kdl/rotational_interpolation_sa.hpp>
 
-#include <navigation_trajectory_planner/Trajectory.h>
+#include <navigation_trajectory_msgs/Trajectory.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Twist.h>
@@ -128,6 +128,10 @@ public:
 
     }
 
+    void trajectoryKdlToRos(const KDL::Trajectory& trajectroyKDL, navigation_trajectory_msgs::Trajectory& trajectoryROS, double dt) {
+         trajectoryKdlToRos(trajectroyKDL, trajectoryROS.trajectory, dt);
+    }
+    
     void trajectoryKdlToRos(const KDL::Trajectory& trajectroyKDL, std::vector <nav_msgs::Odometry>& trajectoryROS, double dt) {
         double duration = trajectroyKDL.Duration();
 

@@ -12,9 +12,6 @@ SUFFIXES =
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
-# Produce verbose output by default.
-VERBOSE = 1
-
 # Suppress display of executed commands.
 $(VERBOSE).SILENT:
 
@@ -112,7 +109,9 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/costmap_2d/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/nav_core/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_msgs/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/manifest.xml
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/base_local_planner/manifest.xml
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/messages/std_msgs/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/messages/rosgraph_msgs/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/msg_gen/generated
@@ -132,17 +131,18 @@ CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/ele
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/driver_common/dynamic_reconfigure/srv_gen/generated
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/costmap_2d/msg_gen/generated
-CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_planner/msg_gen/generated
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_msgs/msg_gen/generated
+CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o: /opt/ros/electric/stacks/navigation/base_local_planner/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@echo "Building CXX object CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o -c /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/src/TrajectoryAdapterNode.cpp
 
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.i: cmake_force
-	@echo "Preprocessing CXX source to CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.i"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.i"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/src/TrajectoryAdapterNode.cpp > CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.i
 
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.s: cmake_force
-	@echo "Compiling CXX source to assembly CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/alexey/workspace/BRICS_RN/sandbox/ros_navigation/navigation_trajectory_adapter/src/TrajectoryAdapterNode.cpp -o CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.s
 
 CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o.requires:
@@ -165,7 +165,7 @@ trajectory_adapter_node_EXTERNAL_OBJECTS =
 ../bin/trajectory_adapter_node: CMakeFiles/trajectory_adapter_node.dir/src/TrajectoryAdapterNode.o
 ../bin/trajectory_adapter_node: CMakeFiles/trajectory_adapter_node.dir/build.make
 ../bin/trajectory_adapter_node: CMakeFiles/trajectory_adapter_node.dir/link.txt
-	@echo "Linking CXX executable ../bin/trajectory_adapter_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../bin/trajectory_adapter_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/trajectory_adapter_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

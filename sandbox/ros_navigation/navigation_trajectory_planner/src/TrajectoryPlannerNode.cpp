@@ -42,7 +42,7 @@
 
 #include <costmap_2d/costmap_2d_ros.h>
 #include <pluginlib/class_loader.h>
-#include <navigation_trajectory_planner/Trajectory.h>
+#include <navigation_trajectory_msgs/Trajectory.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_core/base_global_planner.h>
 #include <pluginlib/class_loader.h>
@@ -64,10 +64,10 @@ costmap_2d::Costmap2DROS* costmap = NULL;
 
 ros::Publisher velPublisher;
 
-void debug(navigation_trajectory_planner::Trajectory& trajectory) {
+void debug(navigation_trajectory_msgs::Trajectory& trajectory) {
     if (!trajectory.trajectory.empty()) {
         ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
-        for (int i = 0; i < trajectory.trajectory.size(); i++) {
+   /*    for (int i = 0; i < trajectory.trajectory.size(); i++) {
             nav_msgs::Odometry odom = trajectory.trajectory[i];
 
             tf::Quaternion bt;
@@ -83,11 +83,12 @@ void debug(navigation_trajectory_planner::Trajectory& trajectory) {
             ros::Rate r(10); // 100 Hz
             r.sleep();
         }
+    * */
     }
 
 }
 
-void publishTrajectory(navigation_trajectory_planner::Trajectory& trajectory) {
+void publishTrajectory(navigation_trajectory_msgs::Trajectory& trajectory) {
 
     if (!trajectory.trajectory.empty()) {
         debug(trajectory);
@@ -121,7 +122,7 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
         KDL::Frame goalKDL;
         conversion.poseRosToKdl(goal.pose, goalKDL);
 
-
+         
 
         // getting actual robot pose from the costmap
         tf::Stamped<tf::Pose> globalPose;
@@ -148,7 +149,7 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
 
 
         // Finally, publishing a trajectory
-        navigation_trajectory_planner::Trajectory trajectoryMsgs;
+        navigation_trajectory_msgs::Trajectory trajectoryMsgs;
         const double dt = 0.2; //TODO move this to configuration;
 
         conversion.trajectoryKdlToRos(trajectory, trajectoryMsgs.trajectory, dt);
@@ -180,7 +181,7 @@ int main(int argc, char **argv) {
     // Initializing subscribers and publishers
     ros::NodeHandle globalNode = ros::NodeHandle("");
     ros::Publisher trajectoryPublisher;
-    trajectoryPublisher = globalNode.advertise<navigation_trajectory_planner::Trajectory > ("globalTrajectory", 1);
+    trajectoryPublisher = globalNode.advertise<navigation_trajectory_msgs::Trajectory > ("globalTrajectory", 1);
     trajectoryPublisherPtr = &trajectoryPublisher;
 
 

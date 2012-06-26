@@ -11,7 +11,7 @@
   <depend package="costmap_2d"/>
   <depend package="geometry_msgs"/>
   <depend package="nav_core"/>
-  <depend package="navigation_trajectory_planner"/>  
+  <depend package="navigation_trajectory_msgs"/>  
   <depend package="tf"/>
   <depend package="tf"/>
   <depend package="orocos_kdl"/>

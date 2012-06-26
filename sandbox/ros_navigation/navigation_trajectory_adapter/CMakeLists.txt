@@ -23,3 +23,4 @@ rosbuild_add_executable(trajectory_adapter_node
     src/TrajectoryAdapterNode.cpp 
 )
 
+

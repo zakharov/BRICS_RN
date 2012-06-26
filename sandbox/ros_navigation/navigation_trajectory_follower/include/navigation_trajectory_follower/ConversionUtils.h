@@ -46,7 +46,7 @@
 #include <kdl/trajectory_composite.hpp>
 #include <kdl/rotational_interpolation_sa.hpp>
 
-#include "Trajectory.h"
+#include <navigation_trajectory_msgs/Trajectory.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Twist.h>

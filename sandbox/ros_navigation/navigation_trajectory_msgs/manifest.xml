@@ -1,0 +1,10 @@
+<package>
+ <description brief="A trajctory message">
+
+ </description>
+ <author>Alexey Zakharov</author>
+ <license>BSD</license>
+ <review status="" notes=""/>
+ <url></url>
+ <depend package="nav_msgs"/>
+ </package>

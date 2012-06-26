@@ -42,7 +42,7 @@
 
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
-#include "Trajectory.h"
+#include <navigation_trajectory_msgs/Trajectory.h>
 #include <geometry_msgs/Twist.h>
 #include <kdl/frames.hpp>
 
@@ -67,7 +67,7 @@ public:
     void publishTwist(const geometry_msgs::Twist& twist);
 
     void setActualOdometry(const nav_msgs::Odometry& odometry);
-    void setActualTrajectory(const navigation_trajectory_planner::Trajectory& trajectory);
+    void setActualTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory);
 
 
     virtual ~TrajectoryFollowerNode();
@@ -77,7 +77,7 @@ private:
 
     double actualTime, startTime;
 
-    KDL::Trajectory*createTrajectoryKDL(const navigation_trajectory_planner::Trajectory& trajectory);
+    KDL::Trajectory*createTrajectoryKDL(const navigation_trajectory_msgs::Trajectory& trajectory);
     void createKDLFrame(const nav_msgs::Odometry& odometry, KDL::Frame& frame);
 
     KDL::Trajectory* actualTrajectoryKDL;
@@ -92,7 +92,7 @@ private:
 
     PositionController* controller;
     nav_msgs::Odometry actualOdometry;
-    navigation_trajectory_planner::Trajectory actualTrajectory;
+    navigation_trajectory_msgs::Trajectory actualTrajectory;
     geometry_msgs::Twist actualAcceleration;
     KDL::Twist desiredTwist;
     KDL::Frame desiredPose;

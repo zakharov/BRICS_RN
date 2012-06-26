@@ -17,17 +17,17 @@ ADD_DEFINITIONS(-DYOUBOT_CONFIGURATIONS_DIR="${OODL_YOUBOT_CONFIG_DIR}/")
 #set(ROS_BUILD_TYPE RelWithDebInfo)
 
 rosbuild_init()
-rosbuild_genmsg()
 
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #set include directories
-include_directories(${PROJECT_SOURCE_DIR}/include)
+#include_directories(${PROJECT_SOURCE_DIR}/include)
 
+rosbuild_add_library(trajectory_planner src/TrajectoryPlanner.cpp)
 rosbuild_add_executable(trajectory_planner_node 
     src/TrajectoryPlannerNode.cpp 
-    src/TrajectoryPlanner.cpp 
 )
+target_link_libraries(trajectory_planner_node trajectory_planner)
 
