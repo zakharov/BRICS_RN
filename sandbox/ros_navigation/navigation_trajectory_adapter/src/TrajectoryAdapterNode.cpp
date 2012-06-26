@@ -262,7 +262,7 @@ void TrajectoryAdapterNode::replan(const navigation_trajectory_msgs::Trajectory&
     goal.pose = goalPose.pose.pose;
     goal.header.frame_id = "/odom";
    // std::vector<geometry_msgs::PoseStamped> plan;
-   // planner->makePlan(start, goal, plan);
+ //   planner->makePlan(start, goal, plan);
     
     TrajectoryPlanner trajectoryPlanner(planner);
     ConversionUtils convert;
@@ -276,6 +276,8 @@ void TrajectoryAdapterNode::replan(const navigation_trajectory_msgs::Trajectory&
     KDL::Trajectory_Composite trajectoryComposite;
     trajectoryPlanner.computeTrajectory(pathComposite, trajectoryComposite);
     convert.trajectoryKdlToRos(trajectoryComposite, newTrajectory, 0.2);
+    
+   
 }
 
 void TrajectoryAdapterNode::controlLoop() {
@@ -303,6 +305,8 @@ void TrajectoryAdapterNode::controlLoop() {
     } else
         trajectoryRef = &originalTrajectory;
 
+    
+    
 
     publishTrajectory(*trajectoryRef);
 }

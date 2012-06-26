@@ -213,7 +213,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         
         double errorX = gain1 * positionXError + gain2 * velocityXError;
         double errorY = gain1 * positionYError + gain2 * velocityYError;
-        double errorTheta = gain2 * velocityThetaError+ gain1 * positionThetaError;
+        double errorTheta = gain2 * dVelTheta+ gain1 * positionThetaError;
        
         
         float x_d0 = (dVelX * cos(aPosTheta) + dVelY * sin(aPosTheta));
