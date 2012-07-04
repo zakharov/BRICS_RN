@@ -341,7 +341,7 @@ int main(int argc, char **argv) {
 
     ROS_INFO("Initialize costmap size: %d, %d", localCostmap.getSizeInCellsX(), localCostmap.getSizeInCellsY());
 
-    ros::Rate r(20); // 10 Hz
+    ros::Rate r(20);
     while (ros::ok()) {
         ros::spinOnce();
         trajectoryAdapterNode.controlLoop();
