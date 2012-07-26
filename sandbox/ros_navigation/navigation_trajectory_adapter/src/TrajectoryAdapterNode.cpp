@@ -40,6 +40,7 @@
 #include "navigation_trajectory_adapter/TrajectoryAdapterNode.h"
 #include <tf/transform_datatypes.h>
 #include <geometry_msgs/Quaternion.h>
+#include <geometry_msgs/Twist.h>
 #include <base_local_planner/costmap_model.h>
 #include <costmap_2d/costmap_2d_ros.h>
 #include <nav_core/base_local_planner.h>
@@ -59,7 +60,6 @@ TrajectoryAdapterNode* adapterNodeHandle = NULL;
 costmap_2d::Costmap2DROS* costmap = NULL;
 nav_core::BaseGlobalPlanner* planner;
 
-
 void odomCallback(const nav_msgs::Odometry& odometry) {
     adapterNodeHandle->setActualOdometry(odometry);
 }
@@ -73,9 +73,9 @@ void TrajectoryAdapterNode::setActualOdometry(const nav_msgs::Odometry& odometry
 }
 
 void TrajectoryAdapterNode::setActualTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory) {
-    adaptedTrajectory.trajectory.clear();
+    globalTrajectory.trajectory.clear();
     //   prune(trajectory, adaptedTrajectory);
-    adaptedTrajectory = trajectory;
+    globalTrajectory = trajectory;
 }
 
 void TrajectoryAdapterNode::publishTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory) {
@@ -151,6 +151,8 @@ TrajectoryAdapterNode::TrajectoryAdapterNode(std::string name) : nodeName(name) 
     trajectoryPublisher = globalNode.advertise<navigation_trajectory_msgs::Trajectory > ("localTrajectory", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
     trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
+    
+    rollingWindowCursor = 0;
 }
 
 TrajectoryAdapterNode::~TrajectoryAdapterNode() {
@@ -166,15 +168,23 @@ double getDistance(const nav_msgs::Odometry& odom1, const nav_msgs::Odometry& od
     return sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
 }
 
-bool TrajectoryAdapterNode::slideWindow(const navigation_trajectory_msgs::Trajectory& globalTrajectory,
+bool TrajectoryAdapterNode::rollingWindow(const navigation_trajectory_msgs::Trajectory& globalTrajectory,
         const nav_msgs::Odometry& actualOdometry,
         navigation_trajectory_msgs::Trajectory& localTrajectory) {
 
     using namespace navigation_trajectory_msgs;
 
+    
+    int numberOfPoints = 20;
+    
     Trajectory::_trajectory_type& localTrajectoryRef = localTrajectory.trajectory;
     const Trajectory::_trajectory_type& globalTrajectoryRef = globalTrajectory.trajectory;
 
+    if (globalTrajectory.trajectory.empty()) {
+        localTrajectoryRef.push_back(actualOdometry);
+        return false;
+    }
+    
     if (globalTrajectory.trajectory.empty()) {
         localTrajectoryRef.push_back(actualOdometry);
         return false;
@@ -191,12 +201,21 @@ bool TrajectoryAdapterNode::slideWindow(const navigation_trajectory_msgs::Trajec
         }
     }
 
+    
+    
     if (minIndex >= globalTrajectoryRef.size()) {
         localTrajectoryRef.push_back(globalTrajectoryRef.back());
         return false;
     }
 
-    for (unsigned int i = minIndex + 1; i < globalTrajectoryRef.size(); i++) {
+    this->rollingWindowCursor = minIndex + 1;
+    
+    if (numberOfPoints > globalTrajectoryRef.size() - rollingWindowCursor)
+        numberOfPoints = globalTrajectoryRef.size();
+    else
+        numberOfPoints += rollingWindowCursor;
+    
+    for (unsigned int i = minIndex + 1; i < numberOfPoints; i++) {
         localTrajectoryRef.push_back(globalTrajectoryRef[i]);
     }
 
@@ -210,43 +229,43 @@ bool TrajectoryAdapterNode::collisionCheck(const navigation_trajectory_msgs::Tra
     costmap_2d::Costmap2D costmapCopy;
     costmap->clearRobotFootprint();
     costmap->getCostmapCopy(costmapCopy);
-    
+
     base_local_planner::CostmapModel collisionChecker(costmapCopy);
-   
+
     for (int i = 0; i < trajectory.trajectory.size(); i++) {
         nav_msgs::Odometry odom = trajectory.trajectory[i];
         geometry_msgs::Pose pose = odom.pose.pose;
-        
-         /**
-       * @brief  Checks if any obstacles in the costmap lie inside a convex footprint that is rasterized into the grid
-       * @param  position The position of the robot in world coordinates
-       * @param  footprint The specification of the footprint of the robot in world coordinates
-       * @param  inscribed_radius The radius of the inscribed circle of the robot
-       * @param  circumscribed_radius The radius of the circumscribed circle of the robot
-       * @return Positive if all the points lie outside the footprint, negative otherwise
-       */
-     
-      geometry_msgs::Point position = pose.position;
-      
-      
-      vector <geometry_msgs::Point> orientedFootprint;
-      costmap->getOrientedFootprint(orientedFootprint);
-      double circumscribedRadius = costmap->getCircumscribedRadius();
-      double inscribedRadius = costmap->getInscribedRadius();
-      
-      double collision = collisionChecker.footprintCost(position, 
-              orientedFootprint, 
-              inscribedRadius, 
-              circumscribedRadius);
-      
-      if (collision < 0) {
-          //ROS_INFO("Collision at pose: %f, %f", pose.position.x, pose.position.y);
-          return false;
-      } 
-              
+
+        /**
+         * @brief  Checks if any obstacles in the costmap lie inside a convex footprint that is rasterized into the grid
+         * @param  position The position of the robot in world coordinates
+         * @param  footprint The specification of the footprint of the robot in world coordinates
+         * @param  inscribed_radius The radius of the inscribed circle of the robot
+         * @param  circumscribed_radius The radius of the circumscribed circle of the robot
+         * @return Positive if all the points lie outside the footprint, negative otherwise
+         */
+
+        geometry_msgs::Point position = pose.position;
+
+
+        vector <geometry_msgs::Point> orientedFootprint;
+        costmap->getOrientedFootprint(orientedFootprint);
+        double circumscribedRadius = costmap->getCircumscribedRadius();
+        double inscribedRadius = costmap->getInscribedRadius();
+
+        double collision = collisionChecker.footprintCost(position,
+                orientedFootprint,
+                inscribedRadius,
+                circumscribedRadius);
+
+        if (collision < 0) {
+            //ROS_INFO("Collision at pose: %f, %f", pose.position.x, pose.position.y);
+            return false;
+        }
+
     }
-    
-   
+
+
     return true;
 }
 
@@ -254,16 +273,16 @@ void TrajectoryAdapterNode::replan(const navigation_trajectory_msgs::Trajectory&
         const nav_msgs::Odometry& actualPose,
         const nav_msgs::Odometry& goalPose,
         navigation_trajectory_msgs::Trajectory& newTrajectory) {
-    
-    geometry_msgs::PoseStamped start; 
+
+    geometry_msgs::PoseStamped start;
     start.pose = actualPose.pose.pose;
     start.header.frame_id = "/odom";
-    geometry_msgs::PoseStamped goal; 
+    geometry_msgs::PoseStamped goal;
     goal.pose = goalPose.pose.pose;
     goal.header.frame_id = "/odom";
-   // std::vector<geometry_msgs::PoseStamped> plan;
- //   planner->makePlan(start, goal, plan);
-    
+    // std::vector<geometry_msgs::PoseStamped> plan;
+    //   planner->makePlan(start, goal, plan);
+
     TrajectoryPlanner trajectoryPlanner(planner);
     ConversionUtils convert;
     KDL::Frame startKDL;
@@ -276,38 +295,88 @@ void TrajectoryAdapterNode::replan(const navigation_trajectory_msgs::Trajectory&
     KDL::Trajectory_Composite trajectoryComposite;
     trajectoryPlanner.computeTrajectory(pathComposite, trajectoryComposite);
     convert.trajectoryKdlToRos(trajectoryComposite, newTrajectory, 0.2);
+
+
+}
+
+// Return RC low-pass filter output samples, given input samples,
+ // time interval dt, and time constant RC
+ double lowpass(double x, double last_y, double dt, double RC) {
+   double y = 0;
+   double alfa = dt / (RC + dt);
+   y = alfa * x + (1-alfa) * last_y;
+   return y;
+ }
+
+void TrajectoryAdapterNode::updateTrajctory(navigation_trajectory_msgs::Trajectory& updatedTrajectory,
+        int startIndex, 
+        navigation_trajectory_msgs::Trajectory& globalTrajectory) {
     
-   
+    /*ROS_INFO("UpdatedTrajectory: %i, startIndex: %i, globalTrajectory: %i", 
+            updatedTrajectory.trajectory.size(), 
+            startIndex, 
+            globalTrajectory.trajectory.size());*/
+    
+    nav_msgs::Odometry startOdom = globalTrajectory.trajectory[startIndex];
+    geometry_msgs::Twist start_twist = startOdom.twist.twist;
+    
+    ROS_INFO("Initial twist: %f, %f, %f", 
+            startOdom.twist.twist.linear.x,
+            startOdom.twist.twist.linear.y,
+            startOdom.twist.twist.angular.z);
+    
+    for (int i = 0; i < updatedTrajectory.trajectory.size(); ++i) {
+        if (startIndex + i < globalTrajectory.trajectory.size()) {
+            
+            geometry_msgs::Twist newTwist = updatedTrajectory.trajectory[i].twist.twist;
+            
+            start_twist.linear.x = lowpass(newTwist.linear.x, start_twist.linear.x, 0.1, 1);
+            updatedTrajectory.trajectory[i].twist.twist.linear.x = start_twist.linear.x;
+            
+            
+            
+            start_twist.linear.y = lowpass(newTwist.linear.y, start_twist.linear.y, 0.1, 1);
+            updatedTrajectory.trajectory[i].twist.twist.linear.y = start_twist.linear.y;
+            
+            start_twist.angular.z = lowpass(newTwist.angular.z, start_twist.angular.z, 0.1, 1);
+            updatedTrajectory.trajectory[i].twist.twist.angular.z = start_twist.angular.z;
+            
+            ROS_INFO("Updated twist: %f, %f, %f", 
+            updatedTrajectory.trajectory[i].twist.twist.linear.x,
+            updatedTrajectory.trajectory[i].twist.twist.linear.y,
+            updatedTrajectory.trajectory[i].twist.twist.angular.z);
+            
+            globalTrajectory.trajectory[startIndex + i] = updatedTrajectory.trajectory[i];
+        }
+    }
+    
 }
 
 void TrajectoryAdapterNode::controlLoop() {
     navigation_trajectory_msgs::Trajectory* trajectoryRef;
-    navigation_trajectory_msgs::Trajectory originalTrajectory;
+    navigation_trajectory_msgs::Trajectory rollingWindowTrajectory;
     navigation_trajectory_msgs::Trajectory updatedTrajectory;
 
-    slideWindow(adaptedTrajectory, actualOdometry, originalTrajectory);
-  //  ROS_INFO("Publishing trajectory with size %d", originalTrajectory.trajectory.size());
+    rollingWindow(globalTrajectory, actualOdometry, rollingWindowTrajectory);
+    // ROS_INFO("AdaptedTrajectory trajectory with size %d", rollingWindowTrajectory.trajectory.size());
 
 
 
     nav_msgs::Odometry newGoalPose;
-    bool noCollision = collisionCheck(originalTrajectory, actualOdometry, newGoalPose);
-
+    bool noCollision = collisionCheck(rollingWindowTrajectory, actualOdometry, newGoalPose);
 
 
     if (!noCollision) {
         ROS_INFO("Collision trajectory");
-        newGoalPose = adaptedTrajectory.trajectory.back();
-        replan(originalTrajectory, actualOdometry, newGoalPose, updatedTrajectory);
-        adaptedTrajectory = updatedTrajectory;
-        trajectoryRef = &originalTrajectory;
-       
-    } else
-        trajectoryRef = &originalTrajectory;
+        newGoalPose = globalTrajectory.trajectory.back();
+        replan(rollingWindowTrajectory, actualOdometry, newGoalPose, updatedTrajectory);
+        updateTrajctory(updatedTrajectory, rollingWindowCursor, globalTrajectory);
+        //globalTrajectory = updatedTrajectory;
+    } 
 
     
     
-
+    trajectoryRef = &rollingWindowTrajectory;
     publishTrajectory(*trajectoryRef);
 }
 
@@ -330,8 +399,8 @@ int main(int argc, char **argv) {
     ros::NodeHandle node = ros::NodeHandle("~/");
     string localTrajectoryPlanner;
     node.param("local_costmap/trajectory_planner", localTrajectoryPlanner, string("navfn/NavfnROS"));
-    
-     // Loading a planner plugin
+
+    // Loading a planner plugin
     nav_core::BaseGlobalPlanner* pathPlanner;
     //TODO: read planners names from configuration file
     pluginlib::ClassLoader<nav_core::BaseGlobalPlanner> bgpLoader("nav_core", "nav_core::BaseGlobalPlanner");

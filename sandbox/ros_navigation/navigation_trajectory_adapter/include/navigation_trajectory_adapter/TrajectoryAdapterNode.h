@@ -25,7 +25,7 @@ public:
     void setActualTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory);
     void publishTrajectory(const navigation_trajectory_msgs::Trajectory& trajectory);
     void prune(const navigation_trajectory_msgs::Trajectory& globalTrajectory, navigation_trajectory_msgs::Trajectory& localTrajectory);
-    bool slideWindow(const navigation_trajectory_msgs::Trajectory& globalTrajectory, 
+    bool rollingWindow(const navigation_trajectory_msgs::Trajectory& globalTrajectory, 
         const nav_msgs::Odometry& actualOdometry,
         navigation_trajectory_msgs::Trajectory& localTrajectory);
 
@@ -38,6 +38,10 @@ public:
         const nav_msgs::Odometry& actualPose, 
         const nav_msgs::Odometry& goalPose, 
         navigation_trajectory_msgs::Trajectory& newTrajectory);
+    
+    void updateTrajctory(navigation_trajectory_msgs::Trajectory& updatedTrajectory,
+        int startIndex, 
+        navigation_trajectory_msgs::Trajectory& globalTrajectory);
     
     virtual ~TrajectoryAdapterNode();
     void controlLoop();
@@ -54,7 +58,9 @@ private:
     
     nav_msgs::Odometry actualOdometry;
     navigation_trajectory_msgs::Trajectory actualTrajectory;
-    navigation_trajectory_msgs::Trajectory adaptedTrajectory;
+    navigation_trajectory_msgs::Trajectory globalTrajectory;
+    
+    int rollingWindowCursor;
     
 };
 
