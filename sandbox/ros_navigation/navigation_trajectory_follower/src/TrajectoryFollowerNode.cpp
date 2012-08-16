@@ -70,6 +70,18 @@ void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
     
 }
 
+void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
+    
+    pose.position.x = pose2d.getX();
+    pose.position.y = pose2d.getY();
+    tf::Quaternion quat;
+    
+    quat.setRPY(0, 0, pose2d.getTheta());
+    tf::quaternionTFToMsg(quat, pose.orientation);
+    
+}
+
+
 void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
 
     nav_msgs::Odometry odom;
@@ -85,17 +97,6 @@ void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& tra
         odometryVector.push_back(Odometry(pose2d, twist2d));
 
     }
-    
-}
-
-void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
-    
-    pose.position.x = pose2d.getX();
-    pose.position.y = pose2d.getY();
-    tf::Quaternion quat;
-    
-    quat.setRPY(0, 0, pose2d.getTheta());
-    tf::quaternionTFToMsg(quat, pose.orientation);
     
 }
 
@@ -168,7 +169,7 @@ int main(int argc, char **argv) {
     ros::Subscriber odomSubscriber;
     twistPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel", 1);
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("localTrajectory", 1, &trajectoryCallback);
+    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
 
     controller = new OmniDrivePositionController();
 

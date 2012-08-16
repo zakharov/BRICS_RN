@@ -98,30 +98,22 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
         Odometry odom = targetTrajectory.front();
         KDL::Frame pose1;
         pose2dToFrameKdl(odom.getPose2D(), pose1);
-        KDL::Twist twist1;
-        twist2dToTwistKdl(odom.getTwist2D(), twist1);
-
+       
         for (it = targetTrajectory.begin() + 1; it != targetTrajectory.end(); ++it) {
 
             odom = *it;
             KDL::Frame pose2;
             pose2dToFrameKdl(odom.getPose2D(), pose2);
-            KDL::Twist twist2;
-            twist2dToTwistKdl(odom.getTwist2D(), twist2);
-
+          
             KDL::Path_Line* path = new KDL::Path_Line(pose1, pose2, new KDL::RotationalInterpolation_SingleAxis(), 0.001);
             KDL::VelocityProfile_Spline* velprof = new KDL::VelocityProfile_Spline();
 
-            velprof->SetProfileDuration(0,
-                    sqrt(twist1.vel.x() * twist1.vel.x() + twist1.vel.y() * twist1.vel.y()),
-                    path->PathLength(),
-                    sqrt(twist2.vel.x() * twist2.vel.x() + twist2.vel.y() * twist2.vel.y()), 0.2);
+            velprof->SetProfileDuration(0,path->PathLength(), 0.2);
 
             KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
             trajectoryComposite->Add(trajectorySegment);
             pose1 = pose2;
-            twist1 = twist2;
-
+           
         }
     }
 }
@@ -162,7 +154,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && elapsedTimeInSec <= trajectoryComposite->Duration()) {
+    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && elapsedTimeInSec < trajectoryComposite->Duration() + 0.2) {
         targetReached(translationFlag, rotationFlag);
         
         double actualTime = elapsedTimeInSec;
@@ -199,9 +191,6 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double positionYError = dPosY - aPosY;
         double positionThetaError = getShortestAngle(dPosTheta,aPosTheta);
 
-       
-        
-        
         double velocityXError = dVelX - aVelX;
         double velocityYError = dVelY - aVelY;
         double velocityThetaError = dVelTheta - aVelTheta;
@@ -209,13 +198,10 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double gain1 = 1;
         double gain2 = 1.0;
         
-        
-        
         double errorX = gain1 * positionXError + gain2 * velocityXError;
         double errorY = gain1 * positionYError + gain2 * velocityYError;
         double errorTheta = gain2 * dVelTheta+ gain1 * positionThetaError;
        
-        
         float x_d0 = (dVelX * cos(aPosTheta) + dVelY * sin(aPosTheta));
         float y_d0 = (dVelY * cos(aPosTheta) - dVelX * sin(aPosTheta)); 
         
@@ -231,8 +217,6 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0);
         errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0);
        
-         
-         
         computedOdometry.setTwist2D(Twist2D(errorX, errorY, errorTheta));
     }
 

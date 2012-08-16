@@ -47,6 +47,10 @@
 #include <kdl/trajectory_segment.hpp>
 #include <nav_core/base_global_planner.h>
 
+#include <iostream>
+
+using namespace std;
+
 TrajectoryPlanner::TrajectoryPlanner(nav_core::BaseGlobalPlanner* pathPlanner) {
     this->pathPlanner = pathPlanner;
 }
@@ -76,51 +80,60 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
     conversion.ConversionUtils::poseKdlToRos(goal, goalPoseStamped.pose);
     goalPoseStamped.header.frame_id = frameId;
 
-
     std::vector<geometry_msgs::PoseStamped> poseStampedArray;
     bool result = pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
     if (result == true) { // plan has no orientation
+        
+        ROS_INFO("Found a path, which has %lu points", poseStampedArray.size());
+        ROS_INFO("Initial pose origin (x,y,z): %f, %f, %f", 
+                poseStampedArray.front().pose.position.x,
+                poseStampedArray.front().pose.position.y,
+                poseStampedArray.front().pose.position.z);
+        ROS_INFO("      orientation (w,x,y,z): %f, %f, %f, %f",
+                poseStampedArray.front().pose.orientation.w, 
+                poseStampedArray.front().pose.orientation.x, 
+                poseStampedArray.front().pose.orientation.y, 
+                poseStampedArray.front().pose.orientation.z);
+        
+        ROS_INFO("Goal pose origin (x,y,z): %f, %f, %f", 
+                poseStampedArray.back().pose.position.x,
+                poseStampedArray.back().pose.position.y,
+                poseStampedArray.back().pose.position.z);
+        ROS_INFO("   orientation (w,x,y,z): %f, %f, %f, %f",
+                poseStampedArray.back().pose.orientation.w, 
+                poseStampedArray.back().pose.orientation.x, 
+                poseStampedArray.back().pose.orientation.y, 
+                poseStampedArray.back().pose.orientation.z);
+        
         poseStampedArray.front() = initialPoseStamped;
         std::vector<geometry_msgs::PoseStamped>::iterator it;
 
         ConversionUtils convert;
 
-
-
         double start = tf::getYaw(initialPoseStamped.pose.orientation);
-
         double end = tf::getYaw(goalPoseStamped.pose.orientation);
-
-
         double step = getShortestAngle(end, start) / poseStampedArray.size();
 
-
-
-        for (it = poseStampedArray.begin(); it != poseStampedArray.end(); ++it) {
-
-
+        for (it = poseStampedArray.begin(); it != poseStampedArray.end() - 1; ++it) {
 
             KDL::Frame f(KDL::Rotation::RPY(0, 0, start), KDL::Vector(0, 0, 0));
+
             start = start + step;
 
             geometry_msgs::Pose f1;
             convert.poseKdlToRos(f, f1);
 
             it->pose.orientation = f1.orientation;
+
         }
 
 
+        KDL::Frame f(KDL::Rotation::RPY(0, 0, end), KDL::Vector(0, 0, 0));
 
-        ROS_INFO("Initial pose: %f,%f,%f,%f", initialPoseStamped.pose.orientation.w,
-                initialPoseStamped.pose.orientation.x,
-                initialPoseStamped.pose.orientation.y,
-                initialPoseStamped.pose.orientation.z);
-        ROS_INFO("Goal pose: %f,%f,%f,%f", goalPoseStamped.pose.orientation.w,
-                goalPoseStamped.pose.orientation.x,
-                goalPoseStamped.pose.orientation.y,
-                goalPoseStamped.pose.orientation.z);
+        geometry_msgs::Pose f1;
+        convert.poseKdlToRos(f, f1);
 
-
+        poseStampedArray.back().pose.orientation = f1.orientation;
     }
 
     conversion.pathRosToKdl(poseStampedArray, path);
@@ -133,16 +146,13 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
     const double maxVel = 0.5;
     const double maxAcc = 0.1;
 
-    double dur = trajectory.Duration();
-
-
+    ROS_INFO("Path converted to a trajectory, max velocity: %f m/s, max acceleration: %f m/s^2", maxVel, maxAcc);
+    
     KDL::VelocityProfile_Trap* velocityProfile = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
-
     KDL::Path* copyPath = const_cast<KDL::Path&> (path).Clone(); // Why KDL has no const version of Clone method?
     // They force me to do this!
 
     velocityProfile->SetProfile(0, copyPath->PathLength());
-
     KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(copyPath, velocityProfile);
 
     trajectory.Add(trajectorySegment);

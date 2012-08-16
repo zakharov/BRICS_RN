@@ -64,46 +64,14 @@ costmap_2d::Costmap2DROS* costmap = NULL;
 
 ros::Publisher velPublisher;
 
-void debug(navigation_trajectory_msgs::Trajectory& trajectory) {
-    if (!trajectory.trajectory.empty()) {
-        ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
-   /*    for (int i = 0; i < trajectory.trajectory.size(); i++) {
-            nav_msgs::Odometry odom = trajectory.trajectory[i];
-
-            tf::Quaternion bt;
-            double yaw = tf::getYaw(odom.pose.pose.orientation);
-
-
-            ROS_INFO("x:%f, y:%f, z:%f, yaw:%f", odom.pose.pose.position.x,
-                    odom.pose.pose.position.y,
-                    odom.pose.pose.position.z,
-                    yaw);
-
-            velPublisher.publish(odom.twist.twist);
-            ros::Rate r(10); // 100 Hz
-            r.sleep();
-        }
-    * */
-    }
-
-}
-
 void publishTrajectory(navigation_trajectory_msgs::Trajectory& trajectory) {
 
     if (!trajectory.trajectory.empty()) {
-        debug(trajectory);
-        ROS_INFO("Publishing trajectory, size: %d", trajectory.trajectory.size());
-        for (int i = 0; i < trajectory.trajectory.size(); i++) {
+        ROS_INFO("Trajectory published, size: %lu values", trajectory.trajectory.size());
+        for (unsigned int i = 0; i < trajectory.trajectory.size(); i++) {
             nav_msgs::Odometry odom = trajectory.trajectory[i];
 
             tf::Quaternion bt;
-            double yaw = tf::getYaw(odom.pose.pose.orientation);
-
-
-            ROS_INFO("x:%f, y:%f, z:%f, yaw:%f", odom.pose.pose.position.x,
-                    odom.pose.pose.position.y,
-                    odom.pose.pose.position.z,
-                    yaw);
         }
         trajectoryPublisherPtr->publish(trajectory);
     } else {
@@ -152,6 +120,8 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
         navigation_trajectory_msgs::Trajectory trajectoryMsgs;
         const double dt = 0.2; //TODO move this to configuration;
 
+        ROS_INFO("Trajectory sampled with ratio: %f Hz", 1.0 / dt);
+        
         conversion.trajectoryKdlToRos(trajectory, trajectoryMsgs.trajectory, dt);
         trajectoryMsgs.header.frame_id = goal.header.frame_id;
 
