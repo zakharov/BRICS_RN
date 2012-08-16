@@ -40,6 +40,8 @@
 #include "OmniDrivePositionController.h"
 #include "ConversionUtils.h"
 
+#include <ros/ros.h>
+
 #include <kdl/frames.hpp>
 #include <kdl/path_composite.hpp>
 #include <kdl/path_line.hpp>
@@ -50,7 +52,7 @@
 #include <cmath>
 
 OmniDrivePositionController::OmniDrivePositionController() {
-    tolerance = Odometry(Pose2D(0.1,0.1,0.1));
+    tolerance = Odometry(Pose2D(0.1,0.1,0.05));
     trajectoryComposite = new KDL::Trajectory_Composite();
     resetFlags();
 }
@@ -123,7 +125,7 @@ const std::vector<Odometry>& OmniDrivePositionController::getTargetTrajectory() 
 }
 
 bool OmniDrivePositionController::isTargetReached() const {
-       
+    
     return translationFlag && rotationFlag;
 }
 
@@ -134,7 +136,7 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
     double roll, pitch, yaw;
     frame.M.GetRPY(roll, pitch, yaw);
          
-    Pose2D desiredPose(frame.p.x(), frame.p.x(), yaw);         
+    Pose2D desiredPose(frame.p.x(), frame.p.y(), yaw);         
     Pose2D actualPose = actualOdometry.getPose2D();
          
     double angDist = getShortestAngle(desiredPose.getTheta(), actualPose.getTheta());
@@ -142,11 +144,17 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
          
     translation = false;
     rotation = false;
-         
-    if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY())
+    
+    ROS_INFO("linear dist: %f", linDist);
+    ROS_INFO("angular dist: %f", angDist);
+    if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY()) {
         translation = true;
-    if (angDist <= tolerance.getPose2D().getTheta())
+        ROS_INFO("Translation reached");
+    }
+    if (fabs(angDist) <= tolerance.getPose2D().getTheta()) {
         rotation = true;
+        ROS_INFO("Rotation reached");
+    }
 }
 
 const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec) {
@@ -154,7 +162,9 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && elapsedTimeInSec < trajectoryComposite->Duration() + 0.2) {
+    const double timeThreshold = 0.0; //sec
+    
+    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && !isTargetReached()/*elapsedTimeInSec < trajectoryComposite->Duration() + timeThreshold*/) {
         targetReached(translationFlag, rotationFlag);
         
         double actualTime = elapsedTimeInSec;
@@ -195,12 +205,12 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double velocityYError = dVelY - aVelY;
         double velocityThetaError = dVelTheta - aVelTheta;
 
-        double gain1 = 1;
+        double gain1 = 1.0;
         double gain2 = 1.0;
         
         double errorX = gain1 * positionXError + gain2 * velocityXError;
         double errorY = gain1 * positionYError + gain2 * velocityYError;
-        double errorTheta = gain2 * dVelTheta+ gain1 * positionThetaError;
+        double errorTheta = gain2 * dVelTheta + gain1 * positionThetaError;
        
         float x_d0 = (dVelX * cos(aPosTheta) + dVelY * sin(aPosTheta));
         float y_d0 = (dVelY * cos(aPosTheta) - dVelX * sin(aPosTheta)); 
@@ -213,6 +223,8 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     
         float x_d2 = (aPosX * cos(aPosTheta) + aPosY * sin(aPosTheta));
         float y_d2 = (aPosY * cos(aPosTheta) - aPosX * sin(aPosTheta));
+        
+        
         
         errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0);
         errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0);

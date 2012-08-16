@@ -90,7 +90,7 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
         KDL::Frame goalKDL;
         conversion.poseRosToKdl(goal.pose, goalKDL);
 
-         
+
 
         // getting actual robot pose from the costmap
         tf::Stamped<tf::Pose> globalPose;
@@ -121,7 +121,7 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
         const double dt = 0.2; //TODO move this to configuration;
 
         ROS_INFO("Trajectory sampled with ratio: %f Hz", 1.0 / dt);
-        
+
         conversion.trajectoryKdlToRos(trajectory, trajectoryMsgs.trajectory, dt);
         trajectoryMsgs.header.frame_id = goal.header.frame_id;
 

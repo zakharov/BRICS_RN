@@ -97,14 +97,14 @@ public:
 
     void pathRosToKdl(const std::vector<geometry_msgs::PoseStamped>& poseStampedArray, KDL::Path_Composite& path) {
         std::vector<geometry_msgs::PoseStamped>::const_iterator it;
-        
-        
+
+
         if (poseStampedArray.size() > 1) {
 
             geometry_msgs::PoseStamped p1 = poseStampedArray.front();
             geometry_msgs::PoseStamped p2;
 
-                   
+
             for (it = poseStampedArray.begin() + 1; it != poseStampedArray.end(); ++it) {
                 p2 = *it;
                 KDL::Frame f1, f2;
@@ -112,7 +112,7 @@ public:
                 poseRosToKdl(p2.pose, f2);
 
                 KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, new KDL::RotationalInterpolation_SingleAxis(), 0.000001);
-            
+
                 path.Add(pathLine);
 
                 p1 = p2;
@@ -132,9 +132,9 @@ public:
     }
 
     void trajectoryKdlToRos(const KDL::Trajectory& trajectroyKDL, navigation_trajectory_msgs::Trajectory& trajectoryROS, double dt) {
-         trajectoryKdlToRos(trajectroyKDL, trajectoryROS.trajectory, dt);
+        trajectoryKdlToRos(trajectroyKDL, trajectoryROS.trajectory, dt);
     }
-    
+
     void trajectoryKdlToRos(const KDL::Trajectory& trajectroyKDL, std::vector <nav_msgs::Odometry>& trajectoryROS, double dt) {
         double duration = trajectroyKDL.Duration();
 

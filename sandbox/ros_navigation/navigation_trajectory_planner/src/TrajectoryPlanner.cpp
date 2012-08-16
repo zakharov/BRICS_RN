@@ -83,28 +83,28 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
     std::vector<geometry_msgs::PoseStamped> poseStampedArray;
     bool result = pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
     if (result == true) { // plan has no orientation
-        
+
         ROS_INFO("Found a path, which has %lu points", poseStampedArray.size());
-        ROS_INFO("Initial pose origin (x,y,z): %f, %f, %f", 
+        ROS_INFO("Initial pose origin (x,y,z): %f, %f, %f",
                 poseStampedArray.front().pose.position.x,
                 poseStampedArray.front().pose.position.y,
                 poseStampedArray.front().pose.position.z);
         ROS_INFO("      orientation (w,x,y,z): %f, %f, %f, %f",
-                poseStampedArray.front().pose.orientation.w, 
-                poseStampedArray.front().pose.orientation.x, 
-                poseStampedArray.front().pose.orientation.y, 
+                poseStampedArray.front().pose.orientation.w,
+                poseStampedArray.front().pose.orientation.x,
+                poseStampedArray.front().pose.orientation.y,
                 poseStampedArray.front().pose.orientation.z);
-        
-        ROS_INFO("Goal pose origin (x,y,z): %f, %f, %f", 
+
+        ROS_INFO("Goal pose origin (x,y,z): %f, %f, %f",
                 poseStampedArray.back().pose.position.x,
                 poseStampedArray.back().pose.position.y,
                 poseStampedArray.back().pose.position.z);
         ROS_INFO("   orientation (w,x,y,z): %f, %f, %f, %f",
-                poseStampedArray.back().pose.orientation.w, 
-                poseStampedArray.back().pose.orientation.x, 
-                poseStampedArray.back().pose.orientation.y, 
+                poseStampedArray.back().pose.orientation.w,
+                poseStampedArray.back().pose.orientation.x,
+                poseStampedArray.back().pose.orientation.y,
                 poseStampedArray.back().pose.orientation.z);
-        
+
         poseStampedArray.front() = initialPoseStamped;
         std::vector<geometry_msgs::PoseStamped>::iterator it;
 
@@ -147,7 +147,7 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
     const double maxAcc = 0.1;
 
     ROS_INFO("Path converted to a trajectory, max velocity: %f m/s, max acceleration: %f m/s^2", maxVel, maxAcc);
-    
+
     KDL::VelocityProfile_Trap* velocityProfile = new KDL::VelocityProfile_Trap(maxVel, maxAcc);
     KDL::Path* copyPath = const_cast<KDL::Path&> (path).Clone(); // Why KDL has no const version of Clone method?
     // They force me to do this!
