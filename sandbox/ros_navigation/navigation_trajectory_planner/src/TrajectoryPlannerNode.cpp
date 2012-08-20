@@ -62,14 +62,17 @@ ros::Publisher* trajectoryPublisherPtr = NULL;
 costmap_2d::Costmap2DROS* costmap = NULL;
 
 
-ros::Publisher velPublisher;
+//ros::Publisher velPublisher;
 
 void publishTrajectory(navigation_trajectory_msgs::Trajectory& trajectory) {
 
+    
+    
     if (!trajectory.trajectory.empty()) {
         ROS_INFO("Trajectory published, size: %lu values", trajectory.trajectory.size());
         for (unsigned int i = 0; i < trajectory.trajectory.size(); i++) {
             nav_msgs::Odometry odom = trajectory.trajectory[i];
+            
 
             tf::Quaternion bt;
         }
@@ -155,7 +158,7 @@ int main(int argc, char **argv) {
     trajectoryPublisherPtr = &trajectoryPublisher;
 
 
-    velPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel1", 1);
+   // velPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel1", 1);
 
     ros::Subscriber goalSubscriber;
     goalSubscriber = globalNode.subscribe("goal", 1, &goalCallback);

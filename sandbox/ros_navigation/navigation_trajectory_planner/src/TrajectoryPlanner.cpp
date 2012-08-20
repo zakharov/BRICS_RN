@@ -143,8 +143,8 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
 
 bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory_Composite& trajectory) {
 
-    const double maxVel = 0.5;
-    const double maxAcc = 0.1;
+    const double maxVel = 0.3;
+    const double maxAcc = 0.05;
 
     ROS_INFO("Path converted to a trajectory, max velocity: %f m/s, max acceleration: %f m/s^2", maxVel, maxAcc);
 
@@ -157,5 +157,14 @@ bool TrajectoryPlanner::computeTrajectory(const KDL::Path& path, KDL::Trajectory
 
     trajectory.Add(trajectorySegment);
 
+    double dt = 1.0;
+    for (double i = 0; i <= trajectory.Duration() + dt; i = i + dt) {
+        cout << "pos" << ":" << trajectory.Pos(i).p <<  endl;
+        cout << "vel" << ":" << trajectory.Vel(i).vel <<  endl;
+        cout << "acc" << ":" << trajectory.Acc(i).vel <<  endl;
+        cout << "---" << endl;
+    }
+    
+    
     return true;
 }

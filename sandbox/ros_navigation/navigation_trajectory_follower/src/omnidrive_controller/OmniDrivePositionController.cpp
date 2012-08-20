@@ -50,6 +50,9 @@
 #include <kdl/trajectory_segment.hpp>
 #include <kdl/trajectory_composite.hpp>
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 OmniDrivePositionController::OmniDrivePositionController() {
     tolerance = Odometry(Pose2D(0.1,0.1,0.05));
@@ -144,9 +147,7 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
          
     translation = false;
     rotation = false;
-    
-    ROS_INFO("linear dist: %f", linDist);
-    ROS_INFO("angular dist: %f", angDist);
+   
     if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY()) {
         translation = true;
         ROS_INFO("Translation reached");
@@ -193,6 +194,9 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double aPosY = actualOdometry.getPose2D().getY();
         double aPosTheta = actualOdometry.getPose2D().getTheta();
 
+        
+        
+        
         double aVelX = actualOdometry.getTwist2D().getX();
         double aVelY = actualOdometry.getTwist2D().getY();
         double aVelTheta = actualOdometry.getTwist2D().getTheta();
@@ -205,12 +209,14 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double velocityYError = dVelY - aVelY;
         double velocityThetaError = dVelTheta - aVelTheta;
 
-        double gain1 = 1.0;
-        double gain2 = 1.0;
         
-        double errorX = gain1 * positionXError + gain2 * velocityXError;
-        double errorY = gain1 * positionYError + gain2 * velocityYError;
-        double errorTheta = gain2 * dVelTheta + gain1 * positionThetaError;
+        
+        double gain1 = 1.35;
+        double gain2 = 0.25;
+                
+        double errorTheta = gain1 * dVelTheta + gain2 * positionThetaError;
+        
+        ROS_INFO("K=%f", aVelTheta/dVelTheta);
        
         float x_d0 = (dVelX * cos(aPosTheta) + dVelY * sin(aPosTheta));
         float y_d0 = (dVelY * cos(aPosTheta) - dVelX * sin(aPosTheta)); 
@@ -225,10 +231,16 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         float y_d2 = (aPosY * cos(aPosTheta) - aPosX * sin(aPosTheta));
         
         
+      
         
-        errorX = gain1*(x_d1 - x_d2) + gain2*(x_d0);
-        errorY = gain1*(y_d1 - y_d2) + gain2*(y_d0);
-       
+        gain1 = 1.35;
+        gain2 = 0.25;
+        
+        double errorX = gain2*(x_d1 - x_d2) + gain1*x_d0;
+        double errorY = gain2*(y_d1 - y_d2) + gain1*y_d0;
+        
+               
+        
         computedOdometry.setTwist2D(Twist2D(errorX, errorY, errorTheta));
     }
 
