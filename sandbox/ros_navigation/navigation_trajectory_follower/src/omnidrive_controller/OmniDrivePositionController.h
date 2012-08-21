@@ -51,6 +51,15 @@ namespace KDL {
 
 class OmniDrivePositionController : public PositionController  {
 public:
+    OmniDrivePositionController(double positionGainTranslation, 
+            double velocityGainTranslation, 
+            double positionGainRotation,
+            double velocityGainRotation,
+            double positionToleranceTranslation,
+            double velocityToleranceTranslation,
+            double positionToleranceRotation,
+            double velocityToleranceRotation);
+    
     OmniDrivePositionController();
     OmniDrivePositionController(const OmniDrivePositionController& orig);
     virtual ~OmniDrivePositionController();
@@ -77,7 +86,7 @@ private:
 private:
     
     KDL::Trajectory_Composite* trajectoryComposite;
-    
+    Odometry gains;
     Odometry tolerance;
     std::vector<Odometry> targetTrajectory;
     Odometry targetOdometry;

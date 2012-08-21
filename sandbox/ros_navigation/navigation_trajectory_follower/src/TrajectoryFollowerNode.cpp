@@ -67,20 +67,19 @@ void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
     double theta = twist.angular.z;
 
     twist2d = Twist2D(x, y, theta);
-    
+
 }
 
 void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
-    
+
     pose.position.x = pose2d.getX();
     pose.position.y = pose2d.getY();
     tf::Quaternion quat;
-    
+
     quat.setRPY(0, 0, pose2d.getTheta());
     tf::quaternionTFToMsg(quat, pose.orientation);
-    
-}
 
+}
 
 void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
 
@@ -97,19 +96,19 @@ void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& tra
         odometryVector.push_back(Odometry(pose2d, twist2d));
 
     }
-    
+
 }
 
 void twist2dToTwistRos(const Twist2D& twist2d, geometry_msgs::Twist& twist) {
-    
+
     twist.linear.x = twist2d.getX();
     twist.linear.y = twist2d.getY();
     twist.angular.z = twist2d.getTheta();
-    
+
 }
 
 void odomCallback(const nav_msgs::Odometry& odometry) {
-    
+
     const geometry_msgs::Pose pose = odometry.pose.pose;
     const geometry_msgs::Twist twist = odometry.twist.twist;
 
@@ -120,17 +119,17 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
     twistRosToTwist2d(twist, twist2d);
 
     actualOdometry = Odometry(pose2d, twist2d);
-    
+
 }
 
 void trajectoryCallback(const navigation_trajectory_msgs::Trajectory& trajectory) {
 
     std::vector <Odometry> odometry;
     trajectoryRosToOdomVector(trajectory, odometry);
-  
+
     startTime = ros::Time::now();
     controller->setTargetTrajectory(odometry);
- 
+
 }
 
 void publishOdometry(const Odometry& odometry) {
@@ -150,11 +149,11 @@ void publishOdometry(const Odometry& odometry) {
 }
 
 void controlLoop() {
-    
+
     double elapsedTime = ros::Duration(ros::Time::now() - startTime).toSec();
     Odometry newOdometry = controller->computeNewOdometry(actualOdometry, elapsedTime);
     publishOdometry(newOdometry);
-    
+
 }
 
 int main(int argc, char **argv) {
@@ -165,15 +164,54 @@ int main(int argc, char **argv) {
     ros::NodeHandle node = ros::NodeHandle("~/");
     ros::NodeHandle globalNode = ros::NodeHandle();
 
+    double cycleFrequencyInHz;
+    
+    double velocityGainTranslation;
+    double positionGainTranslation;
+    double velocityToleranceTranslation;
+    double positionToleranceTranslation;
+    
+    double velocityGainRotation;
+    double positionGainRotation;
+    double velocityToleranceRotation;
+    double positionToleranceRotation;
+    
+    string inputTrajectoryTopic;
+    string inputOdometryTopic;
+    string inputVelocityTopic;
+    
+    node.param("cycleFrequencyInHz", cycleFrequencyInHz, 50.0);
+
+    node.param("velocityGainTranslation", velocityGainTranslation, 1.33);
+    node.param("positionGainTranslation", positionGainTranslation, 0.2);
+    node.param("positionToleranceTranslation", positionToleranceTranslation, 0.1);
+    node.param("velocityToleranceTranslation", velocityToleranceTranslation, 0.01);
+    
+    node.param("velocityGainRotation", velocityGainRotation, 1.35);
+    node.param("positionGainRotation", positionGainRotation, 0.2);
+    node.param("positionToleranceRotation", positionToleranceTranslation, 0.1);
+    node.param("velocityToleranceRotation", velocityToleranceTranslation, 0.01);
+    
+    node.param<string >("inputTrajectoryTopic",inputTrajectoryTopic, "globalTrajectory");
+    node.param<string >("inputOdometryTopic",inputOdometryTopic, "odom");
+    node.param<string >("outputVelocityTopic", inputVelocityTopic, "cmd_vel");	
+    
     ros::Subscriber trajectorySubscriber;
     ros::Subscriber odomSubscriber;
-    twistPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel", 1);
-    odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
-    trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
+    twistPublisher = globalNode.advertise<geometry_msgs::Twist > (inputVelocityTopic, 1);
+    odomSubscriber = globalNode.subscribe(inputOdometryTopic, 1, &odomCallback);
+    trajectorySubscriber = globalNode.subscribe(inputTrajectoryTopic, 1, &trajectoryCallback);
 
-    controller = new OmniDrivePositionController();
+    controller = new OmniDrivePositionController(positionGainTranslation, 
+            velocityGainTranslation, 
+            positionGainRotation,
+            velocityGainRotation,
+            positionToleranceTranslation,
+            velocityToleranceTranslation,
+            positionToleranceRotation,
+            velocityToleranceRotation);
 
-    ros::Rate r(100); // 100 Hz
+    ros::Rate r(cycleFrequencyInHz); 
     while (ros::ok()) {
         ros::spinOnce();
         controlLoop();
@@ -181,6 +219,6 @@ int main(int argc, char **argv) {
     }
 
     delete controller;
-    
+
     return 0;
 }
