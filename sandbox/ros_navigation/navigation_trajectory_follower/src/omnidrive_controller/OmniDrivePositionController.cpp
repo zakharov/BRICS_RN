@@ -180,9 +180,11 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
     rotation = false;
    
     if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY()) {
+		ROS_INFO("Translation target reached");
         translation = true;
     }
     if (fabs(angDist) <= tolerance.getPose2D().getTheta()) {
+		ROS_INFO("Rotation target reached");
         rotation = true;
     }
 }
@@ -192,7 +194,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && !isTargetReached()/*elapsedTimeInSec < trajectoryComposite->Duration() + timeThreshold*/) {
+    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && /*!isTargetReached()*/elapsedTimeInSec < trajectoryComposite->Duration()) {
         targetReached(translationFlag, rotationFlag);
         
         double actualTime = elapsedTimeInSec;
