@@ -157,7 +157,8 @@ int main(int argc, char **argv) {
     trajectoryPublisher = globalNode.advertise<navigation_trajectory_msgs::Trajectory > ("globalTrajectory", 1);
     trajectoryPublisherPtr = &trajectoryPublisher;
 
-
+    
+    
    // velPublisher = globalNode.advertise<geometry_msgs::Twist > ("cmd_vel1", 1);
 
     ros::Subscriber goalSubscriber;
@@ -171,7 +172,7 @@ int main(int argc, char **argv) {
     pathPlanner->initialize(bgpLoader.getName(globalTrajectoryPlanner), &globalCostmap);
 
     // Instantiating trajectory planner
-    TrajectoryPlanner trajectoryPlanner(pathPlanner);
+    TrajectoryPlanner trajectoryPlanner(pathPlanner, globalNode);
     plannerNodePtr = &trajectoryPlanner;
 
     // Starting execution thread

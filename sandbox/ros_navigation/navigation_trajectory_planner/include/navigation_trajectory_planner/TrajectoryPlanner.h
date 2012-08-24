@@ -57,9 +57,14 @@ namespace nav_core {
     class BaseGlobalPlanner;
 }
 
+namespace ros {
+    class NodeHandle;
+}
+
 class TrajectoryPlanner {
 public:
     TrajectoryPlanner(nav_core::BaseGlobalPlanner* planner);
+    TrajectoryPlanner(nav_core::BaseGlobalPlanner* pathPlanner, ros::NodeHandle& globalNode);
     TrajectoryPlanner(const TrajectoryPlanner& orig);
     virtual ~TrajectoryPlanner();
 
