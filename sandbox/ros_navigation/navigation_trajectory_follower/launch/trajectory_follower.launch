@@ -11,7 +11,7 @@
 		<param name="positionGainRotation" type="double" value="0.1"/>
         	<param name="velocityGainRotation" type="double" value="1.0"/>
 
-		<param name="inputTrajectoryTopic" type="string" value="globalTrajectory"/>
+		<param name="inputTrajectoryTopic" type="string" value="localTrajectory"/>
 		<param name="inputOdometryTopic" type="string" value="odom"/>
 		<param name="outputVelocityTopic" type="string" value="cmd_vel"/>
 	</node>

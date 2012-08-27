@@ -16,6 +16,8 @@
 #include <vector>
 
 
+class TrajectoryPlanner;
+
 class TrajectoryAdapterNode {
 public:
     TrajectoryAdapterNode(std::string name);
@@ -61,6 +63,8 @@ private:
     navigation_trajectory_msgs::Trajectory globalTrajectory;
     
     int rollingWindowCursor;
+    
+    TrajectoryPlanner* trajectoryPlanner;
     
 };
 

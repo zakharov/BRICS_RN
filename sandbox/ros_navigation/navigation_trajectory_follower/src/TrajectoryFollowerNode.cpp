@@ -41,6 +41,7 @@
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
 #include "tf/transform_datatypes.h"
 #include "nav_msgs/Odometry.h"
+#include "nav_msgs/Path.h"
 #include "geometry_msgs/Twist.h"
 #include <navigation_trajectory_follower/ConversionUtils.h>
 
@@ -50,6 +51,8 @@ ros::Publisher twistPublisher;
 Odometry actualOdometry;
 PositionController* controller;
 ros::Time startTime;
+
+ros::Publisher debugPath;
 
 void poseRosToPose2d(const geometry_msgs::Pose& pose, Pose2D& pose2d) {
 
@@ -130,6 +133,24 @@ void trajectoryCallback(const navigation_trajectory_msgs::Trajectory& trajectory
     startTime = ros::Time::now();
     controller->setTargetTrajectory(odometry);
 
+    nav_msgs::Path path;
+    
+    for (int i = 0; i < trajectory.trajectory.size(); i++) {
+    
+        geometry_msgs::PoseStamped pose;
+        pose.pose = trajectory.trajectory[i].pose.pose;
+        pose.header = trajectory.trajectory[i].header;
+        pose.header.frame_id = "odom";
+        path.poses.push_back(pose);
+        
+    }
+    
+    path.header = trajectory.header;
+    path.header.frame_id = "odom";
+    
+    ROS_INFO("published %lu poses", path.poses.size());
+    debugPath.publish(path);
+    
 }
 
 void publishOdometry(const Odometry& odometry) {
@@ -192,7 +213,7 @@ int main(int argc, char **argv) {
     node.param("positionToleranceRotation", positionToleranceTranslation, 0.1);
     node.param("velocityToleranceRotation", velocityToleranceTranslation, 0.01);
     
-    node.param<string >("inputTrajectoryTopic",inputTrajectoryTopic, "globalTrajectory");
+    node.param<string >("inputTrajectoryTopic",inputTrajectoryTopic, "localTrajectory");
     node.param<string >("inputOdometryTopic",inputOdometryTopic, "odom");
     node.param<string >("outputVelocityTopic", inputVelocityTopic, "cmd_vel");	
     
@@ -212,6 +233,9 @@ int main(int argc, char **argv) {
             velocityToleranceRotation);
 
     ros::Rate r(cycleFrequencyInHz); 
+    
+    debugPath = globalNode.advertise<nav_msgs::Path> ("debugRollingWindow", 1);
+    
     while (ros::ok()) {
         ros::spinOnce();
         controlLoop();

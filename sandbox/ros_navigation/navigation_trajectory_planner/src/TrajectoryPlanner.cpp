@@ -267,6 +267,8 @@ void chaikinCurve (const std::vector<geometry_msgs::PoseStamped>& pointList,
 
 bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame& goal, KDL::Path_Composite& path) {
 
+    ROS_INFO("computePath");
+    
     geometry_msgs::PoseStamped initialPoseStamped;
     geometry_msgs::PoseStamped goalPoseStamped;
     ConversionUtils conversion;
@@ -277,7 +279,9 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
     goalPoseStamped.header.frame_id = frameId;
 
     std::vector<geometry_msgs::PoseStamped> poseStampedArray;
+    ROS_INFO("about to path plan");
     bool result = pathPlanner->makePlan(initialPoseStamped, goalPoseStamped, poseStampedArray);
+    ROS_INFO("path plan done");
     if (result == true) { // plan has no orientation
 
         std::vector<geometry_msgs::PoseStamped> result;
@@ -289,13 +293,13 @@ bool TrajectoryPlanner::computePath(const KDL::Frame& initial, const KDL::Frame&
         nav_msgs::Path path;
        
         
-       /* std::vector<geometry_msgs::PoseStamped> result1;
+        std::vector<geometry_msgs::PoseStamped> result1;
         chaikinCurve(result, result1, 0.75);
         std::vector<geometry_msgs::PoseStamped> result2;
-        chaikinCurve(result1, result2, 0.75);*/
+        chaikinCurve(result1, result2, 0.75);
         
-        std::vector<geometry_msgs::PoseStamped> result2;
-        cubicBSplineCurve(result, result2, 100);
+   //    std::vector<geometry_msgs::PoseStamped> result2;
+   //     cubicBSplineCurve(result, result2, 100);
         
         path.header.frame_id = result2[0].header.frame_id;
         path.poses = result2;

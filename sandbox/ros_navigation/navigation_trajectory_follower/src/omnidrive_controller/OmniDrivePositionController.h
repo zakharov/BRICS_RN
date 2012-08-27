@@ -92,6 +92,9 @@ private:
     Odometry targetOdometry;
     Odometry computedOdometry;
     Odometry actualOdometry;
+    double actualTime;
+    double timeOffset;
+    
     
     bool translationFlag;
     bool rotationFlag;

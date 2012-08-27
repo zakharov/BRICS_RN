@@ -66,6 +66,9 @@ OmniDrivePositionController::OmniDrivePositionController(double positionGainTran
             double positionToleranceRotation,
             double velocityToleranceRotation) {
     
+    actualTime = 0;
+    timeOffset = 0;
+    
     tolerance = Odometry(Pose2D(positionToleranceTranslation,
             positionToleranceTranslation,
             positionToleranceRotation),
@@ -86,6 +89,8 @@ OmniDrivePositionController::OmniDrivePositionController(double positionGainTran
 }
 
 OmniDrivePositionController::OmniDrivePositionController() {
+    actualTime = 0;
+    timeOffset = 0;
     tolerance = Odometry(Pose2D(0.1,0.1,0.05));
     trajectoryComposite = new KDL::Trajectory_Composite();
     resetFlags();
@@ -94,6 +99,8 @@ OmniDrivePositionController::OmniDrivePositionController() {
 OmniDrivePositionController::OmniDrivePositionController(const OmniDrivePositionController& orig) : 
         trajectoryComposite(dynamic_cast<KDL::Trajectory_Composite*>(orig.trajectoryComposite->Clone())) {
     
+    actualTime = 0;
+    timeOffset = 0;
     tolerance = orig.getTolerance();
     targetTrajectory = orig.getTargetTrajectory();
     targetOdometry = orig.getTargetOdometry();
@@ -125,8 +132,11 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
     
     targetTrajectory = trajectory;
 
-    trajectoryComposite->Destroy();
-    trajectoryComposite = new KDL::Trajectory_Composite();
+//    trajectoryComposite->Destroy();
+  
+    KDL::Trajectory_Composite* newTrajectoryComposite;
+    
+    newTrajectoryComposite = new KDL::Trajectory_Composite();
 
     if (targetTrajectory.size() > 1) { // if it has more than one setpoint 
         std::vector <Odometry>::const_iterator it;
@@ -147,11 +157,55 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
             velprof->SetProfileDuration(0,path->PathLength(), 0.2);
 
             KDL::Trajectory_Segment* trajectorySegment = new KDL::Trajectory_Segment(path, velprof);
-            trajectoryComposite->Add(trajectorySegment);
+            newTrajectoryComposite->Add(trajectorySegment);
             pose1 = pose2;
            
         }
+        
+         if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0) {
+                targetReached(translationFlag, rotationFlag);
+        
+                
+
+                KDL::Frame actualPoseKDL = trajectoryComposite->Pos(actualTime);
+                
+                Pose2D actualPose(actualPoseKDL.p.x(),actualPoseKDL.p.y(),0);
+             
+                
+                KDL::Frame newPoseKDL = newTrajectoryComposite->Pos(0);
+                
+                Pose2D newPose(newPoseKDL.p.x(), newPoseKDL.p.y(),0);
+                
+                double min = getDistance(actualPose, newPose);
+                
+                for (float i = 0.01; i <= newTrajectoryComposite->Duration(); i = i+0.01) {
+                        newPoseKDL = newTrajectoryComposite->Pos(i);
+                        Pose2D newPose(newPoseKDL.p.x(), newPoseKDL.p.y(),0);
+                        double res = getDistance(actualPose, newPose);  
+                        if (res > min) {
+                            ROS_INFO("Start from %f msec", i);
+                            timeOffset = i;
+                            break;
+                        } else {
+                            timeOffset = 0;
+                            min = res;
+                        }
+                            
+                }
+                
+                
+                
+                
+         }
+        
+        trajectoryComposite->Destroy();
+        trajectoryComposite = newTrajectoryComposite;
+        
+        
     }
+    
+    
+    
 }
 
 const std::vector<Odometry>& OmniDrivePositionController::getTargetTrajectory() const {
@@ -194,10 +248,10 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
     
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && /*!isTargetReached()*/elapsedTimeInSec < trajectoryComposite->Duration()) {
+    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && /*!isTargetReached()*/(elapsedTimeInSec + timeOffset) < trajectoryComposite->Duration()) {
         targetReached(translationFlag, rotationFlag);
         
-        double actualTime = elapsedTimeInSec;
+        actualTime = elapsedTimeInSec + timeOffset;
 
         KDL::Frame desiredPose = trajectoryComposite->Pos(actualTime);
         KDL::Twist desiredTwist = trajectoryComposite->Vel(actualTime);

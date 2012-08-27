@@ -152,11 +152,14 @@ TrajectoryAdapterNode::TrajectoryAdapterNode(std::string name) : nodeName(name) 
     odomSubscriber = globalNode.subscribe("odom", 1, &odomCallback);
     trajectorySubscriber = globalNode.subscribe("globalTrajectory", 1, &trajectoryCallback);
     
+    trajectoryPlanner = new TrajectoryPlanner(planner,globalNode);
+    ROS_INFO("trajectoryPlanner allocated");
+    
     rollingWindowCursor = 0;
 }
 
 TrajectoryAdapterNode::~TrajectoryAdapterNode() {
-
+    delete trajectoryPlanner;
 }
 
 double getDistance(const nav_msgs::Odometry& odom1, const nav_msgs::Odometry& odom2) {
@@ -283,17 +286,21 @@ void TrajectoryAdapterNode::replan(const navigation_trajectory_msgs::Trajectory&
     // std::vector<geometry_msgs::PoseStamped> plan;
     //   planner->makePlan(start, goal, plan);
 
-    TrajectoryPlanner trajectoryPlanner(planner);
+    
     ConversionUtils convert;
     KDL::Frame startKDL;
     convert.poseRosToKdl(start.pose, startKDL);
     KDL::Frame goalKDL;
     convert.poseRosToKdl(goal.pose, goalKDL);
     KDL::Path_Composite pathComposite;
-    trajectoryPlanner.setPathFrameId("/odom");
-    trajectoryPlanner.computePath(startKDL, goalKDL, pathComposite);
+    ROS_INFO("About to compute the path");
+    trajectoryPlanner->setPathFrameId("/odom");
+    ROS_INFO("Set PathFrameId");
+    trajectoryPlanner->computePath(startKDL, goalKDL, pathComposite);
+    ROS_INFO ("Recomputing that path");
     KDL::Trajectory_Composite trajectoryComposite;
-    trajectoryPlanner.computeTrajectory(pathComposite, trajectoryComposite);
+    trajectoryPlanner->computeTrajectory(pathComposite, trajectoryComposite);
+    ROS_INFO ("Converting path to a trajectory");
     convert.trajectoryKdlToRos(trajectoryComposite, newTrajectory, 0.2);
 
 
@@ -362,7 +369,7 @@ void TrajectoryAdapterNode::controlLoop() {
 
 
 
-    nav_msgs::Odometry newGoalPose;
+  /*  nav_msgs::Odometry newGoalPose;
     bool noCollision = collisionCheck(rollingWindowTrajectory, actualOdometry, newGoalPose);
 
 
@@ -374,7 +381,7 @@ void TrajectoryAdapterNode::controlLoop() {
         //globalTrajectory = updatedTrajectory;
     } 
 
-    
+    */
     
     trajectoryRef = &rollingWindowTrajectory;
     publishTrajectory(*trajectoryRef);
@@ -386,10 +393,7 @@ int main(int argc, char **argv) {
     std::string name = "trajectory_adapter";
     ros::init(argc, argv, name);
 
-    TrajectoryAdapterNode trajectoryAdapterNode(name);
-    adapterNodeHandle = &trajectoryAdapterNode;
-
-    // TODO:: read topic names and configuration parameters from yaml files
+        // TODO:: read topic names and configuration parameters from yaml files
     // Instantiating a costmap
     tf::TransformListener tf;
     costmap_2d::Costmap2DROS localCostmap("local_costmap", tf);
@@ -407,6 +411,9 @@ int main(int argc, char **argv) {
     pathPlanner = bgpLoader.createClassInstance(localTrajectoryPlanner);
     pathPlanner->initialize(bgpLoader.getName(localTrajectoryPlanner), &localCostmap);
     planner = pathPlanner;
+    
+    TrajectoryAdapterNode trajectoryAdapterNode(name);
+    adapterNodeHandle = &trajectoryAdapterNode;
 
     ROS_INFO("Initialize costmap size: %d, %d", localCostmap.getSizeInCellsX(), localCostmap.getSizeInCellsY());
 
