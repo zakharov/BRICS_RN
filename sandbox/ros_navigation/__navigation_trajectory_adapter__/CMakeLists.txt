@@ -11,8 +11,6 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
 
-add_definitions (-D DEBUG)
-
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
@@ -22,10 +20,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #common commands for building c++ executables and libraries
 rosbuild_add_executable(trajectory_adapter_node 
-    src/TrajectoryAdapter.cpp
-    src/TrajectoryAdapterObserverDummy.cpp
     src/TrajectoryAdapterNode.cpp 
-    src/FrameWithId.cpp
 )
 
 
