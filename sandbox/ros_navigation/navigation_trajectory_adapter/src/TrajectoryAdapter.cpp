@@ -50,20 +50,25 @@ TrajectoryAdapter::TrajectoryAdapter(TrajectoryAdapterObserver* observer) {
     this->observer = observer;
 }
 
-void TrajectoryAdapter::planPath() {
+void TrajectoryAdapter::planPath(const FrameWithId& goal, std::vector<FrameWithId>& path) {
+    //pathPlanner->makePlan(goal, path);
     LOG("Planning a path");
 }
 
-void TrajectoryAdapter::simplifyPath() {
+void TrajectoryAdapter::simplifyPath(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& simplifiedPath) {
     LOG("Simplifying the path");
 }
 
-void TrajectoryAdapter::convertPathToTrajectory() {
+void TrajectoryAdapter::calculateVelocityProfile(const std::vector<FrameWithId>& path, std::vector<TwistWithId>& velocityProfile) {
     LOG("Converting the path to a trajectory");
 }
 
-void TrajectoryAdapter::updateOdometry() {
-    LOG("Updating odometry");
+void TrajectoryAdapter::updateOdometry(const FrameWithId& pose, const TwistWithId& twist) {
+    actualOdometry.pose = pose;
+    actualOdometry.twist = twist;
+    actualOdometry.updated = true;
+
+//    LOG("Updating odometry");
 }
 
 TrajectoryAdapter::~TrajectoryAdapter() {

@@ -6,13 +6,24 @@
  */
 
 #include <ros/ros.h>
-#include <geometry_msgs/PoseStamped.h>
+#include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
+#include <pluginlib/class_loader.h>
+#include <pluginlib/class_loader.h>
+#include <costmap_2d/costmap_2d_ros.h>
+#include <nav_core/base_global_planner.h>
 #include <kdl/trajectory_composite.hpp>
 
 #include "navigation_trajectory_adapter/TrajectoryAdapter.h"
 #include "navigation_trajectory_adapter/TrajectoryAdapterObserver.h"
 #include "navigation_trajectory_adapter/FrameWithId.h"
+#include "navigation_trajectory_adapter/TwistWithId.h"
+#include "navigation_trajectory_adapter/Conversions.h"
+#include "navigation_trajectory_adapter/PathPlannerRos.h"
+#include "navigation_trajectory_adapter/DouglasPeuckerApproximation.h"
+#include "navigation_trajectory_adapter/ChaikinCurveApproximation.h"
+
+#include "navigation_trajectory_adapter/CollisionCheckingRos.h"
 
 using namespace std;
 
@@ -55,40 +66,75 @@ private:
 TrajectoryAdapter* trajectoryAdapter;
 TrajectoryAdapterNodeState actualState;
 
+ros::Publisher pathPublisher, simplifiedPathPublisher;
+TwistWithId actualTwist;
+FrameWithId actualPose, goalPose;
+PathPlanner* pathPlanner;
+CollisionChecking* collisionChecker; 
+
 void odometryCallback(const nav_msgs::Odometry& odometry) {
-    ROS_INFO("Got new odometry");
-    KDL::FrameWithId pose;
-    KDL::Twist twist;
-    
-    //conversions::poseRosToFrameKDL (odometry.pose.pose, pose);
-    //conversions::poseRosToFrameKDL (odometry.twist, twist);
-    
-    trajectoryAdapter->updateOdometry();
+  //  ROS_INFO("Got new odometry");
+   
+    conversions::odometryRosToFrame (odometry, actualPose);
+    conversions::odometryRosToTwist (odometry, actualTwist);
 }
 
 void goalCallback(const geometry_msgs::PoseStamped& goal) {
     ROS_INFO("Got new goal");
+    
+    conversions::poseStampedRosToFrame (goal, goalPose);
+   
+
     actualState.set(TrajectoryAdapterNodeState::PLANNING);
 }
 
 double controlLoop() {
 
     double defaultCycleFrequencyInHz = 10.0;
+    
+    trajectoryAdapter->updateOdometry(actualPose, actualTwist);
 
+    std::vector <FrameWithId> path, simplifiedPath;      
+    
     switch (actualState.get()) {
         case TrajectoryAdapterNodeState::IDLING:
+        {
             ROS_INFO("State IDLING");
-            defaultCycleFrequencyInHz = 1.0;
+            
+           
             break;
+        }
         case TrajectoryAdapterNodeState::PLANNING:
+        {
             ROS_INFO("State PLANNING");
+            
+            DouglasPeuckerApproximation peucker;
+            ChaikinCurveApproximation chaikin;
+            
+            pathPlanner->computePath(actualPose, goalPose, path);
+            peucker.approximate(path, simplifiedPath);
+            chaikin.approximate(simplifiedPath, simplifiedPath, 2);
+ 
+            nav_msgs::Path pathRos, simplifiedPathRos;
+            conversions::pathToPathRos(path, pathRos);
+            conversions::pathToPathRos(simplifiedPath, simplifiedPathRos);
+#ifdef DEBUG
+            pathPublisher.publish(pathRos);
+            simplifiedPathPublisher.publish(simplifiedPathRos);
+#endif            
             actualState.set(TrajectoryAdapterNodeState::COLLISION_CHECKING);
-            defaultCycleFrequencyInHz = 1.0;
+            
             break;
+        }
         case TrajectoryAdapterNodeState::COLLISION_CHECKING:
-            ROS_INFO("State COLLISION_CHECKING");
-            defaultCycleFrequencyInHz = 10.0;
+        {
+            bool noCollision = collisionChecker->check(simplifiedPath, actualPose);
+            if (!noCollision) {
+                ROS_INFO("Collision found!");
+                actualState.set(TrajectoryAdapterNodeState::PLANNING);
+            }
             break;
+        }
         default:
             ROS_ERROR("Unknown state");
     }
@@ -111,6 +157,27 @@ int main(int argc, char** argv) {
 
     ros::Subscriber odometrySubscriber;
     odometrySubscriber = globalNode.subscribe("odom", 1, &odometryCallback);
+    
+    tf::TransformListener tf;
+    costmap_2d::Costmap2DROS globalCostmap("local_costmap", tf);
+    ROS_INFO("Initialize costmap size: %d, %d", globalCostmap.getSizeInCellsX(), globalCostmap.getSizeInCellsY());
+    
+    collisionChecker = new CollisionCheckingRos(&globalCostmap);
+    
+    nav_core::BaseGlobalPlanner* plannerRos;
+    pluginlib::ClassLoader<nav_core::BaseGlobalPlanner> bgpLoader("nav_core", "nav_core::BaseGlobalPlanner");
+    
+    string globalTrajectoryPlanner;
+    localNode.param("local_costmap/trajectory_adapter", globalTrajectoryPlanner, string("navfn/NavfnROS"));
+    plannerRos = bgpLoader.createClassInstance(globalTrajectoryPlanner);
+    plannerRos->initialize(bgpLoader.getName(globalTrajectoryPlanner), &globalCostmap);
+    pathPlanner = new PathPlannerRos(plannerRos);
+    
+    
+#ifdef DEBUG
+    pathPublisher = globalNode.advertise<nav_msgs::Path> ("path", 1);
+    simplifiedPathPublisher = globalNode.advertise<nav_msgs::Path> ("simplified_path", 1);
+#endif
 
     actualState.set(TrajectoryAdapterNodeState::IDLING);
 
@@ -122,6 +189,10 @@ int main(int argc, char** argv) {
 
 
     delete trajectoryAdapter;
+    delete pathPlanner;
+    delete collisionChecker;
+    delete plannerRos;
+    
     ROS_INFO("bye...");
     return 0;
 }

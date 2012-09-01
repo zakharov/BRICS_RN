@@ -7,7 +7,7 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 #  Release        : w/o debug symbols, w/ optimization
 #  RelWithDebInfo : w/ debug symbols, w/ optimization
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+set(ROS_BUILD_TYPE Debug)
 
 rosbuild_init()
 
@@ -26,6 +26,13 @@ rosbuild_add_executable(trajectory_adapter_node
     src/TrajectoryAdapterObserverDummy.cpp
     src/TrajectoryAdapterNode.cpp 
     src/FrameWithId.cpp
+    src/TwistWithId.cpp
+    src/PathPlannerRos.cpp
+    src/ChaikinCurveApproximation.cpp
+    src/DouglasPeuckerApproximation.cpp
+    src/Stopwatch.cpp
+    src/ChaikinCurveApproximation.cpp
+    src/CollisionCheckingRos.cpp
 )
 
 

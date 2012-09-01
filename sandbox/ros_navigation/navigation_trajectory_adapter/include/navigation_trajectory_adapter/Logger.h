@@ -8,6 +8,8 @@
 #ifndef LOGGER_H
 #define	LOGGER_H
 
+#include <cstdio>
+
 #ifdef DEBUG
 #define LOG(format, args...) { fprintf (stderr, format, ##args); fprintf (stderr, "\n"); }
 #else

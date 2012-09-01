@@ -11,33 +11,27 @@
 #include <kdl/frames.hpp>
 #include <string>
 
-namespace KDL {
-
-class FrameWithId : public Frame {
+class FrameWithId : public KDL::Frame {
 public:
     std::string id;
 
 public:
     
-    inline FrameWithId(const Rotation& R,const Vector& V, const std::string& id);
-
-    //! The rotation matrix defaults to identity
-    explicit inline FrameWithId(const Vector& V, const std::string& id);
-
-    //! The position matrix defaults to zero
-    explicit inline FrameWithId(const Rotation& R, const std::string& id);
-
-    inline FrameWithId(const std::string& id);
+    FrameWithId(const KDL::Rotation& R,const KDL::Vector& V, const std::string& id);
     
-    inline FrameWithId();
+    FrameWithId(const KDL::Vector& V, const std::string& id);
     
-    //! The copy constructor. Normal copy by value semantics.
-    inline FrameWithId(const FrameWithId& arg);
+    FrameWithId(const KDL::Rotation& R, const std::string& id);
+
+    FrameWithId(const std::string& id);
+    
+    FrameWithId();
+    
+    FrameWithId(const FrameWithId& arg);
 
     virtual ~FrameWithId();
 };
 
-}
 
 #endif	/* FRAMEWITHID_H */
 
