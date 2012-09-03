@@ -68,7 +68,7 @@ void TrajectoryAdapter::updateOdometry(const FrameWithId& pose, const TwistWithI
     actualOdometry.twist = twist;
     actualOdometry.updated = true;
 
-//    LOG("Updating odometry");
+    //    LOG("Updating odometry");
 }
 
 TrajectoryAdapter::~TrajectoryAdapter() {

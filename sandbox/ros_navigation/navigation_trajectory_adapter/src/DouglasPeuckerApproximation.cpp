@@ -1,9 +1,41 @@
-/* 
- * File:   DouglasPeuckerApproximation.cpp
- * Author: alexey
- * 
- * Created on August 31, 2012, 2:55 PM
- */
+/******************************************************************************
+ * Copyright (c) 2011
+ * GPS GmbH
+ *
+ * Author:
+ * Alexey Zakharov
+ *
+ *
+ * This software is published under a dual-license: GNU Lesser General Public
+ * License LGPL 2.1 and BSD license. The dual-license implies that users of this
+ * code may choose which terms they prefer.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the distribution.
+ * * Neither the name of GPS GmbH nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License LGPL as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version or the BSD license.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License LGPL and the BSD license for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License LGPL and BSD license along with this program.
+ *
+ ******************************************************************************/
 
 #include "navigation_trajectory_adapter/DouglasPeuckerApproximation.h"
 #include "navigation_trajectory_adapter/FrameWithId.h"
@@ -13,7 +45,6 @@
 #ifdef DEBUG
 #include "navigation_trajectory_adapter/Stopwatch.h"
 #endif
-
 
 DouglasPeuckerApproximation::DouglasPeuckerApproximation() {
 }
@@ -53,17 +84,17 @@ void DouglasPeuckerApproximation::approximate(const std::vector <FrameWithId>& i
 }
 
 void DouglasPeuckerApproximation::douglasPeucker(const std::vector <FrameWithId>& pointList,
-        std::vector <FrameWithId>& resultList,  int& numberOfIterations, double epsilon) {
+        std::vector <FrameWithId>& resultList, int& numberOfIterations, double epsilon) {
 
     ++numberOfIterations;
     if (pointList.size() < 2) {
         resultList = pointList;
         return;
     }
-    
+
     double dmax = 0;
     unsigned int index = 0;
-    
+
     std::vector <FrameWithId> result1;
     std::vector <FrameWithId> result2;
 
@@ -83,8 +114,8 @@ void DouglasPeuckerApproximation::douglasPeucker(const std::vector <FrameWithId>
         std::vector <FrameWithId> pointSubList2(&pointList[index],
                 &pointList[pointList.size()]);
 
-        douglasPeucker(pointSubList1, result1,numberOfIterations, epsilon);
-        douglasPeucker(pointSubList2, result2,numberOfIterations, epsilon);
+        douglasPeucker(pointSubList1, result1, numberOfIterations, epsilon);
+        douglasPeucker(pointSubList2, result2, numberOfIterations, epsilon);
         resultList.insert(resultList.begin(), result1.begin(), result1.end() - 1);
         resultList.insert(resultList.end(), result2.begin(), result2.end());
     } else {
