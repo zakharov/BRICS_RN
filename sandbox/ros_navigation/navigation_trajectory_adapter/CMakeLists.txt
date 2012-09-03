@@ -33,6 +33,8 @@ rosbuild_add_executable(trajectory_adapter_node
     src/Stopwatch.cpp
     src/ChaikinCurveApproximation.cpp
     src/CollisionCheckingRos.cpp
+    src/PathIterator.cpp
+    src/LinearInterpolation.cpp
 )
 
 
