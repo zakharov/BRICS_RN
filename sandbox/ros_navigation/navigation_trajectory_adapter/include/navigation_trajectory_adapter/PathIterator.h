@@ -23,8 +23,8 @@ public:
     const FrameWithId& next() const;
 
 private:
-    FrameWithId* cursor;
     const std::vector <FrameWithId>& path;
+    mutable size_t cursor;
     static const FrameWithId& dummy; 
 };
 
