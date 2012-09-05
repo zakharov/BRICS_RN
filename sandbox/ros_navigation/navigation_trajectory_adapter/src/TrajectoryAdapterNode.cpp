@@ -125,17 +125,12 @@ std::vector <FrameWithId> path, simplifiedPath;
 double controlLoop() {
 
     double defaultCycleFrequencyInHz = 10.0;
-
     trajectoryAdapter->updateOdometry(actualPose, actualTwist);
-
-    
-
+ 
     switch (actualState.get()) {
         case TrajectoryAdapterNodeState::IDLING:
         {
             ROS_INFO("State IDLING");
-
-
             break;
         }
         case TrajectoryAdapterNodeState::PLANNING:
@@ -150,9 +145,8 @@ double controlLoop() {
 
             pathPlanner->computePath(actualPose, goalPose, path);
             peucker.approximate(path, simplifiedPath);
-            
-                        
-          //  chaikin.approximate(simplifiedPath, simplifiedPath, 2);
+                       
+           //  chaikin.approximate(simplifiedPath, simplifiedPath, 2);
 
             nav_msgs::Path pathRos, simplifiedPathRos;
             conversions::pathToPathRos(path, pathRos);
@@ -170,11 +164,6 @@ double controlLoop() {
             bool collision = collisionChecker->check(simplifiedPath, actualPose);
             if (collision)
                 actualState.set(TrajectoryAdapterNodeState::PLANNING);
-           /* bool noCollision = collisionChecker->check(simplifiedPath, actualPose);
-            if (!noCollision) {
-                ROS_INFO("Collision found!");
-                actualState.set(TrajectoryAdapterNodeState::PLANNING);
-            }*/
             break;
         }
         default:

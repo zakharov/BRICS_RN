@@ -13,7 +13,7 @@
 class FrameWithId;
 
 class PathInterpolation {
-    virtual void interpolate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, double step) = 0;
+    virtual size_t interpolate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, double step, size_t numberOfSteps) = 0;
 };
 
 

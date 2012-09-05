@@ -38,13 +38,15 @@
  ******************************************************************************/
 
 #include "navigation_trajectory_adapter/CollisionCheckingRos.h"
+#include "navigation_trajectory_adapter/LinearInterpolation.h"
 #include "navigation_trajectory_adapter/PathUtilities.h"
 #include "navigation_trajectory_adapter/PathIterator.h"
-#include "navigation_trajectory_adapter/LinearInterpolation.h"
 #include "navigation_trajectory_adapter/Conversions.h"
+#include "navigation_trajectory_adapter/Stopwatch.h"
+#include "navigation_trajectory_adapter/Logger.h"
 
-#include <costmap_2d/costmap_2d_ros.h>
 #include <base_local_planner/costmap_model.h>
+#include <costmap_2d/costmap_2d_ros.h>
 #include <geometry_msgs/Point.h>
 #include <ros/ros.h>
 
@@ -55,103 +57,84 @@ CollisionCheckingRos::CollisionCheckingRos(CollisionCheckingRos& orig) : costmap
 
 }
 
-
 CollisionCheckingRos::~CollisionCheckingRos() {
 
 }
 
 bool CollisionCheckingRos::check(const std::vector <FrameWithId>& path, const FrameWithId& actualPose) {
-    return collisionCheck(path, actualPose, 0.1, 100);
+    bool result = collisionCheck(path, actualPose, 0.1, 100);
+    return result;
 }
 
 bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
-         const FrameWithId& actualPose, double interpolationStep, unsigned int numberOfSteps) {
+        const FrameWithId& actualPose, double interpolationStep, unsigned int numberOfSteps) {
+
+    bool collision = false;
+
+    if (path.empty())
+        return collision;
     
     costmap_2d::Costmap2D costmapCopy;
     std::vector <geometry_msgs::Point> orientedFootprint;
-    
+
     costmap->getOrientedFootprint(orientedFootprint);
-    double circumscribedRadius = costmap->getCircumscribedRadius();
-    double inscribedRadius = costmap->getInscribedRadius();
-    
+//    double circumscribedRadius = costmap->getCircumscribedRadius();
+//    double inscribedRadius = costmap->getInscribedRadius();
+
     costmap->clearRobotFootprint();
     costmap->getCostmapCopy(costmapCopy);
     base_local_planner::CostmapModel collisionChecker(costmapCopy);
-    
+
     std::vector <FrameWithId> prunedPath;
     prunePath(path, actualPose, prunedPath);
 
-    const double step = 0.1;
-    
+
+
     LinearInterpolation interpolator;
     std::vector <FrameWithId> interpolatedPath;
-    interpolator.interpolate(prunedPath, interpolatedPath, step);
-  
-  //  ROS_INFO("Frame: %f, %f, %f, %f", prunedPath[0].p.x(), 
-  //          prunedPath[0].p.y(), 
-  //          prunedPath[prunedPath.size()-1].p.x(),
-  //          prunedPath[prunedPath.size()-1].p.y());
-    for (size_t i = 0; i < interpolatedPath.size(); ++i) {
+    interpolator.interpolate(prunedPath, interpolatedPath, interpolationStep, numberOfSteps);
+
+#ifdef DEBUG
+    Stopwatch stopwatch;
+    stopwatch.start();
+#endif
+
+    size_t i;
+    for (i = 0; i < interpolatedPath.size(); ++i) {
         const FrameWithId& frame = interpolatedPath[i];
-        double r,p,y;
-        frame.M.GetRPY(r,p,y);
-    //    ROS_INFO("Frame: %f, %f, %f", frame.p.x(), frame.p.y(), y);
-        
+        double r, p, y;
+        frame.M.GetRPY(r, p, y);
+        //    ROS_INFO("Frame: %f, %f, %f", frame.p.x(), frame.p.y(), y);
+
         geometry_msgs::PoseStamped pose;
         conversions::frameToPoseStampedRos(frame, pose);
-        
+
         std::vector <geometry_msgs::Point> orientedFootprint;
         costmap->getOrientedFootprint(frame.p.x(), frame.p.y(), 0, orientedFootprint);
         double circumscribedRadius = costmap->getCircumscribedRadius();
         double inscribedRadius = costmap->getInscribedRadius();
-        
-        double collision = collisionChecker.footprintCost(pose.pose.position,
+
+        double c = collisionChecker.footprintCost(pose.pose.position,
                 orientedFootprint,
                 inscribedRadius,
                 circumscribedRadius);
-        
-        if (collision < 0) {
+
+        if (c < 0) {
             ROS_INFO("Collision at pose: %f, %f", pose.pose.position.x, pose.pose.position.y);
-            return true;
-        }
-        
-    }
-    
-    
-    /*for (int i = 0; i < trajectory.trajectory.size(); i++) {
-        nav_msgs::Odometry odom = trajectory.trajectory[i];
-        geometry_msgs::Pose pose = odom.pose.pose;
-
-        /* *
-         * @brief  Checks if any obstacles in the costmap lie inside a convex footprint that is rasterized into the grid
-         * @param  position The position of the robot in world coordinates
-         * @param  footprint The specification of the footprint of the robot in world coordinates
-         * @param  inscribed_radius The radius of the inscribed circle of the robot
-         * @param  circumscribed_radius The radius of the circumscribed circle of the robot
-         * @return Positive if all the points lie outside the footprint, negative otherwise
-         */
-
-  //      geometry_msgs::Point position = pose.position;
-
-
-  /*      vector <geometry_msgs::Point> orientedFootprint;
-        costmap->getOrientedFootprint(orientedFootprint);
-        double circumscribedRadius = costmap->getCircumscribedRadius();
-        double inscribedRadius = costmap->getInscribedRadius();
-
-        double collision = collisionChecker.footprintCost(position,
-                orientedFootprint,
-                inscribedRadius,
-                circumscribedRadius);
-
-        if (collision < 0) {
-            //ROS_INFO("Collision at pose: %f, %f", pose.position.x, pose.position.y);
-            return false;
+            collision = true;
+            break;
         }
 
     }
-   * */
 
+#ifdef DEBUG  
+    stopwatch.stop();
+    LOG("Collision checking using costmap2d_ros:");
+    LOG("  - collision: %d", collision);
+    LOG("  - step size: %f", interpolationStep);
+    LOG("  - iterations : %lu", i);
+    LOG("  - duration : %f ms", stopwatch.getElapsedTime());
+#endif
 
-    return false;
+    return collision;
 }

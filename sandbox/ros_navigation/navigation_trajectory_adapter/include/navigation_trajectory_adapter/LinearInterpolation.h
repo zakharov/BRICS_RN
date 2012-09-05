@@ -15,10 +15,18 @@ public:
     LinearInterpolation();
     LinearInterpolation(const LinearInterpolation& orig);
     virtual ~LinearInterpolation();
-    
-    void interpolate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, double step);
-    
+
+    size_t interpolate(const std::vector <FrameWithId>& in,
+            std::vector <FrameWithId>& out,
+            double step,
+            size_t numberOfSteps);
+
 private:
+
+    size_t linearInterpolation(const std::vector <FrameWithId>& in,
+            std::vector <FrameWithId>& out,
+            double step,
+            size_t numberOfsteps);
 
 };
 
