@@ -35,6 +35,8 @@ rosbuild_add_executable(trajectory_adapter_node
     src/CollisionCheckingRos.cpp
     src/PathIterator.cpp
     src/LinearInterpolation.cpp
+    src/OmniDrive.cpp
+    src/DifferentialDrive.cpp
 )
 
 

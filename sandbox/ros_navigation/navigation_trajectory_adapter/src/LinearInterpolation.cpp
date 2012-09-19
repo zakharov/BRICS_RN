@@ -8,7 +8,7 @@
 #include "navigation_trajectory_adapter/LinearInterpolation.h"
 #include "navigation_trajectory_adapter/FrameWithId.h"
 #include "navigation_trajectory_adapter/Logger.h"
-#include "navigation_trajectory_adapter/Stopwatch.h
+#include "navigation_trajectory_adapter/Stopwatch.h"
 
 LinearInterpolation::LinearInterpolation() {
 
