@@ -1,0 +1,16 @@
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/ROSBUILD_genmsg_cpp.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/ROSBUILD_genmsg_lisp.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/ROSBUILD_gensrv_cpp.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/ROSBUILD_gensrv_lisp.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/clean-test-results.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/rosbuild_precompile.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/rosbuild_premsgsrvgen.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/rospack_genmsg.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/rospack_genmsg_libexe.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/rospack_gensrv.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/test.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/test-future.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/test-results.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/test-results-run.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/tests.dir
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles/trajectory_common.dir

@@ -1,9 +1,0 @@
-<launch>
-
-    <node pkg="navigation_trajectory_adapter" type="trajectory_adapter_node" respawn="false" name="trajectory_adapter" output="screen">
-    	<rosparam file="$(find navigation_trajectory_adapter)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-	<rosparam file="$(find navigation_trajectory_adapter)/config/rolling_local_costmap_params.yaml" command="load" />
-	<rosparam file="$(find navigation_trajectory_adapter)/config/trajectory_adapter_params.yaml" command="load" />
-    </node>
-
-</launch>

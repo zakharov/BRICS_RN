@@ -1,0 +1,17 @@
+<package>
+  <description brief="A trajectory common">
+  </description>
+  <author>Alexey Zakharov</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url></url>
+  
+  <depend package="orocos_kdl" />
+  
+  <export>
+    <cpp cflags="-I${prefix}/cfg/cpp -I${prefix}/include `rosboost-cfg --cflags`" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib `rosboost-cfg --lflags thread` -ltrajectory_common"/>
+  </export>
+
+</package>
+
+

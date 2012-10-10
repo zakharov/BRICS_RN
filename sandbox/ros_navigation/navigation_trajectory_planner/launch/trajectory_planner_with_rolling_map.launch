@@ -1,9 +1,0 @@
-<launch>
-
-    <node pkg="navigation_trajectory_planner" type="trajectory_planner_node" respawn="false" name="trajectory_planner" output="screen">
-    	<rosparam file="$(find navigation_trajectory_planner)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-	<rosparam file="$(find navigation_trajectory_planner)/config/rolling_global_costmap_params.yaml" command="load" />
-	<rosparam file="$(find navigation_trajectory_planner)/config/trajectory_planner_params.yaml" command="load" />
-    </node>
-
-</launch>

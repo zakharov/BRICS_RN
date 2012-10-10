@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/FrameWithId.cpp
+navigation_trajectory_planner/FrameWithId.h
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/navigation_trajectory_planner/FrameWithId.h
+
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/TwistWithId.cpp
+navigation_trajectory_planner/TwistWithId.h
+/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/navigation_trajectory_planner/TwistWithId.h
+
