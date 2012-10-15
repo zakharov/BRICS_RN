@@ -42,8 +42,12 @@
 
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/Path.h>
+#include <kdl/path_line.hpp>
+#include <kdl/frames.hpp>
+#include <kdl/rotational_interpolation_sa.hpp>
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/TwistWithId.h"
+#include "kdl/path_composite.hpp"
 
 namespace conversions {
 
@@ -124,6 +128,33 @@ namespace conversions {
 
     inline void pathRosToPath(const nav_msgs::Path& pathRos, std::vector<FrameWithId>& path) {
         pathRosToPath(pathRos.poses, path);
+    }
+
+    inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
+
+
+        if (pathRos.poses.size() > 1) {
+
+            std::vector<geometry_msgs::PoseStamped>::const_iterator it;
+            geometry_msgs::PoseStamped p1 = pathRos.poses.front();
+            geometry_msgs::PoseStamped p2;
+
+            for (it = pathRos.poses.begin() + 1; it != pathRos.poses.end(); ++it) {
+                p2 = *it;
+                FrameWithId f1, f2;
+                poseStampedRosToFrame(p1, f1);
+                poseStampedRosToFrame(p2, f2);
+
+                KDL::Frame f1Kdl = f1.getFrame();
+                KDL::Frame f2Kdl = f2.getFrame();
+                
+                KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
+                path.Add(pathLine);
+
+                p1 = p2;
+            }
+
+        }
     }
 
 }

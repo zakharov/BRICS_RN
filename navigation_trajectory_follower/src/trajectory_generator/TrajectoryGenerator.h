@@ -10,13 +10,15 @@
 
 #include <vector>
 
-class FrameWithId;
-class TwistWithId;
+namespace KDL {
+    class Path_Composite;
+    class Trajectory_Composite;
+}
 
 class TrajectoryGenerator {
 public:
       
-    virtual void computeTrajectroy(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& trajectory) = 0;
+    virtual void computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory) = 0;
     
 private:
 

@@ -72,3 +72,7 @@ FrameWithId::~FrameWithId() {
 
 }
 
+KDL::Frame FrameWithId::getFrame() {
+    return Frame(this->M, this->p);
+}
+

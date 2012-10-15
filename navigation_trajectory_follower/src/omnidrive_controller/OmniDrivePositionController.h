@@ -64,6 +64,7 @@ public:
     OmniDrivePositionController(const OmniDrivePositionController& orig);
     virtual ~OmniDrivePositionController();
   
+    void setTargetTrajectory(const KDL::Trajectory_Composite& trajectory);
     void setTargetTrajectory(const std::vector<Odometry>& trajectory);
     const std::vector<Odometry>& getTargetTrajectory() const;
    

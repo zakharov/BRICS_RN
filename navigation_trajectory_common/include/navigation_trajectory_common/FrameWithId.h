@@ -60,6 +60,8 @@ public:
     FrameWithId();
 
     FrameWithId(const FrameWithId& arg);
+    
+    KDL::Frame getFrame();
 
     virtual ~FrameWithId();
 };

@@ -42,11 +42,17 @@
 
 #include <vector>
 
+namespace KDL {
+    class Trajectory_Composite;
+}
+
+
 class Odometry;
 
 class PositionController {
 public:
     
+    virtual void setTargetTrajectory(const KDL::Trajectory_Composite& trajectory) = 0;
     virtual void setTargetTrajectory(const std::vector <Odometry>& targetOdometry) = 0;
     virtual const std::vector <Odometry>& getTargetTrajectory() const = 0;
     virtual void setTargetOdometry(const Odometry& targetOdometry) = 0;

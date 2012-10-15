@@ -12,7 +12,10 @@
 
 namespace KDL {
     class Trajectory_Composite;
+    class Path_Composite;
 }
+
+class FrameWithId;
 
 class OmniDriveTrajectoryGenerator : public TrajectoryGenerator {
 public:
@@ -20,11 +23,13 @@ public:
     OmniDriveTrajectoryGenerator(const OmniDriveTrajectoryGenerator& orig);
     virtual ~OmniDriveTrajectoryGenerator();
     
-    void computeTrajectroy(const std::vector<FrameWithId>& path, KDL::Trajectory_Composite& trajectory);
+   
     float getShortestAngle(float goalAngle, float actualAngle);
+    void computePathComposite(const std::vector<FrameWithId>& path, KDL::Path_Composite& pathComposite);
     
     void interpolateRotation(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& pathWithRotation);
-    void computeTrajectoryComposite(const std::vector<FrameWithId>& path, KDL::Trajectory_Composite& trajectory);
+    void computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory); 
+    void computeTrajectroy(const std::vector<FrameWithId> path, KDL::Trajectory_Composite& trajectory);
     
 private:
 

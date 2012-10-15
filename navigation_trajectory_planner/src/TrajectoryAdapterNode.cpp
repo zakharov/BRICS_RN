@@ -156,7 +156,7 @@ double controlLoop() {
             pathPublisher.publish(pathRos);
             simplifiedPathPublisher.publish(simplifiedPathRos);
 #endif            
-            actualState.set(TrajectoryAdapterNodeState::COLLISION_CHECKING);
+            actualState.set(TrajectoryAdapterNodeState::IDLING);
 
             break;
         }

@@ -16,7 +16,7 @@ public:
     DifferentialDriveTrajectoryGenerator(const DifferentialDriveTrajectoryGenerator& orig);
     virtual ~DifferentialDriveTrajectoryGenerator();
     
-    void computeTrajectroy(const std::vector<FrameWithId>& path, const std::vector<TwistWithId>& trajectory);
+    void computeTrajectroy(const KDL::Path_Composite& path, const KDL::Trajectory_Composite& trajectory);
     
 private:
 

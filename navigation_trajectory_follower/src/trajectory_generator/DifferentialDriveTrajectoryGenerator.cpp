@@ -16,6 +16,6 @@ DifferentialDriveTrajectoryGenerator::DifferentialDriveTrajectoryGenerator(const
 DifferentialDriveTrajectoryGenerator::~DifferentialDriveTrajectoryGenerator() {
 }
 
-void DifferentialDriveTrajectoryGenerator::computeTrajectroy(const std::vector<FrameWithId>& path, const std::vector<TwistWithId>& trajectory) {
+void DifferentialDriveTrajectoryGenerator::computeTrajectroy(const KDL::Path_Composite& path, const KDL::Trajectory_Composite& trajectory) {
     
 }
