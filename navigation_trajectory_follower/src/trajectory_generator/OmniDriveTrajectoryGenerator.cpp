@@ -48,11 +48,15 @@ void OmniDriveTrajectoryGenerator::computePathComposite(const std::vector<FrameW
             f1 = p1.getFrame();
             f2 = p2.getFrame();
 
-            KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
+            KDL::RotationalInterpolation_SingleAxis* rot = new KDL::RotationalInterpolation_SingleAxis();
+         //   rot->Vel(0.1,0.01);
+         //   rot->Acc(0.1,0.01,0.001);
+            KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, rot, 0.0001);
             pathComposite.Add(pathLine);
 
             p1 = p2;
         }
+        
     }
 }
 

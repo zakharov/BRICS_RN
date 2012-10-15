@@ -135,6 +135,7 @@ void OmniDrivePositionController::setTargetTrajectory(const KDL::Trajectory_Comp
 
     trajectoryComposite->Destroy();
     trajectoryComposite = newTrajectoryComposite;
+    
 }
 
 void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometry>& trajectory) {
@@ -146,7 +147,6 @@ void OmniDrivePositionController::setTargetTrajectory(const std::vector <Odometr
     //    trajectoryComposite->Destroy();
 
     KDL::Trajectory_Composite* newTrajectoryComposite;
-
     newTrajectoryComposite = new KDL::Trajectory_Composite();
 
     if (targetTrajectory.size() > 1) { // if it has more than one setpoint 
@@ -275,11 +275,11 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
 
         double dPosX = desiredOdometryLocal.getPose2D().getX();
         double dPosY = desiredOdometryLocal.getPose2D().getY();
-        double dPosTheta = y; //desiredOdometryLocal.getPose2D().getTheta();
+        double dPosTheta = desiredOdometryLocal.getPose2D().getTheta();
 
         double dVelX = desiredOdometryLocal.getTwist2D().getX();
         double dVelY = desiredOdometryLocal.getTwist2D().getY();
-        double dVelTheta = desiredTwist.rot.z(); //desiredOdometryLocal.getTwist2D().getTheta();
+        double dVelTheta = desiredOdometryLocal.getTwist2D().getTheta();
 
         double aPosX = actualOdometryLocal.getPose2D().getX();
         double aPosY = actualOdometryLocal.getPose2D().getY();
@@ -304,7 +304,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double gainVelY = gains.getTwist2D().getY();
         double gainVelTheta = gains.getTwist2D().getTheta();
 
-        double errorTheta = gainVelTheta * dVelTheta + gainPosTheta * positionThetaError;
+        double errorTheta = -gainVelTheta * dVelTheta /*+ gainPosTheta * positionThetaError*/;
         double errorX = gainVelX * dVelX + gainPosX * positionXError;
         double errorY = gainVelY * dVelY + gainPosY * positionYError;
 

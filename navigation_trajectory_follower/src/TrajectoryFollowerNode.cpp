@@ -229,7 +229,7 @@ int main(int argc, char **argv) {
     node.param("positionToleranceTranslation", positionToleranceTranslation, 0.1);
     node.param("velocityToleranceTranslation", velocityToleranceTranslation, 0.01);
 
-    node.param("velocityGainRotation", velocityGainRotation, 1.5);
+    node.param("velocityGainRotation", velocityGainRotation, 1.35);
     node.param("positionGainRotation", positionGainRotation, 0.2);
     node.param("positionToleranceRotation", positionToleranceRotation, 0.1);
     node.param("velocityToleranceRotation", velocityToleranceRotation, 0.01);
