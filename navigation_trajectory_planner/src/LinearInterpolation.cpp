@@ -32,11 +32,14 @@ size_t LinearInterpolation::interpolate(const std::vector <FrameWithId>& in, std
 #ifdef DEBUG  
     stopwatch.stop();
     LOG("Linear interpolation:");
-    LOG("  - input end point: %f, %f", in.back().p.x(), in.back().p.y());
-    LOG("  - output end point: %f, %f", out.back().p.x(), out.back().p.y());
+    if (result > 0) {
+        LOG("  - input end point: %f, %f", in.back().p.x(), in.back().p.y());
+        LOG("  - output end point: %f, %f", out.back().p.x(), out.back().p.y());
+    }
     LOG("  - step size: %f", step);
     LOG("  - iterations : %lu", result);
     LOG("  - duration : %f ms", stopwatch.getElapsedTime());
+    
 #endif  
     return result;
 }
@@ -46,12 +49,11 @@ size_t LinearInterpolation::linearInterpolation(const std::vector <FrameWithId>&
         double step,
         size_t numberOfSteps = 0) {
 
-    if (in.size() < 1)
+    if (in.empty())
         return 0;
-
-   
     
     size_t counter = 0;
+    out.clear();
     std::vector <FrameWithId> localCopy = in;
     double x0, y0, z0, xn, yn, zn, x, y, z, r, p;
 
@@ -67,15 +69,19 @@ size_t LinearInterpolation::linearInterpolation(const std::vector <FrameWithId>&
 
         double distance = sqrt((xn - x0)*(xn - x0) + (yn - y0)*(yn - y0));
         size_t steps = static_cast<size_t> (floor(distance / step));
-      //  LOG("x0=%f, y0=%f, xn=%f, yn=%f", x0, y0, xn, yn);
-      //  LOG("distance=%f, steps=%lu", distance, steps);
+        if (steps == 0) {
+            LOG("Warning: step = 0, interpolation is not possible");
+            return counter;
+        }
+        LOG("x0=%f, y0=%f, xn=%f, yn=%f", x0, y0, xn, yn);
+        LOG("distance=%f, steps=%lu", distance, steps);
         
         for (size_t v = 0; v <= steps; ++v) {
             x = x0 + (xn - x0) / steps*v;
             y = y0 + (yn - y0) / steps*v;
             z = z0 + (zn - z0) / steps*v;
             
-      //      LOG("x=%f, y=%f", x, y);
+            LOG("x=%f, y=%f", x, y);
             
             FrameWithId frame;
             frame.id = localCopy[i].id;

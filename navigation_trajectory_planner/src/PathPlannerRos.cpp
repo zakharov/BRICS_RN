@@ -73,12 +73,16 @@ bool PathPlannerRos::computePath(const FrameWithId& start, const FrameWithId& go
 #endif    
 
     bool result = planner->makePlan(startRos, goalRos, pathRos);
+    if (result) {
+        pathRos.front() = startRos;
+        pathRos.back() = goalRos;
+    }
 
 #ifdef DEBUG    
     stopwatch.stop();
     LOG("A* path planning:");
-    LOG("  - start: %f,%f,%f", startRos.pose.position.x, startRos.pose.position.y, startRos.pose.position.z);
-    LOG("  - goal: %f,%f,%f", goalRos.pose.position.x, goalRos.pose.position.y, goalRos.pose.position.z);
+    LOG("  - start: %f,%f,%f", startRos.pose.position.x, startRos.pose.position.y, tf::getYaw(startRos.pose.orientation));
+    LOG("  - goal: %f,%f,%f", goalRos.pose.position.x, goalRos.pose.position.y, tf::getYaw(goalRos.pose.orientation));
     LOG("  - output size: %lu", pathRos.size());
     LOG("  - duration : %f ms", stopwatch.getElapsedTime());
 #endif 

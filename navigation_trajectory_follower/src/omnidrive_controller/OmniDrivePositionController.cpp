@@ -69,7 +69,7 @@ OmniDrivePositionController::OmniDrivePositionController(double positionGainTran
     actualTime = 0;
     timeOffset = 0;
 
-    std::cout << "positionToleranceRotation: " << positionToleranceRotation << std::endl;
+    
 
     tolerance = Odometry(Pose2D(positionToleranceTranslation,
             positionToleranceTranslation,
@@ -135,6 +135,8 @@ void OmniDrivePositionController::setTargetTrajectory(const KDL::Trajectory_Comp
 
     trajectoryComposite->Destroy();
     trajectoryComposite = newTrajectoryComposite;
+    
+  
     
 }
 
@@ -227,14 +229,14 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
     rotation = false;
 
     if (linDist <= tolerance.getPose2D().getX() && linDist <= tolerance.getPose2D().getY()) {
-        ROS_INFO("Translation target reached");
+     //   ROS_INFO("Translation target reached");
         translation = true;
     }
 
-    ROS_INFO("Desired theta: %f ----- %f", fabs(angDist), tolerance.getPose2D().getTheta());
+   // ROS_INFO("Desired theta: %f ----- %f", fabs(angDist), tolerance.getPose2D().getTheta());
 
     if (fabs(angDist) <= tolerance.getPose2D().getTheta()) {
-        ROS_INFO("Rotation target reached");
+       // ROS_INFO("Rotation target reached");
         rotation = true;
     }
 }
@@ -256,13 +258,15 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
 
         double r, p, y;
         desiredPose.M.GetRPY(r, p, y);
-
+       
         Odometry desiredOdometryGlobal(Pose2D(desiredPose.p.x(),
                 desiredPose.p.y(),
                 actualOdometry.getPose2D().getTheta()),
                 Twist2D(desiredTwist.vel.x(),
                 desiredTwist.vel.y(),
-                actualOdometry.getTwist2D().getTheta()));
+                desiredTwist.rot.z()));
+        
+        
 
         Odometry desiredOdometryLocal;
 
@@ -275,7 +279,7 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
 
         double dPosX = desiredOdometryLocal.getPose2D().getX();
         double dPosY = desiredOdometryLocal.getPose2D().getY();
-        double dPosTheta = desiredOdometryLocal.getPose2D().getTheta();
+        double dPosTheta = y;//desiredOdometryLocal.getPose2D().getTheta();
 
         double dVelX = desiredOdometryLocal.getTwist2D().getX();
         double dVelY = desiredOdometryLocal.getTwist2D().getY();
@@ -304,10 +308,13 @@ const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& 
         double gainVelY = gains.getTwist2D().getY();
         double gainVelTheta = gains.getTwist2D().getTheta();
 
-        double errorTheta = -gainVelTheta * dVelTheta /*+ gainPosTheta * positionThetaError*/;
+        double errorTheta = gainVelTheta * dVelTheta + gainPosTheta * positionThetaError;
         double errorX = gainVelX * dVelX + gainPosX * positionXError;
         double errorY = gainVelY * dVelY + gainPosY * positionYError;
 
+        
+     
+        
         computedOdometry.setTwist2D(Twist2D(errorX, errorY, errorTheta));
 
 

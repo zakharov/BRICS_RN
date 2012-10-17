@@ -51,7 +51,7 @@ void OmniDriveTrajectoryGenerator::computePathComposite(const std::vector<FrameW
             KDL::RotationalInterpolation_SingleAxis* rot = new KDL::RotationalInterpolation_SingleAxis();
          //   rot->Vel(0.1,0.01);
          //   rot->Acc(0.1,0.01,0.001);
-            KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, rot, 0.0001);
+            KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, rot, 0.001);
             pathComposite.Add(pathLine);
 
             p1 = p2;
@@ -62,7 +62,7 @@ void OmniDriveTrajectoryGenerator::computePathComposite(const std::vector<FrameW
 
 void OmniDriveTrajectoryGenerator::interpolateRotation(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& pathWithRotation) {
 
-    if (path.empty())
+    if (path.size() <= 1)
         return;
 
     pathWithRotation.clear();
@@ -73,7 +73,8 @@ void OmniDriveTrajectoryGenerator::interpolateRotation(const std::vector<FrameWi
 
     path.back().M.GetRPY(r, p, y);
     double end = y;
-    double step = getShortestAngle(end, start) / path.size();
+    double step = getShortestAngle(end, start) / (path.size()-1);
+    
 
     std::vector<FrameWithId>::const_iterator it;
     for (it = path.begin(); it != path.end(); ++it) {
@@ -82,14 +83,14 @@ void OmniDriveTrajectoryGenerator::interpolateRotation(const std::vector<FrameWi
         f.id = it->id;
         f.p = it->p;
         f.M = KDL::Rotation::RPY(0, 0, start);
-        std::cout << "rot:" << start << std::endl;
+        
         pathWithRotation.push_back(f);
 
         start = start + step;
     }
 
-    pathWithRotation.front() = path.front();
-    pathWithRotation.back() = path.back();
+   // pathWithRotation.front() = path.front();
+   // pathWithRotation.back() = path.back();
 }
 
 void OmniDriveTrajectoryGenerator::computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory) {
@@ -111,7 +112,11 @@ void OmniDriveTrajectoryGenerator::computeTrajectroy(const KDL::Path_Composite& 
 void OmniDriveTrajectoryGenerator::computeTrajectroy(const std::vector<FrameWithId> path, KDL::Trajectory_Composite& trajectory) {
     std::vector<FrameWithId> pathWithRotation;
     interpolateRotation(path, pathWithRotation);
-
+    
+    double r,p,y;
+    
+       
+    
     KDL::Path_Composite pathComposite;
     computePathComposite(pathWithRotation, pathComposite);
     computeTrajectroy(pathComposite, trajectory);

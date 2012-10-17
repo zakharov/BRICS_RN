@@ -148,7 +148,7 @@ namespace conversions {
                 KDL::Frame f1Kdl = f1.getFrame();
                 KDL::Frame f2Kdl = f2.getFrame();
                 
-                KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), 0.1);
+                KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), 0.0001);
                 path.Add(pathLine);
 
                 p1 = p2;

@@ -133,14 +133,15 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 void pathCallback(const nav_msgs::Path& path) {
     OmniDriveTrajectoryGenerator trajectoryGenerator;
     
+    
+    
     std::vector<FrameWithId> pathKDL;
     conversions::pathRosToPath(path, pathKDL);
     ROS_INFO("Path size: %d", pathKDL.size());
-    
-    
+   
     KDL::Trajectory_Composite trajectoryKDL;
     trajectoryGenerator.computeTrajectroy(pathKDL, trajectoryKDL);
-    
+  
     startTime = ros::Time::now();
     controller->setTargetTrajectory(trajectoryKDL);
 }
@@ -230,7 +231,7 @@ int main(int argc, char **argv) {
     node.param("velocityToleranceTranslation", velocityToleranceTranslation, 0.01);
 
     node.param("velocityGainRotation", velocityGainRotation, 1.35);
-    node.param("positionGainRotation", positionGainRotation, 0.2);
+    node.param("positionGainRotation", positionGainRotation, 1.0);
     node.param("positionToleranceRotation", positionToleranceRotation, 0.1);
     node.param("velocityToleranceRotation", velocityToleranceRotation, 0.01);
 
@@ -239,6 +240,13 @@ int main(int argc, char **argv) {
     node.param<string > ("inputOdometryTopic", inputOdometryTopic, "odom");
     node.param<string > ("outputVelocityTopic", inputVelocityTopic, "cmd_vel");
 
+    
+    ROS_INFO("velocityGainTranslation: %f", velocityGainTranslation);
+    ROS_INFO("velocityGainRotation: %f", velocityGainRotation);
+    ROS_INFO("positionGainTranslation: %f", positionGainTranslation);
+    ROS_INFO("positionGainRotation: %f", positionGainRotation);
+    
+    
     //ros::Subscriber trajectorySubscriber;
     ros::Subscriber pathSubscriber;
     ros::Subscriber odomSubscriber;

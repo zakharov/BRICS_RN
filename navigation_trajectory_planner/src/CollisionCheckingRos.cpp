@@ -93,20 +93,20 @@ bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
 
     LinearInterpolation interpolator;
     std::vector <FrameWithId> interpolatedPath;
-    interpolator.interpolate(prunedPath, interpolatedPath, interpolationStep, numberOfSteps);
+    size_t counter = interpolator.interpolate(prunedPath, interpolatedPath, interpolationStep, numberOfSteps);
 
 #ifdef DEBUG
     Stopwatch stopwatch;
     stopwatch.start();
 #endif
 
+       
     size_t i;
-    for (i = 0; i < interpolatedPath.size(); ++i) {
+    for (i = 0; i < counter; ++i) {
         const FrameWithId& frame = interpolatedPath[i];
         double r, p, y;
         frame.M.GetRPY(r, p, y);
-        //    ROS_INFO("Frame: %f, %f, %f", frame.p.x(), frame.p.y(), y);
-
+       
         geometry_msgs::PoseStamped pose;
         conversions::frameToPoseStampedRos(frame, pose);
 

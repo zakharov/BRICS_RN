@@ -131,7 +131,7 @@ double controlLoop() {
     switch (actualState.get()) {
         case TrajectoryAdapterNodeState::IDLING:
         {
-            ROS_INFO("State IDLING");
+         //   ROS_INFO("State IDLING");
             break;
         }
         case TrajectoryAdapterNodeState::PLANNING:
@@ -145,6 +145,10 @@ double controlLoop() {
             ChaikinCurveApproximation chaikin;
 
             pathPlanner->computePath(actualPose, goalPose, path);
+            
+            if (path.empty())
+                ROS_WARN("Can't plan a path");
+            
             peucker.approximate(path, simplifiedPath);
                        
            //  chaikin.approximate(simplifiedPath, simplifiedPath, 2);
@@ -156,7 +160,7 @@ double controlLoop() {
             pathPublisher.publish(pathRos);
             simplifiedPathPublisher.publish(simplifiedPathRos);
 #endif            
-            actualState.set(TrajectoryAdapterNodeState::IDLING);
+            actualState.set(TrajectoryAdapterNodeState::COLLISION_CHECKING);
 
             break;
         }
