@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1DotVisualizer.html#a7f5dce3246ac1342f660a93b0bb1b0ab" title="Print the current graph into a file." alt="" coords="296,85,547,115"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html#a2a94c2e915f2fd92b1f39831068e8c54" title="brics_3d::rsg::SceneGraphFacade::executeGraphTraverser" alt="" coords="595,5,957,35"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1DotGraphGenerator.html#ad4bbd1b9e92b6426774410f7771154af" title="brics_3d::rsg::DotGraphGenerator::getDotGraph" alt="" coords="627,58,925,89"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html#a955dae9a79d60e32acd5ab590d193d3d" title="brics_3d::rsg::SceneGraphFacade::getRootId" alt="" coords="635,111,917,142"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1rsg_1_1DotGraphGenerator.html#a7080fa73c32b5073fe132a791808f960" title="brics_3d::rsg::DotGraphGenerator::reset" alt="" coords="649,165,903,195"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classPathApproximation.html" title="PathApproximation" alt="" coords="5,31,136,62"/>
+<area shape="rect" id="node3" href="$classChaikinCurveApproximation.html" title="ChaikinCurveApproximation" alt="" coords="193,5,375,35"/>
+<area shape="rect" id="node5" href="$classDouglasPeuckerApproximation.html" title="DouglasPeuckerApproximation" alt="" coords="185,58,383,89"/>
+</map>

@@ -40,67 +40,67 @@
 #ifndef OMNIDRIVEPOSITIONCONTROLLER_H
 #define	OMNIDRIVEPOSITIONCONTROLLER_H
 
-#include "PositionController.h"
+#include "IPositionController.h"
 #include "Odometry.h"
 
+#include "navigation_trajectory_common/TrajectoryWithId.h"
 #include <vector>
 
-namespace KDL {
-    class Trajectory_Composite;
-}
-
-class OmniDrivePositionController : public PositionController  {
+class OmniDrivePositionController : public IPositionController {
 public:
-    OmniDrivePositionController(double positionGainTranslation, 
-            double velocityGainTranslation, 
+    OmniDrivePositionController(double positionGainTranslation,
+            double velocityGainTranslation,
             double positionGainRotation,
             double velocityGainRotation,
             double positionToleranceTranslation,
             double velocityToleranceTranslation,
             double positionToleranceRotation,
             double velocityToleranceRotation);
-    
+
     OmniDrivePositionController();
     OmniDrivePositionController(const OmniDrivePositionController& orig);
     virtual ~OmniDrivePositionController();
-  
-    void setTargetTrajectory(const KDL::Trajectory_Composite& trajectory);
-    void setTargetTrajectory(const std::vector<Odometry>& trajectory);
-    const std::vector<Odometry>& getTargetTrajectory() const;
-   
+
+    void setTargetTrajectory(const TrajectoryWithId& trajectory);
+    const TrajectoryWithId& getTargetTrajectory() const;
+    //void setTargetTrajectory(const std::vector<Odometry>& trajectory);
+    //void setTargetTrajectory(const std::vector<Odometry>& trajectory);
+    //const std::vector<Odometry>& getTargetTrajectory() const;
+
     void setTargetOdometry(const Odometry& targetOdometry);
     const Odometry& getTargetOdometry() const;
-    
+
     void setTolerance(const Odometry& tolerance);
     const Odometry& getTolerance() const;
-    
+
     const Odometry& computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec);
     bool isTargetReached() const;
-    
-private:    
-    
+
+private:
+
     float getDistance(const Pose2D& actualPose, const Pose2D& goalPose);
-    float getShortestAngle (float goalAngle, float actualAngle);
+    float getShortestAngle(float goalAngle, float actualAngle);
     void resetFlags();
     void targetReached(bool& translation, bool& rotation);
-       
+
 private:
-    
-    KDL::Trajectory_Composite* trajectoryComposite;
+
+    //KDL::Trajectory_Composite* trajectoryComposite;
     Odometry gains;
     Odometry tolerance;
-    std::vector<Odometry> targetTrajectory;
+    TrajectoryWithId targetTrajectory;
+    //std::vector<Odometry> targetTrajectory;
     Odometry targetOdometry;
     Odometry computedOdometry;
     Odometry actualOdometry;
     double actualTime;
     double timeOffset;
-    
-    
+
+
     bool translationFlag;
     bool rotationFlag;
-  
- };
+
+};
 
 #endif	/* OMNIDRIVEPOSITIONCONTROLLER_H */
 

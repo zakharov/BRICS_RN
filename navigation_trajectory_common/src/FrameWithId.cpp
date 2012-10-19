@@ -41,30 +41,23 @@
 
 using namespace KDL;
 
-FrameWithId::FrameWithId(const Rotation& R, const Vector& V, const std::string& id) : Frame(R, V), id(id) {
+FrameWithId::FrameWithId(const std::string& id) : id(id), frame(Frame()) {
 
 }
 
-FrameWithId::FrameWithId(const Vector& V, const std::string& id) : Frame(V), id(id) {
+FrameWithId::FrameWithId(const KDL::Frame& frame) : id(""), frame(frame) {
+    
+}
+
+FrameWithId::FrameWithId(const KDL::Frame& frame, const std::string& id) : id(id), frame(frame) {
+    
+}
+
+FrameWithId::FrameWithId() : id(""), frame(Frame()) {
 
 }
 
-//! The position matrix defaults to zero
-
-FrameWithId::FrameWithId(const Rotation& R, const std::string& id) : Frame(R), id(id) {
-
-}
-
-FrameWithId::FrameWithId(const std::string& id) : Frame(), id(id) {
-
-}
-
-FrameWithId::FrameWithId() : Frame(), id("") {
-
-}
-//! The copy constructor. Normal copy by value semantics.
-
-FrameWithId::FrameWithId(const FrameWithId& arg) : Frame(arg), id(arg.id) {
+FrameWithId::FrameWithId(const FrameWithId& arg) : id(arg.id), frame(arg.frame) {
 
 }
 
@@ -72,7 +65,10 @@ FrameWithId::~FrameWithId() {
 
 }
 
-KDL::Frame FrameWithId::getFrame() {
-    return Frame(this->M, this->p);
+const KDL::Frame& FrameWithId::getFrame() const {
+    return frame;
 }
 
+KDL::Frame& FrameWithId::getFrame() {
+    return frame;
+}

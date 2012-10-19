@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1Box.html" title="Simple model of a 3D box." alt="" coords="5,163,133,439"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1Cylinder.html" title="Simple model of a 3D cylinder." alt="" coords="157,191,309,411"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Mesh.html" title="Abstract interface for mesh data in the scenegraph." alt="" coords="333,247,533,355"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1PointCloud.html" title="Abstract interface for point cloud data in the scenegraph." alt="" coords="557,247,819,355"/>
+</map>

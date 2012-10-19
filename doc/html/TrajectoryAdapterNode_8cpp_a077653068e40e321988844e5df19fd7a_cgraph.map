@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="DouglasPeuckerApproximation::approximate" alt="" coords="145,5,423,35"/>
+<area shape="rect" id="node5" href="$classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e" title="CollisionChecking::check" alt="" coords="200,58,368,89"/>
+<area shape="rect" id="node7" href="$classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e" title="PathPlanner::computePath" alt="" coords="196,111,372,142"/>
+<area shape="rect" id="node9" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="179,165,389,195"/>
+<area shape="rect" id="node11" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="conversions::pathToPathRos" alt="" coords="191,218,377,249"/>
+<area shape="rect" id="node17" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="179,271,389,302"/>
+<area shape="rect" id="node19" href="$classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8" title="TrajectoryAdapter::updateOdometry" alt="" coords="171,325,397,355"/>
+<area shape="rect" id="node13" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="472,218,723,249"/>
+<area shape="rect" id="node15" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="772,218,969,249"/>
+</map>

@@ -40,12 +40,12 @@
 #ifndef DOUGLASPEUCKERAPPROXIMATION_H
 #define	DOUGLASPEUCKERAPPROXIMATION_H
 
-#include "navigation_trajectory_planner/PathApproximation.h"
+#include "navigation_trajectory_planner/IPathApproximation.h"
 #include <vector>
 
 class FrameWithId;
 
-class DouglasPeuckerApproximation : public PathApproximation {
+class DouglasPeuckerApproximation : public IPathApproximation {
 public:
     DouglasPeuckerApproximation();
     DouglasPeuckerApproximation(const DouglasPeuckerApproximation& orig);

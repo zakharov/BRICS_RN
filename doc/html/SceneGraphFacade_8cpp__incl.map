@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$SceneGraphFacade_8h.html" title="SceneGraphFacade.h" alt="" coords="540,86,687,117"/>
+<area shape="rect" id="node63" href="$SimpleIdGenerator_8h.html" title="SimpleIdGenerator.h" alt="" coords="24,86,165,117"/>
+<area shape="rect" id="node69" href="$AttributeFinder_8h.html" title="AttributeFinder.h" alt="" coords="976,86,1093,117"/>
+<area shape="rect" id="node5" href="$ISceneGraphQuery_8h.html" title="ISceneGraphQuery.h" alt="" coords="459,246,603,277"/>
+<area shape="rect" id="node13" href="$Shape_8h.html" title="Shape.h" alt="" coords="676,326,745,357"/>
+<area shape="rect" id="node17" href="$ISceneGraphUpdate_8h.html" title="ISceneGraphUpdate.h" alt="" coords="235,246,384,277"/>
+<area shape="rect" id="node23" href="$ISceneGraphUpdateObserver_8h.html" title="ISceneGraphUpdateObserver.h" alt="" coords="291,166,493,197"/>
+<area shape="rect" id="node26" href="$IIdGenerator_8h.html" title="IIdGenerator.h" alt="" coords="43,166,147,197"/>
+<area shape="rect" id="node28" href="$Group_8h.html" title="Group.h" alt="" coords="981,246,1048,277"/>
+<area shape="rect" id="node30" href="$Node_8h.html" title="Node.h" alt="" coords="913,326,975,357"/>
+<area shape="rect" id="node47" href="$Transform_8h.html" title="Transform.h" alt="" coords="568,166,659,197"/>
+<area shape="rect" id="node53" href="$GeometricNode_8h.html" title="GeometricNode.h" alt="" coords="784,246,907,277"/>
+<area shape="rect" id="node11" href="$TimeStamp_8h.html" title="TimeStamp.h" alt="" coords="553,326,652,357"/>
+<area shape="rect" id="node36" href="$Attribute_8h.html" title="Attribute.h" alt="" coords="1123,406,1205,437"/>
+<area shape="rect" id="node43" href="$INodeVisitor_8h.html" title="INodeVisitor.h" alt="" coords="944,406,1048,437"/>
+</map>

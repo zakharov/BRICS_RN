@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html" title="Abstract interface for visitors of the scene graph (Visitor pattern)." alt="" coords="5,602,181,822"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1PointCloud3DIterator.html" title="Point iterator implementation for brics_3d::PointCloud3D." alt="" coords="205,555,403,869"/>
+<area shape="rect" id="node6" href="$classbrics__3d_1_1IPoint3DIterator.html" title="Abstract interface to iterate over a set of points." alt="" coords="113,127,281,366"/>
+<area shape="rect" id="node8" href="$classbrics__3d_1_1Point3D.html" title="A class to represent a point in the Cartesian space." alt="" coords="305,6,513,487"/>
+</map>

@@ -1,0 +1,3 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classPositionController.html" title="{PositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="11,6,184,226"/>
+</map>

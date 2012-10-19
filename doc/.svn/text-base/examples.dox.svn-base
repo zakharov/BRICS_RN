@@ -1,0 +1,45 @@
+/*!
+
+@page examples Examples
+
+This page summarizes examples on how to use the BRICS_3D library. The following examples are available:
+
+- @ref examples
+ - @ref demo_example
+ - @ref pointcloud_viewer
+ - @ref world_model_example
+
+@section demo_example Demo application
+The BRIC_3D_Demo program demonstrates some core capabilities of the BRICS_3D library.
+It will start by loading either a depth image or a point cloud,
+down-sample the data in an Octree-based filtering step,
+optionally register two point clouds into common coordinate system,
+creates triangle mesh and visualize the result.
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@include BRICS_3D_Demo.cpp
+
+
+@section pointcloud_viewer Simple point cloud viewer
+
+Simple point cloud viewer program loads a point cloud from a txt file, optionally filters the data with an Octree based
+sub-sampling filter to reduce the data and finally visualizes the result.
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@include pointcloud_viewer.cpp
+
+
+@section world_model_example World model sample application
+
+This world model example shows how to initialize a world model, add a SceneObject, formulate a Query to find this SceneObject 
+and browse the result. 
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@dontinclude WorldModelTest.cpp 
+@skip testSimpleHanoiUseCase
+@until testTowerOfHanoi
+
+*/

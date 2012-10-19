@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1PointCloud3D.html#affef2f194a0830297e00bfad34c27a47" title="Add a point to the point cloud with reference semantics." alt="" coords="396,5,628,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1NearestNeighborANN.html#a9c6ee241e89d29b493ca9bb088e8e473" title="brics_3d::NearestNeighborANN::findNearestNeighbors" alt="" coords="345,58,679,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="389,111,635,142"/>
+</map>

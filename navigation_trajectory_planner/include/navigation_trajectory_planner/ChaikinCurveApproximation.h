@@ -40,9 +40,9 @@
 #ifndef CHAIKINCURVEAPPROXIMATION_H
 #define	CHAIKINCURVEAPPROXIMATION_H
 
-#include "navigation_trajectory_planner/PathApproximation.h"
+#include "navigation_trajectory_planner/IPathApproximation.h"
 
-class ChaikinCurveApproximation : public PathApproximation {
+class ChaikinCurveApproximation : public IPathApproximation {
 public:
     ChaikinCurveApproximation();
     ChaikinCurveApproximation(const ChaikinCurveApproximation& orig);

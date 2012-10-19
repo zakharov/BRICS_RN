@@ -1,0 +1,3 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1Evaluator.html" title="{brics_3d::Evaluator\n|+ vectorGt\l+ vectorMs\l&#45; gtBaseName\l&#45; msBaseName\l&#45; fileExt\l&#45; countGt\l&#45; countMs\l&#45; regionCorrespondence\l&#45; imageSize\l&#45; initializationStatus\l|+ Evaluator()\l+ ~Evaluator()\l+ setGtBaseName()\l+ getGtBaseName()\l+ setMsBaseName()\l+ getMsBaseName()\l+ setFileExt()\l+ getFileExt()\l+ setCountGt()\l+ getCountGt()\l+ setCountMs()\l+ getCountMs()\l+ setRegionCorrespondence()\l+ getRegionCorrespondence()\l+ setImageSize()\l+ getImageSize()\l+ Initialize()\l+ IsInitialized()\l}" alt="" coords="15,219,209,794"/>
+</map>

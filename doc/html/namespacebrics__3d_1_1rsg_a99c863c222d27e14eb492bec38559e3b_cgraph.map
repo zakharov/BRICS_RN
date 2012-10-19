@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__sceneGraph.html#ga0da19d1a51a93da36d7897f6632da892" title="Calculate the accumulated global transform for a node." alt="" coords="323,31,541,62"/>
+<area shape="rect" id="node5" href="$group__sceneGraph.html#ga95406f93a65b2ca69e22f2f9886c1b1a" title="Determine the accumulated transform along a path of nodes." alt="" coords="589,5,867,35"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1rsg_1_1PathCollector.html#ac44c568f579b5664b74956cfe5b6e868" title="brics_3d::rsg::PathCollector::getNodePaths" alt="" coords="593,58,863,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Transform.html#ac0fd92b1bfde0bae8d57596d5b4aedb8" title="Retrieve the latest/newest transform." alt="" coords="915,5,1197,35"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1Node.html#a6dc7cae34514e3773f9fa0f2c5fdd637" title="brics_3d::rsg::Node::getId" alt="" coords="1247,5,1417,35"/>
+</map>

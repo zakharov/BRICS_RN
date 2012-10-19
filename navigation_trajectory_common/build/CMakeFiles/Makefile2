@@ -526,7 +526,7 @@ clean: CMakeFiles/tests.dir/clean
 CMakeFiles/trajectory_common.dir/all: CMakeFiles/rosbuild_precompile.dir/all
 	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/depend
 	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles  1 2 3 4
 	@echo "Built target trajectory_common"
 .PHONY : CMakeFiles/trajectory_common.dir/all
 
@@ -536,7 +536,7 @@ all: CMakeFiles/trajectory_common.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/trajectory_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/trajectory_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles 0
 .PHONY : CMakeFiles/trajectory_common.dir/rule

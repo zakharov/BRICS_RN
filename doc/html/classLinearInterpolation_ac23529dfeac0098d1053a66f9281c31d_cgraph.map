@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="279,5,463,35"/>
+<area shape="rect" id="node7" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="LinearInterpolation::linearInterpolation" alt="" coords="252,58,489,89"/>
+<area shape="rect" id="node9" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="312,111,429,142"/>
+<area shape="rect" id="node11" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="313,165,428,195"/>
+<area shape="rect" id="node5" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="540,5,705,35"/>
+</map>

@@ -55,24 +55,26 @@ namespace conversions {
         const geometry_msgs::Quaternion& orientation = odometry.pose.pose.orientation;
         const geometry_msgs::Point& position = odometry.pose.pose.position;
         pose.id = odometry.header.frame_id;
-        pose.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-        pose.p = KDL::Vector(position.x, position.y, position.z);
+        KDL::Frame& poseKDL = pose.getFrame();
+        poseKDL.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+        poseKDL.p = KDL::Vector(position.x, position.y, position.z);
     }
 
     inline void odometryRosToTwist(const nav_msgs::Odometry& odometry, TwistWithId& twist) {
         const geometry_msgs::Vector3& angular = odometry.twist.twist.angular;
         const geometry_msgs::Vector3& linear = odometry.twist.twist.linear;
         twist.id = odometry.header.frame_id;
-        twist.rot = KDL::Vector(angular.x, angular.y, angular.z);
-        twist.vel = KDL::Vector(linear.x, linear.y, linear.z);
+        twist.getTwist().rot = KDL::Vector(angular.x, angular.y, angular.z);
+        twist.getTwist().vel = KDL::Vector(linear.x, linear.y, linear.z);
     }
 
     inline void poseRosToFrame(const geometry_msgs::Pose& poseRos, const std::string& id, FrameWithId& pose) {
         const geometry_msgs::Quaternion& orientation = poseRos.orientation;
         const geometry_msgs::Point& position = poseRos.position;
         pose.id = id;
-        pose.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-        pose.p = KDL::Vector(position.x, position.y, position.z);
+        KDL::Frame& poseKDL = pose.getFrame();
+        poseKDL.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+        poseKDL.p = KDL::Vector(position.x, position.y, position.z);
     }
 
     inline void poseStampedRosToFrame(const geometry_msgs::PoseStamped& poseStamped, FrameWithId& pose) {
@@ -81,13 +83,14 @@ namespace conversions {
 
     inline void frameToPoseRos(const FrameWithId& pose, geometry_msgs::Pose& poseRos, std::string& id) {
         id = pose.id;
-        pose.M.GetQuaternion(poseRos.orientation.x,
+        const KDL::Frame& poseKDL = pose.getFrame();
+        poseKDL.M.GetQuaternion(poseRos.orientation.x,
                 poseRos.orientation.y,
                 poseRos.orientation.z,
                 poseRos.orientation.w);
-        poseRos.position.x = pose.p.x();
-        poseRos.position.y = pose.p.y();
-        poseRos.position.z = pose.p.z();
+        poseRos.position.x = poseKDL.p.x();
+        poseRos.position.y = poseKDL.p.y();
+        poseRos.position.z = poseKDL.p.z();
     }
 
     inline void frameToPoseStampedRos(const FrameWithId& pose, geometry_msgs::PoseStamped& poseStamped) {

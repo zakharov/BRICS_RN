@@ -1,9 +1,41 @@
-/* 
- * File:   OmniDriveTrajectoryGenerator.cpp
- * Author: alexey
- * 
- * Created on October 9, 2012, 2:53 PM
- */
+/******************************************************************************
+ * Copyright (c) 2011
+ * GPS GmbH
+ *
+ * Author:
+ * Alexey Zakharov
+ *
+ *
+ * This software is published under a dual-license: GNU Lesser General Public
+ * License LGPL 2.1 and BSD license. The dual-license implies that users of this
+ * code may choose which terms they prefer.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the distribution.
+ * * Neither the name of GPS GmbH nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License LGPL as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version or the BSD license.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License LGPL and the BSD license for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License LGPL and BSD license along with this program.
+ *
+ ******************************************************************************/
 
 #include "OmniDriveTrajectoryGenerator.h"
 
@@ -49,14 +81,14 @@ void OmniDriveTrajectoryGenerator::computePathComposite(const std::vector<FrameW
             f2 = p2.getFrame();
 
             KDL::RotationalInterpolation_SingleAxis* rot = new KDL::RotationalInterpolation_SingleAxis();
-         //   rot->Vel(0.1,0.01);
-         //   rot->Acc(0.1,0.01,0.001);
+            //   rot->Vel(0.1,0.01);
+            //   rot->Acc(0.1,0.01,0.001);
             KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, rot, 0.001);
             pathComposite.Add(pathLine);
 
             p1 = p2;
         }
-        
+
     }
 }
 
@@ -68,29 +100,30 @@ void OmniDriveTrajectoryGenerator::interpolateRotation(const std::vector<FrameWi
     pathWithRotation.clear();
 
     double r, p, y;
-    path.front().M.GetRPY(r, p, y);
+    path.front().getFrame().M.GetRPY(r, p, y);
     double start = y;
 
-    path.back().M.GetRPY(r, p, y);
+    path.back().getFrame().M.GetRPY(r, p, y);
     double end = y;
-    double step = getShortestAngle(end, start) / (path.size()-1);
-    
+    double step = getShortestAngle(end, start) / (path.size() - 1);
+
 
     std::vector<FrameWithId>::const_iterator it;
     for (it = path.begin(); it != path.end(); ++it) {
 
-        FrameWithId f;
-        f.id = it->id;
-        f.p = it->p;
+        KDL::Frame f;
+        std::string id = it->id;
+
+        f.p = it->getFrame().p;
         f.M = KDL::Rotation::RPY(0, 0, start);
-        
-        pathWithRotation.push_back(f);
+
+        pathWithRotation.push_back(FrameWithId(f, id));
 
         start = start + step;
     }
 
-   // pathWithRotation.front() = path.front();
-   // pathWithRotation.back() = path.back();
+    // pathWithRotation.front() = path.front();
+    // pathWithRotation.back() = path.back();
 }
 
 void OmniDriveTrajectoryGenerator::computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory) {
@@ -112,11 +145,7 @@ void OmniDriveTrajectoryGenerator::computeTrajectroy(const KDL::Path_Composite& 
 void OmniDriveTrajectoryGenerator::computeTrajectroy(const std::vector<FrameWithId> path, KDL::Trajectory_Composite& trajectory) {
     std::vector<FrameWithId> pathWithRotation;
     interpolateRotation(path, pathWithRotation);
-    
-    double r,p,y;
-    
-       
-    
+
     KDL::Path_Composite pathComposite;
     computePathComposite(pathWithRotation, pathComposite);
     computeTrajectroy(pathComposite, trajectory);

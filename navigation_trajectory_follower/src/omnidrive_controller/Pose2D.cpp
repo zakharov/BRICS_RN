@@ -66,13 +66,13 @@ float Pose2D::getX() const {
 float Pose2D::getY() const {
     return this->y;
 }
-    
+
 float Pose2D::getTheta() const {
     return this->theta;
 }
 
 Pose2D operator+(const Pose2D& op1, const Pose2D& op2) {
     Pose2D pose(op1.getX() + op2.getX(), op1.getY() + op2.getY(), op1.getTheta() + op2.getTheta());
-    
+
     return pose;
 }

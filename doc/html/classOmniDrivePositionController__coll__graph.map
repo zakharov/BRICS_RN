@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classPositionController.html" title="{PositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="5,425,179,645"/>
+<area shape="rect" id="node4" href="$classOdometry.html" title="{Odometry\n|&#45; pose\l&#45; twist\l|+ Odometry()\l+ Odometry()\l+ Odometry()\l+ Odometry()\l+ Odometry()\l+ operator=()\l+ getPose2D()\l+ setPose2D()\l+ getTwist2D()\l+ setTwist2D()\l+ ~Odometry()\l}" alt="" coords="203,387,309,682"/>
+<area shape="rect" id="node6" href="$classPose2D.html" title="{Pose2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Pose2D()\l+ Pose2D()\l+ Pose2D()\l+ ~Pose2D()\l+ operator=()\l+ getX()\l+ getY()\l+ getTheta()\l}" alt="" coords="148,34,244,291"/>
+<area shape="rect" id="node8" href="$classTwist2D.html" title="{Twist2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Twist2D()\l+ Twist2D()\l+ Twist2D()\l+ operator=()\l+ ~Twist2D()\l+ getX()\l+ setX()\l+ getY()\l+ setY()\l+ getTheta()\l+ setTheta()\l}" alt="" coords="268,6,364,319"/>
+</map>

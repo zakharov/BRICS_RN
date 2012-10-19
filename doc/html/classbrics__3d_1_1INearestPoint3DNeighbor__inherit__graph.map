@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1NearestNeighborANN.html" title="Implementation for the nearest neighbor search algorithm with the ANN library." alt="" coords="5,210,208,561"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1NearestNeighborFLANN.html" title="Implementation for the nearest neighbor search algorithm with the FLANN library." alt="" coords="232,201,448,570"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1NearestNeighborSTANN.html" title="Implementation for the nearest neighbor search algorithm with the STANN library." alt="" coords="472,229,688,542"/>
+</map>

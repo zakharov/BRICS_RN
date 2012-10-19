@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classbrics__3d_1_1rsg_1_1IIdGenerator.html" title="Abstract interface for unique ID generation." alt="" coords="7,5,183,35"/>
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1SimpleIdGenerator.html" title="Implementation for IIdGenerator based on a running number." alt="" coords="232,5,445,35"/>
+</map>

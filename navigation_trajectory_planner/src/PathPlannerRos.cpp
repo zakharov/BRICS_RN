@@ -39,10 +39,13 @@
 
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/Conversions.h"
+#include "navigation_trajectory_common/Stopwatch.h"
+
+#ifdef DEBUG
+#include "navigation_trajectory_common/Logger.h"
+#endif
 
 #include "navigation_trajectory_planner/PathPlannerRos.h"
-#include "navigation_trajectory_planner/Stopwatch.h"
-#include "navigation_trajectory_planner/Logger.h"
 
 #include <nav_core/base_global_planner.h>
 

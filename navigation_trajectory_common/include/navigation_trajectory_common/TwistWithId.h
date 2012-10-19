@@ -43,17 +43,25 @@
 #include <kdl/frames.hpp>
 #include <string>
 
-class TwistWithId : public KDL::Twist {
+class TwistWithId {
 public:
     std::string id;
 
 public:
     TwistWithId();
+    TwistWithId(const KDL::Twist& twist);
     TwistWithId(const std::string& id);
-    TwistWithId(const KDL::Vector& _vel, const KDL::Vector& _rot, const std::string& id);
+    TwistWithId(const KDL::Twist& twist, const std::string& id);
     TwistWithId(const TwistWithId& orig);
     virtual ~TwistWithId();
 
+    const KDL::Twist& getTwist() const;
+    KDL::Twist& getTwist();
+    
+private:
+    
+    KDL::Twist twist;
+    
 };
 
 #endif	/* TWISTWITHID_H */

@@ -322,6 +322,36 @@ src/FrameWithId.s:
 .PHONY : src/FrameWithId.s
 
 # target to build an object file
+src/Stopwatch.o:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Stopwatch.o
+.PHONY : src/Stopwatch.o
+
+# target to preprocess a source file
+src/Stopwatch.i:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Stopwatch.i
+.PHONY : src/Stopwatch.i
+
+# target to generate assembly for a file
+src/Stopwatch.s:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Stopwatch.s
+.PHONY : src/Stopwatch.s
+
+# target to build an object file
+src/TrajectoryWithId.o:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o
+.PHONY : src/TrajectoryWithId.o
+
+# target to preprocess a source file
+src/TrajectoryWithId.i:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.i
+.PHONY : src/TrajectoryWithId.i
+
+# target to generate assembly for a file
+src/TrajectoryWithId.s:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.s
+.PHONY : src/TrajectoryWithId.s
+
+# target to build an object file
 src/TwistWithId.o:
 	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TwistWithId.o
 .PHONY : src/TwistWithId.o
@@ -363,6 +393,12 @@ help:
 	@echo "... src/FrameWithId.o"
 	@echo "... src/FrameWithId.i"
 	@echo "... src/FrameWithId.s"
+	@echo "... src/Stopwatch.o"
+	@echo "... src/Stopwatch.i"
+	@echo "... src/Stopwatch.s"
+	@echo "... src/TrajectoryWithId.o"
+	@echo "... src/TrajectoryWithId.i"
+	@echo "... src/TrajectoryWithId.s"
 	@echo "... src/TwistWithId.o"
 	@echo "... src/TwistWithId.i"
 	@echo "... src/TwistWithId.s"

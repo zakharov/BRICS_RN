@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a276537ad25de5bd51d1e35b76badb8c6" title="Get the axis along which we need to search for a model perpendicular to." alt="" coords="536,5,824,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a9c76ad6744221222ed3a79a757adffbd" title="Get the angle threshold between the given axis and the model&#45;normal." alt="" coords="521,58,839,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a598d024dd8286b2a605e04824ab513a0" title="Get the relative weight variable indicating the angular distance between point normals and the plane ..." alt="" coords="483,111,877,142"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1IObjectModel.html#a74876b0de297040f32013772670883fe" title="Get the minimum and maximum allowable radius limits for the model as set by the user." alt="" coords="552,165,808,195"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1NormalSet3D.html#a61fff0da4d8d16c9f698ffd49a1f7d0a" title="Get the number of normals in the normal set." alt="" coords="576,218,784,249"/>
+<area shape="rect" id="node13" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="576,271,784,302"/>
+<area shape="rect" id="node15" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#abf8f3160fcfddf23711e52eb2c93a8fc" title="Set the axis along which we need to search for a model perpendicular to." alt="" coords="536,325,824,355"/>
+<area shape="rect" id="node17" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a213b925157c7518d77fbe57f5625ae65" title="Set the angle epsilon (delta) threshold." alt="" coords="521,378,839,409"/>
+<area shape="rect" id="node19" href="$classbrics__3d_1_1IObjectModel.html#a8dcb1324f2d9fe4a53b4af654fd42b7d" title="Provide a pointer to the input dataset." alt="" coords="559,431,801,462"/>
+<area shape="rect" id="node21" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a4bb6bde6ed6b30c738aa934b617e0762" title="Set the pointer to the normal&#45;set for the corresponding input point cloud." alt="" coords="511,485,849,515"/>
+<area shape="rect" id="node23" href="$classbrics__3d_1_1IObjectModelUsingNormals.html#a08e1206e04e4ebb252d869bcfbd0757f" title="Set the relative weight variable indicating the angular distance between point normals and the plane ..." alt="" coords="483,538,877,569"/>
+<area shape="rect" id="node25" href="$classbrics__3d_1_1IObjectModel.html#a9b8527e4414bd3062b2c00e39a9d4662" title="Set the minimum and maximum allowable radius limits for the model (applicable to models that estimate..." alt="" coords="552,591,808,622"/>
+</map>

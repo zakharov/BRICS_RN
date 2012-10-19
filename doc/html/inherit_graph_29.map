@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classbrics__3d_1_1ITriangleMesh.html" title="Abstract interface for a triangle mesh." alt="" coords="5,31,165,62"/>
+<area shape="rect" id="node3" href="$classbrics__3d_1_1TriangleMeshExplicit.html" title="Explicit triangle mesh representation." alt="" coords="215,5,412,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1TriangleMeshImplicit.html" title="Implicit triangle mesh representation." alt="" coords="215,58,412,89"/>
+</map>

@@ -43,27 +43,33 @@
 #include <kdl/frames.hpp>
 #include <string>
 
-class FrameWithId : public KDL::Frame {
+class FrameWithId {
 public:
     std::string id;
 
 public:
 
-    FrameWithId(const KDL::Rotation& R, const KDL::Vector& V, const std::string& id);
-
-    FrameWithId(const KDL::Vector& V, const std::string& id);
-
-    FrameWithId(const KDL::Rotation& R, const std::string& id);
-
+    
     FrameWithId(const std::string& id);
+    
+    FrameWithId(const KDL::Frame& frame);
+    
+    FrameWithId(const KDL::Frame& frame, const std::string& id);
 
     FrameWithId();
 
     FrameWithId(const FrameWithId& arg);
     
-    KDL::Frame getFrame();
+    const KDL::Frame& getFrame() const;
+    
+    KDL::Frame& getFrame();
 
     virtual ~FrameWithId();
+    
+private:
+    
+    KDL::Frame frame; 
+ 
 };
 
 

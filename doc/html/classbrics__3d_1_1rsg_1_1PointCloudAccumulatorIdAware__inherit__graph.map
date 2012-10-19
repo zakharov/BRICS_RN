@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1PointCloudAccumulator.html" title="Scenegraph visitor that collects all point clouds in a sub&#45;graph and returns a point iterator brics_3..." alt="" coords="5,275,304,533"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html" title="Abstract interface for visitors of the scene graph (Visitor pattern)." alt="" coords="67,6,243,226"/>
+</map>

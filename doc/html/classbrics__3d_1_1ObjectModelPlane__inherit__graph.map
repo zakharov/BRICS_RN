@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classbrics__3d_1_1ObjectModelOrientedPlane.html" title="{brics_3d::ObjectModelOrientedPlane\n|&#45; axis\l&#45; epsAngle\l|+ ObjectModelOrientedPlane()\l+ ~ObjectModelOrientedPlane()\l+ setAxis()\l+ getAxis()\l+ setEpsAngle()\l+ getEpsAngle()\l+ selectWithinDistance()\l+ getDistancesToModel()\l}" alt="" coords="5,713,240,951"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1ObjectModelPlaneFromLineAndPoint.html" title="{brics_3d::ObjectModelPlaneFromLineAndPoint\n|# geometryEpsilon\l|+ ObjectModelPlaneFromLineAndPoint()\l+ ~ObjectModelPlaneFromLineAndPoint()\l+ contains()\l+ crossProduct3D()\l+ getSamples()\l+ computeModelCoefficients()\l+ computeRandomModel()\l+ getNumberOfSamplesRequired()\l}" alt="" coords="264,722,555,942"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1ObjectModelPlaneFromLines.html" title="Finds a plane model from two 3D line segments in the data." alt="" coords="579,722,824,942"/>
+<area shape="rect" id="node2" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="296,6,523,357"/>
+</map>

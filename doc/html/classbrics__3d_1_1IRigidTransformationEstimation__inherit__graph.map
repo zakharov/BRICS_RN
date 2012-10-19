@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1RigidTransformationEstimationAPX.html" title="Implementation of rigid transformation estimation between two corresponding point clouds..." alt="" coords="5,182,288,309"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1RigidTransformationEstimationHELIX.html" title="Implementation of rigid transformation estimation between two corresponding point clouds..." alt="" coords="312,182,605,309"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1RigidTransformationEstimationORTHO.html" title="Implementation of rigid transformation estimation between two corresponding point clouds..." alt="" coords="629,182,931,309"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1RigidTransformationEstimationQUAT.html" title="Implementation of rigid transformation estimation between two corresponding point clouds..." alt="" coords="955,182,1245,309"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1RigidTransformationEstimationSVD.html" title="Implementation of rigid transformation estimation between two corresponding point clouds..." alt="" coords="1269,182,1552,309"/>
+</map>

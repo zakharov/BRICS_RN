@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1IWorldModelQuery.html" title="Interface to get access to elements in the 3D model." alt="" coords="5,25,189,133"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1IWorldModelUpdate.html" title="Interface to get update elements in the 3D model." alt="" coords="213,34,403,123"/>
+<area shape="rect" id="node6" href="$classbrics__3d_1_1IWorldModelCoordination.html" title="Coordination interface to trigger the internal perception processing functionalities." alt="" coords="427,6,648,151"/>
+</map>

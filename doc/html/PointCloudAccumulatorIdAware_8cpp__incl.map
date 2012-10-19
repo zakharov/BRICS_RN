@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$PointCloudAccumulatorIdAware_8h.html" title="PointCloudAccumulatorIdAware.h" alt="" coords="412,86,625,117"/>
+<area shape="rect" id="node5" href="$PointCloudAccumulator_8h.html" title="PointCloudAccumulator.h" alt="" coords="239,166,407,197"/>
+<area shape="rect" id="node47" href="$SceneGraphFacade_8h.html" title="SceneGraphFacade.h" alt="" coords="643,166,789,197"/>
+<area shape="rect" id="node7" href="$Node_8h.html" title="Node.h" alt="" coords="380,406,441,437"/>
+<area shape="rect" id="node22" href="$INodeVisitor_8h.html" title="INodeVisitor.h" alt="" coords="45,486,149,517"/>
+<area shape="rect" id="node24" href="$Group_8h.html" title="Group.h" alt="" coords="479,326,545,357"/>
+<area shape="rect" id="node28" href="$Transform_8h.html" title="Transform.h" alt="" coords="563,246,653,277"/>
+<area shape="rect" id="node36" href="$GeometricNode_8h.html" title="GeometricNode.h" alt="" coords="281,326,404,357"/>
+<area shape="rect" id="node15" href="$Attribute_8h.html" title="Attribute.h" alt="" coords="308,486,391,517"/>
+<area shape="rect" id="node33" href="$TimeStamp_8h.html" title="TimeStamp.h" alt="" coords="575,406,673,437"/>
+<area shape="rect" id="node40" href="$Shape_8h.html" title="Shape.h" alt="" coords="697,406,767,437"/>
+<area shape="rect" id="node49" href="$ISceneGraphQuery_8h.html" title="ISceneGraphQuery.h" alt="" coords="727,326,871,357"/>
+<area shape="rect" id="node55" href="$ISceneGraphUpdate_8h.html" title="ISceneGraphUpdate.h" alt="" coords="945,326,1095,357"/>
+<area shape="rect" id="node61" href="$ISceneGraphUpdateObserver_8h.html" title="ISceneGraphUpdateObserver.h" alt="" coords="780,246,983,277"/>
+<area shape="rect" id="node64" href="$IIdGenerator_8h.html" title="IIdGenerator.h" alt="" coords="1217,246,1321,277"/>
+</map>

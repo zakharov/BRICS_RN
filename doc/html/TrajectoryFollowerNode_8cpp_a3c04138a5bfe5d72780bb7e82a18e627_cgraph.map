@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="124,191,212,222"/>
+<area shape="rect" id="node23" href="$TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d" title="odomCallback" alt="" coords="368,378,472,409"/>
+<area shape="rect" id="node29" href="$TrajectoryFollowerNode_8cpp.html#a760b9f74f63e16ef6a33656855a27e32" title="trajectoryCallback" alt="" coords="105,431,231,462"/>
+<area shape="rect" id="node5" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="DouglasPeuckerApproximation::approximate" alt="" coords="281,111,559,142"/>
+<area shape="rect" id="node7" href="$classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e" title="CollisionChecking::check" alt="" coords="336,165,504,195"/>
+<area shape="rect" id="node9" href="$classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e" title="PathPlanner::computePath" alt="" coords="332,218,508,249"/>
+<area shape="rect" id="node11" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="315,271,525,302"/>
+<area shape="rect" id="node13" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="conversions::pathToPathRos" alt="" coords="327,325,513,355"/>
+<area shape="rect" id="node19" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="315,5,525,35"/>
+<area shape="rect" id="node21" href="$classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8" title="TrajectoryAdapter::updateOdometry" alt="" coords="307,58,533,89"/>
+<area shape="rect" id="node15" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="608,325,859,355"/>
+<area shape="rect" id="node17" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="908,325,1105,355"/>
+<area shape="rect" id="node25" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="668,431,799,462"/>
+<area shape="rect" id="node27" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="668,378,799,409"/>
+<area shape="rect" id="node31" href="$classPositionController.html#ad97676f324c30783ca3ad1154f152ff0" title="PositionController::setTargetTrajectory" alt="" coords="299,485,541,515"/>
+<area shape="rect" id="node33" href="$TrajectoryFollowerNode_8cpp.html#add591b133b00f27c8ef0328cf948408b" title="trajectoryRosToOdomVector" alt="" coords="328,431,512,462"/>
+</map>

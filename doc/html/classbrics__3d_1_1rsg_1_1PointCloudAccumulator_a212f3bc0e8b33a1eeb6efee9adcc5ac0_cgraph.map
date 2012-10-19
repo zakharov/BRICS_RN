@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1PointCloudAccumulator.html#a5ebb2f82c7dd8a0406e93ebafca1eecb" title="Overridable &quot;template method&quot; (for example for an ID aware version) for for resolving the t..." alt="" coords="327,110,831,141"/>
+<area shape="rect" id="node28" href="$classbrics__3d_1_1rsg_1_1GeometricNode.html#a84f13f3ff10a3fec2b59c7901df4d32c" title="brics_3d::rsg::GeometricNode::getShape" alt="" coords="449,163,708,194"/>
+<area shape="rect" id="node30" href="$classbrics__3d_1_1PointCloud3DIterator.html#abae058612bce60e9757d1d46bda67545" title="Add a point cloud with its associated transform." alt="" coords="460,217,697,247"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1Group.html#addff9bef9b0b0f655a1d30cf8dcfc1d3" title="brics_3d::rsg::Group::getChild" alt="" coords="917,5,1112,35"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Group.html#a43180f2d33f1c4a62c1cacfd571b9404" title="brics_3d::rsg::Group::getChildIndex" alt="" coords="901,58,1128,89"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1rsg_1_1Node.html#ac21ab5662addcb947a9ce517744f21d6" title="brics_3d::rsg::Node::getNumberOfParents" alt="" coords="1201,137,1465,167"/>
+<area shape="rect" id="node13" href="$classbrics__3d_1_1rsg_1_1Node.html#ad44fb577e89946eacb829ee656496ac1" title="brics_3d::rsg::Node::getParent" alt="" coords="916,162,1113,193"/>
+<area shape="rect" id="node16" href="$namespacebrics__3d_1_1rsg.html#a99c863c222d27e14eb492bec38559e3b" title="brics_3d::rsg::getTransformBetweenNodes" alt="" coords="881,215,1148,246"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1Group.html#a9bfc4a001b00a8e36369bb9ad41879fb" title="brics_3d::rsg::Group::getNumberOfChildren" alt="" coords="1197,58,1469,89"/>
+<area shape="rect" id="node18" href="$group__sceneGraph.html#ga0da19d1a51a93da36d7897f6632da892" title="Calculate the accumulated global transform for a node." alt="" coords="1224,215,1443,246"/>
+<area shape="rect" id="node20" href="$group__sceneGraph.html#ga95406f93a65b2ca69e22f2f9886c1b1a" title="Determine the accumulated transform along a path of nodes." alt="" coords="1517,189,1795,219"/>
+<area shape="rect" id="node26" href="$classbrics__3d_1_1rsg_1_1PathCollector.html#ac44c568f579b5664b74956cfe5b6e868" title="brics_3d::rsg::PathCollector::getNodePaths" alt="" coords="1521,242,1791,273"/>
+<area shape="rect" id="node22" href="$classbrics__3d_1_1rsg_1_1Transform.html#ac0fd92b1bfde0bae8d57596d5b4aedb8" title="Retrieve the latest/newest transform." alt="" coords="1843,189,2125,219"/>
+<area shape="rect" id="node24" href="$classbrics__3d_1_1rsg_1_1Node.html#a6dc7cae34514e3773f9fa0f2c5fdd637" title="brics_3d::rsg::Node::getId" alt="" coords="2175,189,2345,219"/>
+</map>

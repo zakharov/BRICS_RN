@@ -38,14 +38,14 @@
  ******************************************************************************/
 
 #include "navigation_trajectory_common/FrameWithId.h"
-
-#include "navigation_trajectory_planner/DouglasPeuckerApproximation.h"
-#include "navigation_trajectory_planner/PathUtilities.h"
-#include "navigation_trajectory_planner/Logger.h"
+#include "navigation_trajectory_common/Utilities.h"
+#include "navigation_trajectory_common/Logger.h"
 
 #ifdef DEBUG
-#include "navigation_trajectory_planner/Stopwatch.h"
+#include "navigation_trajectory_common/Stopwatch.h"
 #endif
+
+#include "navigation_trajectory_planner/DouglasPeuckerApproximation.h"
 
 DouglasPeuckerApproximation::DouglasPeuckerApproximation() {
 }
@@ -100,7 +100,7 @@ void DouglasPeuckerApproximation::douglasPeucker(const std::vector <FrameWithId>
     std::vector <FrameWithId> result2;
 
     for (unsigned int i = 1; i < pointList.size() - 1; i++) {
-        double d = perpendicularDistance(pointList[i], pointList[0],
+        double d = utilities::perpendicularDistance(pointList[i], pointList[0],
                 pointList[pointList.size() - 1]);
         if (d > dmax) {
             index = i;

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1RGBColorBasedEuclideanClustering.html#ac5ed8c6aa3460f4c067b41b28d733604" title="brics_3d::RGBColorBasedEuclideanClustering::extractClusters" alt="" coords="400,122,784,152"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="1227,95,1472,126"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="1245,200,1453,231"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#affef2f194a0830297e00bfad34c27a47" title="Add a point to the point cloud with reference semantics." alt="" coords="889,43,1121,74"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1PCLTypecaster.html#aed9039a69ba72eebbaff8873341ee905" title="Converts from XYZ&#45;cloud format of BRICS_3D to XYZ&#45;cloud format of PCL." alt="" coords="848,147,1163,178"/>
+<area shape="rect" id="node14" href="$classbrics__3d_1_1RGBColorBasedEuclideanClustering.html#af99f4672ad01275497edecc248ed2b25" title="brics_3d::RGBColorBasedEuclideanClustering::isSimilar" alt="" coords="832,200,1179,231"/>
+</map>

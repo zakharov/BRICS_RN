@@ -101,16 +101,72 @@ CMakeFiles/trajectory_common.dir/src/TwistWithId.o.provides: CMakeFiles/trajecto
 CMakeFiles/trajectory_common.dir/src/TwistWithId.o.provides.build: CMakeFiles/trajectory_common.dir/src/TwistWithId.o
 .PHONY : CMakeFiles/trajectory_common.dir/src/TwistWithId.o.provides.build
 
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o: CMakeFiles/trajectory_common.dir/flags.make
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o: ../src/TrajectoryWithId.cpp
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o: ../manifest.xml
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o: /opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/manifest.xml
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o -c /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/TrajectoryWithId.cpp
+
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/TrajectoryWithId.cpp > CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.i
+
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/TrajectoryWithId.cpp -o CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.s
+
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.requires:
+.PHONY : CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.requires
+
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.provides: CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.requires
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.provides.build
+.PHONY : CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.provides
+
+CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.provides.build: CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o
+.PHONY : CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.provides.build
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o: CMakeFiles/trajectory_common.dir/flags.make
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o: ../src/Stopwatch.cpp
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o: ../manifest.xml
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o: /opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/manifest.xml
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/trajectory_common.dir/src/Stopwatch.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/trajectory_common.dir/src/Stopwatch.o -c /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/Stopwatch.cpp
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/trajectory_common.dir/src/Stopwatch.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/Stopwatch.cpp > CMakeFiles/trajectory_common.dir/src/Stopwatch.i
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/trajectory_common.dir/src/Stopwatch.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/Stopwatch.cpp -o CMakeFiles/trajectory_common.dir/src/Stopwatch.s
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o.requires:
+.PHONY : CMakeFiles/trajectory_common.dir/src/Stopwatch.o.requires
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o.provides: CMakeFiles/trajectory_common.dir/src/Stopwatch.o.requires
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Stopwatch.o.provides.build
+.PHONY : CMakeFiles/trajectory_common.dir/src/Stopwatch.o.provides
+
+CMakeFiles/trajectory_common.dir/src/Stopwatch.o.provides.build: CMakeFiles/trajectory_common.dir/src/Stopwatch.o
+.PHONY : CMakeFiles/trajectory_common.dir/src/Stopwatch.o.provides.build
+
 # Object files for target trajectory_common
 trajectory_common_OBJECTS = \
 "CMakeFiles/trajectory_common.dir/src/FrameWithId.o" \
-"CMakeFiles/trajectory_common.dir/src/TwistWithId.o"
+"CMakeFiles/trajectory_common.dir/src/TwistWithId.o" \
+"CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o" \
+"CMakeFiles/trajectory_common.dir/src/Stopwatch.o"
 
 # External object files for target trajectory_common
 trajectory_common_EXTERNAL_OBJECTS =
 
 ../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/src/FrameWithId.o
 ../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/src/TwistWithId.o
+../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o
+../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/src/Stopwatch.o
 ../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/build.make
 ../lib/libtrajectory_common.so: CMakeFiles/trajectory_common.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libtrajectory_common.so"
@@ -122,6 +178,8 @@ CMakeFiles/trajectory_common.dir/build: ../lib/libtrajectory_common.so
 
 CMakeFiles/trajectory_common.dir/requires: CMakeFiles/trajectory_common.dir/src/FrameWithId.o.requires
 CMakeFiles/trajectory_common.dir/requires: CMakeFiles/trajectory_common.dir/src/TwistWithId.o.requires
+CMakeFiles/trajectory_common.dir/requires: CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.o.requires
+CMakeFiles/trajectory_common.dir/requires: CMakeFiles/trajectory_common.dir/src/Stopwatch.o.requires
 .PHONY : CMakeFiles/trajectory_common.dir/requires
 
 CMakeFiles/trajectory_common.dir/clean:

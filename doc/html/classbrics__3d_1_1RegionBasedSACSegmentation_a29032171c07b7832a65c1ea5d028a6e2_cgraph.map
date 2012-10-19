@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1ISACMethods.html#a5bfab5058dd8e9f096c5a83c185277bb" title="Get the maximum number of iterations for model estimation." alt="" coords="425,5,689,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1ISACMethods.html#a3c0e4fbb5a2b45e99a9dd4aadcad4eb3" title="Obtain the probability of choosing at least one sample free from outliers." alt="" coords="435,58,680,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1ISACMethods.html#af726fb40721f1ce700610c901dd260f0" title="Set the user&#45;defined threshold distance to the model." alt="" coords="411,111,704,142"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1ISACMethods.html#aaac9ded043cc8a0a3a8279d237cf8193" title="Set the maximum number of iterations for model estimation." alt="" coords="425,165,689,195"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1ISACMethods.html#aa3fc35727e40a8f8f9e4d277b68c82e1" title="Set the object model to be used." alt="" coords="428,218,687,249"/>
+<area shape="rect" id="node13" href="$classbrics__3d_1_1ISACMethods.html#ab58b7b9cae2d2ec0fb64ce30872bc8bc" title="Set the pointcloud to be used." alt="" coords="435,271,680,302"/>
+<area shape="rect" id="node15" href="$classbrics__3d_1_1ISACMethods.html#a5c962066ca8bd88f95fc3b6762bc04c5" title="Set the desired probability of choosing at least one sample free from outliers." alt="" coords="435,325,680,355"/>
+</map>

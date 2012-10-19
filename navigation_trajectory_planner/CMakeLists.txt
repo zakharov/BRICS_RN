@@ -22,19 +22,14 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #common commands for building c++ executables and libraries
 rosbuild_add_executable(trajectory_planner_node 
-    src/TrajectoryAdapter.cpp
-    src/TrajectoryAdapterObserverDummy.cpp
-    src/TrajectoryAdapterNode.cpp 
-    src/PathPlannerRos.cpp
     src/ChaikinCurveApproximation.cpp
     src/DouglasPeuckerApproximation.cpp
-    src/Stopwatch.cpp
     src/ChaikinCurveApproximation.cpp
-    src/CollisionCheckingRos.cpp
-    src/PathIterator.cpp
     src/LinearInterpolation.cpp
-    src/OmniDrive.cpp
-    src/DifferentialDrive.cpp
+    src/PathIterator.cpp
+    src/PathPlannerRos.cpp
+    src/CollisionCheckingRos.cpp
+    src/TrajectoryAdapterNode.cpp 
 )
 
 

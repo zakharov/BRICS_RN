@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classbrics__3d_1_1ISegmentation.html" title="Abstract interface for segmentation methods." alt="" coords="5,85,168,115"/>
+<area shape="rect" id="node3" href="$classbrics__3d_1_1EuclideanClustering.html" title="Segmentation based on Eucledian distance between point clusters." alt="" coords="264,5,456,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1EuclideanClusteringPCL.html" title="The class provides a wrapper for ONLY simple KDTree based Euclidean Cluster Extraction in PCL Note th..." alt="" coords="251,58,469,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1RegionBasedSACSegmentation.html" title="Adapter class for initialization of sample consensus based segmentation method." alt="" coords="229,111,491,142"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1RGBColorBasedEuclideanClustering.html" title="Segmentation based on Eucledian distance and distance in RGB color&#45;space." alt="" coords="216,165,504,195"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1RegionBasedSACSegmentationUsingNormals.html" title=": Adapter class for initialization of sample consensus based segmentation method which requires point..." alt="" coords="553,111,895,142"/>
+</map>

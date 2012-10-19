@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classDifferentialDriveTrajectoryGenerator.html" title="{DifferentialDriveTrajectoryGenerator\n||+ DifferentialDriveTrajectoryGenerator()\l+ DifferentialDriveTrajectoryGenerator()\l+ ~DifferentialDriveTrajectoryGenerator()\l+ computeTrajectroy()\l}" alt="" coords="5,173,261,318"/>
+<area shape="rect" id="node5" href="$classOmniDriveTrajectoryGenerator.html" title="{OmniDriveTrajectoryGenerator\n||+ OmniDriveTrajectoryGenerator()\l+ OmniDriveTrajectoryGenerator()\l+ ~OmniDriveTrajectoryGenerator()\l+ computeTrajectroy()\l+ getShortestAngle()\l+ interpolateRotation()\l+ computeTrajectoryComposite()\l}" alt="" coords="285,145,509,346"/>
+</map>

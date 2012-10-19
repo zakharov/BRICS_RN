@@ -1,0 +1,116 @@
+/*!
+
+@page introduction Introduction to the used algorithm taxonomy
+
+@section taxonomy Algorithm taxonomy  
+
+The 3D perception and modeling domain can be classified into several subareas: 
+ - @ref depth_perception_def
+ - @ref filtering_def
+ - @ref feature_extraction_def
+ - @ref registration_def
+ - @ref segmentation_def
+ - @ref classification_def
+ - @ref mesh_generation_def
+ - @ref visualization_def
+ 
+@subsection depth_perception_def Depth perception
+For depth perception various kinds of sensors exist. Laser scanners emit laser beams that
+are reflected when the beams hit the surface. The traveling time of the light is used to deduce the
+distance. Time-of-Flight cameras follow the same principle, but some devices measure the phase
+shift of a modulated frequency rather than the traveled time. Stereo camera systems consists of                                                                                             
+two cameras that are mounted on a fixed baseline. As the baseline is known, distances to corresponding 
+points can be calculated via triangulation. Sensor data is often encoded into depth or
+range images. Although the depth perception is a crucial step for 3D perception, it is assumed in
+this work that depth images are already given. Algorithms in this domain are typically hardware
+dependent. This library will provide functionality to turn a depth image into a point cloud representation.
+
+Further information on the implemented algorithms can be found in the @ref depth_perception section.
+
+
+@subsection filtering_def Filtering
+A filter is an algorithm that is able to process a data stream, in this case point cloud data.
+Three major filtering techniques are often applied to point clouds: noise reduction, size reduction
+or ROI extraction.
+ 
+ 
+Noise reduction filters try to remedy shortcomings of the sensors measurements. Size reduction
+filters sub-sample the input data to get an approximated but smaller amount of data. The less
+input data an algorithms has, the faster the processing is. Filters for ROI extraction follow the
+same spirit but they reduce the data by focusing on a particular region rather than sub-sampling 
+the complete input data. However how such ROI is derived is out scope of filtering algorithms.
+The filtering stage can be regarded as optional, but it is a valuable
+contribution to create more robust or faster results.
+
+Further information on the implemented algorithms can be found in the @ref filtering section. 
+
+
+@subsection feature_extraction_def Feature extraction
+
+Feature extraction methods typically try to detect distinctive points or regions in the input image or 
+point cloud data. Different descriptors exist to describe these regions on a local scale for points and
+regions or on global scale that takes bigger portions or the complete scene into account. 
+
+Normal estimation methods are needed to
+compute a normal vector for each point in a point cloud. The normal represents the plane normal
+vector of an underlying patch of the surface. Many algorithms requires point clouds with normals
+to further process the data.  
+
+Further information on the implemented algorithms can be found in the @ref featureExtraction section.
+ 
+ 
+@subsection registration_def Registration
+Registration, also sometimes referred as <i>matching</i>, is the process of merging captures from
+different viewpoints into one global, consistent coordinate frame. This is a robotic problem, because
+mobile robots move in their environment and thus are able to perceive the environment from
+different perspectives. Some tasks require to integrate all perceived scene captures into one consistent 
+model to reason about it (for example to plan a path). The most prominent algorithm to
+solve the registration problem for point clouds is the Iterative Closest Point (ICP) method.
+
+Further information on the implemented algorithms can be found in the @ref registration section.
+
+
+@subsection segmentation_def Segmentation
+Segmentation means a spatial partition of point clouds into subsets that belong to different
+objects. 3D models of special shapes, like planes, cylinders or speres are often fitted into these
+regions to model the perceived objects. <br>
+With respect to a mobile manipulation application that needs a triangle set representation of an 
+environment this stage can be regarded as optional. However, the segmentation of data might
+be helpful to recognize objects that can be grasped, for example.
+
+Further information on the implemented algorithms can be found in the @ref segmentation section.
+
+
+ 
+@subsection classification_def Classification
+
+A classification algorithm tries to associate the data with categories or objects stored in prior
+knowledge database. To find such correspondences, methods like for instance Nearest Neighbor Search,
+Support Vector Machines or Neural Networks can be used. 
+
+Further information on the implemented algorithms can be found in the @ref nearestNeighbor section.
+ 
+@subsection mesh_generation_def Mesh generation
+The goal of the mesh generation step is to transform a 3D point cloud into a triangle mesh.
+Similar terms are <i>meshing, shape recovery, surface recovery, surface reconstruction, model retrieval,
+inverse CAD or geometric modeling</i> (in computer vision). Most of these terms are used
+in a broader context that already includes some filtering or registration steps. The notion mesh
+generation is used here in a more limited way restricted to the part of model transformation from
+point cloud to triangle mesh.
+
+Further information on the implemented algorithms can be found in the @ref mesh_generation section.
+
+@subsection visualization_def Visualization 
+Visualization, or rendering, is the process of displaying the 3D models. This involves a
+transformation from the models into a 2D image, which can be displayed on a monitor. This
+task is often performed by specialized hardware: graphic adapters. The graphic adapters offer a
+software interface to render the models that consist of primitive elements like points, lines or polygons.
+One standardized interface is OpenGL, which allows operating system independent access
+the graphic adapters. <br>
+Robotic applications do not necessarily need to visualize the generated models, but visualization 
+can serve as a development or debug tool to visually inspect intermediate results or the
+output of certain algorithms. 
+
+Further information on the implemented algorithms can be found in the @ref visualization section.
+
+*/

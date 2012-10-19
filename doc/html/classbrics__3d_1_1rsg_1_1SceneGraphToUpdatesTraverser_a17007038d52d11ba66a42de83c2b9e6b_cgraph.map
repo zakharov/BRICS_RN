@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html#a69168091669cbf805b8df09eee03afbd" title="Add a new Node to the robot scene graph." alt="" coords="447,5,727,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1Node.html#afb560e89b45ef9d248c83214595b8181" title="brics_3d::rsg::Node::getAttributes" alt="" coords="479,58,695,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Node.html#a6dc7cae34514e3773f9fa0f2c5fdd637" title="brics_3d::rsg::Node::getId" alt="" coords="901,109,1072,139"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1SceneGraphToUpdatesTraverser.html#aff9a186f22881a3e4d234810956422df" title="The common part for all nodeds." alt="" coords="379,162,795,193"/>
+<area shape="rect" id="node11" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html#aff11b90dc36ad443976892ad339fcbd8" title="Add a new parent&#45;child relation between two nodes." alt="" coords="843,162,1131,193"/>
+<area shape="rect" id="node14" href="$classbrics__3d_1_1rsg_1_1Node.html#adcd27fd56b17d488e9380f5513a586cd" title="brics_3d::rsg::Node::getParents" alt="" coords="884,215,1089,246"/>
+</map>

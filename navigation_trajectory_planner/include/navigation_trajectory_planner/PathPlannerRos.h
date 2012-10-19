@@ -40,7 +40,7 @@
 #ifndef PATHPLANNERROS_H
 #define	PATHPLANNERROS_H
 
-#include "navigation_trajectory_planner/PathPlanner.h"
+#include "navigation_trajectory_planner/IPathPlanner.h"
 #include <string>
 
 namespace tf {
@@ -55,7 +55,7 @@ namespace nav_core {
     class BaseGlobalPlanner;
 }
 
-class PathPlannerRos : public PathPlanner {
+class PathPlannerRos : public IPathPlanner {
 public:
     PathPlannerRos(nav_core::BaseGlobalPlanner* planner);
 

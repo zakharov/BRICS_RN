@@ -189,7 +189,7 @@ TOOLCHAINCONFIG:FILEPATH=TOOLCHAINCONFIG-NOTFOUND
 USERCONFIG:FILEPATH=USERCONFIG-NOTFOUND
 
 //Path to a file.
-_file_name:FILEPATH=/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/TwistWithId.cpp
+_file_name:FILEPATH=/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/src/Stopwatch.cpp
 
 //Value Computed by CMake
 navigation_trajectory_common_BINARY_DIR:STATIC=/home/alexey/workspace/BRICS_RN/navigation_trajectory_common/build

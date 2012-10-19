@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1GeometricNode.html" title="A leaf node in the robot scenegraph that carries any kind of 3D data." alt="" coords="5,415,200,635"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1Group.html" title="The group allows for the graph relations, as it extends a node to have further children nodes..." alt="" coords="224,387,389,663"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Transform.html" title="A node that expresses a geometric transformation between its parents and children." alt="" coords="209,713,404,1119"/>
+</map>

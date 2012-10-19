@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1IObjectModelUsingNormals.html" title="{brics_3d::IObjectModelUsingNormals\n|# normalDistanceWeight\l# normals\l# axis\l# epsAngle\l|+ IObjectModelUsingNormals()\l+ ~IObjectModelUsingNormals()\l+ setEpsAngle()\l+ getEpsAngle()\l+ setInputNormals()\l+ getInputNormals()\l+ setNormalDistanceWeight()\l+ getNormalDistanceWeight()\l+ setAxis()\l+ getAxis()\l}" alt="" coords="160,769,397,1082"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="5,350,232,701"/>
+<area shape="rect" id="node6" href="$classbrics__3d_1_1PointCloud3D.html" title="Class to represent a Cartesian 3D point cloud." alt="" coords="15,6,223,282"/>
+<area shape="rect" id="node8" href="$classbrics__3d_1_1NormalSet3D.html" title="Class to represent a set of 3D normals." alt="" coords="256,443,411,607"/>
+</map>

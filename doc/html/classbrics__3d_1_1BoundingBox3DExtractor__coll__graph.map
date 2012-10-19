@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1PCA.html" title="Principle Component Analysis for point clouds." alt="" coords="5,369,219,514"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1Centroid3D.html" title="Computes the centroid of a point cloud." alt="" coords="41,6,183,133"/>
+<area shape="rect" id="node6" href="$classbrics__3d_1_1Point3D.html" title="A class to represent a point in the Cartesian space." alt="" coords="243,201,451,682"/>
+</map>

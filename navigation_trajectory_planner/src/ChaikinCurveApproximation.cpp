@@ -38,10 +38,13 @@
  ******************************************************************************/
 
 #include "navigation_trajectory_common/FrameWithId.h"
+#include "navigation_trajectory_common/Stopwatch.h"
+
+#ifdef DEBUG
+#include "navigation_trajectory_common/Logger.h"
+#endif
 
 #include "navigation_trajectory_planner/ChaikinCurveApproximation.h"
-#include "navigation_trajectory_planner/Logger.h"
-#include "navigation_trajectory_planner/Stopwatch.h"
 
 ChaikinCurveApproximation::ChaikinCurveApproximation() {
 
@@ -97,25 +100,25 @@ unsigned int ChaikinCurveApproximation::chaikinCurve(const std::vector <FrameWit
     for (unsigned int i = 0; i < (pointList.size() - 1); ++i) {
         ++counter;
         // get 2 original points
-        const FrameWithId& p0 = pointList[i];
-        const FrameWithId& p1 = pointList[i + 1];
-        FrameWithId Q;
-        FrameWithId R;
+        const KDL::Frame& p0 = pointList[i].getFrame();
+        std::string p0Id = pointList[i].id;
+        const KDL::Frame& p1 = pointList[i + 1].getFrame();
+        std::string p1Id = pointList[i + 1].id;
+        KDL::Frame Q;
+        KDL::Frame R;
 
         // average the 2 original points to create 2 new points. For each
         // CV, another 2 verts are created.
-        Q.id = p0.id;
         Q.p.x(k * p0.p.x() + (1 - k) * p1.p.x());
         Q.p.y(k * p0.p.y() + (1 - k) * p1.p.y());
         Q.p.z(k * p0.p.z() + (1 - k) * p1.p.z());
 
-        R.id = p0.id;
         R.p.x((1 - k) * p0.p.x() + k * p1.p.x());
         R.p.y((1 - k) * p0.p.y() + k * p1.p.y());
         R.p.z((1 - k) * p0.p.z() + k * p1.p.z());
 
-        resultList.push_back(Q);
-        resultList.push_back(R);
+        resultList.push_back(FrameWithId(Q, p0Id));
+        resultList.push_back(FrameWithId(R, p1Id));
     }
     // keep the last point
     resultList.push_back(pointList[pointList.size() - 1]);

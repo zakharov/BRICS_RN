@@ -1,0 +1,37 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$Attribute_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/Attribute.cpp" alt="" coords="1256,86,1571,117"/>
+<area shape="rect" id="node5" href="$Node_8h.html" title="src/brics_3d/worldModel/sceneGraph/Node.h" alt="" coords="2707,86,2987,117"/>
+<area shape="rect" id="node7" href="$AttributeFinder_8h.html" title="src/brics_3d/worldModel/sceneGraph/AttributeFinder.h" alt="" coords="4169,326,4505,357"/>
+<area shape="rect" id="node65" href="$SubGraphChecker_8h.html" title="src/brics_3d/worldModel/sceneGraph/SubGraphChecker.h" alt="" coords="639,326,996,357"/>
+<area shape="rect" id="node79" href="$GeometricNode_8h.html" title="src/brics_3d/worldModel/sceneGraph/GeometricNode.h" alt="" coords="2909,246,3251,277"/>
+<area shape="rect" id="node93" href="$SceneObject_8cpp.html" title="src/brics_3d/worldModel/SceneObject.cpp" alt="" coords="4529,326,4796,357"/>
+<area shape="rect" id="node97" href="$Node_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/Node.cpp" alt="" coords="3477,166,3771,197"/>
+<area shape="rect" id="node13" href="$Group_8h.html" title="src/brics_3d/worldModel/sceneGraph/Group.h" alt="" coords="2255,166,2540,197"/>
+<area shape="rect" id="node19" href="$DotGraphGenerator_8h.html" title="src/brics_3d/worldModel/sceneGraph/DotGraphGenerator.h" alt="" coords="3783,326,4145,357"/>
+<area shape="rect" id="node27" href="$SceneGraphFacade_8h.html" title="src/brics_3d/worldModel/sceneGraph/SceneGraphFacade.h" alt="" coords="2689,326,3055,357"/>
+<area shape="rect" id="node44" href="$OutdatedDataDeleter_8h.html" title="src/brics_3d/worldModel/sceneGraph/OutdatedDataDeleter.h" alt="" coords="2295,326,2665,357"/>
+<area shape="rect" id="node50" href="$PathCollector_8h.html" title="src/brics_3d/worldModel/sceneGraph/PathCollector.h" alt="" coords="1481,326,1809,357"/>
+<area shape="rect" id="node56" href="$PointCloudAccumulator_8h.html" title="src/brics_3d/worldModel/sceneGraph/PointCloudAccumulator.h" alt="" coords="1884,326,2271,357"/>
+<area shape="rect" id="node61" href="$SceneGraphToUpdatesTraverser_8h.html" title="src/brics_3d/worldModel/sceneGraph/SceneGraphToUpdatesTraverser.h" alt="" coords="1020,326,1457,357"/>
+<area shape="rect" id="node9" href="$AttributeFinder_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/AttributeFinder.cpp" alt="" coords="4579,406,4928,437"/>
+<area shape="rect" id="node11" href="$SceneGraphFacade_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/SceneGraphFacade.cpp" alt="" coords="4176,406,4555,437"/>
+<area shape="rect" id="node16" href="$Transform_8h.html" title="src/brics_3d/worldModel/sceneGraph/Transform.h" alt="" coords="2051,246,2360,277"/>
+<area shape="rect" id="node72" href="$Group_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/Group.cpp" alt="" coords="2435,246,2733,277"/>
+<area shape="rect" id="node54" href="$Transform_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/Transform.cpp" alt="" coords="1243,406,1565,437"/>
+<area shape="rect" id="node21" href="$DotGraphGenerator_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/DotGraphGenerator.cpp" alt="" coords="3776,406,4152,437"/>
+<area shape="rect" id="node23" href="$DotVisualizer_8h.html" title="src/brics_3d/worldModel/sceneGraph/DotVisualizer.h" alt="" coords="3424,406,3752,437"/>
+<area shape="rect" id="node25" href="$DotVisualizer_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/DotVisualizer.cpp" alt="" coords="3475,486,3816,517"/>
+<area shape="rect" id="node30" href="$OutdatedDataIdAwareDeleter_8h.html" title="src/brics_3d/worldModel/sceneGraph/OutdatedDataIdAwareDeleter.h" alt="" coords="2931,406,3349,437"/>
+<area shape="rect" id="node34" href="$WorldModel_8h.html" title="src/brics_3d/worldModel/WorldModel.h" alt="" coords="3208,486,3451,517"/>
+<area shape="rect" id="node38" href="$PointCloudAccumulatorIdAware_8h.html" title="src/brics_3d/worldModel/sceneGraph/PointCloudAccumulatorIdAware.h" alt="" coords="2424,406,2856,437"/>
+<area shape="rect" id="node32" href="$OutdatedDataIdAwareDeleter_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/OutdatedDataIdAwareDeleter.cpp" alt="" coords="2752,486,3184,517"/>
+<area shape="rect" id="node36" href="$WorldModel_8cpp.html" title="src/brics_3d/worldModel/WorldModel.cpp" alt="" coords="3200,566,3459,597"/>
+<area shape="rect" id="node40" href="$PointCloudAccumulatorIdAware_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/PointCloudAccumulatorIdAware.cpp" alt="" coords="2283,486,2728,517"/>
+<area shape="rect" id="node46" href="$OutdatedDataDeleter_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/OutdatedDataDeleter.cpp" alt="" coords="2013,406,2400,437"/>
+<area shape="rect" id="node52" href="$PathCollector_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/PathCollector.cpp" alt="" coords="877,406,1219,437"/>
+<area shape="rect" id="node58" href="$PointCloudAccumulator_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/PointCloudAccumulator.cpp" alt="" coords="1589,406,1989,437"/>
+<area shape="rect" id="node63" href="$SceneGraphToUpdatesTraverser_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/SceneGraphToUpdatesTraverser.cpp" alt="" coords="400,406,853,437"/>
+<area shape="rect" id="node67" href="$SubGraphChecker_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/SubGraphChecker.cpp" alt="" coords="5,406,376,437"/>
+<area shape="rect" id="node84" href="$GeometricNode_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/GeometricNode.cpp" alt="" coords="3079,326,3433,357"/>
+<area shape="rect" id="node90" href="$Shape_8cpp.html" title="src/brics_3d/worldModel/sceneGraph/Shape.cpp" alt="" coords="3457,326,3759,357"/>
+</map>

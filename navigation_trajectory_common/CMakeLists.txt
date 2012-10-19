@@ -24,6 +24,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 rosbuild_add_library(trajectory_common 
     src/FrameWithId.cpp
     src/TwistWithId.cpp
+    src/TrajectoryWithId.cpp
+    src/Stopwatch.cpp
 )
 
 

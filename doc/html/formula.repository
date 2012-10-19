@@ -1,0 +1,8 @@
+\form#0:\[ \lambda_0 / (\lambda_0 + \lambda_1 + \lambda_2) \]
+\form#1:\[ v_out = \left( \begin{array}{c c c} \hat{i} ~ \hat{j} ~ \hat{k} \\ x0 ~ y0 ~ z0 \\ x1 ~ y1 ~ z1 \\ \end{array} \right) \]
+\form#2:\[ MAD = \sigma * median_i (| Xi - median_j(Xj) |) \]
+\form#3:$k$
+\form#4:$ (3k, 3k+1, 3k+2) $
+\form#5:$ x, y, z $
+\form#6:$ 16 $
+\form#7:$ 3 $

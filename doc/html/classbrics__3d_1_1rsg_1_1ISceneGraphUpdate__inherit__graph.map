@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdateObserver.html" title="Interface to observe any updates to the scenegraph." alt="" coords="64,537,339,626"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html" title="The central handle to create and maintain a robot scenegraph." alt="" coords="363,275,581,887"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1DotVisualizer.html" title="Observer that will create a print out on every update." alt="" coords="5,974,187,1362"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1OSGVisualizer.html" title="Displays a robot scene graph via OSG." alt="" coords="211,937,405,1399"/>
+</map>

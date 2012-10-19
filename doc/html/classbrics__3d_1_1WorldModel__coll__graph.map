@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1IWorldModelQuery.html" title="Interface to get access to elements in the 3D model." alt="" coords="5,565,189,673"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1IWorldModelUpdate.html" title="Interface to get update elements in the 3D model." alt="" coords="213,574,403,663"/>
+<area shape="rect" id="node6" href="$classbrics__3d_1_1IWorldModelCoordination.html" title="Coordination interface to trigger the internal perception processing functionalities." alt="" coords="427,546,648,691"/>
+<area shape="rect" id="node8" href="$classbrics__3d_1_1Timer.html" title="Timer to measure elapsed time in [ms]." alt="" coords="672,527,808,710"/>
+<area shape="rect" id="node10" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html" title="The central handle to create and maintain a robot scenegraph." alt="" coords="832,313,1051,925"/>
+<area shape="rect" id="node12" href="$classbrics__3d_1_1rsg_1_1ISceneGraphQuery.html" title="Abstract interface for all scenegraph related query functions." alt="" coords="456,25,672,207"/>
+<area shape="rect" id="node14" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html" title="Abstract interface for all scene graph related update functions." alt="" coords="696,6,917,226"/>
+<area shape="rect" id="node18" href="$classbrics__3d_1_1rsg_1_1IIdGenerator.html" title="Abstract interface for unique ID generation." alt="" coords="1232,34,1408,198"/>
+</map>

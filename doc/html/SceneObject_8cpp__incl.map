@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$SceneObject_8h.html" title="SceneObject.h" alt="" coords="295,86,401,117"/>
+<area shape="rect" id="node13" href="$GeometricNode_8h.html" title="sceneGraph/GeometricNode.h" alt="" coords="588,86,785,117"/>
+<area shape="rect" id="node21" href="$Attribute_8h.html" title="Attribute.h" alt="" coords="835,246,917,277"/>
+<area shape="rect" id="node7" href="$Shape_8h.html" title="sceneGraph/Shape.h" alt="" coords="331,166,475,197"/>
+<area shape="rect" id="node15" href="$Node_8h.html" title="Node.h" alt="" coords="604,166,665,197"/>
+<area shape="rect" id="node30" href="$TimeStamp_8h.html" title="TimeStamp.h" alt="" coords="689,166,788,197"/>
+<area shape="rect" id="node28" href="$INodeVisitor_8h.html" title="INodeVisitor.h" alt="" coords="499,246,603,277"/>
+</map>

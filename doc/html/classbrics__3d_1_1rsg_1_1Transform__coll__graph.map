@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1Group.html" title="The group allows for the graph relations, as it extends a node to have further children nodes..." alt="" coords="184,582,349,858"/>
+<area shape="rect" id="node4" href="$classbrics__3d_1_1rsg_1_1Node.html" title="A node in the robot scenegraph." alt="" coords="59,163,221,495"/>
+<area shape="rect" id="node12" href="$classbrics__3d_1_1rsg_1_1TimeStamp.html" title="Simple container for time data." alt="" coords="373,563,544,877"/>
+</map>

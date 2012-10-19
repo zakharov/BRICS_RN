@@ -41,20 +41,32 @@
 
 using namespace KDL;
 
-TwistWithId::TwistWithId() : Twist(), id("") {
+TwistWithId::TwistWithId() : id(""), twist(KDL::Twist()) {
 }
 
-TwistWithId::TwistWithId(const std::string& id) : Twist(), id(id) {
-
-}
-
-TwistWithId::TwistWithId(const TwistWithId& orig) : Twist(orig), id(orig.id) {
+TwistWithId::TwistWithId(const std::string& id) : id(id), twist(KDL::Twist()) {
 
 }
 
-TwistWithId::TwistWithId(const Vector& _vel, const Vector& _rot, const std::string& id) : Twist(_vel, _rot), id(id) {
+TwistWithId::TwistWithId(const KDL::Twist& twist) : id(""), twist(twist) {
 
-};
+}
+
+TwistWithId::TwistWithId(const KDL::Twist& twist, const std::string& id) : id(id), twist(twist) {
+
+}
+
+TwistWithId::TwistWithId(const TwistWithId& orig) : id(orig.id), twist(orig.twist) {
+
+}
+
+const KDL::Twist& TwistWithId::getTwist() const {
+    return twist;
+}
+    
+KDL::Twist& TwistWithId::getTwist() {
+    return twist;
+}
 
 TwistWithId::~TwistWithId() {
 }

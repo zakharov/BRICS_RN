@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$SceneGraphToUpdatesTraverser_8h.html" title="SceneGraphToUpdatesTraverser.h" alt="" coords="312,86,533,117"/>
+<area shape="rect" id="node5" href="$Node_8h.html" title="Node.h" alt="" coords="235,326,296,357"/>
+<area shape="rect" id="node20" href="$INodeVisitor_8h.html" title="INodeVisitor.h" alt="" coords="5,406,109,437"/>
+<area shape="rect" id="node22" href="$Group_8h.html" title="Group.h" alt="" coords="195,246,261,277"/>
+<area shape="rect" id="node26" href="$Transform_8h.html" title="Transform.h" alt="" coords="377,166,468,197"/>
+<area shape="rect" id="node34" href="$GeometricNode_8h.html" title="GeometricNode.h" alt="" coords="740,166,863,197"/>
+<area shape="rect" id="node43" href="$ISceneGraphUpdate_8h.html" title="ISceneGraphUpdate.h" alt="" coords="549,166,699,197"/>
+<area shape="rect" id="node13" href="$Attribute_8h.html" title="Attribute.h" alt="" coords="661,406,744,437"/>
+<area shape="rect" id="node31" href="$TimeStamp_8h.html" title="TimeStamp.h" alt="" coords="661,246,760,277"/>
+<area shape="rect" id="node38" href="$Shape_8h.html" title="Shape.h" alt="" coords="784,246,853,277"/>
+</map>

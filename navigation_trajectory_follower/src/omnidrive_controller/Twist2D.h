@@ -49,7 +49,7 @@ public:
     virtual ~Twist2D();
 
     friend Twist2D operator+(const Twist2D& op1, const Twist2D& op2);
-   
+
     float getX() const;
     void setX(float x);
     float getY() const;

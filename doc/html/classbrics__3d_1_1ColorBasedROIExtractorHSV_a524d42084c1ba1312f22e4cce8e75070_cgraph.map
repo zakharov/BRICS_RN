@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1PointCloud3D.html#affef2f194a0830297e00bfad34c27a47" title="Add a point to the point cloud with reference semantics." alt="" coords="353,5,585,35"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="347,58,592,89"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="365,111,573,142"/>
+<area shape="rect" id="node9" href="$classbrics__3d_1_1ColorSpaceConvertor.html#af39d5ff2e4ee76ce4700bbfbc6c3f449" title="R, G and B are scaled to fit 0..1 range." alt="" coords="337,165,601,195"/>
+</map>

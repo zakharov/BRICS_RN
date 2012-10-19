@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classbrics__3d_1_1Point3DDecorator.html" title="Abstract class that can extend or &quot;decorate&quot; a Point3D." alt="" coords="83,537,291,999"/>
+<area shape="rect" id="node5" href="$classbrics__3d_1_1ColoredPoint3D.html" title="A class to represent a point in the Cartesian space that carries color information (RGB)..." alt="" coords="5,1049,173,1437"/>
+<area shape="rect" id="node7" href="$classbrics__3d_1_1Point3DIntensity.html" title="Decoration layer for a Point3D that carries intensety information." alt="" coords="197,1105,371,1381"/>
+</map>

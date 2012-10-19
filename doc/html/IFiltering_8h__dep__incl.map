@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$BoxROIExtractor_8h.html" title="src/brics_3d/algorithm/filtering/BoxROIExtractor.h" alt="" coords="20,86,329,117"/>
+<area shape="rect" id="node7" href="$ColorBasedROIExtractorHSV_8h.html" title="src/brics_3d/algorithm/filtering/ColorBasedROIExtractorHSV.h" alt="" coords="360,86,739,117"/>
+<area shape="rect" id="node11" href="$ColorBasedROIExtractorRGB_8h.html" title="src/brics_3d/algorithm/filtering/ColorBasedROIExtractorRGB.h" alt="" coords="763,86,1144,117"/>
+<area shape="rect" id="node15" href="$IOctreeReductionFilter_8h.html" title="src/brics_3d/algorithm/filtering/IOctreeReductionFilter.h" alt="" coords="1168,86,1509,117"/>
+<area shape="rect" id="node17" href="$MaskROIExtractor_8h.html" title="src/brics_3d/algorithm/filtering/MaskROIExtractor.h" alt="" coords="1533,86,1851,117"/>
+<area shape="rect" id="node5" href="$BoxROIExtractor_8cpp.html" title="src/brics_3d/algorithm/filtering/BoxROIExtractor.cpp" alt="" coords="5,166,328,197"/>
+<area shape="rect" id="node9" href="$ColorBasedROIExtractorHSV_8cpp.html" title="src/brics_3d/algorithm/filtering/ColorBasedROIExtractorHSV.cpp" alt="" coords="352,166,747,197"/>
+<area shape="rect" id="node13" href="$ColorBasedROIExtractorRGB_8cpp.html" title="src/brics_3d/algorithm/filtering/ColorBasedROIExtractorRGB.cpp" alt="" coords="771,166,1165,197"/>
+<area shape="rect" id="node19" href="$MaskROIExtractor_8cpp.html" title="src/brics_3d/algorithm/filtering/MaskROIExtractor.cpp" alt="" coords="1525,166,1859,197"/>
+</map>

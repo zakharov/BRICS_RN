@@ -4,40 +4,25 @@
     <df name="include" root="../include">
       <df name="navigation_trajectory_planner">
         <in>ChaikinCurveApproximation.h</in>
-        <in>CollisionChecking.h</in>
         <in>CollisionCheckingRos.h</in>
-        <in>DifferentialDrive.h</in>
         <in>DouglasPeuckerApproximation.h</in>
+        <in>ICollisionChecking.h</in>
+        <in>IPathApproximation.h</in>
+        <in>IPathInterpolation.h</in>
+        <in>IPathPlanner.h</in>
         <in>LinearInterpolation.h</in>
-        <in>Logger.h</in>
-        <in>OmniDrive.h</in>
-        <in>PathApproximation.h</in>
-        <in>PathInterpolation.h</in>
         <in>PathIterator.h</in>
-        <in>PathPlanner.h</in>
         <in>PathPlannerRos.h</in>
-        <in>PathUtilities.h</in>
-        <in>RotationInterpolation.h</in>
-        <in>Stopwatch.h</in>
-        <in>TrajectoryAdapter.h</in>
-        <in>TrajectoryAdapterObserver.h</in>
-        <in>TrajectoryAdapterObserverDummy.h</in>
-        <in>Utils.h</in>
       </df>
     </df>
     <df name="src" root="../src">
       <in>ChaikinCurveApproximation.cpp</in>
       <in>CollisionCheckingRos.cpp</in>
-      <in>DifferentialDrive.cpp</in>
       <in>DouglasPeuckerApproximation.cpp</in>
       <in>LinearInterpolation.cpp</in>
-      <in>OmniDrive.cpp</in>
       <in>PathIterator.cpp</in>
       <in>PathPlannerRos.cpp</in>
-      <in>Stopwatch.cpp</in>
-      <in>TrajectoryAdapter.cpp</in>
       <in>TrajectoryAdapterNode.cpp</in>
-      <in>TrajectoryAdapterObserverDummy.cpp</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -69,6 +54,7 @@
           <ccTool>
             <incDir>
               <pElem>/opt/ros/electric/stacks/ros_comm/tools/rosconsole/include</pElem>
+              <pElem>../../navigation_trajectory_common/include</pElem>
               <pElem>/opt/ros/electric/ros/tools/rospack/include</pElem>
               <pElem>/usr/lib/openmpi/include/openmpi</pElem>
               <pElem>/opt/ros/electric/stacks/nodelet_core/nodelet/srv_gen/cpp/include</pElem>
@@ -90,8 +76,8 @@
               <pElem>/opt/ros/electric/stacks/geometry/tf/msg_gen/cpp/include</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/utilities/cpp_common/include</pElem>
               <pElem>/usr/include/libxml2</pElem>
-              <pElem>/opt/ros/electric/stacks/navigation/base_local_planner/cfg/cpp</pElem>
               <pElem>/opt/ros/electric/stacks/navigation/voxel_grid/include</pElem>
+              <pElem>/opt/ros/electric/stacks/navigation/base_local_planner/cfg/cpp</pElem>
               <pElem>/opt/ros/electric/stacks/navigation/costmap_2d/include</pElem>
               <pElem>/opt/ros/electric/stacks/geometry/tf/include</pElem>
               <pElem>/opt/ros/electric/stacks/common_msgs/sensor_msgs/msg_gen/cpp/include</pElem>
@@ -109,19 +95,20 @@
               <pElem>/opt/ros/electric/stacks/geometry/tf/srv_gen/cpp/include</pElem>
               <pElem>/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg/cpp</pElem>
               <pElem>/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/include</pElem>
+              <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
               <pElem>/opt/ros/electric/stacks/driver_common/dynamic_reconfigure/msg_gen/cpp/include</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp/include</pElem>
               <pElem>/usr/include/tcl8.5</pElem>
               <pElem>/usr/include/python2.7</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/tools/topic_tools/srv_gen/cpp/include</pElem>
               <pElem>/usr/lib/jvm/default-java/include</pElem>
-              <pElem>/opt/ros/electric/stacks/ros_comm/tools/rostest/include</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/utilities/message_filters/include</pElem>
+              <pElem>/opt/ros/electric/stacks/ros_comm/tools/rostest/include</pElem>
+              <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
               <pElem>/opt/ros/electric/stacks/laser_pipeline/laser_geometry/include</pElem>
               <pElem>/opt/ros/electric/stacks/common_msgs/sensor_msgs/include</pElem>
               <pElem>/opt/ros/electric/stacks/nodelet_core/nodelet/include</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/clients/cpp/roscpp_serialization/include</pElem>
-              <pElem>../../navigation_trajectory_msgs/msg_gen/cpp/include</pElem>
               <pElem>/opt/ros/electric/stacks/common_msgs/nav_msgs/srv_gen/cpp/include</pElem>
               <pElem>/opt/ros/electric/stacks/ros_comm/messages/std_msgs/include</pElem>
               <pElem>/opt/ros/electric/stacks/common_msgs/visualization_msgs/msg_gen/cpp/include</pElem>
@@ -153,44 +140,15 @@
           </ccTool>
         </makeTool>
       </makefileType>
-      <item path="../include/navigation_trajectory_planner/RotationInterpolation.h"
-            ex="true"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="../include/navigation_trajectory_planner/Utils.h"
-            ex="true"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="../src/ChaikinCurveApproximation.cpp"
             ex="false"
             tool="1"
             flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/CollisionCheckingRos.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="../src/DifferentialDrive.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/DouglasPeuckerApproximation.cpp"
@@ -198,75 +156,21 @@
             tool="1"
             flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/LinearInterpolation.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="../src/OmniDrive.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/PathIterator.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/PathPlannerRos.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="../src/Stopwatch.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-        </ccTool>
-      </item>
-      <item path="../src/TrajectoryAdapter.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="../src/TrajectoryAdapterNode.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>../../navigation_trajectory_common/include</pElem>
-            <pElem>../../navigation_trajectory_common/cfg/cpp</pElem>
-            <pElem>/opt/ros/electric/stacks/orocos_kinematics_dynamics/orocos_kdl/install_dir/include</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="../src/TrajectoryAdapterObserverDummy.cpp"
-            ex="false"
-            tool="1"
-            flavor2="4">
         <ccTool>
         </ccTool>
       </item>

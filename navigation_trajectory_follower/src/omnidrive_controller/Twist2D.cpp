@@ -59,33 +59,32 @@ const Twist2D& Twist2D::operator=(const Twist2D& orig) {
     return *this;
 }
 
-
 float Twist2D::getX() const {
     return this->x;
 }
 
-void  Twist2D::setX(float x) {
-    
+void Twist2D::setX(float x) {
+
 }
 
 float Twist2D::getY() const {
     return this->y;
 }
 
-void  Twist2D::setY(float y) {
-    
+void Twist2D::setY(float y) {
+
 }
-    
+
 float Twist2D::getTheta() const {
     return this->theta;
 }
 
-void  Twist2D::setTheta(float theta) {
+void Twist2D::setTheta(float theta) {
     this->theta = theta;
 }
 
 Twist2D operator+(const Twist2D& op1, const Twist2D& op2) {
     Twist2D twist(op1.getX() + op2.getX(), op1.getY() + op2.getY(), op1.getTheta() + op2.getTheta());
-    
+
     return twist;
 }

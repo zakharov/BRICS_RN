@@ -38,13 +38,16 @@
  ******************************************************************************/
 
 #include "navigation_trajectory_common/Conversions.h"
+#include "navigation_trajectory_common/Utilities.h"
+#include "navigation_trajectory_common/Logger.h"
+
+#ifdef DEBUG
+#include "navigation_trajectory_common/Stopwatch.h"
+#endif
 
 #include "navigation_trajectory_planner/CollisionCheckingRos.h"
 #include "navigation_trajectory_planner/LinearInterpolation.h"
-#include "navigation_trajectory_planner/PathUtilities.h"
 #include "navigation_trajectory_planner/PathIterator.h"
-#include "navigation_trajectory_planner/Stopwatch.h"
-#include "navigation_trajectory_planner/Logger.h"
 
 #include <base_local_planner/costmap_model.h>
 #include <costmap_2d/costmap_2d_ros.h>
@@ -74,20 +77,17 @@ bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
 
     if (path.empty())
         return collision;
-    
+
     costmap_2d::Costmap2D costmapCopy;
     std::vector <geometry_msgs::Point> orientedFootprint;
 
     costmap->getOrientedFootprint(orientedFootprint);
-//    double circumscribedRadius = costmap->getCircumscribedRadius();
-//    double inscribedRadius = costmap->getInscribedRadius();
-
     costmap->clearRobotFootprint();
     costmap->getCostmapCopy(costmapCopy);
     base_local_planner::CostmapModel collisionChecker(costmapCopy);
 
     std::vector <FrameWithId> prunedPath;
-    prunePath(path, actualPose, prunedPath);
+    utilities::prunePath(path, actualPose, prunedPath);
 
 
 
@@ -100,13 +100,13 @@ bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
     stopwatch.start();
 #endif
 
-       
+
     size_t i;
     for (i = 0; i < counter; ++i) {
-        const FrameWithId& frame = interpolatedPath[i];
+        const KDL::Frame& frame = interpolatedPath[i].getFrame();
         double r, p, y;
         frame.M.GetRPY(r, p, y);
-       
+
         geometry_msgs::PoseStamped pose;
         conversions::frameToPoseStampedRos(frame, pose);
 

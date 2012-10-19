@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classGnuplot.html#a3a769e47861d74fa713070ecd857dd17" title="gnuplot path found?" alt="" coords="147,58,325,89"/>
+<area shape="rect" id="node9" href="$classGnuplot.html#a356d2faaa79f08d13fec9718b776b28d" title="sets terminal type to terminal_std" alt="" coords="157,111,315,142"/>
+<area shape="rect" id="node5" href="$classGnuplot.html#abc0f1d75cb78804a5b8efdfa4df582cd" title="checks if file exists" alt="" coords="375,5,508,35"/>
+<area shape="rect" id="node7" href="$gnuplot__i_8hpp.html#a8dce6465408cd481ab4a9a7bf50bb6b4" title="stringtok" alt="" coords="405,58,477,89"/>
+<area shape="rect" id="node11" href="$classGnuplot.html#a07607803ede8dd5416906df0a1924fc5" title="send a command to gnuplot" alt="" coords="392,111,491,142"/>
+</map>

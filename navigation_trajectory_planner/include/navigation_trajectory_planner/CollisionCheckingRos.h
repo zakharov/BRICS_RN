@@ -40,7 +40,7 @@
 #ifndef COLLISIONCHECKINGROS_H
 #define	COLLISIONCHECKINGROS_H
 
-#include "navigation_trajectory_planner/CollisionChecking.h"
+#include "navigation_trajectory_planner/ICollisionChecking.h"
 
 namespace costmap_2d {
     class Costmap2DROS;
@@ -48,7 +48,7 @@ namespace costmap_2d {
 
 class FrameWithId;
 
-class CollisionCheckingRos : public CollisionChecking {
+class CollisionCheckingRos : public ICollisionChecking {
 public:
     CollisionCheckingRos(costmap_2d::Costmap2DROS* costmap);
     CollisionCheckingRos(CollisionCheckingRos& orig);
@@ -58,11 +58,11 @@ public:
 
 private:
 
-    bool collisionCheck(const std::vector <FrameWithId>& path, 
-            const FrameWithId& actualPose, 
-            double interpolationStep, 
+    bool collisionCheck(const std::vector <FrameWithId>& path,
+            const FrameWithId& actualPose,
+            double interpolationStep,
             unsigned int numberOfSteps);
-    
+
     costmap_2d::Costmap2DROS* costmap;
 
 };

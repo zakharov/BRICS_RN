@@ -36,23 +36,24 @@
  * License LGPL and BSD license along with this program.
  *
  ******************************************************************************/
-
-#include "trajectory_generator/OmniDriveTrajectoryGenerator.h"
-#include "navigation_trajectory_common/Conversions.h"
-
 #include "omnidrive_controller/OmniDrivePositionController.h"
+#include "trajectory_generator/OmniDriveTrajectoryGenerator.h"
+
+#include "navigation_trajectory_common/Conversions.h"
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
+
 #include "tf/transform_datatypes.h"
 #include "nav_msgs/Odometry.h"
 #include "nav_msgs/Path.h"
 #include "geometry_msgs/Twist.h"
-#include <navigation_trajectory_follower/ConversionUtils.h>
+
+#include "kdl/trajectory_composite.hpp"
 
 using namespace std;
 
 ros::Publisher twistPublisher;
 Odometry actualOdometry;
-PositionController* controller;
+IPositionController* controller;
 ros::Time startTime;
 
 ros::Publisher debugPath;
@@ -87,26 +88,6 @@ void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
 
 }
 
-
-
-void trajectoryRosToOdomVector(const navigation_trajectory_msgs::Trajectory& trajectoryROS, std::vector<Odometry>& odometryVector) {
-
-    nav_msgs::Odometry odom;
-    navigation_trajectory_msgs::Trajectory::_trajectory_type::const_iterator it;
-
-    for (it = trajectoryROS.trajectory.begin(); it != trajectoryROS.trajectory.end(); ++it) {
-
-        odom = *it;
-        Pose2D pose2d;
-        poseRosToPose2d(odom.pose.pose, pose2d);
-        Twist2D twist2d;
-        twistRosToTwist2d(odom.twist.twist, twist2d);
-        odometryVector.push_back(Odometry(pose2d, twist2d));
-
-    }
-
-}
-
 void twist2dToTwistRos(const Twist2D& twist2d, geometry_msgs::Twist& twist) {
 
     twist.linear.x = twist2d.getX();
@@ -132,46 +113,16 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 
 void pathCallback(const nav_msgs::Path& path) {
     OmniDriveTrajectoryGenerator trajectoryGenerator;
-    
-    
-    
+
     std::vector<FrameWithId> pathKDL;
     conversions::pathRosToPath(path, pathKDL);
-    ROS_INFO("Path size: %d", pathKDL.size());
-   
+    ROS_INFO("Path size: %lu", pathKDL.size());
+
     KDL::Trajectory_Composite trajectoryKDL;
     trajectoryGenerator.computeTrajectroy(pathKDL, trajectoryKDL);
-  
+
     startTime = ros::Time::now();
     controller->setTargetTrajectory(trajectoryKDL);
-}
-
-void trajectoryCallback(const navigation_trajectory_msgs::Trajectory& trajectory) {
-
-    std::vector <Odometry> odometry;
-    trajectoryRosToOdomVector(trajectory, odometry);
-
-    startTime = ros::Time::now();
-    controller->setTargetTrajectory(odometry);
-
-    nav_msgs::Path path;
-
-    for (unsigned int i = 0; i < trajectory.trajectory.size(); i++) {
-
-        geometry_msgs::PoseStamped pose;
-        pose.pose = trajectory.trajectory[i].pose.pose;
-        pose.header = trajectory.trajectory[i].header;
-        pose.header.frame_id = "odom";
-        path.poses.push_back(pose);
-
-    }
-
-    path.header = trajectory.header;
-    path.header.frame_id = "odom";
-
-    ROS_INFO("published %lu poses", path.poses.size());
-    debugPath.publish(path);
-
 }
 
 void publishOdometry(const Odometry& odometry) {
@@ -218,7 +169,6 @@ int main(int argc, char **argv) {
     double velocityToleranceRotation;
     double positionToleranceRotation;
 
-    string inputTrajectoryTopic;
     string inputPathTopic;
     string inputOdometryTopic;
     string inputVelocityTopic;
@@ -235,24 +185,22 @@ int main(int argc, char **argv) {
     node.param("positionToleranceRotation", positionToleranceRotation, 0.1);
     node.param("velocityToleranceRotation", velocityToleranceRotation, 0.01);
 
-    node.param<string > ("inputTrajectoryTopic", inputTrajectoryTopic, "localTrajectory");
     node.param<string > ("inputPathTopic", inputPathTopic, "simplified_path");
     node.param<string > ("inputOdometryTopic", inputOdometryTopic, "odom");
     node.param<string > ("outputVelocityTopic", inputVelocityTopic, "cmd_vel");
 
-    
+
     ROS_INFO("velocityGainTranslation: %f", velocityGainTranslation);
     ROS_INFO("velocityGainRotation: %f", velocityGainRotation);
     ROS_INFO("positionGainTranslation: %f", positionGainTranslation);
     ROS_INFO("positionGainRotation: %f", positionGainRotation);
-    
-    
+
+
     //ros::Subscriber trajectorySubscriber;
     ros::Subscriber pathSubscriber;
     ros::Subscriber odomSubscriber;
     twistPublisher = globalNode.advertise<geometry_msgs::Twist > (inputVelocityTopic, 1);
     odomSubscriber = globalNode.subscribe(inputOdometryTopic, 1, &odomCallback);
-    //trajectorySubscriber = globalNode.subscribe(inputTrajectoryTopic, 1, &trajectoryCallback);
     pathSubscriber = globalNode.subscribe(inputPathTopic, 1, &pathCallback);
 
     controller = new OmniDrivePositionController(positionGainTranslation,
@@ -266,7 +214,7 @@ int main(int argc, char **argv) {
 
     ros::Rate r(cycleFrequencyInHz);
 
-    debugPath = globalNode.advertise <nav_msgs::Path> ("debugRollingWindow", 1);
+    debugPath = globalNode.advertise <nav_msgs::Path > ("debugRollingWindow", 1);
 
     while (ros::ok()) {
         ros::spinOnce();
