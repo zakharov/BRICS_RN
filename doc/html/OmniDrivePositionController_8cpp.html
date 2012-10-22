@@ -43,15 +43,10 @@
 </div>
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="src_2omnidrive__controller_2ConversionUtils_8h_source.html">ConversionUtils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="ConversionUtils_8h_source.html">ConversionUtils.h</a>&quot;</code><br/>
 <code>#include &lt;ros/ros.h&gt;</code><br/>
 <code>#include &lt;kdl/frames.hpp&gt;</code><br/>
-<code>#include &lt;kdl/path_composite.hpp&gt;</code><br/>
-<code>#include &lt;kdl/path_line.hpp&gt;</code><br/>
-<code>#include &lt;kdl/rotational_interpolation_sa.hpp&gt;</code><br/>
-<code>#include &lt;kdl/velocityprofile_spline.hpp&gt;</code><br/>
-<code>#include &lt;kdl/trajectory_segment.hpp&gt;</code><br/>
-<code>#include &lt;kdl/trajectory_composite.hpp&gt;</code><br/>
+<code>#include &lt;kdl/trajectory.hpp&gt;</code><br/>
 <code>#include &quot;<a class="el" href="OmniDriveKinematicsModel_8h_source.html">OmniDriveKinematicsModel.h</a>&quot;</code><br/>
 <code>#include &lt;cmath&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
@@ -60,14 +55,14 @@ Include dependency graph for OmniDrivePositionController.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="OmniDrivePositionController_8cpp__incl.png" border="0" usemap="#navigation__trajectory__follower_2src_2omnidrive__controller_2OmniDrivePositionController_8cpp" alt=""/></div>
 <map name="navigation__trajectory__follower_2src_2omnidrive__controller_2OmniDrivePositionController_8cpp" id="navigation__trajectory__follower_2src_2omnidrive__controller_2OmniDrivePositionController_8cpp">
-<area shape="rect" id="node3" href="OmniDrivePositionController_8h.html" title="OmniDrivePositionController.h" alt="" coords="32,86,226,117"/><area shape="rect" id="node16" href="src_2omnidrive__controller_2ConversionUtils_8h.html" title="ConversionUtils.h" alt="" coords="290,86,413,117"/><area shape="rect" id="node37" href="OmniDriveKinematicsModel_8h.html" title="OmniDriveKinematicsModel.h" alt="" coords="1784,86,1978,117"/><area shape="rect" id="node5" href="PositionController_8h.html" title="PositionController.h" alt="" coords="24,166,157,197"/><area shape="rect" id="node9" href="Odometry_8h.html" title="Odometry.h" alt="" coords="181,166,272,197"/><area shape="rect" id="node11" href="Twist2D_8h.html" title="Twist2D.h" alt="" coords="312,246,392,277"/><area shape="rect" id="node13" href="Pose2D_8h.html" title="Pose2D.h" alt="" coords="196,246,273,277"/><area shape="rect" id="node39" href="KinematicsModel_8h.html" title="KinematicsModel.h" alt="" coords="1814,166,1948,197"/></map>
+<area shape="rect" id="node3" href="OmniDrivePositionController_8h.html" title="OmniDrivePositionController.h" alt="" coords="244,86,439,117"/><area shape="rect" id="node18" href="ConversionUtils_8h.html" title="ConversionUtils.h" alt="" coords="628,86,751,117"/><area shape="rect" id="node29" href="OmniDriveKinematicsModel_8h.html" title="OmniDriveKinematicsModel.h" alt="" coords="1068,86,1263,117"/><area shape="rect" id="node5" href="IPositionController_8h.html" title="IPositionController.h" alt="" coords="26,166,164,197"/><area shape="rect" id="node9" href="Odometry_8h.html" title="Odometry.h" alt="" coords="519,166,610,197"/><area shape="rect" id="node11" href="Twist2D_8h.html" title="Twist2D.h" alt="" coords="532,246,612,277"/><area shape="rect" id="node13" href="Pose2D_8h.html" title="Pose2D.h" alt="" coords="651,246,728,277"/><area shape="rect" id="node31" href="IKinematicsModel_8h.html" title="IKinematicsModel.h" alt="" coords="1098,166,1234,197"/></map>
 </div>
 </div>
 <p><a href="OmniDrivePositionController_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 </table>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -1,11 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="253,5,504,35"/>
-<area shape="rect" id="node7" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="287,58,471,89"/>
-<area shape="rect" id="node11" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="conversions::pathRosToPath" alt="" coords="285,111,472,142"/>
-<area shape="rect" id="node17" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="320,165,437,195"/>
-<area shape="rect" id="node19" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="321,218,436,249"/>
-<area shape="rect" id="node5" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="580,5,777,35"/>
-<area shape="rect" id="node9" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="596,58,761,89"/>
-<area shape="rect" id="node13" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="conversions::poseStampedRosToFrame" alt="" coords="552,111,805,142"/>
-<area shape="rect" id="node15" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="conversions::poseRosToFrame" alt="" coords="855,111,1055,142"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="253,5,504,35"/>
+<area shape="rect" id="node9" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="287,58,471,89"/>
+<area shape="rect" id="node13" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="285,111,472,142"/>
+<area shape="rect" id="node20" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="320,165,437,195"/>
+<area shape="rect" id="node22" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="321,218,436,249"/>
+<area shape="rect" id="node5" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="856,19,1053,50"/>
+<area shape="rect" id="node7" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1104,53,1261,83"/>
+<area shape="rect" id="node11" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="596,58,761,89"/>
+<area shape="rect" id="node15" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="552,111,805,142"/>
+<area shape="rect" id="node17" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="855,86,1055,117"/>
 </map>

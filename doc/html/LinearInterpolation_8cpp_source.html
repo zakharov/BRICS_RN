@@ -41,109 +41,152 @@
 <h1>navigation_trajectory_planner/src/LinearInterpolation.cpp</h1>  </div>
 </div>
 <div class="contents">
-<a href="LinearInterpolation_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* </span>
-<a name="l00002"></a>00002 <span class="comment"> * File:   LinearInterpolation.cpp</span>
-<a name="l00003"></a>00003 <span class="comment"> * Author: alexey</span>
-<a name="l00004"></a>00004 <span class="comment"> * </span>
-<a name="l00005"></a>00005 <span class="comment"> * Created on September 3, 2012, 11:51 AM</span>
-<a name="l00006"></a>00006 <span class="comment"> */</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</span>
-<a name="l00009"></a>00009 
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;navigation_trajectory_planner/LinearInterpolation.h&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Logger.h&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Stopwatch.h&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1">00014</a> <a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1">LinearInterpolation::LinearInterpolation</a>() {
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 }
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="classLinearInterpolation.html#ae531f187c06e4897072c8a951e81d3fd">00018</a> <a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1">LinearInterpolation::LinearInterpolation</a>(<span class="keyword">const</span> <a class="code" href="classLinearInterpolation.html">LinearInterpolation</a>&amp; orig) {
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 }
-<a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="classLinearInterpolation.html#a36a34fa39c430e05bdc073c1ac9ad4df">00022</a> <a class="code" href="classLinearInterpolation.html#a36a34fa39c430e05bdc073c1ac9ad4df">LinearInterpolation::~LinearInterpolation</a>() {
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 }
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d">00026</a> <span class="keywordtype">size_t</span> <a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d">LinearInterpolation::interpolate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">double</span> step, <span class="keywordtype">size_t</span> numberOfsteps = 0) {
-<a name="l00027"></a>00027 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html">Stopwatch</a> stopwatch;
-<a name="l00029"></a>00029     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d">start</a>();
-<a name="l00030"></a>00030 <span class="preprocessor">#endif</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span>    <span class="keywordtype">size_t</span> result = <a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850">linearInterpolation</a>(in, out, step, numberOfsteps);
-<a name="l00032"></a>00032 <span class="preprocessor">#ifdef DEBUG  </span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4">stop</a>();
-<a name="l00034"></a>00034     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Linear interpolation:&quot;</span>);
-<a name="l00035"></a>00035     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input end point: %f, %f&quot;</span>, in.back().p.x(), in.back().p.y());
-<a name="l00036"></a>00036     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output end point: %f, %f&quot;</span>, out.back().p.x(), out.back().p.y());
-<a name="l00037"></a>00037     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - step size: %f&quot;</span>, step);
-<a name="l00038"></a>00038     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %lu&quot;</span>, result);
-<a name="l00039"></a>00039     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b">getElapsedTime</a>());
-<a name="l00040"></a>00040 <span class="preprocessor">#endif  </span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span>    <span class="keywordflow">return</span> result;
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850">00044</a> <span class="keywordtype">size_t</span> <a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850">LinearInterpolation::linearInterpolation</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
-<a name="l00045"></a>00045         std::vector &lt;FrameWithId&gt;&amp; out,
-<a name="l00046"></a>00046         <span class="keywordtype">double</span> step,
-<a name="l00047"></a>00047         <span class="keywordtype">size_t</span> numberOfSteps = 0) {
+<a href="LinearInterpolation_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/******************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment"> * Copyright (c) 2011</span>
+<a name="l00003"></a>00003 <span class="comment"> * GPS GmbH</span>
+<a name="l00004"></a>00004 <span class="comment"> *</span>
+<a name="l00005"></a>00005 <span class="comment"> * Author:</span>
+<a name="l00006"></a>00006 <span class="comment"> * Alexey Zakharov</span>
+<a name="l00007"></a>00007 <span class="comment"> *</span>
+<a name="l00008"></a>00008 <span class="comment"> *</span>
+<a name="l00009"></a>00009 <span class="comment"> * This software is published under a dual-license: GNU Lesser General Public</span>
+<a name="l00010"></a>00010 <span class="comment"> * License LGPL 2.1 and BSD license. The dual-license implies that users of this</span>
+<a name="l00011"></a>00011 <span class="comment"> * code may choose which terms they prefer.</span>
+<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * Redistribution and use in source and binary forms, with or without</span>
+<a name="l00014"></a>00014 <span class="comment"> * modification, are permitted provided that the following conditions are met:</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * * Redistributions of source code must retain the above copyright</span>
+<a name="l00017"></a>00017 <span class="comment"> * notice, this list of conditions and the following disclaimer.</span>
+<a name="l00018"></a>00018 <span class="comment"> * * Redistributions in binary form must reproduce the above copyright</span>
+<a name="l00019"></a>00019 <span class="comment"> * notice, this list of conditions and the following disclaimer in the</span>
+<a name="l00020"></a>00020 <span class="comment"> * documentation and/or other materials provided with the distribution.</span>
+<a name="l00021"></a>00021 <span class="comment"> * * Neither the name of GPS GmbH nor the names of its</span>
+<a name="l00022"></a>00022 <span class="comment"> * contributors may be used to endorse or promote products derived from</span>
+<a name="l00023"></a>00023 <span class="comment"> * this software without specific prior written permission.</span>
+<a name="l00024"></a>00024 <span class="comment"> *</span>
+<a name="l00025"></a>00025 <span class="comment"> * This program is free software: you can redistribute it and/or modify</span>
+<a name="l00026"></a>00026 <span class="comment"> * it under the terms of the GNU Lesser General Public License LGPL as</span>
+<a name="l00027"></a>00027 <span class="comment"> * published by the Free Software Foundation, either version 2.1 of the</span>
+<a name="l00028"></a>00028 <span class="comment"> * License, or (at your option) any later version or the BSD license.</span>
+<a name="l00029"></a>00029 <span class="comment"> *</span>
+<a name="l00030"></a>00030 <span class="comment"> * This program is distributed in the hope that it will be useful,</span>
+<a name="l00031"></a>00031 <span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<a name="l00032"></a>00032 <span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<a name="l00033"></a>00033 <span class="comment"> * GNU Lesser General Public License LGPL and the BSD license for more details.</span>
+<a name="l00034"></a>00034 <span class="comment"> *</span>
+<a name="l00035"></a>00035 <span class="comment"> * You should have received a copy of the GNU Lesser General Public</span>
+<a name="l00036"></a>00036 <span class="comment"> * License LGPL and BSD license along with this program.</span>
+<a name="l00037"></a>00037 <span class="comment"> *</span>
+<a name="l00038"></a>00038 <span class="comment"> ******************************************************************************/</span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</span>
+<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;navigation_trajectory_common/Logger.h&quot;</span>
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#include &quot;navigation_trajectory_common/Stopwatch.h&quot;</span>
+<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 <span class="preprocessor">#include &quot;navigation_trajectory_planner/LinearInterpolation.h&quot;</span>
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049     <span class="keywordflow">if</span> (in.size() &lt; 1)
-<a name="l00050"></a>00050         <span class="keywordflow">return</span> 0;
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052    
-<a name="l00053"></a>00053     
-<a name="l00054"></a>00054     <span class="keywordtype">size_t</span> counter = 0;
-<a name="l00055"></a>00055     std::vector &lt;FrameWithId&gt; localCopy = in;
-<a name="l00056"></a>00056     <span class="keywordtype">double</span> x0, y0, z0, xn, yn, zn, x, y, z, r, p;
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058     
-<a name="l00059"></a>00059     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; localCopy.size()-1; ++i) {
-<a name="l00060"></a>00060         x0 = localCopy[i].p.x();
-<a name="l00061"></a>00061         y0 = localCopy[i].p.y();
-<a name="l00062"></a>00062         localCopy[i].M.GetRPY(r, p, z0);
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064         xn = localCopy[i + 1].p.x();
-<a name="l00065"></a>00065         yn = localCopy[i + 1].p.y();
-<a name="l00066"></a>00066         localCopy[i + 1].M.GetRPY(r, p, zn);
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068         <span class="keywordtype">double</span> distance = sqrt((xn - x0)*(xn - x0) + (yn - y0)*(yn - y0));
-<a name="l00069"></a>00069         <span class="keywordtype">size_t</span> steps = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span> (floor(distance / step));
-<a name="l00070"></a>00070       <span class="comment">//  LOG(&quot;x0=%f, y0=%f, xn=%f, yn=%f&quot;, x0, y0, xn, yn);</span>
-<a name="l00071"></a>00071       <span class="comment">//  LOG(&quot;distance=%f, steps=%lu&quot;, distance, steps);</span>
-<a name="l00072"></a>00072         
-<a name="l00073"></a>00073         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> v = 0; v &lt;= steps; ++v) {
-<a name="l00074"></a>00074             x = x0 + (xn - x0) / steps*v;
-<a name="l00075"></a>00075             y = y0 + (yn - y0) / steps*v;
-<a name="l00076"></a>00076             z = z0 + (zn - z0) / steps*v;
-<a name="l00077"></a>00077             
-<a name="l00078"></a>00078       <span class="comment">//      LOG(&quot;x=%f, y=%f&quot;, x, y);</span>
-<a name="l00079"></a>00079             
-<a name="l00080"></a>00080             <a class="code" href="classFrameWithId.html">FrameWithId</a> frame;
-<a name="l00081"></a>00081             frame.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a> = localCopy[i].id;
-<a name="l00082"></a>00082             frame.p.x(x);
-<a name="l00083"></a>00083             frame.p.y(y);
-<a name="l00084"></a>00084             frame.p.z(z);
-<a name="l00085"></a>00085             frame.M.DoRotZ(z);
-<a name="l00086"></a>00086             out.push_back(frame);
-<a name="l00087"></a>00087             ++counter;
-<a name="l00088"></a>00088             <span class="keywordflow">if</span> (counter &gt;= (numberOfSteps - 1) &amp;&amp; numberOfSteps != 0) {
-<a name="l00089"></a>00089                 <span class="keywordflow">return</span> counter;
-<a name="l00090"></a>00090             }
-<a name="l00091"></a>00091         }
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093         
-<a name="l00094"></a>00094     }
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096     
-<a name="l00097"></a>00097     
-<a name="l00098"></a>00098     <span class="keywordflow">return</span> counter;
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 }
+<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1">00051</a> <a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1" title="Constructor.">LinearInterpolation::LinearInterpolation</a>() {
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 }
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="classLinearInterpolation.html#ae531f187c06e4897072c8a951e81d3fd">00055</a> <a class="code" href="classLinearInterpolation.html#aaae2ec77e7767bb5fc7ca34a6e1197f1" title="Constructor.">LinearInterpolation::LinearInterpolation</a>(<span class="keyword">const</span> <a class="code" href="classLinearInterpolation.html" title="Implementation of the interface class for path interpolation algorithms, linear path interpolation al...">LinearInterpolation</a>&amp; orig) {
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 }
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classLinearInterpolation.html#a36a34fa39c430e05bdc073c1ac9ad4df">00059</a> <a class="code" href="classLinearInterpolation.html#a36a34fa39c430e05bdc073c1ac9ad4df" title="Destructor.">LinearInterpolation::~LinearInterpolation</a>() {
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 }
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d">00063</a> <span class="keywordtype">size_t</span> <a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d" title="An interface for linear path approximation algorithms.">LinearInterpolation::interpolate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">double</span> step, <span class="keywordtype">size_t</span> numberOfsteps = 0) {
+<a name="l00064"></a>00064 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;
+<a name="l00066"></a>00066     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();
+<a name="l00067"></a>00067 <span class="preprocessor">#endif</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>    <span class="keywordtype">size_t</span> result = <a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms.">linearInterpolation</a>(in, out, step, numberOfsteps);
+<a name="l00069"></a>00069 <span class="preprocessor">#ifdef DEBUG  </span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();
+<a name="l00071"></a>00071     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Linear interpolation:&quot;</span>);
+<a name="l00072"></a>00072     <span class="keywordflow">if</span> (result &gt; 0) {
+<a name="l00073"></a>00073         <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input end point: %f, %f&quot;</span>, in.back().getFrame().p.x(), in.back().getFrame().p.y());
+<a name="l00074"></a>00074         <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output end point: %f, %f&quot;</span>, out.back().getFrame().p.x(), out.back().getFrame().p.y());
+<a name="l00075"></a>00075     }
+<a name="l00076"></a>00076     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - step size: %f&quot;</span>, step);
+<a name="l00077"></a>00077     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %lu&quot;</span>, result);
+<a name="l00078"></a>00078     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="preprocessor">#endif  </span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>    <span class="keywordflow">return</span> result;
+<a name="l00082"></a>00082 }
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850">00084</a> <span class="keywordtype">size_t</span> <a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms.">LinearInterpolation::linearInterpolation</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
+<a name="l00085"></a>00085         std::vector &lt;FrameWithId&gt;&amp; out,
+<a name="l00086"></a>00086         <span class="keywordtype">double</span> step,
+<a name="l00087"></a>00087         <span class="keywordtype">size_t</span> numberOfSteps = 0) {
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <span class="keywordflow">if</span> (in.empty())
+<a name="l00090"></a>00090         <span class="keywordflow">return</span> 0;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092     <span class="keywordtype">size_t</span> counter = 0;
+<a name="l00093"></a>00093     out.clear();
+<a name="l00094"></a>00094     std::vector &lt;FrameWithId&gt; localCopy = in;
+<a name="l00095"></a>00095     <span class="keywordtype">double</span> x0, y0, z0, xn, yn, zn, x, y, z, r, p;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; localCopy.size() - 1; ++i) {
+<a name="l00099"></a>00099         x0 = localCopy[i].getFrame().p.x();
+<a name="l00100"></a>00100         y0 = localCopy[i].getFrame().p.y();
+<a name="l00101"></a>00101         localCopy[i].getFrame().M.GetRPY(r, p, z0);
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103         xn = localCopy[i + 1].getFrame().p.x();
+<a name="l00104"></a>00104         yn = localCopy[i + 1].getFrame().p.y();
+<a name="l00105"></a>00105         localCopy[i + 1].getFrame().M.GetRPY(r, p, zn);
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107         <span class="keywordtype">double</span> distance = sqrt((xn - x0)*(xn - x0) + (yn - y0)*(yn - y0));
+<a name="l00108"></a>00108         <span class="keywordtype">size_t</span> steps = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span> (floor(distance / step));
+<a name="l00109"></a>00109         <span class="keywordflow">if</span> (steps == 0) {
+<a name="l00110"></a>00110             <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Warning: step = 0, interpolation is not possible&quot;</span>);
+<a name="l00111"></a>00111             <span class="keywordflow">return</span> counter;
+<a name="l00112"></a>00112         }
+<a name="l00113"></a>00113         <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;x0=%f, y0=%f, xn=%f, yn=%f&quot;</span>, x0, y0, xn, yn);
+<a name="l00114"></a>00114         <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;distance=%f, steps=%lu&quot;</span>, distance, steps);
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> v = 0; v &lt;= steps; ++v) {
+<a name="l00117"></a>00117             x = x0 + (xn - x0) / steps*v;
+<a name="l00118"></a>00118             y = y0 + (yn - y0) / steps*v;
+<a name="l00119"></a>00119             z = z0 + (zn - z0) / steps*v;
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121             <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;x=%f, y=%f&quot;</span>, x, y);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123             KDL::Frame frame;
+<a name="l00124"></a>00124             std::string <span class="keywordtype">id</span> = localCopy[i].id;
+<a name="l00125"></a>00125             frame.p.x(x);
+<a name="l00126"></a>00126             frame.p.y(y);
+<a name="l00127"></a>00127             frame.p.z(z);
+<a name="l00128"></a>00128             frame.M.DoRotZ(z);
+<a name="l00129"></a>00129             out.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(frame,<span class="keywordtype">id</span>));
+<a name="l00130"></a>00130             ++counter;
+<a name="l00131"></a>00131             <span class="keywordflow">if</span> (counter &gt;= (numberOfSteps - 1) &amp;&amp; numberOfSteps != 0) {
+<a name="l00132"></a>00132                 <span class="keywordflow">return</span> counter;
+<a name="l00133"></a>00133             }
+<a name="l00134"></a>00134         }
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137     }
+<a name="l00138"></a>00138 
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141     <span class="keywordflow">return</span> counter;
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

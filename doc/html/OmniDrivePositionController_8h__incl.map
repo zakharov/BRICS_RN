@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$PositionController_8h.html" title="PositionController.h" alt="" coords="91,86,224,117"/>
-<area shape="rect" id="node7" href="$Odometry_8h.html" title="Odometry.h" alt="" coords="299,86,389,117"/>
-<area shape="rect" id="node9" href="$Twist2D_8h.html" title="Twist2D.h" alt="" coords="280,166,360,197"/>
-<area shape="rect" id="node11" href="$Pose2D_8h.html" title="Pose2D.h" alt="" coords="384,166,461,197"/>
+<area shape="rect" id="node3" href="$IPositionController_8h.html" title="IPositionController.h" alt="" coords="44,86,183,117"/>
+<area shape="rect" id="node7" href="$Odometry_8h.html" title="Odometry.h" alt="" coords="257,86,348,117"/>
+<area shape="rect" id="node9" href="$Twist2D_8h.html" title="Twist2D.h" alt="" coords="239,166,319,197"/>
+<area shape="rect" id="node11" href="$Pose2D_8h.html" title="Pose2D.h" alt="" coords="343,166,420,197"/>
 </map>

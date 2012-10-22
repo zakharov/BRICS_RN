@@ -46,25 +46,74 @@ namespace KDL {
     class Trajectory;
 }
 
+/**
+ * @brief TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id. 
+ */
+
+
 class TrajectoryWithId {
 public:
+    /**
+     * @brief String identifier of the trajectory.
+     */
     std::string id;
-    
+
+    /**
+     * @brief Default constructor.
+     */
     TrajectoryWithId();
+
+    /**
+     * @brief Constructor.
+     * @param[in] id - string identifier of the trajectory.
+     */
     TrajectoryWithId(const std::string& id);
+
+    /**
+     * @brief Constructor
+     * @param[in] trajectory - KDL trajectory.
+     */
     TrajectoryWithId(const KDL::Trajectory& trajectory);
+
+    /**
+     * @brief Constructor.
+     * @param[in] trajectory - KDL trajectory.
+     * @param[in] id - string identifier of the trajectory.
+     */
     TrajectoryWithId(const KDL::Trajectory& trajectory, const std::string& id);
-    
+
+    /**
+     * @brief Copy constructor
+     * @param[in] orig - reference to the original object
+     */
     TrajectoryWithId(const TrajectoryWithId& orig);
+
+    /**
+     * @brief Destructor
+     */
     virtual ~TrajectoryWithId();
 
-    
+    /**
+     * @brief Sets a trajectory
+     * @param[in] trajectory - KDL::Trajectory
+     */
     void setTrajectory(const KDL::Trajectory& trajectory);
-    KDL::Trajectory* getTrajectory();
+
+    /**
+     * @brief Get an underlying KDL trajectory as a reference
+     */
+    KDL::Trajectory& getTrajectory();
+
+    /**
+     * @brief Gets an underlying KDL trajectory as const reference or a copy
+     */
     const KDL::Trajectory& getTrajectory() const;
-    
+
 public:
-    
+
+    /**
+     * @brief Aggregated KDL trajectory
+     */
     KDL::Trajectory* trajectory;
 };
 

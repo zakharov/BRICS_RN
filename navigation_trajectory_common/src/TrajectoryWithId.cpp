@@ -37,8 +37,8 @@ void TrajectoryWithId::setTrajectory(const KDL::Trajectory& trajectory) {
     this->trajectory = trajectory.Clone();
 }
  
-KDL::Trajectory* TrajectoryWithId::getTrajectory() {
-    return trajectory;
+KDL::Trajectory& TrajectoryWithId::getTrajectory() {
+    return *trajectory;
 }
 
 const KDL::Trajectory& TrajectoryWithId::getTrajectory() const {

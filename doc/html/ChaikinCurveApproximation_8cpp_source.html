@@ -81,92 +81,97 @@
 <a name="l00038"></a>00038 <span class="comment"> ******************************************************************************/</span>
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;navigation_trajectory_planner/ChaikinCurveApproximation.h&quot;</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Logger.h&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Stopwatch.h&quot;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">00046</a> <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation::ChaikinCurveApproximation</a>() {
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classChaikinCurveApproximation.html#acc137f37699ebcad30df2449d04dfa8d">00050</a> <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation::ChaikinCurveApproximation</a>(<span class="keyword">const</span> <a class="code" href="classChaikinCurveApproximation.html">ChaikinCurveApproximation</a>&amp; orig) {
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 }
-<a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">00054</a> <a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">ChaikinCurveApproximation::~ChaikinCurveApproximation</a>() {
-<a name="l00055"></a>00055 }
+<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;navigation_trajectory_common/Stopwatch.h&quot;</span>
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#include &quot;navigation_trajectory_common/Logger.h&quot;</span>
+<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 <span class="preprocessor">#include &quot;navigation_trajectory_planner/ChaikinCurveApproximation.h&quot;</span>
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">00051</a> <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation::ChaikinCurveApproximation</a>() {
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 }
+<a name="l00054"></a>00054 
+<a name="l00055"></a><a class="code" href="classChaikinCurveApproximation.html#acc137f37699ebcad30df2449d04dfa8d">00055</a> <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation::ChaikinCurveApproximation</a>(<span class="keyword">const</span> <a class="code" href="classChaikinCurveApproximation.html" title="Implementation of path approximation algorithm.">ChaikinCurveApproximation</a>&amp; orig) {
 <a name="l00056"></a>00056 
-<a name="l00057"></a><a class="code" href="classChaikinCurveApproximation.html#ad74792f8e2073431de7d7df8fd9d2a03">00057</a> <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">ChaikinCurveApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lod) {
-<a name="l00058"></a>00058 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html">Stopwatch</a> stopwatch;
-<a name="l00060"></a>00060     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d">start</a>();
-<a name="l00061"></a>00061 <span class="preprocessor">#endif</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>    std::vector &lt;FrameWithId&gt; inputCopy;
-<a name="l00063"></a>00063     inputCopy = in;
-<a name="l00064"></a>00064     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;
-<a name="l00065"></a>00065     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; lod; ++i) {
-<a name="l00066"></a>00066         out.clear();
-<a name="l00067"></a>00067         counter += <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">chaikinCurve</a>(inputCopy, out);
-<a name="l00068"></a>00068         inputCopy = out;
-<a name="l00069"></a>00069     }
-<a name="l00070"></a>00070 <span class="preprocessor">#ifdef DEBUG  </span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4">stop</a>();
-<a name="l00072"></a>00072     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Chaikin curve approximation algorithm:&quot;</span>);
-<a name="l00073"></a>00073     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, in.size());
-<a name="l00074"></a>00074     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - level of detail: %d&quot;</span>, lod);
-<a name="l00075"></a>00075     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());
-<a name="l00076"></a>00076     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);
-<a name="l00077"></a>00077     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b">getElapsedTime</a>());
-<a name="l00078"></a>00078 <span class="preprocessor">#endif    </span>
-<a name="l00079"></a>00079 <span class="preprocessor"></span>}
-<a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">00081</a> <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">ChaikinCurveApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out) {
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083     <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">approximate</a>(in, out, 1);
-<a name="l00084"></a>00084 }
+<a name="l00057"></a>00057 }
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">00059</a> <a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">ChaikinCurveApproximation::~ChaikinCurveApproximation</a>() {
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
+<a name="l00062"></a><a class="code" href="classChaikinCurveApproximation.html#ad74792f8e2073431de7d7df8fd9d2a03">00062</a> <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">ChaikinCurveApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lod) {
+<a name="l00063"></a>00063 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;
+<a name="l00065"></a>00065     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>    std::vector &lt;FrameWithId&gt; inputCopy;
+<a name="l00068"></a>00068     inputCopy = in;
+<a name="l00069"></a>00069     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;
+<a name="l00070"></a>00070     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; lod; ++i) {
+<a name="l00071"></a>00071         out.clear();
+<a name="l00072"></a>00072         counter += <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="Implementation of the Chaiking algorithms.">chaikinCurve</a>(inputCopy, out);
+<a name="l00073"></a>00073         inputCopy = out;
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 <span class="preprocessor">#ifdef DEBUG  </span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();
+<a name="l00077"></a>00077     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Chaikin curve approximation algorithm:&quot;</span>);
+<a name="l00078"></a>00078     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, in.size());
+<a name="l00079"></a>00079     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - level of detail: %d&quot;</span>, lod);
+<a name="l00080"></a>00080     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());
+<a name="l00081"></a>00081     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);
+<a name="l00082"></a>00082     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());
+<a name="l00083"></a>00083 <span class="preprocessor">#endif    </span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span>}
 <a name="l00085"></a>00085 
-<a name="l00086"></a><a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">00086</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">ChaikinCurveApproximation::chaikinCurve</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
-<a name="l00087"></a>00087         std::vector &lt;FrameWithId&gt;&amp; resultList) {
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089     <span class="keywordflow">if</span> (pointList.size() == 0)
-<a name="l00090"></a>00090         <span class="keywordflow">return</span> 0;
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;
-<a name="l00093"></a>00093     <span class="comment">// keep the first point</span>
-<a name="l00094"></a>00094     resultList.push_back(pointList[0]);
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096     <span class="keywordtype">double</span> k = 0.75;
-<a name="l00097"></a>00097     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; (pointList.size() - 1); ++i) {
-<a name="l00098"></a>00098         ++counter;
-<a name="l00099"></a>00099         <span class="comment">// get 2 original points</span>
-<a name="l00100"></a>00100         <span class="keyword">const</span> <a class="code" href="classFrameWithId.html">FrameWithId</a>&amp; p0 = pointList[i];
-<a name="l00101"></a>00101         <span class="keyword">const</span> <a class="code" href="classFrameWithId.html">FrameWithId</a>&amp; p1 = pointList[i + 1];
-<a name="l00102"></a>00102         <a class="code" href="classFrameWithId.html">FrameWithId</a> Q;
-<a name="l00103"></a>00103         <a class="code" href="classFrameWithId.html">FrameWithId</a> R;
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105         <span class="comment">// average the 2 original points to create 2 new points. For each</span>
-<a name="l00106"></a>00106         <span class="comment">// CV, another 2 verts are created.</span>
-<a name="l00107"></a>00107         Q.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a> = p0.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>;
-<a name="l00108"></a>00108         Q.p.x(k * p0.p.x() + (1 - k) * p1.p.x());
-<a name="l00109"></a>00109         Q.p.y(k * p0.p.y() + (1 - k) * p1.p.y());
-<a name="l00110"></a>00110         Q.p.z(k * p0.p.z() + (1 - k) * p1.p.z());
+<a name="l00086"></a><a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">00086</a> <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">ChaikinCurveApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out) {
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">approximate</a>(in, out, 1);
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">00091</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="Implementation of the Chaiking algorithms.">ChaikinCurveApproximation::chaikinCurve</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
+<a name="l00092"></a>00092         std::vector &lt;FrameWithId&gt;&amp; resultList) {
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094     <span class="keywordflow">if</span> (pointList.size() == 0)
+<a name="l00095"></a>00095         <span class="keywordflow">return</span> 0;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> counter = 0;
+<a name="l00098"></a>00098     <span class="comment">// keep the first point</span>
+<a name="l00099"></a>00099     resultList.push_back(pointList[0]);
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <span class="keywordtype">double</span> k = 0.75;
+<a name="l00102"></a>00102     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; (pointList.size() - 1); ++i) {
+<a name="l00103"></a>00103         ++counter;
+<a name="l00104"></a>00104         <span class="comment">// get 2 original points</span>
+<a name="l00105"></a>00105         <span class="keyword">const</span> KDL::Frame&amp; p0 = pointList[i].getFrame();
+<a name="l00106"></a>00106         std::string p0Id = pointList[i].id;
+<a name="l00107"></a>00107         <span class="keyword">const</span> KDL::Frame&amp; p1 = pointList[i + 1].getFrame();
+<a name="l00108"></a>00108         std::string p1Id = pointList[i + 1].id;
+<a name="l00109"></a>00109         KDL::Frame Q;
+<a name="l00110"></a>00110         KDL::Frame R;
 <a name="l00111"></a>00111 
-<a name="l00112"></a>00112         R.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a> = p0.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>;
-<a name="l00113"></a>00113         R.p.x((1 - k) * p0.p.x() + k * p1.p.x());
-<a name="l00114"></a>00114         R.p.y((1 - k) * p0.p.y() + k * p1.p.y());
-<a name="l00115"></a>00115         R.p.z((1 - k) * p0.p.z() + k * p1.p.z());
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117         resultList.push_back(Q);
-<a name="l00118"></a>00118         resultList.push_back(R);
-<a name="l00119"></a>00119     }
-<a name="l00120"></a>00120     <span class="comment">// keep the last point</span>
-<a name="l00121"></a>00121     resultList.push_back(pointList[pointList.size() - 1]);
-<a name="l00122"></a>00122     <span class="keywordflow">return</span> counter;
-<a name="l00123"></a>00123 }
+<a name="l00112"></a>00112         <span class="comment">// average the 2 original points to create 2 new points. For each</span>
+<a name="l00113"></a>00113         <span class="comment">// CV, another 2 verts are created.</span>
+<a name="l00114"></a>00114         Q.p.x(k * p0.p.x() + (1 - k) * p1.p.x());
+<a name="l00115"></a>00115         Q.p.y(k * p0.p.y() + (1 - k) * p1.p.y());
+<a name="l00116"></a>00116         Q.p.z(k * p0.p.z() + (1 - k) * p1.p.z());
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         R.p.x((1 - k) * p0.p.x() + k * p1.p.x());
+<a name="l00119"></a>00119         R.p.y((1 - k) * p0.p.y() + k * p1.p.y());
+<a name="l00120"></a>00120         R.p.z((1 - k) * p0.p.z() + k * p1.p.z());
+<a name="l00121"></a>00121 
+<a name="l00122"></a>00122         resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(Q, p0Id));
+<a name="l00123"></a>00123         resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(R, p1Id));
+<a name="l00124"></a>00124     }
+<a name="l00125"></a>00125     <span class="comment">// keep the last point</span>
+<a name="l00126"></a>00126     resultList.push_back(pointList[pointList.size() - 1]);
+<a name="l00127"></a>00127     <span class="keywordflow">return</span> counter;
+<a name="l00128"></a>00128 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -48,21 +48,57 @@ namespace costmap_2d {
 
 class FrameWithId;
 
+/**
+ * @brief Implementation of the collision checking interface. Current implementation
+ * uses a ROS costmap collision checking routine.
+ */
+
 class CollisionCheckingRos : public ICollisionChecking {
 public:
+
+    /**
+     * @brief Constructor
+     * @param costmap - costmap_2d::Costmap2DROS a pointer to a costmap, which contains
+     * actual representation of the environment
+     */
     CollisionCheckingRos(costmap_2d::Costmap2DROS* costmap);
+    
+    /**
+     * @brief Copy constructor
+     */
     CollisionCheckingRos(CollisionCheckingRos& orig);
+
+    /**
+     * @brief Destructor
+     */
     virtual ~CollisionCheckingRos();
 
+    /**
+     * @brief An interface for collision checking.
+     * @param[in] path - std::vector <FrameWithId> actual path.
+     * @param[in] actualPose - FrameWithId actual pose.
+     * @return true if there is a collision, false otherwise. 
+     */
     bool check(const std::vector <FrameWithId>& path, const FrameWithId& actualPose);
 
 private:
 
+    /**
+     * @brief Implementation of collision checking routine.
+     * @param[in] path - std::vector <FrameWithId> actual path.
+     * @param[in] actualPose - FrameWithId actual pose.
+     * @param interpolationStep - interpolation step.
+     * @param numberOfSteps - number of steps
+     * @return true if there is a collision, false otherwise. 
+     */
     bool collisionCheck(const std::vector <FrameWithId>& path,
             const FrameWithId& actualPose,
             double interpolationStep,
             unsigned int numberOfSteps);
 
+    /**
+     * @brief Pointer to the actual map of the environment.
+     */
     costmap_2d::Costmap2DROS* costmap;
 
 };

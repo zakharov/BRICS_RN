@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classFrameWithId.html" title="FrameWithId" alt="" coords="7,5,100,35"/>
+<area shape="rect" id="node1" href="$classIPathApproximation.html" title="Interface class for path approximation algorithms." alt="" coords="7,31,140,62"/>
+<area shape="rect" id="node3" href="$classChaikinCurveApproximation.html" title="Implementation of path approximation algorithm." alt="" coords="199,5,380,35"/>
+<area shape="rect" id="node5" href="$classDouglasPeuckerApproximation.html" title="Implementation of path approximation algorithm." alt="" coords="191,58,388,89"/>
 </map>

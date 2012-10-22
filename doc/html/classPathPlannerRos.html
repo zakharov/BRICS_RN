@@ -46,21 +46,24 @@
 <h1>PathPlannerRos Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="PathPlannerRos" --><!-- doxytag: inherits="PathPlanner" -->
+<!-- doxytag: class="PathPlannerRos" --><!-- doxytag: inherits="IPathPlanner" -->
+<p>Implementation of the interface class for path planning.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PathPlannerRos:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPathPlannerRos__inherit__graph.png" border="0" usemap="#PathPlannerRos_inherit__map" alt="Inheritance graph"/></div>
 <map name="PathPlannerRos_inherit__map" id="PathPlannerRos_inherit__map">
-<area shape="rect" id="node2" href="classPathPlanner.html" title="{PathPlanner\n||+ computePath()\l}" alt="" coords="17,6,135,95"/></map>
+<area shape="rect" id="node2" href="classIPathPlanner.html" title="Interface class for path planning algorithms." alt="" coords="17,6,135,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for PathPlannerRos:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPathPlannerRos__coll__graph.png" border="0" usemap="#PathPlannerRos_coll__map" alt="Collaboration graph"/></div>
 <map name="PathPlannerRos_coll__map" id="PathPlannerRos_coll__map">
-<area shape="rect" id="node2" href="classPathPlanner.html" title="{PathPlanner\n||+ computePath()\l}" alt="" coords="17,6,135,95"/></map>
+<area shape="rect" id="node2" href="classIPathPlanner.html" title="Interface class for path planning algorithms." alt="" coords="17,6,135,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classPathPlannerRos-members.html">List of all members.</a></p>
@@ -68,17 +71,23 @@ Collaboration diagram for PathPlannerRos:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4">PathPlannerRos</a> (nav_core::BaseGlobalPlanner *<a class="el" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f">planner</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a4a0e992903aeca0e55dd8e853686b7f4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#a9848882987620b490b8ef3d27103776b">PathPlannerRos</a> (const <a class="el" href="classPathPlannerRos.html">PathPlannerRos</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a9848882987620b490b8ef3d27103776b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#a5db7d77eec1cbf88bd5e01956881bbbc">~PathPlannerRos</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a5db7d77eec1cbf88bd5e01956881bbbc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#a6918deb52360eac5ef11bfb602d998b0">computePath</a> (const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;start, const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;goal, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for path planning.  <a href="#a6918deb52360eac5ef11bfb602d998b0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#a1fe0503d32f267871a94912064e6dc98">name</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">nav_core::BaseGlobalPlanner *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f">planner</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ROS path planner instance.  <a href="#abc427c5ecf2045fc562fe4297f117a0f"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="PathPlannerRos_8h_source.html#l00058">58</a> of file <a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>.</p>
+<div class="textblock"><p>Implementation of the interface class for path planning. </p>
+<p>Current implementation is an adapter to BaseGlobalPlanner interface in ROS. </p>
+
+<p>Definition at line <a class="el" href="PathPlannerRos_8h_source.html#l00063">63</a> of file <a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4a0e992903aeca0e55dd8e853686b7f4"></a><!-- doxytag: member="PathPlannerRos::PathPlannerRos" ref="a4a0e992903aeca0e55dd8e853686b7f4" args="(nav_core::BaseGlobalPlanner *planner)" -->
 <div class="memitem">
@@ -95,7 +104,15 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00049">49</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">planner</td><td>- nav_core::BaseGlobalPlanner pointer to a desired ROS path planner. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00052">52</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
 
 </div>
 </div>
@@ -114,7 +131,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00052">52</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00055">55</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
 
 </div>
 </div>
@@ -132,7 +151,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00055">55</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">58</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
 
 </div>
 </div>
@@ -168,39 +189,35 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e">PathPlanner</a>.</p>
+<p>An interface for path planning. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> start position for a planner. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">goal</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> goal position for a planner. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">path</td><td>- std::vector &lt;FrameWithId&gt; computed path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if planner has found a path, otherwise false. </dd></dl>
 
-<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">58</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
+<p>Implements <a class="el" href="classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9">IPathPlanner</a>.</p>
 
-<p>References <a class="el" href="Conversions_8h_source.html#l00089">conversions::frameToPoseStampedRos()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Conversions_8h_source.html#l00113">conversions::pathRosToPath()</a>, <a class="el" href="PathPlannerRos_8h_source.html#l00069">planner</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
+<p>Definition at line <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">61</a> of file <a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a>.</p>
+
+<p>References <a class="el" href="Conversions_8h_source.html#l00130">conversions::frameToPoseStampedRos()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Conversions_8h_source.html#l00169">conversions::pathRosToPath()</a>, <a class="el" href="PathPlannerRos_8h_source.html#l00095">planner</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPathPlannerRos_a6918deb52360eac5ef11bfb602d998b0_cgraph.png" border="0" usemap="#classPathPlannerRos_a6918deb52360eac5ef11bfb602d998b0_cgraph" alt=""/></div>
 <map name="classPathPlannerRos_a6918deb52360eac5ef11bfb602d998b0_cgraph" id="classPathPlannerRos_a6918deb52360eac5ef11bfb602d998b0_cgraph">
-<area shape="rect" id="node3" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="253,5,504,35"/><area shape="rect" id="node7" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="287,58,471,89"/><area shape="rect" id="node11" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="conversions::pathRosToPath" alt="" coords="285,111,472,142"/><area shape="rect" id="node17" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="320,165,437,195"/><area shape="rect" id="node19" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="321,218,436,249"/><area shape="rect" id="node5" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="580,5,777,35"/><area shape="rect" id="node9" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="596,58,761,89"/><area shape="rect" id="node13" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="conversions::poseStampedRosToFrame" alt="" coords="552,111,805,142"/><area shape="rect" id="node15" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="conversions::poseRosToFrame" alt="" coords="855,111,1055,142"/></map>
+<area shape="rect" id="node3" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="253,5,504,35"/><area shape="rect" id="node9" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="287,58,471,89"/><area shape="rect" id="node13" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="285,111,472,142"/><area shape="rect" id="node20" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="320,165,437,195"/><area shape="rect" id="node22" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="321,218,436,249"/><area shape="rect" id="node5" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="856,19,1053,50"/><area shape="rect" id="node7" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1104,53,1261,83"/><area shape="rect" id="node11" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="596,58,761,89"/><area shape="rect" id="node15" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="552,111,805,142"/><area shape="rect" id="node17" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="855,86,1055,117"/></map>
 </div>
 </p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a1fe0503d32f267871a94912064e6dc98"></a><!-- doxytag: member="PathPlannerRos::name" ref="a1fe0503d32f267871a94912064e6dc98" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="classPathPlannerRos.html#a1fe0503d32f267871a94912064e6dc98">PathPlannerRos::name</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="PathPlannerRos_8h_source.html#l00068">68</a> of file <a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="abc427c5ecf2045fc562fe4297f117a0f"></a><!-- doxytag: member="PathPlannerRos::planner" ref="abc427c5ecf2045fc562fe4297f117a0f" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -212,9 +229,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathPlannerRos_8h_source.html#l00069">69</a> of file <a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>.</p>
+<p>Pointer to ROS path planner instance. </p>
 
-<p>Referenced by <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">computePath()</a>.</p>
+<p>Definition at line <a class="el" href="PathPlannerRos_8h_source.html#l00095">95</a> of file <a class="el" href="PathPlannerRos_8h_source.html">PathPlannerRos.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">computePath()</a>.</p>
 
 </div>
 </div>
@@ -223,7 +242,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_planner/src/<a class="el" href="PathPlannerRos_8cpp_source.html">PathPlannerRos.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

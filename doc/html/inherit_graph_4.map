@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classKinematicsModel.html" title="KinematicsModel" alt="" coords="5,5,128,35"/>
-<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html" title="OmniDriveKinematicsModel" alt="" coords="177,5,359,35"/>
+<area shape="rect" id="node1" href="$classIPathInterpolation.html" title="Interface class for path interpolation algorithms." alt="" coords="5,5,128,35"/>
+<area shape="rect" id="node3" href="$classLinearInterpolation.html" title="Implementation of the interface class for path interpolation algorithms, linear path interpolation al..." alt="" coords="176,5,304,35"/>
 </map>

@@ -41,121 +41,53 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <h1>FrameWithId Class Reference</h1>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="FrameWithId" -->
+<p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with frame id.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>&gt;</code></p>
 
 <p><a href="classFrameWithId-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ae492f5fca8779ccf525e7873bafd3a6f">FrameWithId</a> (const KDL::Rotation &amp;R, const KDL::Vector &amp;V, const std::string &amp;<a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a72b38eecacd171e55c43ee6c173572ff">FrameWithId</a> (const KDL::Vector &amp;V, const std::string &amp;<a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a2f18c1bd18c3eb209f10d6d4a802c940">FrameWithId</a> (const KDL::Rotation &amp;R, const std::string &amp;<a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a907376c1f09970efbb402343c1b5ca9b">FrameWithId</a> (const std::string &amp;<a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a907376c1f09970efbb402343c1b5ca9b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a27058e6eb63869fcbd96ad74be31b082">FrameWithId</a> (const KDL::Frame &amp;<a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">frame</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a27058e6eb63869fcbd96ad74be31b082"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a67472bf5d8f94285c190386080f5c642">FrameWithId</a> (const KDL::Frame &amp;<a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">frame</a>, const std::string &amp;<a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a67472bf5d8f94285c190386080f5c642"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a69136db683adbe3bc07c435dbbff6be0">FrameWithId</a> (const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;arg)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The copy constructor. Normal copy by value semantics.  <a href="#a69136db683adbe3bc07c435dbbff6be0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a857bf6190263f3a4dccf304b6c5778ce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ae64d840e91d3ec7849381221c5e0001d">FrameWithId</a> (const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ae64d840e91d3ec7849381221c5e0001d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025">setFrame</a> (const KDL::Frame &amp;<a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">frame</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets new KDL::Frame.  <a href="#ad02aab755f071b1ef5caa99f5c772025"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const KDL::Frame &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8">getFrame</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an underlying KDL::Frame as a const reference or a copy.  <a href="#ad2355970fa56daec211e147f020c7ae8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">KDL::Frame &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a0d3071d1270247561c23194e3c0541c7">getFrame</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an underlying KDL::Frame as a reference.  <a href="#a0d3071d1270247561c23194e3c0541c7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">~FrameWithId</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String identifier of the frame.  <a href="#ae99cece9ab316fc5684d4ac13afff36d"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">KDL::Frame *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">frame</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregated KDL::Frame.  <a href="#ab32798c583dc0779c6345efd4751bfeb"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00046">46</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+<div class="textblock"><p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with frame id. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00053">53</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae492f5fca8779ccf525e7873bafd3a6f"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="ae492f5fca8779ccf525e7873bafd3a6f" args="(const KDL::Rotation &amp;R, const KDL::Vector &amp;V, const std::string &amp;id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FrameWithId::FrameWithId </td>
-          <td>(</td>
-          <td class="paramtype">const KDL::Rotation &amp;&#160;</td>
-          <td class="paramname"><em>R</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const KDL::Vector &amp;&#160;</td>
-          <td class="paramname"><em>V</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a72b38eecacd171e55c43ee6c173572ff"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a72b38eecacd171e55c43ee6c173572ff" args="(const KDL::Vector &amp;V, const std::string &amp;id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FrameWithId::FrameWithId </td>
-          <td>(</td>
-          <td class="paramtype">const KDL::Vector &amp;&#160;</td>
-          <td class="paramname"><em>V</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2f18c1bd18c3eb209f10d6d4a802c940"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a2f18c1bd18c3eb209f10d6d4a802c940" args="(const KDL::Rotation &amp;R, const std::string &amp;id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FrameWithId::FrameWithId </td>
-          <td>(</td>
-          <td class="paramtype">const KDL::Rotation &amp;&#160;</td>
-          <td class="paramname"><em>R</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a907376c1f09970efbb402343c1b5ca9b"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a907376c1f09970efbb402343c1b5ca9b" args="(const std::string &amp;id)" -->
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +103,80 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00058">58</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>- string identifier of the frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00046">46</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27058e6eb63869fcbd96ad74be31b082"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a27058e6eb63869fcbd96ad74be31b082" args="(const KDL::Frame &amp;frame)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FrameWithId::FrameWithId </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Frame &amp;&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>- initial 6D pose of the frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00051">51</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a67472bf5d8f94285c190386080f5c642"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a67472bf5d8f94285c190386080f5c642" args="(const KDL::Frame &amp;frame, const std::string &amp;id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FrameWithId::FrameWithId </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Frame &amp;&#160;</td>
+          <td class="paramname"><em>frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>- initial 6D pose of the frame </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>- string identifier of the frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00056">56</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
 </div>
 </div>
@@ -189,11 +194,13 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00062">62</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+<p>Default constructor. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00061">61</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a69136db683adbe3bc07c435dbbff6be0"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="a69136db683adbe3bc07c435dbbff6be0" args="(const FrameWithId &amp;arg)" -->
+<a class="anchor" id="ae64d840e91d3ec7849381221c5e0001d"></a><!-- doxytag: member="FrameWithId::FrameWithId" ref="ae64d840e91d3ec7849381221c5e0001d" args="(const FrameWithId &amp;orig)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -201,16 +208,33 @@ Public Attributes</h2></td></tr>
           <td class="memname">FrameWithId::FrameWithId </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;&#160;</td>
-          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td class="paramname"><em>orig</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The copy constructor. Normal copy by value semantics. </p>
+<p>Copy constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">arg</td><td>- reference to the original object </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00067">67</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00066">66</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00080">getFrame()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00058">id</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph.png" border="0" usemap="#classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph" alt=""/></div>
+<map name="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph" id="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph">
+<area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="229,5,387,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -232,7 +256,88 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ad2355970fa56daec211e147f020c7ae8"></a><!-- doxytag: member="FrameWithId::getFrame" ref="ad2355970fa56daec211e147f020c7ae8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const KDL::Frame &amp; FrameWithId::getFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns an underlying KDL::Frame as a const reference or a copy. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00080">80</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">OmniDriveTrajectoryGenerator::computePathComposite()</a>, <a class="el" href="Conversions_8h_source.html#l00113">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00061">conversions::odometryRosToFrame()</a>, <a class="el" href="Utilities_8h_source.html#l00061">utilities::perpendicularDistance()</a>, and <a class="el" href="Conversions_8h_source.html#l00089">conversions::poseRosToFrame()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d3071d1270247561c23194e3c0541c7"></a><!-- doxytag: member="FrameWithId::getFrame" ref="a0d3071d1270247561c23194e3c0541c7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDL::Frame &amp; FrameWithId::getFrame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns an underlying KDL::Frame as a reference. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00084">84</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad02aab755f071b1ef5caa99f5c772025"></a><!-- doxytag: member="FrameWithId::setFrame" ref="ad02aab755f071b1ef5caa99f5c772025" args="(const KDL::Frame &amp;frame)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FrameWithId::setFrame </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Frame &amp;&#160;</td>
+          <td class="paramname"><em>frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets new KDL::Frame. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00075">75</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ab32798c583dc0779c6345efd4751bfeb"></a><!-- doxytag: member="FrameWithId::frame" ref="ab32798c583dc0779c6345efd4751bfeb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDL::Frame* <a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">FrameWithId::frame</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Aggregated KDL::Frame. </p>
+
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00113">113</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae99cece9ab316fc5684d4ac13afff36d"></a><!-- doxytag: member="FrameWithId::id" ref="ae99cece9ab316fc5684d4ac13afff36d" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -244,9 +349,11 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00048">48</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+<p>String identifier of the frame. </p>
 
-<p>Referenced by <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00086">ChaikinCurveApproximation::chaikinCurve()</a>, <a class="el" href="Conversions_8h_source.html#l00078">conversions::frameToPoseRos()</a>, <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00037">OmniDriveTrajectoryGenerator::interpolateRotation()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00044">LinearInterpolation::linearInterpolation()</a>, <a class="el" href="Conversions_8h_source.html#l00050">conversions::odometryRosToFrame()</a>, and <a class="el" href="Conversions_8h_source.html#l00066">conversions::poseRosToFrame()</a>.</p>
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00058">58</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00113">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00061">conversions::odometryRosToFrame()</a>, and <a class="el" href="Conversions_8h_source.html#l00089">conversions::poseRosToFrame()</a>.</p>
 
 </div>
 </div>
@@ -255,7 +362,7 @@ Public Attributes</h2></td></tr>
 <li>navigation_trajectory_common/src/<a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

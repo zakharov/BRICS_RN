@@ -48,5 +48,11 @@
 #define LOG(format, args...);
 #endif
 
+/**
+ * @brief Implementation of a macro for log output
+ */
+
+//TODO:: complete
+
 #endif	/* LOGGER_H */
 

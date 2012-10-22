@@ -82,29 +82,55 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;navigation_trajectory_common/TwistWithId.h&quot;</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">using namespace </span>KDL;
+<a name="l00042"></a>00042 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">00044</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">TwistWithId::TwistWithId</a>() : Twist(), id(<span class="stringliteral">&quot;&quot;</span>) {
-<a name="l00045"></a>00045 }
-<a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="classTwistWithId.html#a18a16f482bb8456041ee02133ecd8808">00047</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) : Twist(), id(id) {
-<a name="l00048"></a>00048 
+<a name="l00044"></a>00044 <span class="keyword">using namespace </span>KDL;
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">00046</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9" title="Default Constructor.">TwistWithId::TwistWithId</a>() {
+<a name="l00047"></a>00047     <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00048"></a>00048     twist = <span class="keyword">new</span> Twist();
 <a name="l00049"></a>00049 }
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classTwistWithId.html#a2545b67d94776d4872c17506e1fa1937">00051</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> <a class="code" href="classTwistWithId.html">TwistWithId</a>&amp; orig) : Twist(orig), id(orig.id) {
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 }
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> Vector&amp; _vel, <span class="keyword">const</span> Vector&amp; _rot, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) : Twist(_vel, _rot), id(id) {
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 };
-<a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">00059</a> <a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">TwistWithId::~TwistWithId</a>() {
-<a name="l00060"></a>00060 }
-<a name="l00061"></a>00061 
+<a name="l00051"></a><a class="code" href="classTwistWithId.html#a18a16f482bb8456041ee02133ecd8808">00051</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9" title="Default Constructor.">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) {
+<a name="l00052"></a>00052     this-&gt;<span class="keywordtype">id</span> = id;
+<a name="l00053"></a>00053     this-&gt;twist = <span class="keyword">new</span> Twist(); 
+<a name="l00054"></a>00054 }
+<a name="l00055"></a>00055 
+<a name="l00056"></a><a class="code" href="classTwistWithId.html#a0a33fe96b49909193654610615c5f08e">00056</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9" title="Default Constructor.">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> KDL::Twist&amp; twist) {
+<a name="l00057"></a>00057     this-&gt;<span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>;
+<a name="l00058"></a>00058     this-&gt;twist = <span class="keyword">new</span> Twist(twist); 
+<a name="l00059"></a>00059 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="classTwistWithId.html#ae135cbb2c9f04a8fd2c0cf6b15d8afb4">00061</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9" title="Default Constructor.">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> KDL::Twist&amp; twist, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) {
+<a name="l00062"></a>00062     this-&gt;<span class="keywordtype">id</span> = id;
+<a name="l00063"></a>00063     this-&gt;twist = <span class="keyword">new</span> Twist(twist);
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classTwistWithId.html#a2545b67d94776d4872c17506e1fa1937">00066</a> <a class="code" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9" title="Default Constructor.">TwistWithId::TwistWithId</a>(<span class="keyword">const</span> <a class="code" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a>&amp; orig) {
+<a name="l00067"></a>00067     <span class="keywordtype">id</span> = orig.<a class="code" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a" title="String identifier of the Twist.">id</a>;
+<a name="l00068"></a>00068     twist = <span class="keyword">new</span> Twist(orig.<a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">getTwist</a>());
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
+<a name="l00071"></a><a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824">00071</a> <span class="keywordtype">void</span> <a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824" title="Sets a new value of the KDL::Twist.">TwistWithId::setTwist</a>(<span class="keyword">const</span> KDL::Twist&amp; orig) {
+<a name="l00072"></a>00072     <span class="keyword">delete</span> this-&gt;twist;
+<a name="l00073"></a>00073     this-&gt;twist = <span class="keyword">new</span> Twist(orig);
+<a name="l00074"></a>00074 }
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9">00076</a> <span class="keyword">const</span> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>()<span class="keyword"> const </span>{
+<a name="l00077"></a>00077     <span class="keywordflow">return</span> *twist;
+<a name="l00078"></a>00078 }
+<a name="l00079"></a>00079     
+<a name="l00080"></a><a class="code" href="classTwistWithId.html#aaef5011b54f7855d8632b84e41c73bc9">00080</a> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>() {
+<a name="l00081"></a>00081     <span class="keywordflow">return</span> *twist;
+<a name="l00082"></a>00082 }
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">00084</a> <a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b" title="Destructor.">TwistWithId::~TwistWithId</a>() {
+<a name="l00085"></a>00085     <span class="keyword">delete</span> twist;
+<a name="l00086"></a>00086 }
+<a name="l00087"></a>00087 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

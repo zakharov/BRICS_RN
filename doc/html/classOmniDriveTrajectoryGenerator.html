@@ -45,21 +45,21 @@
 <h1>OmniDriveTrajectoryGenerator Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="OmniDriveTrajectoryGenerator" --><!-- doxytag: inherits="TrajectoryGenerator" -->
+<!-- doxytag: class="OmniDriveTrajectoryGenerator" --><!-- doxytag: inherits="ITrajectoryGenerator" -->
 <p><code>#include &lt;<a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OmniDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator__inherit__graph.png" border="0" usemap="#OmniDriveTrajectoryGenerator_inherit__map" alt="Inheritance graph"/></div>
 <map name="OmniDriveTrajectoryGenerator_inherit__map" id="OmniDriveTrajectoryGenerator_inherit__map">
-<area shape="rect" id="node2" href="classTrajectoryGenerator.html" title="{TrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for OmniDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator__coll__graph.png" border="0" usemap="#OmniDriveTrajectoryGenerator_coll__map" alt="Collaboration graph"/></div>
 <map name="OmniDriveTrajectoryGenerator_coll__map" id="OmniDriveTrajectoryGenerator_coll__map">
-<area shape="rect" id="node2" href="classTrajectoryGenerator.html" title="{TrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classOmniDriveTrajectoryGenerator-members.html">List of all members.</a></p>
@@ -69,14 +69,15 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a49b5fd8609e3853f3a7d13ea470236e3">OmniDriveTrajectoryGenerator</a> (const <a class="el" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">~OmniDriveTrajectoryGenerator</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a6a998adb59e3b015251b2c7a061f4f2e">computeTrajectroy</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">getShortestAngle</a> (float goalAngle, float actualAngle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">computePathComposite</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite &amp;pathComposite)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">interpolateRotation</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;pathWithRotation)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#aaeda263dad20cf2307d2a6e0e1bb7a6b">computeTrajectoryComposite</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a> (const KDL::Path_Composite &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#adcdaff53c362b250d36ada63b8b1e588">computeTrajectroy</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; <a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html#l00017">17</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html#l00052">52</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad346ca178cefe4b24df965664afd5bc9"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator" ref="ad346ca178cefe4b24df965664afd5bc9" args="()" -->
 <div class="memitem">
@@ -92,7 +93,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00017">17</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00056">56</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -111,7 +112,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00020">20</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00059">59</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -129,17 +130,17 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00023">23</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00062">62</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aaeda263dad20cf2307d2a6e0e1bb7a6b"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::computeTrajectoryComposite" ref="aaeda263dad20cf2307d2a6e0e1bb7a6b" args="(const std::vector&lt; FrameWithId &gt; &amp;path, KDL::Trajectory_Composite &amp;trajectory)" -->
+<a class="anchor" id="a0cc926d7b8e3e71fd692e5999f5993ff"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::computePathComposite" ref="a0cc926d7b8e3e71fd692e5999f5993ff" args="(const std::vector&lt; FrameWithId &gt; &amp;path, KDL::Path_Composite &amp;pathComposite)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void OmniDriveTrajectoryGenerator::computeTrajectoryComposite </td>
+          <td class="memname">void OmniDriveTrajectoryGenerator::computePathComposite </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
@@ -147,8 +148,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">KDL::Trajectory_Composite &amp;&#160;</td>
-          <td class="paramname"><em>trajectory</em>&#160;</td>
+          <td class="paramtype">KDL::Path_Composite &amp;&#160;</td>
+          <td class="paramname"><em>pathComposite</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,22 +160,31 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00071">71</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">69</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00124">path</a>.</p>
+<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00080">FrameWithId::getFrame()</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00030">computeTrajectroy()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">computeTrajectroy()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph" alt=""/></div>
+<map name="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph" id="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph">
+<area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="397,5,555,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a6a998adb59e3b015251b2c7a061f4f2e"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::computeTrajectroy" ref="a6a998adb59e3b015251b2c7a061f4f2e" args="(const std::vector&lt; FrameWithId &gt; &amp;path, KDL::Trajectory_Composite &amp;trajectory)" -->
+<a class="anchor" id="adcdaff53c362b250d36ada63b8b1e588"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::computeTrajectroy" ref="adcdaff53c362b250d36ada63b8b1e588" args="(const std::vector&lt; FrameWithId &gt; path, KDL::Trajectory_Composite &amp;trajectory)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void OmniDriveTrajectoryGenerator::computeTrajectroy </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
@@ -192,20 +202,53 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00030">30</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">145</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00071">computeTrajectoryComposite()</a>, and <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00037">interpolateRotation()</a>.</p>
-
-<p>Referenced by <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00131">pathCallback()</a>.</p>
+<p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">computePathComposite()</a>, <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00129">computeTrajectroy()</a>, and <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">interpolateRotation()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classOmniDriveTrajectoryGenerator_a6a998adb59e3b015251b2c7a061f4f2e_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_a6a998adb59e3b015251b2c7a061f4f2e_cgraph" alt=""/></div>
-<map name="classOmniDriveTrajectoryGenerator_a6a998adb59e3b015251b2c7a061f4f2e_cgraph" id="classOmniDriveTrajectoryGenerator_a6a998adb59e3b015251b2c7a061f4f2e_cgraph">
-<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#aaeda263dad20cf2307d2a6e0e1bb7a6b" title="OmniDriveTrajectoryGenerator::computeTrajectoryComposite" alt="" coords="367,5,740,35"/><area shape="rect" id="node5" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="OmniDriveTrajectoryGenerator::interpolateRotation" alt="" coords="397,58,709,89"/><area shape="rect" id="node7" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="OmniDriveTrajectoryGenerator::getShortestAngle" alt="" coords="791,58,1095,89"/></map>
+<div class="center"><img src="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" alt=""/></div>
+<map name="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" id="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph">
+<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="OmniDriveTrajectoryGenerator::computePathComposite" alt="" coords="367,5,708,35"/><area shape="rect" id="node7" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="OmniDriveTrajectoryGenerator::computeTrajectroy" alt="" coords="381,58,693,89"/><area shape="rect" id="node9" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="OmniDriveTrajectoryGenerator::interpolateRotation" alt="" coords="381,111,693,142"/><area shape="rect" id="node5" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="832,5,989,35"/><area shape="rect" id="node11" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="OmniDriveTrajectoryGenerator::getShortestAngle" alt="" coords="759,111,1063,142"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="acc46ed1c7634bc3ce8e2070c0c79c2d5"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::computeTrajectroy" ref="acc46ed1c7634bc3ce8e2070c0c79c2d5" args="(const KDL::Path_Composite &amp;path, KDL::Trajectory_Composite &amp;trajectory)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OmniDriveTrajectoryGenerator::computeTrajectroy </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Path_Composite &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">KDL::Trajectory_Composite &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312">ITrajectoryGenerator</a>.</p>
+
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00129">129</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">path</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">computeTrajectroy()</a>, and <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00114">pathCallback()</a>.</p>
 
 </div>
 </div>
@@ -234,9 +277,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00026">26</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00065">65</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00037">interpolateRotation()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">interpolateRotation()</a>.</p>
 
 </div>
 </div>
@@ -265,11 +308,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00037">37</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">95</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00026">getShortestAngle()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00048">FrameWithId::id</a>.</p>
+<p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00065">getShortestAngle()</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00030">computeTrajectroy()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">computeTrajectroy()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -287,7 +330,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_follower/src/trajectory_generator/<a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

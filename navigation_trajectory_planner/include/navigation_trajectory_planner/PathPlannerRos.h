@@ -55,17 +55,43 @@ namespace nav_core {
     class BaseGlobalPlanner;
 }
 
+/**
+ * @brief Implementation of the interface class for path planning. Current implementation is
+ * an adapter to BaseGlobalPlanner interface in ROS.
+ */
+
 class PathPlannerRos : public IPathPlanner {
 public:
+
+    /**
+     * @brief Constructor.
+     * @param planner - nav_core::BaseGlobalPlanner pointer to a desired ROS path planner.
+     */
     PathPlannerRos(nav_core::BaseGlobalPlanner* planner);
 
+    /**
+     * @brief Copy constructor
+     */
     PathPlannerRos(const PathPlannerRos& orig);
 
+    /**
+     * @brief Destructor
+     */
     virtual ~PathPlannerRos();
+
+     /**
+     * @brief An interface for path planning.
+     * @param[in] start - FrameWithId start position for a planner.
+     * @param[in] goal - FrameWithId goal position for a planner.
+     * @param[out] path - std::vector <FrameWithId> computed path
+     * @return true if planner has found a path, otherwise false.
+     */
     virtual bool computePath(const FrameWithId& start, const FrameWithId& goal, std::vector <FrameWithId>& path);
 
 private:
-    std::string name;
+    /**
+     * @brief Pointer to ROS path planner instance.
+     */
     nav_core::BaseGlobalPlanner* planner;
 };
 

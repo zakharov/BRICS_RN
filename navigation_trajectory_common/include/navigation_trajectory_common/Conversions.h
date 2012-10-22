@@ -42,15 +42,22 @@
 
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/Path.h>
-#include <kdl/path_line.hpp>
 #include <kdl/frames.hpp>
-#include <kdl/rotational_interpolation_sa.hpp>
+#include <kdl/path_composite.hpp>
+
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/TwistWithId.h"
-#include "kdl/path_composite.hpp"
 
+/**
+ * @brief Conversions between ROS, BRICS_RN and KDL data types. 
+ */
 namespace conversions {
 
+    /**
+     * @brief Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted).
+     * @param[in] nav_msgs::Odometry - odometry ROS message.
+     * @param[out] FrameWithId - converted pose from the odometry message .
+     */
     inline void odometryRosToFrame(const nav_msgs::Odometry& odometry, FrameWithId& pose) {
         const geometry_msgs::Quaternion& orientation = odometry.pose.pose.orientation;
         const geometry_msgs::Point& position = odometry.pose.pose.position;
@@ -60,7 +67,12 @@ namespace conversions {
         poseKDL.p = KDL::Vector(position.x, position.y, position.z);
     }
 
-    inline void odometryRosToTwist(const nav_msgs::Odometry& odometry, TwistWithId& twist) {
+    /**
+     * @brief Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted).
+     * @param[in] nav_msgs::Odometry - odometry ROS message.
+     * @param[out] TwistWithId - converted twist from the odometry message.
+     */
+     inline void odometryRosToTwist(const nav_msgs::Odometry& odometry, TwistWithId& twist) {
         const geometry_msgs::Vector3& angular = odometry.twist.twist.angular;
         const geometry_msgs::Vector3& linear = odometry.twist.twist.linear;
         twist.id = odometry.header.frame_id;
@@ -68,6 +80,12 @@ namespace conversions {
         twist.getTwist().vel = KDL::Vector(linear.x, linear.y, linear.z);
     }
 
+    /**
+     * @brief Conversion from geometry_msgs::Pose ROS message to FrameWithId data type.
+     * @param[in] geometry_msgs::Pose - pose ROS message.
+     * @param[in] std::string - frame id.
+     * @param[out] FrameWithId - result of the conversion.
+     */
     inline void poseRosToFrame(const geometry_msgs::Pose& poseRos, const std::string& id, FrameWithId& pose) {
         const geometry_msgs::Quaternion& orientation = poseRos.orientation;
         const geometry_msgs::Point& position = poseRos.position;
@@ -77,10 +95,21 @@ namespace conversions {
         poseKDL.p = KDL::Vector(position.x, position.y, position.z);
     }
 
+    /**
+     * @brief Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type.
+     * @param[in] geometry_msgs::PoseStamped - pose ROS message with frame id.
+     * @param[out] FrameWithId - result of the conversion.
+     */
     inline void poseStampedRosToFrame(const geometry_msgs::PoseStamped& poseStamped, FrameWithId& pose) {
         poseRosToFrame(poseStamped.pose, poseStamped.header.frame_id, pose);
     }
 
+    /**
+     * @brief Conversion from FrameWithId data type to geometry_msgs::Pose ROS message.
+     * @param[in] FrameWithId - input frame, including frame id, location and orientation.
+     * @param[out] geometry_msgs::Pose - converted pose to a ROS message .
+     * @param[out] FrameWithId - converted id.
+     */
     inline void frameToPoseRos(const FrameWithId& pose, geometry_msgs::Pose& poseRos, std::string& id) {
         id = pose.id;
         const KDL::Frame& poseKDL = pose.getFrame();
@@ -93,10 +122,20 @@ namespace conversions {
         poseRos.position.z = poseKDL.p.z();
     }
 
+    /**
+     * @brief Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message.
+     * @param[in] FrameWithId - input frame, including frame id, location and orientation.
+     * @param[out] geometry_msgs::PoseStamped - converted pose and frame id to a ROS message.
+     */
     inline void frameToPoseStampedRos(const FrameWithId& pose, geometry_msgs::PoseStamped& poseStamped) {
         frameToPoseRos(pose, poseStamped.pose, poseStamped.header.frame_id);
     }
 
+    /**
+     * @brief Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages.
+     * @param[in] std::vector<FrameWithId> - input path.
+     * @param[out] std::vector<geometry_msgs::PoseStamped> - result of conversion.
+     */
     inline void pathToPathRos(const std::vector<FrameWithId>& path, std::vector <geometry_msgs::PoseStamped>& pathRos) {
         if (!path.empty()) {
             std::vector<FrameWithId>::const_iterator it = path.begin();
@@ -109,6 +148,11 @@ namespace conversions {
         }
     }
 
+    /**
+     * @brief Conversion of a FrameWithId vector (a path) to nav_msgs::Path ROS message.
+     * @param[in] std::vector<FrameWithId>& path - input path.
+     * @param[out] nav_msgs::Path - result of conversion.
+     */
     inline void pathToPathRos(const std::vector<FrameWithId>& path, nav_msgs::Path& pathRos) {
         if (!path.empty()) {
             std::vector<FrameWithId>::const_iterator it = path.begin();
@@ -117,6 +161,11 @@ namespace conversions {
         }
     }
 
+    /**
+     * @brief Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path).
+     * @param[in]  std::vector<geometry_msgs::PoseStamped> - input path.
+     * @param[out] std::vector<FrameWithId> - result of conversion.
+     */
     inline void pathRosToPath(const std::vector <geometry_msgs::PoseStamped>& pathRos, std::vector<FrameWithId>& path) {
         if (!pathRos.empty()) {
             std::vector <geometry_msgs::PoseStamped>::const_iterator it = pathRos.begin();
@@ -129,11 +178,21 @@ namespace conversions {
         }
     }
 
+    /**
+     * @brief Conversion of a nav_msgs::Path ROS message to FrameWithId vector (a path).
+     * @param[in] nav_msgs::Path - input path.
+     * @param[out] std::vector<FrameWithId> - result of conversion.
+     */
     inline void pathRosToPath(const nav_msgs::Path& pathRos, std::vector<FrameWithId>& path) {
         pathRosToPath(pathRos.poses, path);
     }
 
-    inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
+    /**
+     * @brief Conversion of a nav_msgs::Path ROS message to KDL::Path_Composite KDL path data type.
+     * @param[in] nav_msgs::Path - input path.
+     * @param[out] KDL::Path_Composite - result of conversion.
+     */
+ /*   inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
 
 
         if (pathRos.poses.size() > 1) {
@@ -150,7 +209,7 @@ namespace conversions {
 
                 KDL::Frame f1Kdl = f1.getFrame();
                 KDL::Frame f2Kdl = f2.getFrame();
-                
+
                 KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), 0.0001);
                 path.Add(pathLine);
 
@@ -158,7 +217,7 @@ namespace conversions {
             }
 
         }
-    }
+    }*/
 
 }
 #endif	/* CONVERSIONS_H */

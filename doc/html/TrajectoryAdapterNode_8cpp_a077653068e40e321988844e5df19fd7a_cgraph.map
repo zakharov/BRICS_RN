@@ -1,11 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="DouglasPeuckerApproximation::approximate" alt="" coords="145,5,423,35"/>
-<area shape="rect" id="node5" href="$classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e" title="CollisionChecking::check" alt="" coords="200,58,368,89"/>
-<area shape="rect" id="node7" href="$classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e" title="PathPlanner::computePath" alt="" coords="196,111,372,142"/>
+<area shape="rect" id="node3" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="145,5,423,35"/>
+<area shape="rect" id="node5" href="$classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="199,58,369,89"/>
+<area shape="rect" id="node7" href="$classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="195,111,373,142"/>
 <area shape="rect" id="node9" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="179,165,389,195"/>
-<area shape="rect" id="node11" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="conversions::pathToPathRos" alt="" coords="191,218,377,249"/>
-<area shape="rect" id="node17" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="179,271,389,302"/>
-<area shape="rect" id="node19" href="$classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8" title="TrajectoryAdapter::updateOdometry" alt="" coords="171,325,397,355"/>
-<area shape="rect" id="node13" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="472,218,723,249"/>
-<area shape="rect" id="node15" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="772,218,969,249"/>
+<area shape="rect" id="node11" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="191,218,377,249"/>
+<area shape="rect" id="node19" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="179,271,389,302"/>
+<area shape="rect" id="node13" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="472,218,723,249"/>
+<area shape="rect" id="node15" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="772,218,969,249"/>
+<area shape="rect" id="node17" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1019,218,1176,249"/>
 </map>

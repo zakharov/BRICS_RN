@@ -44,7 +44,18 @@
 
 class FrameWithId;
 
+/**
+ * @brief Interface class for path interpolation algorithms.
+ */
+
 class IPathInterpolation {
+    /**
+     * @brief An interface for path approximation.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting interpolated path.
+     * @param step - step size.
+     * @param numberOfSteps - number of steps.
+     */
     virtual size_t interpolate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, double step, size_t numberOfSteps) = 0;
 };
 

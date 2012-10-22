@@ -45,18 +45,53 @@
 class FrameWithId;
 class IPathInterpolation;
 
+/**
+ * @brief A path iterator class.
+ */
+
 class PathIterator {
 public:
+
+    /**
+     * @brief A path iterator constructor
+     * @param[in] path - an input path to iterate.
+     */
     PathIterator(const std::vector <FrameWithId>& path);
+
+    /**
+     * @brief Copy constructor.
+     */
     PathIterator(const PathIterator& orig);
+
+    /**
+     * @brief Destructor
+     */
     virtual ~PathIterator();
 
+    /**
+     * @brief return true if iterator has the next point, otherwise false.
+     */
     bool hasNext() const;
+
+    /**
+     * @brief Move cursor to the next point and return it.
+     */
     const FrameWithId& next() const;
 
 private:
+    /**
+     * @brief An input path.
+     */
     const std::vector <FrameWithId>& path;
+
+    /**
+     * @brief Actual position of the cursor.
+     */
     mutable size_t cursor;
+
+    /**
+     * @brief Move cursor to the next point and return it.
+     */
     static const FrameWithId& dummy;
 };
 

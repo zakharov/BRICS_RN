@@ -1,4 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classPathPlanner.html" title="PathPlanner" alt="" coords="7,5,97,35"/>
-<area shape="rect" id="node3" href="$classPathPlannerRos.html" title="PathPlannerRos" alt="" coords="147,5,261,35"/>
+<area shape="rect" id="node1" href="$classPose2D.html" title="Pose2D" alt="" coords="5,5,72,35"/>
 </map>

@@ -79,230 +79,199 @@
 <a name="l00036"></a>00036 <span class="comment"> * License LGPL and BSD license along with this program.</span>
 <a name="l00037"></a>00037 <span class="comment"> *</span>
 <a name="l00038"></a>00038 <span class="comment"> ******************************************************************************/</span>
-<a name="l00039"></a>00039 
+<a name="l00039"></a>00039 <span class="preprocessor">#include &quot;<a class="code" href="OmniDrivePositionController_8h.html">omnidrive_controller/OmniDrivePositionController.h</a>&quot;</span>
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="OmniDriveTrajectoryGenerator_8h.html">trajectory_generator/OmniDriveTrajectoryGenerator.h</a>&quot;</span>
-<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;navigation_trajectory_common/Conversions.h&quot;</span>
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;<a class="code" href="OmniDrivePositionController_8h.html">omnidrive_controller/OmniDrivePositionController.h</a>&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;navigation_trajectory_follower/TrajectoryFollowerNode.h&quot;</span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;navigation_trajectory_common/Conversions.h&quot;</span>
+<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_follower/TrajectoryFollowerNode.h&quot;</span>
+<a name="l00044"></a>00044 
 <a name="l00045"></a>00045 <span class="preprocessor">#include &quot;tf/transform_datatypes.h&quot;</span>
 <a name="l00046"></a>00046 <span class="preprocessor">#include &quot;nav_msgs/Odometry.h&quot;</span>
 <a name="l00047"></a>00047 <span class="preprocessor">#include &quot;nav_msgs/Path.h&quot;</span>
 <a name="l00048"></a>00048 <span class="preprocessor">#include &quot;geometry_msgs/Twist.h&quot;</span>
-<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;navigation_trajectory_follower/ConversionUtils.h&gt;</span>
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="keyword">using namespace </span>std;
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">00053</a> ros::Publisher <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a>;
-<a name="l00054"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">00054</a> <a class="code" href="classOdometry.html">Odometry</a> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>;
-<a name="l00055"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">00055</a> <a class="code" href="classPositionController.html">PositionController</a>* <a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">controller</a>;
-<a name="l00056"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">00056</a> ros::Time <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a>;
-<a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">00058</a> ros::Publisher <a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">debugPath</a>;
-<a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">00060</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">poseRosToPose2d</a>(<span class="keyword">const</span> geometry_msgs::Pose&amp; pose, <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose2d) {
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062     <span class="keywordtype">double</span> x = pose.position.x;
-<a name="l00063"></a>00063     <span class="keywordtype">double</span> y = pose.position.y;
-<a name="l00064"></a>00064     <span class="keywordtype">double</span> theta = tf::getYaw(pose.orientation);
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     pose2d = <a class="code" href="classPose2D.html">Pose2D</a>(x, y, theta);
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">00069</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">twistRosToTwist2d</a>(<span class="keyword">const</span> geometry_msgs::Twist&amp; twist, <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist2d) {
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <span class="keywordtype">double</span> x = twist.linear.x;
-<a name="l00072"></a>00072     <span class="keywordtype">double</span> y = twist.linear.y;
-<a name="l00073"></a>00073     <span class="keywordtype">double</span> theta = twist.angular.z;
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075     twist2d = <a class="code" href="classTwist2D.html">Twist2D</a>(x, y, theta);
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">00079</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">pose2dToPoseRos</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose2d, geometry_msgs::Pose&amp; pose) {
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081     pose.position.x = pose2d.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>();
-<a name="l00082"></a>00082     pose.position.y = pose2d.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>();
-<a name="l00083"></a>00083     tf::Quaternion quat;
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     quat.setRPY(0, 0, pose2d.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>());
-<a name="l00086"></a>00086     tf::quaternionTFToMsg(quat, pose.orientation);
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088 }
-<a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#add591b133b00f27c8ef0328cf948408b">00090</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#add591b133b00f27c8ef0328cf948408b">trajectoryRosToOdomVector</a>(<span class="keyword">const</span> navigation_trajectory_msgs::Trajectory&amp; trajectoryROS, std::vector&lt;Odometry&gt;&amp; odometryVector) {
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092     nav_msgs::Odometry odom;
-<a name="l00093"></a>00093     navigation_trajectory_msgs::Trajectory::_trajectory_type::const_iterator it;
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095     <span class="keywordflow">for</span> (it = trajectoryROS.trajectory.begin(); it != trajectoryROS.trajectory.end(); ++it) {
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#include &quot;kdl/trajectory_composite.hpp&quot;</span>
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="keyword">using namespace </span>std;
+<a name="l00053"></a>00053 
+<a name="l00054"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">00054</a> ros::Publisher <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a>;
+<a name="l00055"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">00055</a> <a class="code" href="classOdometry.html">Odometry</a> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>;
+<a name="l00056"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">00056</a> <a class="code" href="classIPositionController.html">IPositionController</a>* <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">controller</a>;
+<a name="l00057"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">00057</a> ros::Time <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a>;
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">00059</a> ros::Publisher <a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">debugPath</a>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">00061</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">poseRosToPose2d</a>(<span class="keyword">const</span> geometry_msgs::Pose&amp; pose, <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose2d) {
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keywordtype">double</span> x = pose.position.x;
+<a name="l00064"></a>00064     <span class="keywordtype">double</span> y = pose.position.y;
+<a name="l00065"></a>00065     <span class="keywordtype">double</span> theta = tf::getYaw(pose.orientation);
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067     pose2d = <a class="code" href="classPose2D.html">Pose2D</a>(x, y, theta);
+<a name="l00068"></a>00068 }
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">00070</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">twistRosToTwist2d</a>(<span class="keyword">const</span> geometry_msgs::Twist&amp; twist, <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist2d) {
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="keywordtype">double</span> x = twist.linear.x;
+<a name="l00073"></a>00073     <span class="keywordtype">double</span> y = twist.linear.y;
+<a name="l00074"></a>00074     <span class="keywordtype">double</span> theta = twist.angular.z;
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076     twist2d = <a class="code" href="classTwist2D.html">Twist2D</a>(x, y, theta);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 }
+<a name="l00079"></a>00079 
+<a name="l00080"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">00080</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">pose2dToPoseRos</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose2d, geometry_msgs::Pose&amp; pose) {
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082     pose.position.x = pose2d.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>();
+<a name="l00083"></a>00083     pose.position.y = pose2d.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>();
+<a name="l00084"></a>00084     tf::Quaternion quat;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     quat.setRPY(0, 0, pose2d.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>());
+<a name="l00087"></a>00087     tf::quaternionTFToMsg(quat, pose.orientation);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">00091</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">twist2dToTwistRos</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist2d, geometry_msgs::Twist&amp; twist) {
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093     twist.linear.x = twist2d.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>();
+<a name="l00094"></a>00094     twist.linear.y = twist2d.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>();
+<a name="l00095"></a>00095     twist.angular.z = twist2d.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>();
 <a name="l00096"></a>00096 
-<a name="l00097"></a>00097         odom = *it;
-<a name="l00098"></a>00098         <a class="code" href="classPose2D.html">Pose2D</a> pose2d;
-<a name="l00099"></a>00099         <a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">poseRosToPose2d</a>(odom.pose.pose, pose2d);
-<a name="l00100"></a>00100         <a class="code" href="classTwist2D.html">Twist2D</a> twist2d;
-<a name="l00101"></a>00101         <a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">twistRosToTwist2d</a>(odom.twist.twist, twist2d);
-<a name="l00102"></a>00102         odometryVector.push_back(<a class="code" href="classOdometry.html">Odometry</a>(pose2d, twist2d));
+<a name="l00097"></a>00097 }
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">00099</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">odomCallback</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry) {
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <span class="keyword">const</span> geometry_msgs::Pose pose = odometry.pose.pose;
+<a name="l00102"></a>00102     <span class="keyword">const</span> geometry_msgs::Twist twist = odometry.twist.twist;
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104     }
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 }
-<a name="l00107"></a>00107 
-<a name="l00108"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">00108</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">twist2dToTwistRos</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist2d, geometry_msgs::Twist&amp; twist) {
+<a name="l00104"></a>00104     <a class="code" href="classPose2D.html">Pose2D</a> pose2d;
+<a name="l00105"></a>00105     <a class="code" href="classTwist2D.html">Twist2D</a> twist2d;
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">poseRosToPose2d</a>(pose, pose2d);
+<a name="l00108"></a>00108     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">twistRosToTwist2d</a>(twist, twist2d);
 <a name="l00109"></a>00109 
-<a name="l00110"></a>00110     twist.linear.x = twist2d.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>();
-<a name="l00111"></a>00111     twist.linear.y = twist2d.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>();
-<a name="l00112"></a>00112     twist.angular.z = twist2d.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>();
+<a name="l00110"></a>00110     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a> = <a class="code" href="classOdometry.html">Odometry</a>(pose2d, twist2d);
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 }
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 }
-<a name="l00115"></a>00115 
-<a name="l00116"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">00116</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">odomCallback</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry) {
-<a name="l00117"></a>00117 
-<a name="l00118"></a>00118     <span class="keyword">const</span> geometry_msgs::Pose pose = odometry.pose.pose;
-<a name="l00119"></a>00119     <span class="keyword">const</span> geometry_msgs::Twist twist = odometry.twist.twist;
+<a name="l00114"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">00114</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">pathCallback</a>(<span class="keyword">const</span> nav_msgs::Path&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>) {
+<a name="l00115"></a>00115     <a class="code" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a> trajectoryGenerator;
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117     std::vector&lt;FrameWithId&gt; pathKDL;
+<a name="l00118"></a>00118     <a class="code" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path).">conversions::pathRosToPath</a>(path, pathKDL);
+<a name="l00119"></a>00119     ROS_INFO(<span class="stringliteral">&quot;Path size: %lu&quot;</span>, pathKDL.size());
 <a name="l00120"></a>00120 
-<a name="l00121"></a>00121     <a class="code" href="classPose2D.html">Pose2D</a> pose2d;
-<a name="l00122"></a>00122     <a class="code" href="classTwist2D.html">Twist2D</a> twist2d;
+<a name="l00121"></a>00121     KDL::Trajectory_Composite trajectoryKDL;
+<a name="l00122"></a>00122     trajectoryGenerator.<a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a>(pathKDL, trajectoryKDL);
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">poseRosToPose2d</a>(pose, pose2d);
-<a name="l00125"></a>00125     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">twistRosToTwist2d</a>(twist, twist2d);
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a> = <a class="code" href="classOdometry.html">Odometry</a>(pose2d, twist2d);
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129 }
-<a name="l00130"></a>00130 
-<a name="l00131"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">00131</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">pathCallback</a>(<span class="keyword">const</span> nav_msgs::Path&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>) {
-<a name="l00132"></a>00132     <a class="code" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a> trajectoryGenerator;
-<a name="l00133"></a>00133     std::vector&lt;FrameWithId&gt; pathKDL;
-<a name="l00134"></a>00134     <a class="code" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513">conversions::pathRosToPath</a>(path, pathKDL);
-<a name="l00135"></a>00135     std::vector&lt;FrameWithId&gt; trajectoryKDL;
-<a name="l00136"></a>00136     trajectoryGenerator.<a class="code" href="classOmniDriveTrajectoryGenerator.html#a6a998adb59e3b015251b2c7a061f4f2e">computeTrajectroy</a>(pathKDL, trajectoryKDL);
-<a name="l00137"></a>00137 }
-<a name="l00138"></a>00138 
-<a name="l00139"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a760b9f74f63e16ef6a33656855a27e32">00139</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a760b9f74f63e16ef6a33656855a27e32">trajectoryCallback</a>(<span class="keyword">const</span> navigation_trajectory_msgs::Trajectory&amp; trajectory) {
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141     std::vector &lt;Odometry&gt; odometry;
-<a name="l00142"></a>00142     <a class="code" href="TrajectoryFollowerNode_8cpp.html#add591b133b00f27c8ef0328cf948408b">trajectoryRosToOdomVector</a>(trajectory, odometry);
+<a name="l00124"></a>00124     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a> = ros::Time::now();
+<a name="l00125"></a>00125     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">controller</a>-&gt;<a class="code" href="classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08">setTargetTrajectory</a>(trajectoryKDL);
+<a name="l00126"></a>00126 }
+<a name="l00127"></a>00127 
+<a name="l00128"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">00128</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">publishOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; odometry) {
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130     geometry_msgs::Twist twist;
+<a name="l00131"></a>00131     geometry_msgs::Pose pose;
+<a name="l00132"></a>00132     <a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">pose2dToPoseRos</a>(odometry.<a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">getPose2D</a>(), pose);
+<a name="l00133"></a>00133     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">twist2dToTwistRos</a>(odometry.<a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">getTwist2D</a>(), twist);
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135     nav_msgs::Odometry odomRos;
+<a name="l00136"></a>00136     odomRos.pose.pose = pose;
+<a name="l00137"></a>00137     odomRos.twist.twist = twist;
+<a name="l00138"></a>00138     odomRos.header.stamp = ros::Time::now();
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a>.publish(twist);
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 }
 <a name="l00143"></a>00143 
-<a name="l00144"></a>00144     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a> = ros::Time::now();
-<a name="l00145"></a>00145     <a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">controller</a>-&gt;<a class="code" href="classPositionController.html#ad97676f324c30783ca3ad1154f152ff0">setTargetTrajectory</a>(odometry);
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147     nav_msgs::Path <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>;
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; trajectory.trajectory.size(); i++) {
-<a name="l00150"></a>00150 
-<a name="l00151"></a>00151         geometry_msgs::PoseStamped pose;
-<a name="l00152"></a>00152         pose.pose = trajectory.trajectory[i].pose.pose;
-<a name="l00153"></a>00153         pose.header = trajectory.trajectory[i].header;
-<a name="l00154"></a>00154         pose.header.frame_id = <span class="stringliteral">&quot;odom&quot;</span>;
-<a name="l00155"></a>00155         path.poses.push_back(pose);
+<a name="l00144"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3d1b2be6d74b67a567742b0bc1fc955e">00144</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>() {
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146     <span class="keywordtype">double</span> elapsedTime = ros::Duration(ros::Time::now() - <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a>).toSec();
+<a name="l00147"></a>00147     <a class="code" href="classOdometry.html">Odometry</a> newOdometry = <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">controller</a>-&gt;<a class="code" href="classIPositionController.html#adf06eaf32115d9d2995dd045bdb445a7">computeNewOdometry</a>(<a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>, elapsedTime);
+<a name="l00148"></a>00148     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">publishOdometry</a>(newOdometry);
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 }
+<a name="l00151"></a>00151 
+<a name="l00152"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">00152</a> <span class="keywordtype">int</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154     std::string name = <span class="stringliteral">&quot;trajectory_follower&quot;</span>;
+<a name="l00155"></a>00155     ros::init(argc, argv, name);
 <a name="l00156"></a>00156 
-<a name="l00157"></a>00157     }
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159     path.header = trajectory.header;
-<a name="l00160"></a>00160     path.header.frame_id = <span class="stringliteral">&quot;odom&quot;</span>;
+<a name="l00157"></a>00157     ros::NodeHandle node = ros::NodeHandle(<span class="stringliteral">&quot;~/&quot;</span>);
+<a name="l00158"></a>00158     ros::NodeHandle globalNode = ros::NodeHandle();
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160     <span class="keywordtype">double</span> cycleFrequencyInHz;
 <a name="l00161"></a>00161 
-<a name="l00162"></a>00162     ROS_INFO(<span class="stringliteral">&quot;published %lu poses&quot;</span>, path.poses.size());
-<a name="l00163"></a>00163     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">debugPath</a>.publish(path);
-<a name="l00164"></a>00164 
-<a name="l00165"></a>00165 }
+<a name="l00162"></a>00162     <span class="keywordtype">double</span> velocityGainTranslation;
+<a name="l00163"></a>00163     <span class="keywordtype">double</span> positionGainTranslation;
+<a name="l00164"></a>00164     <span class="keywordtype">double</span> velocityToleranceTranslation;
+<a name="l00165"></a>00165     <span class="keywordtype">double</span> positionToleranceTranslation;
 <a name="l00166"></a>00166 
-<a name="l00167"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">00167</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">publishOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; odometry) {
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169     geometry_msgs::Twist twist;
-<a name="l00170"></a>00170     geometry_msgs::Pose pose;
-<a name="l00171"></a>00171     <a class="code" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">pose2dToPoseRos</a>(odometry.<a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">getPose2D</a>(), pose);
-<a name="l00172"></a>00172     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">twist2dToTwistRos</a>(odometry.<a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">getTwist2D</a>(), twist);
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174     nav_msgs::Odometry odomRos;
-<a name="l00175"></a>00175     odomRos.pose.pose = pose;
-<a name="l00176"></a>00176     odomRos.twist.twist = twist;
-<a name="l00177"></a>00177     odomRos.header.stamp = ros::Time::now();
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179     <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a>.publish(twist);
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181 }
+<a name="l00167"></a>00167     <span class="keywordtype">double</span> velocityGainRotation;
+<a name="l00168"></a>00168     <span class="keywordtype">double</span> positionGainRotation;
+<a name="l00169"></a>00169     <span class="keywordtype">double</span> velocityToleranceRotation;
+<a name="l00170"></a>00170     <span class="keywordtype">double</span> positionToleranceRotation;
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172     <span class="keywordtype">string</span> inputPathTopic;
+<a name="l00173"></a>00173     <span class="keywordtype">string</span> inputOdometryTopic;
+<a name="l00174"></a>00174     <span class="keywordtype">string</span> inputVelocityTopic;
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176     node.param(<span class="stringliteral">&quot;cycleFrequencyInHz&quot;</span>, cycleFrequencyInHz, 50.0);
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178     node.param(<span class="stringliteral">&quot;velocityGainTranslation&quot;</span>, velocityGainTranslation, 1.33);
+<a name="l00179"></a>00179     node.param(<span class="stringliteral">&quot;positionGainTranslation&quot;</span>, positionGainTranslation, 0.2);
+<a name="l00180"></a>00180     node.param(<span class="stringliteral">&quot;positionToleranceTranslation&quot;</span>, positionToleranceTranslation, 0.1);
+<a name="l00181"></a>00181     node.param(<span class="stringliteral">&quot;velocityToleranceTranslation&quot;</span>, velocityToleranceTranslation, 0.01);
 <a name="l00182"></a>00182 
-<a name="l00183"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3d1b2be6d74b67a567742b0bc1fc955e">00183</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>() {
-<a name="l00184"></a>00184 
-<a name="l00185"></a>00185     <span class="keywordtype">double</span> elapsedTime = ros::Duration(ros::Time::now() - <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">startTime</a>).toSec();
-<a name="l00186"></a>00186     <a class="code" href="classOdometry.html">Odometry</a> newOdometry = <a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">controller</a>-&gt;<a class="code" href="classPositionController.html#a604e2f7371bc2557d7fae24f2f04e0ba">computeNewOdometry</a>(<a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>, elapsedTime);
-<a name="l00187"></a>00187     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">publishOdometry</a>(newOdometry);
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189 }
-<a name="l00190"></a>00190 
-<a name="l00191"></a><a class="code" href="TrajectoryFollowerNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">00191</a> <span class="keywordtype">int</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {
+<a name="l00183"></a>00183     node.param(<span class="stringliteral">&quot;velocityGainRotation&quot;</span>, velocityGainRotation, 1.35);
+<a name="l00184"></a>00184     node.param(<span class="stringliteral">&quot;positionGainRotation&quot;</span>, positionGainRotation, 1.0);
+<a name="l00185"></a>00185     node.param(<span class="stringliteral">&quot;positionToleranceRotation&quot;</span>, positionToleranceRotation, 0.1);
+<a name="l00186"></a>00186     node.param(<span class="stringliteral">&quot;velocityToleranceRotation&quot;</span>, velocityToleranceRotation, 0.01);
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;inputPathTopic&quot;</span>, inputPathTopic, <span class="stringliteral">&quot;simplified_path&quot;</span>);
+<a name="l00189"></a>00189     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;inputOdometryTopic&quot;</span>, inputOdometryTopic, <span class="stringliteral">&quot;odom&quot;</span>);
+<a name="l00190"></a>00190     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;outputVelocityTopic&quot;</span>, inputVelocityTopic, <span class="stringliteral">&quot;cmd_vel&quot;</span>);
+<a name="l00191"></a>00191 
 <a name="l00192"></a>00192 
-<a name="l00193"></a>00193     std::string name = <span class="stringliteral">&quot;trajectory_follower&quot;</span>;
-<a name="l00194"></a>00194     ros::init(argc, argv, name);
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196     ros::NodeHandle node = ros::NodeHandle(<span class="stringliteral">&quot;~/&quot;</span>);
-<a name="l00197"></a>00197     ros::NodeHandle globalNode = ros::NodeHandle();
+<a name="l00193"></a>00193     ROS_INFO(<span class="stringliteral">&quot;velocityGainTranslation: %f&quot;</span>, velocityGainTranslation);
+<a name="l00194"></a>00194     ROS_INFO(<span class="stringliteral">&quot;velocityGainRotation: %f&quot;</span>, velocityGainRotation);
+<a name="l00195"></a>00195     ROS_INFO(<span class="stringliteral">&quot;positionGainTranslation: %f&quot;</span>, positionGainTranslation);
+<a name="l00196"></a>00196     ROS_INFO(<span class="stringliteral">&quot;positionGainRotation: %f&quot;</span>, positionGainRotation);
+<a name="l00197"></a>00197 
 <a name="l00198"></a>00198 
-<a name="l00199"></a>00199     <span class="keywordtype">double</span> cycleFrequencyInHz;
-<a name="l00200"></a>00200 
-<a name="l00201"></a>00201     <span class="keywordtype">double</span> velocityGainTranslation;
-<a name="l00202"></a>00202     <span class="keywordtype">double</span> positionGainTranslation;
-<a name="l00203"></a>00203     <span class="keywordtype">double</span> velocityToleranceTranslation;
-<a name="l00204"></a>00204     <span class="keywordtype">double</span> positionToleranceTranslation;
+<a name="l00199"></a>00199     <span class="comment">//ros::Subscriber trajectorySubscriber;</span>
+<a name="l00200"></a>00200     ros::Subscriber pathSubscriber;
+<a name="l00201"></a>00201     ros::Subscriber odomSubscriber;
+<a name="l00202"></a>00202     <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a> = globalNode.advertise&lt;geometry_msgs::Twist &gt; (inputVelocityTopic, 1);
+<a name="l00203"></a>00203     odomSubscriber = globalNode.subscribe(inputOdometryTopic, 1, &amp;<a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">odomCallback</a>);
+<a name="l00204"></a>00204     pathSubscriber = globalNode.subscribe(inputPathTopic, 1, &amp;<a class="code" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">pathCallback</a>);
 <a name="l00205"></a>00205 
-<a name="l00206"></a>00206     <span class="keywordtype">double</span> velocityGainRotation;
-<a name="l00207"></a>00207     <span class="keywordtype">double</span> positionGainRotation;
-<a name="l00208"></a>00208     <span class="keywordtype">double</span> velocityToleranceRotation;
-<a name="l00209"></a>00209     <span class="keywordtype">double</span> positionToleranceRotation;
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211     <span class="keywordtype">string</span> inputTrajectoryTopic;
-<a name="l00212"></a>00212     <span class="keywordtype">string</span> inputOdometryTopic;
-<a name="l00213"></a>00213     <span class="keywordtype">string</span> inputVelocityTopic;
+<a name="l00206"></a>00206     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">controller</a> = <span class="keyword">new</span> <a class="code" href="classOmniDrivePositionController.html">OmniDrivePositionController</a>(positionGainTranslation,
+<a name="l00207"></a>00207             velocityGainTranslation,
+<a name="l00208"></a>00208             positionGainRotation,
+<a name="l00209"></a>00209             velocityGainRotation,
+<a name="l00210"></a>00210             positionToleranceTranslation,
+<a name="l00211"></a>00211             velocityToleranceTranslation,
+<a name="l00212"></a>00212             positionToleranceRotation,
+<a name="l00213"></a>00213             velocityToleranceRotation);
 <a name="l00214"></a>00214 
-<a name="l00215"></a>00215     node.param(<span class="stringliteral">&quot;cycleFrequencyInHz&quot;</span>, cycleFrequencyInHz, 50.0);
+<a name="l00215"></a>00215     ros::Rate r(cycleFrequencyInHz);
 <a name="l00216"></a>00216 
-<a name="l00217"></a>00217     node.param(<span class="stringliteral">&quot;velocityGainTranslation&quot;</span>, velocityGainTranslation, 1.33);
-<a name="l00218"></a>00218     node.param(<span class="stringliteral">&quot;positionGainTranslation&quot;</span>, positionGainTranslation, 0.2);
-<a name="l00219"></a>00219     node.param(<span class="stringliteral">&quot;positionToleranceTranslation&quot;</span>, positionToleranceTranslation, 0.1);
-<a name="l00220"></a>00220     node.param(<span class="stringliteral">&quot;velocityToleranceTranslation&quot;</span>, velocityToleranceTranslation, 0.01);
-<a name="l00221"></a>00221 
-<a name="l00222"></a>00222     node.param(<span class="stringliteral">&quot;velocityGainRotation&quot;</span>, velocityGainRotation, 1.35);
-<a name="l00223"></a>00223     node.param(<span class="stringliteral">&quot;positionGainRotation&quot;</span>, positionGainRotation, 0.2);
-<a name="l00224"></a>00224     node.param(<span class="stringliteral">&quot;positionToleranceRotation&quot;</span>, positionToleranceTranslation, 0.1);
-<a name="l00225"></a>00225     node.param(<span class="stringliteral">&quot;velocityToleranceRotation&quot;</span>, velocityToleranceTranslation, 0.01);
+<a name="l00217"></a>00217     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">debugPath</a> = globalNode.advertise &lt;nav_msgs::Path &gt; (<span class="stringliteral">&quot;debugRollingWindow&quot;</span>, 1);
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219     <span class="keywordflow">while</span> (ros::ok()) {
+<a name="l00220"></a>00220         ros::spinOnce();
+<a name="l00221"></a>00221         <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>();
+<a name="l00222"></a>00222         r.sleep();
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225     <span class="keyword">delete</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">controller</a>;
 <a name="l00226"></a>00226 
-<a name="l00227"></a>00227     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;inputTrajectoryTopic&quot;</span>, inputTrajectoryTopic, <span class="stringliteral">&quot;localTrajectory&quot;</span>);
-<a name="l00228"></a>00228     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;inputOdometryTopic&quot;</span>, inputOdometryTopic, <span class="stringliteral">&quot;odom&quot;</span>);
-<a name="l00229"></a>00229     node.param&lt;<span class="keywordtype">string</span> &gt; (<span class="stringliteral">&quot;outputVelocityTopic&quot;</span>, inputVelocityTopic, <span class="stringliteral">&quot;cmd_vel&quot;</span>);
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231     ros::Subscriber trajectorySubscriber;
-<a name="l00232"></a>00232     ros::Subscriber odomSubscriber;
-<a name="l00233"></a>00233     <a class="code" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">twistPublisher</a> = globalNode.advertise&lt;geometry_msgs::Twist &gt; (inputVelocityTopic, 1);
-<a name="l00234"></a>00234     odomSubscriber = globalNode.subscribe(inputOdometryTopic, 1, &amp;<a class="code" href="TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d">odomCallback</a>);
-<a name="l00235"></a>00235     trajectorySubscriber = globalNode.subscribe(inputTrajectoryTopic, 1, &amp;<a class="code" href="TrajectoryFollowerNode_8cpp.html#a760b9f74f63e16ef6a33656855a27e32">trajectoryCallback</a>);
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237     <a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">controller</a> = <span class="keyword">new</span> <a class="code" href="classOmniDrivePositionController.html">OmniDrivePositionController</a>(positionGainTranslation,
-<a name="l00238"></a>00238             velocityGainTranslation,
-<a name="l00239"></a>00239             positionGainRotation,
-<a name="l00240"></a>00240             velocityGainRotation,
-<a name="l00241"></a>00241             positionToleranceTranslation,
-<a name="l00242"></a>00242             velocityToleranceTranslation,
-<a name="l00243"></a>00243             positionToleranceRotation,
-<a name="l00244"></a>00244             velocityToleranceRotation);
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246     ros::Rate r(cycleFrequencyInHz);
-<a name="l00247"></a>00247 
-<a name="l00248"></a>00248     <a class="code" href="TrajectoryFollowerNode_8cpp.html#a2dad9e44b824da60d5057a6d95f90547">debugPath</a> = globalNode.advertise &lt;nav_msgs::Path&gt; (<span class="stringliteral">&quot;debugRollingWindow&quot;</span>, 1);
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250     <span class="keywordflow">while</span> (ros::ok()) {
-<a name="l00251"></a>00251         ros::spinOnce();
-<a name="l00252"></a>00252         <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>();
-<a name="l00253"></a>00253         r.sleep();
-<a name="l00254"></a>00254     }
-<a name="l00255"></a>00255 
-<a name="l00256"></a>00256     <span class="keyword">delete</span> <a class="code" href="TrajectoryFollowerNode_8cpp.html#afad81dfc372b217837fb70f4d4bacb95">controller</a>;
-<a name="l00257"></a>00257 
-<a name="l00258"></a>00258     <span class="keywordflow">return</span> 0;
-<a name="l00259"></a>00259 }
+<a name="l00227"></a>00227     <span class="keywordflow">return</span> 0;
+<a name="l00228"></a>00228 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -93,188 +93,178 @@
 <a name="l00050"></a>00050 <span class="preprocessor">#include &quot;navigation_trajectory_common/TwistWithId.h&quot;</span>
 <a name="l00051"></a>00051 <span class="preprocessor">#include &quot;navigation_trajectory_common/Conversions.h&quot;</span>
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#include &quot;navigation_trajectory_planner/TrajectoryAdapter.h&quot;</span>
-<a name="l00054"></a>00054 <span class="preprocessor">#include &quot;navigation_trajectory_planner/TrajectoryAdapterObserver.h&quot;</span>
-<a name="l00055"></a>00055 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathPlannerRos.h&quot;</span>
-<a name="l00056"></a>00056 <span class="preprocessor">#include &quot;navigation_trajectory_planner/DouglasPeuckerApproximation.h&quot;</span>
-<a name="l00057"></a>00057 <span class="preprocessor">#include &quot;navigation_trajectory_planner/ChaikinCurveApproximation.h&quot;</span>
+<a name="l00053"></a>00053 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathPlannerRos.h&quot;</span>
+<a name="l00054"></a>00054 <span class="preprocessor">#include &quot;navigation_trajectory_planner/DouglasPeuckerApproximation.h&quot;</span>
+<a name="l00055"></a>00055 <span class="preprocessor">#include &quot;navigation_trajectory_planner/ChaikinCurveApproximation.h&quot;</span>
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="preprocessor">#include &quot;navigation_trajectory_planner/CollisionCheckingRos.h&quot;</span>
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#include &quot;navigation_trajectory_planner/CollisionCheckingRos.h&quot;</span>
+<a name="l00059"></a>00059 <span class="keyword">using namespace </span>std;
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="keyword">using namespace </span>std;
-<a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="classTrajectoryAdapterObserverROS.html">00063</a> <span class="keyword">class </span><a class="code" href="classTrajectoryAdapterObserverROS.html">TrajectoryAdapterObserverROS</a> : <span class="keyword">public</span> <a class="code" href="classTrajectoryAdapterObserver.html">TrajectoryAdapterObserver</a> {
-<a name="l00064"></a>00064 
-<a name="l00065"></a><a class="code" href="classTrajectoryAdapterObserverROS.html#af53c191c54a8a3da6685b742b4295919">00065</a>     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryAdapterObserverROS.html#af53c191c54a8a3da6685b742b4295919">trajectoryCallback</a>(KDL::Trajectory_Composite&amp; trajectory) {
-<a name="l00066"></a>00066         ROS_INFO(<span class="stringliteral">&quot;Got new trajectory&quot;</span>);
-<a name="l00067"></a>00067     }
-<a name="l00068"></a>00068 };
-<a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="classTrajectoryAdapterNodeState.html">00070</a> <span class="keyword">class </span><a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a> {
-<a name="l00071"></a>00071 <span class="keyword">public</span>:
-<a name="l00072"></a>00072 
-<a name="l00073"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">00073</a>     <span class="keyword">enum</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> {
-<a name="l00074"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">00074</a>         IDLING, <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">PLANNING</a>, COLLISION_CHECKING
-<a name="l00075"></a>00075     };
-<a name="l00076"></a>00076 
-<a name="l00077"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a75f4a1fb7b0bad97254e8c8bf020bbec">00077</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a75f4a1fb7b0bad97254e8c8bf020bbec">TrajectoryAdapterNodeState</a>() {
-<a name="l00078"></a>00078         <span class="keyword">set</span>(IDLING);
-<a name="l00079"></a>00079     }
-<a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a4c36f4c1809a695a48ae172f012c0bf0">00081</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a4c36f4c1809a695a48ae172f012c0bf0">TrajectoryAdapterNodeState</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a>&amp; orig) {
-<a name="l00082"></a>00082         <span class="keyword">set</span>(orig.<a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">get</a>());
-<a name="l00083"></a>00083     }
+<a name="l00061"></a><a class="code" href="classTrajectoryAdapterNodeState.html">00061</a> <span class="keyword">class </span><a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a> {
+<a name="l00062"></a>00062 <span class="keyword">public</span>:
+<a name="l00063"></a>00063 
+<a name="l00064"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">00064</a>     <span class="keyword">enum</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> {
+<a name="l00065"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">00065</a>         IDLING, <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">PLANNING</a>, COLLISION_CHECKING
+<a name="l00066"></a>00066     };
+<a name="l00067"></a>00067 
+<a name="l00068"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a75f4a1fb7b0bad97254e8c8bf020bbec">00068</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a75f4a1fb7b0bad97254e8c8bf020bbec">TrajectoryAdapterNodeState</a>() {
+<a name="l00069"></a>00069         <span class="keyword">set</span>(IDLING);
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 
+<a name="l00072"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a4c36f4c1809a695a48ae172f012c0bf0">00072</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a4c36f4c1809a695a48ae172f012c0bf0">TrajectoryAdapterNodeState</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a>&amp; orig) {
+<a name="l00073"></a>00073         <span class="keyword">set</span>(orig.<a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">get</a>());
+<a name="l00074"></a>00074     }
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">00076</a>     <span class="keywordtype">void</span> <span class="keyword">set</span>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> state) {
+<a name="l00077"></a>00077         this-&gt;state = state;
+<a name="l00078"></a>00078     }
+<a name="l00079"></a>00079 
+<a name="l00080"></a><a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">00080</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> <span class="keyword">get</span>() <span class="keyword">const</span> {
+<a name="l00081"></a>00081         <span class="keywordflow">return</span> state;
+<a name="l00082"></a>00082     }
+<a name="l00083"></a>00083 
 <a name="l00084"></a>00084 
-<a name="l00085"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">00085</a>     <span class="keywordtype">void</span> <span class="keyword">set</span>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> state) {
-<a name="l00086"></a>00086         this-&gt;state = state;
-<a name="l00087"></a>00087     }
-<a name="l00088"></a>00088 
-<a name="l00089"></a><a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">00089</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> <span class="keyword">get</span>() <span class="keyword">const</span> {
-<a name="l00090"></a>00090         <span class="keywordflow">return</span> state;
-<a name="l00091"></a>00091     }
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="keyword">private</span>:
-<a name="l00095"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a178da49c36a071d619e4ce3a4a8b9623">00095</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> <a class="code" href="classTrajectoryAdapterNodeState.html#a178da49c36a071d619e4ce3a4a8b9623">state</a>;
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 };
-<a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">00099</a> <a class="code" href="classTrajectoryAdapter.html">TrajectoryAdapter</a>* <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a>;
-<a name="l00100"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">00100</a> <a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>;
-<a name="l00101"></a>00101 
-<a name="l00102"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">00102</a> ros::Publisher <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a>;
-<a name="l00103"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">00103</a> <a class="code" href="classTwistWithId.html">TwistWithId</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a>;
-<a name="l00104"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">00104</a> <a class="code" href="classFrameWithId.html">FrameWithId</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>;
-<a name="l00105"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">00105</a> <a class="code" href="classPathPlanner.html">PathPlanner</a>* <a class="code" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a>;
-<a name="l00106"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">00106</a> <a class="code" href="classCollisionChecking.html">CollisionChecking</a>* <a class="code" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a>;
+<a name="l00085"></a>00085 <span class="keyword">private</span>:
+<a name="l00086"></a><a class="code" href="classTrajectoryAdapterNodeState.html#a178da49c36a071d619e4ce3a4a8b9623">00086</a>     <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6">State</a> <a class="code" href="classTrajectoryAdapterNodeState.html#a178da49c36a071d619e4ce3a4a8b9623">state</a>;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 };
+<a name="l00089"></a>00089 
+<a name="l00090"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">00090</a> <a class="code" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>;
+<a name="l00091"></a>00091 
+<a name="l00092"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">00092</a> ros::Publisher <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a>;
+<a name="l00093"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">00093</a> <a class="code" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a>;
+<a name="l00094"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">00094</a> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>;
+<a name="l00095"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">00095</a> <a class="code" href="classIPathPlanner.html" title="Interface class for path planning algorithms.">IPathPlanner</a>* <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a>;
+<a name="l00096"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">00096</a> <a class="code" href="classICollisionChecking.html" title="Interface class for a collision checking.">ICollisionChecking</a>* <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a>;
+<a name="l00097"></a>00097 
+<a name="l00098"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">00098</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">odometryCallback</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry) {
+<a name="l00099"></a>00099     <span class="comment">//  ROS_INFO(&quot;Got new odometry&quot;);</span>
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <a class="code" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)...">conversions::odometryRosToFrame</a>(odometry, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>);
+<a name="l00102"></a>00102     <a class="code" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)...">conversions::odometryRosToTwist</a>(odometry, <a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a>);
+<a name="l00103"></a>00103 }
+<a name="l00104"></a>00104 
+<a name="l00105"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">00105</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">goalCallback</a>(<span class="keyword">const</span> geometry_msgs::PoseStamped&amp; goal) {
+<a name="l00106"></a>00106     ROS_INFO(<span class="stringliteral">&quot;Got new goal&quot;</span>);
 <a name="l00107"></a>00107 
-<a name="l00108"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">00108</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">odometryCallback</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry) {
-<a name="l00109"></a>00109     <span class="comment">//  ROS_INFO(&quot;Got new odometry&quot;);</span>
+<a name="l00108"></a>00108     <a class="code" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type.">conversions::poseStampedRosToFrame</a>(goal, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>);
+<a name="l00109"></a>00109 
 <a name="l00110"></a>00110 
-<a name="l00111"></a>00111     <a class="code" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112">conversions::odometryRosToFrame</a>(odometry, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>);
-<a name="l00112"></a>00112     <a class="code" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4">conversions::odometryRosToTwist</a>(odometry, <a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a>);
-<a name="l00113"></a>00113 }
-<a name="l00114"></a>00114 
-<a name="l00115"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">00115</a> <span class="keywordtype">void</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">goalCallback</a>(<span class="keyword">const</span> geometry_msgs::PoseStamped&amp; goal) {
-<a name="l00116"></a>00116     ROS_INFO(<span class="stringliteral">&quot;Got new goal&quot;</span>);
+<a name="l00111"></a>00111     <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>);
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00114"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">00114</a> std::vector &lt;FrameWithId&gt; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>;
+<a name="l00115"></a>00115 
+<a name="l00116"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">00116</a> <span class="keywordtype">double</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>() {
 <a name="l00117"></a>00117 
-<a name="l00118"></a>00118     <a class="code" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac">conversions::poseStampedRosToFrame</a>(goal, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>);
-<a name="l00119"></a>00119 
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121     <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>);
-<a name="l00122"></a>00122 }
-<a name="l00123"></a>00123 
-<a name="l00124"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">00124</a> std::vector &lt;FrameWithId&gt; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>;
-<a name="l00125"></a>00125 
-<a name="l00126"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">00126</a> <span class="keywordtype">double</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>() {
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128     <span class="keywordtype">double</span> defaultCycleFrequencyInHz = 10.0;
-<a name="l00129"></a>00129     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a>-&gt;<a class="code" href="classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8">updateOdometry</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a>);
-<a name="l00130"></a>00130  
-<a name="l00131"></a>00131     <span class="keywordflow">switch</span> (<a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">get</a>()) {
-<a name="l00132"></a>00132         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a77dd68bcae6fc340cc805ec122abc97a">TrajectoryAdapterNodeState::IDLING</a>:
-<a name="l00133"></a>00133         {
-<a name="l00134"></a>00134             ROS_INFO(<span class="stringliteral">&quot;State IDLING&quot;</span>);
-<a name="l00135"></a>00135             <span class="keywordflow">break</span>;
-<a name="l00136"></a>00136         }
-<a name="l00137"></a>00137         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>:
-<a name="l00138"></a>00138         {
-<a name="l00139"></a>00139             ROS_INFO(<span class="stringliteral">&quot;State PLANNING&quot;</span>);
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141             <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>.clear();
-<a name="l00142"></a>00142             <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>.clear();
-<a name="l00143"></a>00143             
-<a name="l00144"></a>00144             <a class="code" href="classDouglasPeuckerApproximation.html">DouglasPeuckerApproximation</a> peucker;
-<a name="l00145"></a>00145             <a class="code" href="classChaikinCurveApproximation.html">ChaikinCurveApproximation</a> chaikin;
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147             <a class="code" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a>-&gt;<a class="code" href="classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e">computePath</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>);
-<a name="l00148"></a>00148             peucker.<a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">approximate</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>);
-<a name="l00149"></a>00149                        
-<a name="l00150"></a>00150            <span class="comment">//  chaikin.approximate(simplifiedPath, simplifiedPath, 2);</span>
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152             nav_msgs::Path pathRos,  simplifiedPathRos;
-<a name="l00153"></a>00153             <a class="code" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d">conversions::pathToPathRos</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, pathRos);
-<a name="l00154"></a>00154             <a class="code" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d">conversions::pathToPathRos</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>, simplifiedPathRos);
-<a name="l00155"></a>00155 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00156"></a>00156 <span class="preprocessor"></span>            <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a>.publish(pathRos);
-<a name="l00157"></a>00157             <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a>.publish(simplifiedPathRos);
-<a name="l00158"></a>00158 <span class="preprocessor">#endif            </span>
-<a name="l00159"></a>00159 <span class="preprocessor"></span>            <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a714a239e923269458df4d6b6885bf3c1">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>);
-<a name="l00160"></a>00160 
+<a name="l00118"></a>00118     <span class="keywordtype">double</span> defaultCycleFrequencyInHz = 10.0;
+<a name="l00119"></a>00119      
+<a name="l00120"></a>00120     <span class="keywordflow">switch</span> (<a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182">get</a>()) {
+<a name="l00121"></a>00121         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a77dd68bcae6fc340cc805ec122abc97a">TrajectoryAdapterNodeState::IDLING</a>:
+<a name="l00122"></a>00122         {
+<a name="l00123"></a>00123          <span class="comment">//   ROS_INFO(&quot;State IDLING&quot;);</span>
+<a name="l00124"></a>00124             <span class="keywordflow">break</span>;
+<a name="l00125"></a>00125         }
+<a name="l00126"></a>00126         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>:
+<a name="l00127"></a>00127         {
+<a name="l00128"></a>00128             ROS_INFO(<span class="stringliteral">&quot;State PLANNING&quot;</span>);
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130             <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>.clear();
+<a name="l00131"></a>00131             <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>.clear();
+<a name="l00132"></a>00132             
+<a name="l00133"></a>00133             <a class="code" href="classDouglasPeuckerApproximation.html" title="Implementation of path approximation algorithm.">DouglasPeuckerApproximation</a> peucker;
+<a name="l00134"></a>00134             <a class="code" href="classChaikinCurveApproximation.html" title="Implementation of path approximation algorithm.">ChaikinCurveApproximation</a> chaikin;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136             <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a>-&gt;<a class="code" href="classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning.">computePath</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>);
+<a name="l00137"></a>00137             
+<a name="l00138"></a>00138             <span class="keywordflow">if</span> (<a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>.empty())
+<a name="l00139"></a>00139                 ROS_WARN(<span class="stringliteral">&quot;Can&#39;t plan a path&quot;</span>);
+<a name="l00140"></a>00140             
+<a name="l00141"></a>00141             peucker.<a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">approximate</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>);
+<a name="l00142"></a>00142                        
+<a name="l00143"></a>00143            <span class="comment">//  chaikin.approximate(simplifiedPath, simplifiedPath, 2);</span>
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145             nav_msgs::Path pathRos,  simplifiedPathRos;
+<a name="l00146"></a>00146             <a class="code" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages...">conversions::pathToPathRos</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, pathRos);
+<a name="l00147"></a>00147             <a class="code" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages...">conversions::pathToPathRos</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>, simplifiedPathRos);
+<a name="l00148"></a>00148 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00149"></a>00149 <span class="preprocessor"></span>            <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a>.publish(pathRos);
+<a name="l00150"></a>00150             <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a>.publish(simplifiedPathRos);
+<a name="l00151"></a>00151 <span class="preprocessor">#endif            </span>
+<a name="l00152"></a>00152 <span class="preprocessor"></span>            <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a714a239e923269458df4d6b6885bf3c1">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>);
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154             <span class="keywordflow">break</span>;
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a714a239e923269458df4d6b6885bf3c1">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>:
+<a name="l00157"></a>00157         {
+<a name="l00158"></a>00158             <span class="keywordtype">bool</span> collision = <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a>-&gt;<a class="code" href="classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking.">check</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>);
+<a name="l00159"></a>00159             <span class="keywordflow">if</span> (collision)
+<a name="l00160"></a>00160                 <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>);
 <a name="l00161"></a>00161             <span class="keywordflow">break</span>;
 <a name="l00162"></a>00162         }
-<a name="l00163"></a>00163         <span class="keywordflow">case</span> <a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a714a239e923269458df4d6b6885bf3c1">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>:
-<a name="l00164"></a>00164         {
-<a name="l00165"></a>00165             <span class="keywordtype">bool</span> collision = <a class="code" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a>-&gt;<a class="code" href="classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e">check</a>(<a class="code" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a>, <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>);
-<a name="l00166"></a>00166             <span class="keywordflow">if</span> (collision)
-<a name="l00167"></a>00167                 <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a5596ec009b748ff01616779eccd75612">TrajectoryAdapterNodeState::PLANNING</a>);
-<a name="l00168"></a>00168             <span class="keywordflow">break</span>;
-<a name="l00169"></a>00169         }
-<a name="l00170"></a>00170         <span class="keywordflow">default</span>:
-<a name="l00171"></a>00171             ROS_ERROR(<span class="stringliteral">&quot;Unknown state&quot;</span>);
-<a name="l00172"></a>00172     }
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174     <span class="keywordflow">return</span> defaultCycleFrequencyInHz;
-<a name="l00175"></a>00175 }
-<a name="l00176"></a>00176 
-<a name="l00177"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">00177</a> <span class="keywordtype">int</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179     std::string name = <span class="stringliteral">&quot;trajectory_adapter&quot;</span>;
-<a name="l00180"></a>00180     ros::init(argc, argv, name);
-<a name="l00181"></a>00181 
-<a name="l00182"></a>00182     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a> = <span class="keyword">new</span> <a class="code" href="classTrajectoryAdapter.html">TrajectoryAdapter</a>();
+<a name="l00163"></a>00163         <span class="keywordflow">default</span>:
+<a name="l00164"></a>00164             ROS_ERROR(<span class="stringliteral">&quot;Unknown state&quot;</span>);
+<a name="l00165"></a>00165     }
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167     <span class="keywordflow">return</span> defaultCycleFrequencyInHz;
+<a name="l00168"></a>00168 }
+<a name="l00169"></a>00169 
+<a name="l00170"></a><a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">00170</a> <span class="keywordtype">int</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172     std::string name = <span class="stringliteral">&quot;trajectory_adapter&quot;</span>;
+<a name="l00173"></a>00173     ros::init(argc, argv, name);
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175     ros::NodeHandle localNode = ros::NodeHandle(<span class="stringliteral">&quot;~/&quot;</span>);
+<a name="l00176"></a>00176     ros::NodeHandle globalNode = ros::NodeHandle(<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178     ros::Subscriber goalSubscriber;
+<a name="l00179"></a>00179     goalSubscriber = globalNode.subscribe(<span class="stringliteral">&quot;goal&quot;</span>, 1, &amp;<a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">goalCallback</a>);
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181     ros::Subscriber odometrySubscriber;
+<a name="l00182"></a>00182     odometrySubscriber = globalNode.subscribe(<span class="stringliteral">&quot;odom&quot;</span>, 1, &amp;<a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">odometryCallback</a>);
 <a name="l00183"></a>00183 
-<a name="l00184"></a>00184     ros::NodeHandle localNode = ros::NodeHandle(<span class="stringliteral">&quot;~/&quot;</span>);
-<a name="l00185"></a>00185     ros::NodeHandle globalNode = ros::NodeHandle(<span class="stringliteral">&quot;&quot;</span>);
-<a name="l00186"></a>00186 
-<a name="l00187"></a>00187     ros::Subscriber goalSubscriber;
-<a name="l00188"></a>00188     goalSubscriber = globalNode.subscribe(<span class="stringliteral">&quot;goal&quot;</span>, 1, &amp;<a class="code" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">goalCallback</a>);
+<a name="l00184"></a>00184     tf::TransformListener tf;
+<a name="l00185"></a>00185     costmap_2d::Costmap2DROS globalCostmap(<span class="stringliteral">&quot;local_costmap&quot;</span>, tf);
+<a name="l00186"></a>00186     ROS_INFO(<span class="stringliteral">&quot;Initialize costmap size: %d, %d&quot;</span>, globalCostmap.getSizeInCellsX(), globalCostmap.getSizeInCellsY());
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a> = <span class="keyword">new</span> <a class="code" href="classCollisionCheckingRos.html" title="Implementation of the collision checking interface.">CollisionCheckingRos</a>(&amp;globalCostmap);
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190     ros::Subscriber odometrySubscriber;
-<a name="l00191"></a>00191     odometrySubscriber = globalNode.subscribe(<span class="stringliteral">&quot;odom&quot;</span>, 1, &amp;<a class="code" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9">odometryCallback</a>);
+<a name="l00190"></a>00190     nav_core::BaseGlobalPlanner* plannerRos;
+<a name="l00191"></a>00191     pluginlib::ClassLoader&lt;nav_core::BaseGlobalPlanner&gt; bgpLoader(<span class="stringliteral">&quot;nav_core&quot;</span>, <span class="stringliteral">&quot;nav_core::BaseGlobalPlanner&quot;</span>);
 <a name="l00192"></a>00192 
-<a name="l00193"></a>00193     tf::TransformListener tf;
-<a name="l00194"></a>00194     costmap_2d::Costmap2DROS globalCostmap(<span class="stringliteral">&quot;local_costmap&quot;</span>, tf);
-<a name="l00195"></a>00195     ROS_INFO(<span class="stringliteral">&quot;Initialize costmap size: %d, %d&quot;</span>, globalCostmap.getSizeInCellsX(), globalCostmap.getSizeInCellsY());
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a> = <span class="keyword">new</span> <a class="code" href="classCollisionCheckingRos.html">CollisionCheckingRos</a>(&amp;globalCostmap);
+<a name="l00193"></a>00193     <span class="keywordtype">string</span> globalTrajectoryPlanner;
+<a name="l00194"></a>00194     localNode.param(<span class="stringliteral">&quot;local_costmap/trajectory_adapter&quot;</span>, globalTrajectoryPlanner, <span class="keywordtype">string</span>(<span class="stringliteral">&quot;navfn/NavfnROS&quot;</span>));
+<a name="l00195"></a>00195     plannerRos = bgpLoader.createClassInstance(globalTrajectoryPlanner);
+<a name="l00196"></a>00196     plannerRos-&gt;initialize(bgpLoader.getName(globalTrajectoryPlanner), &amp;globalCostmap);
+<a name="l00197"></a>00197     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a> = <span class="keyword">new</span> <a class="code" href="classPathPlannerRos.html" title="Implementation of the interface class for path planning.">PathPlannerRos</a>(plannerRos);
 <a name="l00198"></a>00198 
-<a name="l00199"></a>00199     nav_core::BaseGlobalPlanner* plannerRos;
-<a name="l00200"></a>00200     pluginlib::ClassLoader&lt;nav_core::BaseGlobalPlanner&gt; bgpLoader(<span class="stringliteral">&quot;nav_core&quot;</span>, <span class="stringliteral">&quot;nav_core::BaseGlobalPlanner&quot;</span>);
-<a name="l00201"></a>00201 
-<a name="l00202"></a>00202     <span class="keywordtype">string</span> globalTrajectoryPlanner;
-<a name="l00203"></a>00203     localNode.param(<span class="stringliteral">&quot;local_costmap/trajectory_adapter&quot;</span>, globalTrajectoryPlanner, <span class="keywordtype">string</span>(<span class="stringliteral">&quot;navfn/NavfnROS&quot;</span>));
-<a name="l00204"></a>00204     plannerRos = bgpLoader.createClassInstance(globalTrajectoryPlanner);
-<a name="l00205"></a>00205     plannerRos-&gt;initialize(bgpLoader.getName(globalTrajectoryPlanner), &amp;globalCostmap);
-<a name="l00206"></a>00206     <a class="code" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a> = <span class="keyword">new</span> <a class="code" href="classPathPlannerRos.html">PathPlannerRos</a>(plannerRos);
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00210"></a>00210 <span class="preprocessor"></span>    <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a> = globalNode.advertise&lt;nav_msgs::Path &gt; (<span class="stringliteral">&quot;path&quot;</span>, 1);
-<a name="l00211"></a>00211     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a> = globalNode.advertise&lt;nav_msgs::Path &gt; (<span class="stringliteral">&quot;simplified_path&quot;</span>, 1);
-<a name="l00212"></a>00212 <span class="preprocessor">#endif</span>
-<a name="l00213"></a>00213 <span class="preprocessor"></span>
-<a name="l00214"></a>00214     <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a77dd68bcae6fc340cc805ec122abc97a">TrajectoryAdapterNodeState::IDLING</a>);
-<a name="l00215"></a>00215 
-<a name="l00216"></a>00216     <span class="keywordflow">while</span> (ros::ok()) {
-<a name="l00217"></a>00217         ros::spinOnce();
-<a name="l00218"></a>00218         <span class="keywordtype">double</span> hz = <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>();
-<a name="l00219"></a>00219         ros::Rate(hz).sleep();
-<a name="l00220"></a>00220     }
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00201"></a>00201 <span class="preprocessor"></span>    <a class="code" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a> = globalNode.advertise&lt;nav_msgs::Path &gt; (<span class="stringliteral">&quot;path&quot;</span>, 1);
+<a name="l00202"></a>00202     <a class="code" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a> = globalNode.advertise&lt;nav_msgs::Path &gt; (<span class="stringliteral">&quot;simplified_path&quot;</span>, 1);
+<a name="l00203"></a>00203 <span class="preprocessor">#endif</span>
+<a name="l00204"></a>00204 <span class="preprocessor"></span>
+<a name="l00205"></a>00205     <a class="code" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a>.<a class="code" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757">set</a>(<a class="code" href="classTrajectoryAdapterNodeState.html#a554b2fffedf05b98fa3ad905b38f2bf6a77dd68bcae6fc340cc805ec122abc97a">TrajectoryAdapterNodeState::IDLING</a>);
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207     <span class="keywordflow">while</span> (ros::ok()) {
+<a name="l00208"></a>00208         ros::spinOnce();
+<a name="l00209"></a>00209         <span class="keywordtype">double</span> hz = <a class="code" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a">controlLoop</a>();
+<a name="l00210"></a>00210         ros::Rate(hz).sleep();
+<a name="l00211"></a>00211     }
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214     <span class="keyword">delete</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a>;
+<a name="l00215"></a>00215     <span class="keyword">delete</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a>;
+<a name="l00216"></a>00216     <span class="keyword">delete</span> plannerRos;
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218     ROS_INFO(<span class="stringliteral">&quot;bye...&quot;</span>);
+<a name="l00219"></a>00219     <span class="keywordflow">return</span> 0;
+<a name="l00220"></a>00220 }
 <a name="l00221"></a>00221 
-<a name="l00222"></a>00222 
-<a name="l00223"></a>00223     <span class="keyword">delete</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a>;
-<a name="l00224"></a>00224     <span class="keyword">delete</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a>;
-<a name="l00225"></a>00225     <span class="keyword">delete</span> <a class="code" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a>;
-<a name="l00226"></a>00226     <span class="keyword">delete</span> plannerRos;
-<a name="l00227"></a>00227 
-<a name="l00228"></a>00228     ROS_INFO(<span class="stringliteral">&quot;bye...&quot;</span>);
-<a name="l00229"></a>00229     <span class="keywordflow">return</span> 0;
-<a name="l00230"></a>00230 }
-<a name="l00231"></a>00231 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

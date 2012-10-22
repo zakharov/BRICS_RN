@@ -45,18 +45,56 @@
 
 class FrameWithId;
 
+/**
+ * @brief Implementation of path approximation algorithm. Ramer–Douglas–Peucker algorithm 
+ * is an algorithm for reducing the number of points in a curve that is approximated by 
+ * a series of points.
+ */
+
+
 class DouglasPeuckerApproximation : public IPathApproximation {
 public:
+
+    /**
+     * @brief Constructor
+     */
     DouglasPeuckerApproximation();
+
+    /**
+     * @brief Copy constructor
+     */
     DouglasPeuckerApproximation(const DouglasPeuckerApproximation& orig);
+
+    /**
+     * @brief Destructor
+     */
     virtual ~DouglasPeuckerApproximation();
 
+    /**
+     * @brief Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting smoothed path.
+     */
     void approximate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out);
+
+    /**
+     * @brief Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting path with reduced number of points.
+     * @param epsilon - minimum distance between points.
+     */
     void approximate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, double epsilon);
 
 
 private:
 
+    /**
+     * @brief Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting path with reduced number of points.
+     * @param counter - internal number of operations' counter.
+     * @param epsilon - minimum distance between points.
+     */
     void douglasPeucker(const std::vector <FrameWithId>& pointList,
             std::vector <FrameWithId>& resultList, int& counter, double epsilon);
 

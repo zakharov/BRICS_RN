@@ -85,73 +85,67 @@
 <a name="l00042"></a>00042 <span class="preprocessor"></span>
 <a name="l00043"></a>00043 <span class="preprocessor">#include &lt;ros/ros.h&gt;</span>
 <a name="l00044"></a>00044 <span class="preprocessor">#include &lt;nav_msgs/Odometry.h&gt;</span>
-<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;navigation_trajectory_msgs/Trajectory.h&gt;</span>
-<a name="l00046"></a>00046 <span class="preprocessor">#include &lt;geometry_msgs/Twist.h&gt;</span>
-<a name="l00047"></a>00047 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00050"></a>00050 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="keyword">class </span><a class="code" href="classPositionController.html">PositionController</a>;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keyword">namespace </span>KDL {
-<a name="l00056"></a>00056     <span class="keyword">class </span>Trajectory;
-<a name="l00057"></a>00057     <span class="keyword">class </span>Frame;
-<a name="l00058"></a>00058     <span class="keyword">class </span>Trajectory_Composite;
-<a name="l00059"></a>00059     <span class="keyword">class </span>VelocityProfile_Trap;
+<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;geometry_msgs/Twist.h&gt;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00049"></a>00049 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">class </span><a class="code" href="classIPositionController.html">IPositionController</a>;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">namespace </span>KDL {
+<a name="l00054"></a>00054     <span class="keyword">class </span>Trajectory;
+<a name="l00055"></a>00055     <span class="keyword">class </span>Frame;
+<a name="l00056"></a>00056     <span class="keyword">class </span>Trajectory_Composite;
+<a name="l00057"></a>00057     <span class="keyword">class </span>VelocityProfile_Trap;
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 };
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061 };
-<a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="classTrajectoryFollowerNode.html">00063</a> <span class="keyword">class </span><a class="code" href="classTrajectoryFollowerNode.html">TrajectoryFollowerNode</a> {
-<a name="l00064"></a>00064 <span class="keyword">public</span>:
-<a name="l00065"></a>00065     <a class="code" href="classTrajectoryFollowerNode.html#aaf7e326ed5871078cae9594fa9a3dcd6">TrajectoryFollowerNode</a>(std::string name);
-<a name="l00066"></a>00066     <a class="code" href="classTrajectoryFollowerNode.html#aaf7e326ed5871078cae9594fa9a3dcd6">TrajectoryFollowerNode</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryFollowerNode.html">TrajectoryFollowerNode</a>&amp; orig);
-<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a5ae78af5034159914dc93b18398221f6">publishTwist</a>(<span class="keyword">const</span> geometry_msgs::Twist&amp; twist);
+<a name="l00061"></a><a class="code" href="classTrajectoryFollowerNode.html">00061</a> <span class="keyword">class </span><a class="code" href="classTrajectoryFollowerNode.html">TrajectoryFollowerNode</a> {
+<a name="l00062"></a>00062 <span class="keyword">public</span>:
+<a name="l00063"></a>00063     <a class="code" href="classTrajectoryFollowerNode.html#aaf7e326ed5871078cae9594fa9a3dcd6">TrajectoryFollowerNode</a>(std::string name);
+<a name="l00064"></a>00064     <a class="code" href="classTrajectoryFollowerNode.html#aaf7e326ed5871078cae9594fa9a3dcd6">TrajectoryFollowerNode</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryFollowerNode.html">TrajectoryFollowerNode</a>&amp; orig);
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a5ae78af5034159914dc93b18398221f6">publishTwist</a>(<span class="keyword">const</span> geometry_msgs::Twist&amp; twist);
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#af78b22b85aea5dbb06e99c3415a47700">setActualOdometry</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry);
 <a name="l00068"></a>00068 
-<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#af78b22b85aea5dbb06e99c3415a47700">setActualOdometry</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry);
-<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a7b4fe51cc899b1d8cd7d55aad0d9ed28">setActualTrajectory</a>(<span class="keyword">const</span> navigation_trajectory_msgs::Trajectory&amp; trajectory);
+<a name="l00069"></a>00069     <span class="keyword">virtual</span> <a class="code" href="classTrajectoryFollowerNode.html#a26a250163b9e7b947e1940def86eae61">~TrajectoryFollowerNode</a>();
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a62b63658f5e2dd48ed9a1ca87d7eb9dd">controlLoop</a>();
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073     <span class="keyword">virtual</span> <a class="code" href="classTrajectoryFollowerNode.html#a26a250163b9e7b947e1940def86eae61">~TrajectoryFollowerNode</a>();
-<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a62b63658f5e2dd48ed9a1ca87d7eb9dd">controlLoop</a>();
+<a name="l00072"></a>00072 <span class="keyword">private</span>:
+<a name="l00073"></a>00073 
+<a name="l00074"></a><a class="code" href="classTrajectoryFollowerNode.html#afb71c3f454751c44d632e752cfaa55b8">00074</a>     <span class="keywordtype">double</span> <a class="code" href="classTrajectoryFollowerNode.html#a3dd0071ce56b4a7be7d7e6097860b706">actualTime</a>, <a class="code" href="classTrajectoryFollowerNode.html#afb71c3f454751c44d632e752cfaa55b8">startTime</a>;
 <a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="keyword">private</span>:
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a3a6c371190d1c465bccbfa8842e9bd3a">createKDLFrame</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry, KDL::Frame&amp; frame);
 <a name="l00077"></a>00077 
-<a name="l00078"></a><a class="code" href="classTrajectoryFollowerNode.html#afb71c3f454751c44d632e752cfaa55b8">00078</a>     <span class="keywordtype">double</span> <a class="code" href="classTrajectoryFollowerNode.html#a3dd0071ce56b4a7be7d7e6097860b706">actualTime</a>, <a class="code" href="classTrajectoryFollowerNode.html#afb71c3f454751c44d632e752cfaa55b8">startTime</a>;
+<a name="l00078"></a><a class="code" href="classTrajectoryFollowerNode.html#ae0ab42bd4f68e8c588acc4efdcb3460c">00078</a>     KDL::Trajectory* <a class="code" href="classTrajectoryFollowerNode.html#ae0ab42bd4f68e8c588acc4efdcb3460c">actualTrajectoryKDL</a>;
 <a name="l00079"></a>00079 
-<a name="l00080"></a>00080     KDL::Trajectory*<a class="code" href="classTrajectoryFollowerNode.html#af103420d18a523e35de8761d6f9a3e12">createTrajectoryKDL</a>(<span class="keyword">const</span> navigation_trajectory_msgs::Trajectory&amp; trajectory);
-<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="classTrajectoryFollowerNode.html#a3a6c371190d1c465bccbfa8842e9bd3a">createKDLFrame</a>(<span class="keyword">const</span> nav_msgs::Odometry&amp; odometry, KDL::Frame&amp; frame);
-<a name="l00082"></a>00082 
-<a name="l00083"></a><a class="code" href="classTrajectoryFollowerNode.html#ae0ab42bd4f68e8c588acc4efdcb3460c">00083</a>     KDL::Trajectory* <a class="code" href="classTrajectoryFollowerNode.html#ae0ab42bd4f68e8c588acc4efdcb3460c">actualTrajectoryKDL</a>;
-<a name="l00084"></a>00084 
-<a name="l00085"></a><a class="code" href="classTrajectoryFollowerNode.html#a5683edaa1852411d8edc30b0fcbc6fca">00085</a>     ros::NodeHandle <a class="code" href="classTrajectoryFollowerNode.html#a5683edaa1852411d8edc30b0fcbc6fca">node</a>;
-<a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="classTrajectoryFollowerNode.html#a68c85593aa1d103cb98435487457936e">00087</a>     ros::Subscriber <a class="code" href="classTrajectoryFollowerNode.html#a68c85593aa1d103cb98435487457936e">trajectorySubscriber</a>;
-<a name="l00088"></a><a class="code" href="classTrajectoryFollowerNode.html#a8e09279524cbba68ffe727f24b4c81f6">00088</a>     ros::Subscriber <a class="code" href="classTrajectoryFollowerNode.html#a8e09279524cbba68ffe727f24b4c81f6">odomSubscriber</a>;
-<a name="l00089"></a><a class="code" href="classTrajectoryFollowerNode.html#a5c71db25711c3885b87fa360bd38cd86">00089</a>     ros::Publisher <a class="code" href="classTrajectoryFollowerNode.html#a5c71db25711c3885b87fa360bd38cd86">twistPublisher</a>;
-<a name="l00090"></a>00090 
-<a name="l00091"></a><a class="code" href="classTrajectoryFollowerNode.html#a6c1baca7166c0a740c8d8440c650093f">00091</a>     std::string <a class="code" href="classTrajectoryFollowerNode.html#a6c1baca7166c0a740c8d8440c650093f">nodeName</a>;
-<a name="l00092"></a>00092 
-<a name="l00093"></a><a class="code" href="classTrajectoryFollowerNode.html#a091a965e3262157d1e97f3706ce3c55d">00093</a>     <a class="code" href="classPositionController.html">PositionController</a>* <a class="code" href="classTrajectoryFollowerNode.html#a091a965e3262157d1e97f3706ce3c55d">controller</a>;
-<a name="l00094"></a><a class="code" href="classTrajectoryFollowerNode.html#a8458254728252cd0dab14dbae193c193">00094</a>     nav_msgs::Odometry <a class="code" href="classTrajectoryFollowerNode.html#a8458254728252cd0dab14dbae193c193">actualOdometry</a>;
-<a name="l00095"></a><a class="code" href="classTrajectoryFollowerNode.html#af2858f2e4c81b96a70ae1e3465416c3d">00095</a>     navigation_trajectory_msgs::Trajectory <a class="code" href="classTrajectoryFollowerNode.html#af2858f2e4c81b96a70ae1e3465416c3d">actualTrajectory</a>;
-<a name="l00096"></a><a class="code" href="classTrajectoryFollowerNode.html#a19b253c55f6ca4529dfda6a109d086dd">00096</a>     geometry_msgs::Twist <a class="code" href="classTrajectoryFollowerNode.html#a19b253c55f6ca4529dfda6a109d086dd">actualAcceleration</a>;
-<a name="l00097"></a><a class="code" href="classTrajectoryFollowerNode.html#a002c8d8466d5c9e47d5d7da6adb86429">00097</a>     KDL::Twist <a class="code" href="classTrajectoryFollowerNode.html#a002c8d8466d5c9e47d5d7da6adb86429">desiredTwist</a>;
-<a name="l00098"></a><a class="code" href="classTrajectoryFollowerNode.html#aa78b1596cd4bff9089640bc5b4549d51">00098</a>     KDL::Frame <a class="code" href="classTrajectoryFollowerNode.html#aa78b1596cd4bff9089640bc5b4549d51">desiredPose</a>;
-<a name="l00099"></a>00099 
-<a name="l00100"></a><a class="code" href="classTrajectoryFollowerNode.html#a881cdefecde738e155f8c1e98c7d0a18">00100</a>     KDL::Trajectory_Composite* <a class="code" href="classTrajectoryFollowerNode.html#a881cdefecde738e155f8c1e98c7d0a18">trajectoryComposite_x</a>;
-<a name="l00101"></a><a class="code" href="classTrajectoryFollowerNode.html#a1e47298f8fc9dcb16dd00d769e905260">00101</a>     KDL::Trajectory_Composite* <a class="code" href="classTrajectoryFollowerNode.html#a1e47298f8fc9dcb16dd00d769e905260">trajectoryComposite_y</a>;
-<a name="l00102"></a><a class="code" href="classTrajectoryFollowerNode.html#ae6c423d48d7f13623b6e5aac8237a1d1">00102</a>     KDL::VelocityProfile_Trap* <a class="code" href="classTrajectoryFollowerNode.html#ae6c423d48d7f13623b6e5aac8237a1d1">velpref_x</a>;
-<a name="l00103"></a><a class="code" href="classTrajectoryFollowerNode.html#a41d9b6d9976654ba56f24f7bd590b95b">00103</a>     KDL::VelocityProfile_Trap* <a class="code" href="classTrajectoryFollowerNode.html#a41d9b6d9976654ba56f24f7bd590b95b">velpref_y</a>;
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 };
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="preprocessor">#endif  </span><span class="comment">/* TRAJECTORYFOLLOWERNODE_H */</span>
-<a name="l00108"></a>00108 
+<a name="l00080"></a><a class="code" href="classTrajectoryFollowerNode.html#a5683edaa1852411d8edc30b0fcbc6fca">00080</a>     ros::NodeHandle <a class="code" href="classTrajectoryFollowerNode.html#a5683edaa1852411d8edc30b0fcbc6fca">node</a>;
+<a name="l00081"></a>00081 
+<a name="l00082"></a><a class="code" href="classTrajectoryFollowerNode.html#a68c85593aa1d103cb98435487457936e">00082</a>     ros::Subscriber <a class="code" href="classTrajectoryFollowerNode.html#a68c85593aa1d103cb98435487457936e">trajectorySubscriber</a>;
+<a name="l00083"></a><a class="code" href="classTrajectoryFollowerNode.html#a8e09279524cbba68ffe727f24b4c81f6">00083</a>     ros::Subscriber <a class="code" href="classTrajectoryFollowerNode.html#a8e09279524cbba68ffe727f24b4c81f6">odomSubscriber</a>;
+<a name="l00084"></a><a class="code" href="classTrajectoryFollowerNode.html#a5c71db25711c3885b87fa360bd38cd86">00084</a>     ros::Publisher <a class="code" href="classTrajectoryFollowerNode.html#a5c71db25711c3885b87fa360bd38cd86">twistPublisher</a>;
+<a name="l00085"></a>00085 
+<a name="l00086"></a><a class="code" href="classTrajectoryFollowerNode.html#a6c1baca7166c0a740c8d8440c650093f">00086</a>     std::string <a class="code" href="classTrajectoryFollowerNode.html#a6c1baca7166c0a740c8d8440c650093f">nodeName</a>;
+<a name="l00087"></a>00087 
+<a name="l00088"></a><a class="code" href="classTrajectoryFollowerNode.html#a8089d1965242424fb76eb95d98894af8">00088</a>     <a class="code" href="classIPositionController.html">IPositionController</a>* <a class="code" href="classTrajectoryFollowerNode.html#a8089d1965242424fb76eb95d98894af8">controller</a>;
+<a name="l00089"></a><a class="code" href="classTrajectoryFollowerNode.html#a8458254728252cd0dab14dbae193c193">00089</a>     nav_msgs::Odometry <a class="code" href="classTrajectoryFollowerNode.html#a8458254728252cd0dab14dbae193c193">actualOdometry</a>;
+<a name="l00090"></a><a class="code" href="classTrajectoryFollowerNode.html#a19b253c55f6ca4529dfda6a109d086dd">00090</a>     geometry_msgs::Twist <a class="code" href="classTrajectoryFollowerNode.html#a19b253c55f6ca4529dfda6a109d086dd">actualAcceleration</a>;
+<a name="l00091"></a><a class="code" href="classTrajectoryFollowerNode.html#a002c8d8466d5c9e47d5d7da6adb86429">00091</a>     KDL::Twist <a class="code" href="classTrajectoryFollowerNode.html#a002c8d8466d5c9e47d5d7da6adb86429">desiredTwist</a>;
+<a name="l00092"></a><a class="code" href="classTrajectoryFollowerNode.html#aa78b1596cd4bff9089640bc5b4549d51">00092</a>     KDL::Frame <a class="code" href="classTrajectoryFollowerNode.html#aa78b1596cd4bff9089640bc5b4549d51">desiredPose</a>;
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="classTrajectoryFollowerNode.html#a881cdefecde738e155f8c1e98c7d0a18">00094</a>     KDL::Trajectory_Composite* <a class="code" href="classTrajectoryFollowerNode.html#a881cdefecde738e155f8c1e98c7d0a18">trajectoryComposite_x</a>;
+<a name="l00095"></a><a class="code" href="classTrajectoryFollowerNode.html#a1e47298f8fc9dcb16dd00d769e905260">00095</a>     KDL::Trajectory_Composite* <a class="code" href="classTrajectoryFollowerNode.html#a1e47298f8fc9dcb16dd00d769e905260">trajectoryComposite_y</a>;
+<a name="l00096"></a><a class="code" href="classTrajectoryFollowerNode.html#ae6c423d48d7f13623b6e5aac8237a1d1">00096</a>     KDL::VelocityProfile_Trap* <a class="code" href="classTrajectoryFollowerNode.html#ae6c423d48d7f13623b6e5aac8237a1d1">velpref_x</a>;
+<a name="l00097"></a><a class="code" href="classTrajectoryFollowerNode.html#a41d9b6d9976654ba56f24f7bd590b95b">00097</a>     KDL::VelocityProfile_Trap* <a class="code" href="classTrajectoryFollowerNode.html#a41d9b6d9976654ba56f24f7bd590b95b">velpref_y</a>;
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 };
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="preprocessor">#endif  </span><span class="comment">/* TRAJECTORYFOLLOWERNODE_H */</span>
+<a name="l00102"></a>00102 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

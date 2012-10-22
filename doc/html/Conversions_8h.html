@@ -47,6 +47,8 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;nav_msgs/Odometry.h&gt;</code><br/>
 <code>#include &lt;nav_msgs/Path.h&gt;</code><br/>
+<code>#include &lt;kdl/frames.hpp&gt;</code><br/>
+<code>#include &lt;kdl/path_composite.hpp&gt;</code><br/>
 <code>#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_common/TwistWithId.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
@@ -60,21 +62,35 @@ Include dependency graph for Conversions.h:</div>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html">conversions</a></td></tr>
+
+<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Conversions between ROS, BRICS_RN and <a class="el" href="namespaceKDL.html">KDL</a> data types. </p>
+<br/></td></tr>
+</p>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112">conversions::odometryRosToFrame</a> (const nav_msgs::Odometry &amp;odometry, <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;pose)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from nav_msgs::Odometry ROS message to <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> data type (only pose in converted).  <a href="#ac7a5af5c9bc4009a96b80eda8385f112"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4">conversions::odometryRosToTwist</a> (const nav_msgs::Odometry &amp;odometry, <a class="el" href="classTwistWithId.html">TwistWithId</a> &amp;twist)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from nav_msgs::Odometry ROS message to <a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> data type (only twist is converted).  <a href="#acdf98c821297b2e72918329facc9b9d4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd">conversions::poseRosToFrame</a> (const geometry_msgs::Pose &amp;poseRos, const std::string &amp;id, <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;pose)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from geometry_msgs::Pose ROS message to <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> data type.  <a href="#aec5feacdac6b6a033a1fba9505b846dd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac">conversions::poseStampedRosToFrame</a> (const geometry_msgs::PoseStamped &amp;poseStamped, <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;pose)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from geometry_msgs::PoseStamped ROS message to <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> data type.  <a href="#ab3936a8899dd2232e0b39df95e932aac"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5">conversions::frameToPoseRos</a> (const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;pose, geometry_msgs::Pose &amp;poseRos, std::string &amp;id)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> data type to geometry_msgs::Pose ROS message.  <a href="#a1b5dc16268c4546ba5bd02f2d325d5f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f">conversions::frameToPoseStampedRos</a> (const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;pose, geometry_msgs::PoseStamped &amp;poseStamped)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> data type to geometry_msgs::PoseStamped ROS message.  <a href="#a9bdd48e7ed847ccd2af1bd1a20d1999f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d">conversions::pathToPathRos</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt; geometry_msgs::PoseStamped &gt; &amp;pathRos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of a <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> vector (a path) to vector of geometry_msgs::PoseStamped ROS messages.  <a href="#a78eaeb50d6a1fdec5e7a003e4e0b0f0d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#aa12922d6b597ac405843d16fae0b2060">conversions::pathToPathRos</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, nav_msgs::Path &amp;pathRos)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of a <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> vector (a path) to nav_msgs::Path ROS message.  <a href="#aa12922d6b597ac405843d16fae0b2060"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513">conversions::pathRosToPath</a> (const std::vector&lt; geometry_msgs::PoseStamped &gt; &amp;pathRos, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of a geometry_msgs::PoseStamped vector to <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> vector (a path).  <a href="#a64014570cd9c648f6866b50a5ef6c513"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceconversions.html#a3aa3ad4de3289ec7f696086ae5c8217f">conversions::pathRosToPath</a> (const nav_msgs::Path &amp;pathRos, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of a nav_msgs::Path ROS message to <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> vector (a path).  <a href="#a3aa3ad4de3289ec7f696086ae5c8217f"></a><br/></td></tr>
 </table>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

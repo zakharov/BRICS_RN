@@ -40,28 +40,83 @@
 #ifndef TWISTWITHID_H
 #define	TWISTWITHID_H
 
-#include <kdl/frames.hpp>
 #include <string>
+
+namespace KDL {
+    class Twist;
+}
+
+/**
+ * @brief TwistWithId is an aggregation of KDL::Twist class with frame id. 
+ */
 
 class TwistWithId {
 public:
+    /**
+     * @brief String identifier of the Twist.
+     */
     std::string id;
 
 public:
+
+    /**
+     * @brief Default Constructor.
+     */
     TwistWithId();
+
+    /**
+     * @brief Constructor.
+     * @param[in] twist - initial value of KDL::Twist.
+     */
     TwistWithId(const KDL::Twist& twist);
+
+    /**
+     * @brief Constructor.
+     * @param[in] is - initial value of twist identifier.
+     */
     TwistWithId(const std::string& id);
+
+    /**
+     * @brief Constructor.
+     * @param[in] twist - initial value of KDL::Twist.
+     * @param[in] is - initial value of twist identifier.
+     */
     TwistWithId(const KDL::Twist& twist, const std::string& id);
+
+    /**
+     * @brief Copy constructor.
+     * @param[in] orig - reference to the original object
+     */
     TwistWithId(const TwistWithId& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~TwistWithId();
 
+    /**
+     * @brief Sets a new value of the KDL::Twist.
+     * @param[in] twist - new value of KDL::Twist.
+     */
+    void setTwist(const KDL::Twist& twist);
+
+    /**
+     * @brief Get an underlying KDL twist as a const reference or a copy
+     */
     const KDL::Twist& getTwist() const;
+
+    /**
+     * @brief Get an underlying KDL trajectory as a reference
+     */
     KDL::Twist& getTwist();
-    
+
 private:
-    
-    KDL::Twist twist;
-    
+
+    /**
+     * @brief Aggregation of the KDL::Twist
+     */
+    KDL::Twist* twist;
+
 };
 
 #endif	/* TWISTWITHID_H */

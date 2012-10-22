@@ -82,56 +82,63 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</span>
 <a name="l00041"></a>00041 <span class="preprocessor">#include &quot;navigation_trajectory_common/Conversions.h&quot;</span>
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathPlannerRos.h&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Stopwatch.h&quot;</span>
-<a name="l00045"></a>00045 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Logger.h&quot;</span>
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="preprocessor">#include &lt;nav_core/base_global_planner.h&gt;</span>
-<a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4">00049</a> <a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4">PathPlannerRos::PathPlannerRos</a>(nav_core::BaseGlobalPlanner* planner) : planner(planner) {
-<a name="l00050"></a>00050 }
+<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;navigation_trajectory_common/Stopwatch.h&quot;</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#include &quot;navigation_trajectory_common/Logger.h&quot;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#endif</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a>00048 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathPlannerRos.h&quot;</span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#include &lt;nav_core/base_global_planner.h&gt;</span>
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classPathPlannerRos.html#a9848882987620b490b8ef3d27103776b">00052</a> <a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4">PathPlannerRos::PathPlannerRos</a>(<span class="keyword">const</span> <a class="code" href="classPathPlannerRos.html">PathPlannerRos</a>&amp; orig) : planner(planner) {
+<a name="l00052"></a><a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4">00052</a> <a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4" title="Constructor.">PathPlannerRos::PathPlannerRos</a>(nav_core::BaseGlobalPlanner* planner) : planner(planner) {
 <a name="l00053"></a>00053 }
 <a name="l00054"></a>00054 
-<a name="l00055"></a><a class="code" href="classPathPlannerRos.html#a5db7d77eec1cbf88bd5e01956881bbbc">00055</a> <a class="code" href="classPathPlannerRos.html#a5db7d77eec1cbf88bd5e01956881bbbc">PathPlannerRos::~PathPlannerRos</a>() {
+<a name="l00055"></a><a class="code" href="classPathPlannerRos.html#a9848882987620b490b8ef3d27103776b">00055</a> <a class="code" href="classPathPlannerRos.html#a4a0e992903aeca0e55dd8e853686b7f4" title="Constructor.">PathPlannerRos::PathPlannerRos</a>(<span class="keyword">const</span> <a class="code" href="classPathPlannerRos.html" title="Implementation of the interface class for path planning.">PathPlannerRos</a>&amp; orig) : planner(planner) {
 <a name="l00056"></a>00056 }
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="classPathPlannerRos.html#a6918deb52360eac5ef11bfb602d998b0">00058</a> <span class="keywordtype">bool</span> <a class="code" href="classPathPlannerRos.html#a6918deb52360eac5ef11bfb602d998b0">PathPlannerRos::computePath</a>(<span class="keyword">const</span> <a class="code" href="classFrameWithId.html">FrameWithId</a>&amp; start, <span class="keyword">const</span> <a class="code" href="classFrameWithId.html">FrameWithId</a>&amp; goal, std::vector &lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>) {
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060     <span class="keywordflow">if</span> (!<a class="code" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f">planner</a>) {
-<a name="l00061"></a>00061         ROS_ERROR(<span class="stringliteral">&quot;Planner instance in not allocated&quot;</span>);
-<a name="l00062"></a>00062         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00063"></a>00063     }
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065     geometry_msgs::PoseStamped startRos, goalRos;
-<a name="l00066"></a>00066     <a class="code" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f">conversions::frameToPoseStampedRos</a>(start, startRos);
-<a name="l00067"></a>00067     <a class="code" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f">conversions::frameToPoseStampedRos</a>(goal, goalRos);
-<a name="l00068"></a>00068     std::vector&lt;geometry_msgs::PoseStamped&gt; pathRos;
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html">Stopwatch</a> stopwatch;
-<a name="l00072"></a>00072     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d">start</a>();
-<a name="l00073"></a>00073 <span class="preprocessor">#endif    </span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span>
-<a name="l00075"></a>00075     <span class="keywordtype">bool</span> result = <a class="code" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f">planner</a>-&gt;makePlan(startRos, goalRos, pathRos);
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="preprocessor">#ifdef DEBUG    </span>
-<a name="l00078"></a>00078 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4">stop</a>();
-<a name="l00079"></a>00079     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;A* path planning:&quot;</span>);
-<a name="l00080"></a>00080     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - start: %f,%f,%f&quot;</span>, startRos.pose.position.x, startRos.pose.position.y, startRos.pose.position.z);
-<a name="l00081"></a>00081     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - goal: %f,%f,%f&quot;</span>, goalRos.pose.position.x, goalRos.pose.position.y, goalRos.pose.position.z);
-<a name="l00082"></a>00082     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, pathRos.size());
-<a name="l00083"></a>00083     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b">getElapsedTime</a>());
-<a name="l00084"></a>00084 <span class="preprocessor">#endif </span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span>
-<a name="l00086"></a>00086     <a class="code" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513">conversions::pathRosToPath</a>(pathRos, path);
-<a name="l00087"></a>00087     <span class="keywordflow">return</span> result;
-<a name="l00088"></a>00088 }
+<a name="l00058"></a><a class="code" href="classPathPlannerRos.html#a5db7d77eec1cbf88bd5e01956881bbbc">00058</a> <a class="code" href="classPathPlannerRos.html#a5db7d77eec1cbf88bd5e01956881bbbc" title="Destructor.">PathPlannerRos::~PathPlannerRos</a>() {
+<a name="l00059"></a>00059 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="classPathPlannerRos.html#a6918deb52360eac5ef11bfb602d998b0">00061</a> <span class="keywordtype">bool</span> <a class="code" href="classPathPlannerRos.html#a6918deb52360eac5ef11bfb602d998b0" title="An interface for path planning.">PathPlannerRos::computePath</a>(<span class="keyword">const</span> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>&amp; start, <span class="keyword">const</span> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>&amp; goal, std::vector &lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>) {
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keywordflow">if</span> (!<a class="code" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f" title="Pointer to ROS path planner instance.">planner</a>) {
+<a name="l00064"></a>00064         ROS_ERROR(<span class="stringliteral">&quot;Planner instance in not allocated&quot;</span>);
+<a name="l00065"></a>00065         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00066"></a>00066     }
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     geometry_msgs::PoseStamped startRos, goalRos;
+<a name="l00069"></a>00069     <a class="code" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message.">conversions::frameToPoseStampedRos</a>(start, startRos);
+<a name="l00070"></a>00070     <a class="code" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message.">conversions::frameToPoseStampedRos</a>(goal, goalRos);
+<a name="l00071"></a>00071     std::vector&lt;geometry_msgs::PoseStamped&gt; pathRos;
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;
+<a name="l00075"></a>00075     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();
+<a name="l00076"></a>00076 <span class="preprocessor">#endif    </span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
+<a name="l00078"></a>00078     <span class="keywordtype">bool</span> result = <a class="code" href="classPathPlannerRos.html#abc427c5ecf2045fc562fe4297f117a0f" title="Pointer to ROS path planner instance.">planner</a>-&gt;makePlan(startRos, goalRos, pathRos);
+<a name="l00079"></a>00079     <span class="keywordflow">if</span> (result) {
+<a name="l00080"></a>00080         pathRos.front() = startRos;
+<a name="l00081"></a>00081         pathRos.back() = goalRos;
+<a name="l00082"></a>00082     }
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="preprocessor">#ifdef DEBUG    </span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();
+<a name="l00086"></a>00086     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;A* path planning:&quot;</span>);
+<a name="l00087"></a>00087     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - start: %f,%f,%f&quot;</span>, startRos.pose.position.x, startRos.pose.position.y, tf::getYaw(startRos.pose.orientation));
+<a name="l00088"></a>00088     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - goal: %f,%f,%f&quot;</span>, goalRos.pose.position.x, goalRos.pose.position.y, tf::getYaw(goalRos.pose.orientation));
+<a name="l00089"></a>00089     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, pathRos.size());
+<a name="l00090"></a>00090     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());
+<a name="l00091"></a>00091 <span class="preprocessor">#endif </span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>
+<a name="l00093"></a>00093     <a class="code" href="namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path).">conversions::pathRosToPath</a>(pathRos, path);
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> result;
+<a name="l00095"></a>00095 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

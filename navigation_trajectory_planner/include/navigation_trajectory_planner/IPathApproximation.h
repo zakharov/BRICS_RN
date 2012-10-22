@@ -44,7 +44,16 @@
 
 class FrameWithId;
 
+/**
+ * @brief Interface class for path approximation algorithms.
+ */
+
 class IPathApproximation {
+    /**
+     * @brief An interface for path approximation.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting approximated path.
+     */
     virtual void approximate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out) = 0;
 };
 

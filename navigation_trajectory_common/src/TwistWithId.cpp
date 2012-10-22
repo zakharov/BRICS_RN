@@ -39,35 +39,49 @@
 
 #include "navigation_trajectory_common/TwistWithId.h"
 
+#include <kdl/frames.hpp>
+
 using namespace KDL;
 
-TwistWithId::TwistWithId() : id(""), twist(KDL::Twist()) {
+TwistWithId::TwistWithId() {
+    id = "";
+    twist = new Twist();
 }
 
-TwistWithId::TwistWithId(const std::string& id) : id(id), twist(KDL::Twist()) {
-
+TwistWithId::TwistWithId(const std::string& id) {
+    this->id = id;
+    this->twist = new Twist(); 
 }
 
-TwistWithId::TwistWithId(const KDL::Twist& twist) : id(""), twist(twist) {
-
+TwistWithId::TwistWithId(const KDL::Twist& twist) {
+    this->id = "";
+    this->twist = new Twist(twist); 
 }
 
-TwistWithId::TwistWithId(const KDL::Twist& twist, const std::string& id) : id(id), twist(twist) {
-
+TwistWithId::TwistWithId(const KDL::Twist& twist, const std::string& id) {
+    this->id = id;
+    this->twist = new Twist(twist);
 }
 
-TwistWithId::TwistWithId(const TwistWithId& orig) : id(orig.id), twist(orig.twist) {
+TwistWithId::TwistWithId(const TwistWithId& orig) {
+    id = orig.id;
+    twist = new Twist(orig.getTwist());
+}
 
+void TwistWithId::setTwist(const KDL::Twist& orig) {
+    delete this->twist;
+    this->twist = new Twist(orig);
 }
 
 const KDL::Twist& TwistWithId::getTwist() const {
-    return twist;
+    return *twist;
 }
     
 KDL::Twist& TwistWithId::getTwist() {
-    return twist;
+    return *twist;
 }
 
 TwistWithId::~TwistWithId() {
+    delete twist;
 }
 

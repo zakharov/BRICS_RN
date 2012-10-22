@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="ChaikinCurveApproximation::chaikinCurve" alt="" coords="316,5,580,35"/>
-<area shape="rect" id="node5" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="356,58,540,89"/>
-<area shape="rect" id="node9" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="389,111,507,142"/>
-<area shape="rect" id="node11" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="391,165,505,195"/>
+<area shape="rect" id="node3" href="$classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="Implementation of the Chaiking algorithms." alt="" coords="316,5,580,35"/>
+<area shape="rect" id="node5" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="356,58,540,89"/>
+<area shape="rect" id="node9" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="389,111,507,142"/>
+<area shape="rect" id="node11" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="391,165,505,195"/>
 <area shape="rect" id="node7" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="631,58,796,89"/>
 </map>

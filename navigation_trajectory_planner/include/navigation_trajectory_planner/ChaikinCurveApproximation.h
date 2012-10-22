@@ -42,17 +42,39 @@
 
 #include "navigation_trajectory_planner/IPathApproximation.h"
 
+/**
+ * @brief Implementation of path approximation algorithm. Chaikin algorithm
+ * generates a curve from a limited number of points. 
+ */
+
 class ChaikinCurveApproximation : public IPathApproximation {
 public:
     ChaikinCurveApproximation();
     ChaikinCurveApproximation(const ChaikinCurveApproximation& orig);
     virtual ~ChaikinCurveApproximation();
 
+    /**
+     * @brief Smooths input path by Chaiking algorithm.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting smoothed path.
+     */
     void approximate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out);
+    
+    /**
+     * @brief Smooths input path by Chaiking algorithm.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting smoothed path.
+     * @param[out] lod - level of details.
+     */
     void approximate(const std::vector <FrameWithId>& in, std::vector <FrameWithId>& out, unsigned int lod);
 
 private:
 
+    /**
+     * @brief Implementation of the Chaiking algorithms
+     * @param[in] pointList - std::vector <FrameWithId> input path.
+     * @param[out] resultList - std::vector <FrameWithId> resulting smoothed path.
+     */
     unsigned int chaikinCurve(const std::vector <FrameWithId>& pointList,
             std::vector <FrameWithId>& resultList);
 

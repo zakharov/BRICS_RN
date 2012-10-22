@@ -45,21 +45,21 @@
 <h1>DifferentialDriveTrajectoryGenerator Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="DifferentialDriveTrajectoryGenerator" --><!-- doxytag: inherits="TrajectoryGenerator" -->
+<!-- doxytag: class="DifferentialDriveTrajectoryGenerator" --><!-- doxytag: inherits="ITrajectoryGenerator" -->
 <p><code>#include &lt;<a class="el" href="DifferentialDriveTrajectoryGenerator_8h_source.html">DifferentialDriveTrajectoryGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DifferentialDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDifferentialDriveTrajectoryGenerator__inherit__graph.png" border="0" usemap="#DifferentialDriveTrajectoryGenerator_inherit__map" alt="Inheritance graph"/></div>
 <map name="DifferentialDriveTrajectoryGenerator_inherit__map" id="DifferentialDriveTrajectoryGenerator_inherit__map">
-<area shape="rect" id="node2" href="classTrajectoryGenerator.html" title="{TrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="59,6,208,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="59,6,208,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for DifferentialDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDifferentialDriveTrajectoryGenerator__coll__graph.png" border="0" usemap="#DifferentialDriveTrajectoryGenerator_coll__map" alt="Collaboration graph"/></div>
 <map name="DifferentialDriveTrajectoryGenerator_coll__map" id="DifferentialDriveTrajectoryGenerator_coll__map">
-<area shape="rect" id="node2" href="classTrajectoryGenerator.html" title="{TrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="59,6,208,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="59,6,208,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classDifferentialDriveTrajectoryGenerator-members.html">List of all members.</a></p>
@@ -69,11 +69,11 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDifferentialDriveTrajectoryGenerator.html#a9823cd5b9de9b088690d67ee435c7600">DifferentialDriveTrajectoryGenerator</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDifferentialDriveTrajectoryGenerator.html#aa25b0dc8a5fc8544debf075896f509e9">DifferentialDriveTrajectoryGenerator</a> (const <a class="el" href="classDifferentialDriveTrajectoryGenerator.html">DifferentialDriveTrajectoryGenerator</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDifferentialDriveTrajectoryGenerator.html#af9344c4fe198a5b71c51b5600f2245c7">~DifferentialDriveTrajectoryGenerator</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDifferentialDriveTrajectoryGenerator.html#abf500c9b6e705574382c29b3fadc819b">computeTrajectroy</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, const std::vector&lt; <a class="el" href="classTwistWithId.html">TwistWithId</a> &gt; &amp;trajectory)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDifferentialDriveTrajectoryGenerator.html#ad303a8175d13b14b86fbadf32c431428">computeTrajectroy</a> (const KDL::Path_Composite &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, const KDL::Trajectory_Composite &amp;trajectory)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8h_source.html#l00013">13</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8h_source.html">DifferentialDriveTrajectoryGenerator.h</a>.</p>
+<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8h_source.html#l00045">45</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8h_source.html">DifferentialDriveTrajectoryGenerator.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9823cd5b9de9b088690d67ee435c7600"></a><!-- doxytag: member="DifferentialDriveTrajectoryGenerator::DifferentialDriveTrajectoryGenerator" ref="a9823cd5b9de9b088690d67ee435c7600" args="()" -->
 <div class="memitem">
@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00010">10</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00042">42</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -108,7 +108,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00013">13</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00045">45</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -126,25 +126,25 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00016">16</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00048">48</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="abf500c9b6e705574382c29b3fadc819b"></a><!-- doxytag: member="DifferentialDriveTrajectoryGenerator::computeTrajectroy" ref="abf500c9b6e705574382c29b3fadc819b" args="(const std::vector&lt; FrameWithId &gt; &amp;path, const std::vector&lt; TwistWithId &gt; &amp;trajectory)" -->
+<a class="anchor" id="ad303a8175d13b14b86fbadf32c431428"></a><!-- doxytag: member="DifferentialDriveTrajectoryGenerator::computeTrajectroy" ref="ad303a8175d13b14b86fbadf32c431428" args="(const KDL::Path_Composite &amp;path, const KDL::Trajectory_Composite &amp;trajectory)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void DifferentialDriveTrajectoryGenerator::computeTrajectroy </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const KDL::Path_Composite &amp;&#160;</td>
           <td class="paramname"><em>path</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classTwistWithId.html">TwistWithId</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const KDL::Trajectory_Composite &amp;&#160;</td>
           <td class="paramname"><em>trajectory</em>&#160;</td>
         </tr>
         <tr>
@@ -156,7 +156,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00019">19</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html#l00051">51</a> of file <a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -165,7 +165,7 @@ Public Member Functions</h2></td></tr>
 <li>navigation_trajectory_follower/src/trajectory_generator/<a class="el" href="DifferentialDriveTrajectoryGenerator_8cpp_source.html">DifferentialDriveTrajectoryGenerator.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

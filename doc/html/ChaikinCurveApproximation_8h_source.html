@@ -83,31 +83,32 @@
 <a name="l00040"></a>00040 <span class="preprocessor">#ifndef CHAIKINCURVEAPPROXIMATION_H</span>
 <a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define CHAIKINCURVEAPPROXIMATION_H</span>
 <a name="l00042"></a>00042 <span class="preprocessor"></span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathApproximation.h&quot;</span>
+<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_planner/IPathApproximation.h&quot;</span>
 <a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="classChaikinCurveApproximation.html">00045</a> <span class="keyword">class </span><a class="code" href="classChaikinCurveApproximation.html">ChaikinCurveApproximation</a> : <span class="keyword">public</span> <a class="code" href="classPathApproximation.html">PathApproximation</a> {
-<a name="l00046"></a>00046 <span class="keyword">public</span>:
-<a name="l00047"></a>00047     <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation</a>();
-<a name="l00048"></a>00048     <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation</a>(<span class="keyword">const</span> <a class="code" href="classChaikinCurveApproximation.html">ChaikinCurveApproximation</a>&amp; orig);
-<a name="l00049"></a>00049     <span class="keyword">virtual</span> <a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">~ChaikinCurveApproximation</a>();
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out);
-<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lod);
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keyword">private</span>:
+<a name="l00050"></a><a class="code" href="classChaikinCurveApproximation.html">00050</a> <span class="keyword">class </span><a class="code" href="classChaikinCurveApproximation.html" title="Implementation of path approximation algorithm.">ChaikinCurveApproximation</a> : <span class="keyword">public</span> <a class="code" href="classIPathApproximation.html" title="Interface class for path approximation algorithms.">IPathApproximation</a> {
+<a name="l00051"></a>00051 <span class="keyword">public</span>:
+<a name="l00052"></a>00052     <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation</a>();
+<a name="l00053"></a>00053     <a class="code" href="classChaikinCurveApproximation.html#ae4c6991eb965262a5ef2626b9bc829d8">ChaikinCurveApproximation</a>(<span class="keyword">const</span> <a class="code" href="classChaikinCurveApproximation.html" title="Implementation of path approximation algorithm.">ChaikinCurveApproximation</a>&amp; orig);
+<a name="l00054"></a>00054     <span class="keyword">virtual</span> <a class="code" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">~ChaikinCurveApproximation</a>();
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">chaikinCurve</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
-<a name="l00057"></a>00057             std::vector &lt;FrameWithId&gt;&amp; resultList);
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 };
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <span class="preprocessor">#endif  </span><span class="comment">/* CHAIKINCURVEAPPROXIMATION_H */</span>
-<a name="l00064"></a>00064 
+<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out);
+<a name="l00062"></a>00062     
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lod);
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keyword">private</span>:
+<a name="l00072"></a>00072 
+<a name="l00078"></a>00078     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="Implementation of the Chaiking algorithms.">chaikinCurve</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
+<a name="l00079"></a>00079             std::vector &lt;FrameWithId&gt;&amp; resultList);
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif  </span><span class="comment">/* CHAIKINCURVEAPPROXIMATION_H */</span>
+<a name="l00086"></a>00086 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

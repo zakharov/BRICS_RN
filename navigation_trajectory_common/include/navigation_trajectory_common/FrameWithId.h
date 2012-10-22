@@ -40,35 +40,77 @@
 #ifndef FRAMEWITHID_H
 #define	FRAMEWITHID_H
 
-#include <kdl/frames.hpp>
 #include <string>
+
+namespace KDL {
+    class Frame;
+}
+
+/**
+ * @brief FrameWithId is an aggregation of KDL::Frame class with frame id. 
+ */
 
 class FrameWithId {
 public:
+    /**
+     * @brief String identifier of the frame
+     */
     std::string id;
 
 public:
 
-    
+    /**
+     * @brief Constructor
+     * @param[in] id - string identifier of the frame
+     */
     FrameWithId(const std::string& id);
     
+    /**
+     * @brief Constructor
+     * @param[in] frame - initial 6D pose of the frame
+     */
     FrameWithId(const KDL::Frame& frame);
     
+    /**
+     * @brief Constructor
+     * @param[in] frame - initial 6D pose of the frame
+     * @param[in] id - string identifier of the frame
+     */
     FrameWithId(const KDL::Frame& frame, const std::string& id);
 
+    /**
+     * @brief Default constructor
+     */    
     FrameWithId();
 
-    FrameWithId(const FrameWithId& arg);
+    /**
+     * @brief Copy constructor
+     * @param[in] arg - reference to the original object
+     */
+    FrameWithId(const FrameWithId& orig);
     
+    /**
+     * @brief Sets new KDL::Frame
+     */
+    void setFrame(const KDL::Frame& frame);
+        
+    /**
+     * @brief Returns an underlying KDL::Frame as a const reference or a copy
+     */
     const KDL::Frame& getFrame() const;
     
+    /**
+     * @brief Returns an underlying KDL::Frame as a reference
+     */
     KDL::Frame& getFrame();
 
     virtual ~FrameWithId();
     
 private:
-    
-    KDL::Frame frame; 
+    /**
+     * @brief Aggregated KDL::Frame
+     */
+    KDL::Frame* frame; 
  
 };
 

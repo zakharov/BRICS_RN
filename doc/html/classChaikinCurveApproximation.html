@@ -46,21 +46,24 @@
 <h1>ChaikinCurveApproximation Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="ChaikinCurveApproximation" --><!-- doxytag: inherits="PathApproximation" -->
+<!-- doxytag: class="ChaikinCurveApproximation" --><!-- doxytag: inherits="IPathApproximation" -->
+<p>Implementation of path approximation algorithm.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ChaikinCurveApproximation_8h_source.html">ChaikinCurveApproximation.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ChaikinCurveApproximation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classChaikinCurveApproximation__inherit__graph.png" border="0" usemap="#ChaikinCurveApproximation_inherit__map" alt="Inheritance graph"/></div>
 <map name="ChaikinCurveApproximation_inherit__map" id="ChaikinCurveApproximation_inherit__map">
-<area shape="rect" id="node2" href="classPathApproximation.html" title="{PathApproximation\n||&#45; approximate()\l}" alt="" coords="45,6,176,95"/></map>
+<area shape="rect" id="node2" href="classIPathApproximation.html" title="Interface class for path approximation algorithms." alt="" coords="44,6,177,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for ChaikinCurveApproximation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classChaikinCurveApproximation__coll__graph.png" border="0" usemap="#ChaikinCurveApproximation_coll__map" alt="Collaboration graph"/></div>
 <map name="ChaikinCurveApproximation_coll__map" id="ChaikinCurveApproximation_coll__map">
-<area shape="rect" id="node2" href="classPathApproximation.html" title="{PathApproximation\n||&#45; approximate()\l}" alt="" coords="45,6,176,95"/></map>
+<area shape="rect" id="node2" href="classIPathApproximation.html" title="Interface class for path approximation algorithms." alt="" coords="44,6,177,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classChaikinCurveApproximation-members.html">List of all members.</a></p>
@@ -71,14 +74,19 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChaikinCurveApproximation.html#acc137f37699ebcad30df2449d04dfa8d">ChaikinCurveApproximation</a> (const <a class="el" href="classChaikinCurveApproximation.html">ChaikinCurveApproximation</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChaikinCurveApproximation.html#a074fb04893f71a8a744f1ae2076494d6">~ChaikinCurveApproximation</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361">approximate</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;in, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;out)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Smooths input path by Chaiking algorithm.  <a href="#ab669f5fb9571472758ea6f81f8a14361"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChaikinCurveApproximation.html#ad74792f8e2073431de7d7df8fd9d2a03">approximate</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;in, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;out, unsigned int lod)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Smooths input path by Chaiking algorithm.  <a href="#ad74792f8e2073431de7d7df8fd9d2a03"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e">chaikinCurve</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;pointList, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;resultList)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the Chaiking algorithms.  <a href="#abe2354445621211c66196a25d9b8917e"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8h_source.html#l00045">45</a> of file <a class="el" href="ChaikinCurveApproximation_8h_source.html">ChaikinCurveApproximation.h</a>.</p>
+<div class="textblock"><p>Implementation of path approximation algorithm. </p>
+<p>Chaikin algorithm generates a curve from a limited number of points. </p>
+
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8h_source.html#l00050">50</a> of file <a class="el" href="ChaikinCurveApproximation_8h_source.html">ChaikinCurveApproximation.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae4c6991eb965262a5ef2626b9bc829d8"></a><!-- doxytag: member="ChaikinCurveApproximation::ChaikinCurveApproximation" ref="ae4c6991eb965262a5ef2626b9bc829d8" args="()" -->
 <div class="memitem">
@@ -94,7 +102,7 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00046">46</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00051">51</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
 
 </div>
 </div>
@@ -113,7 +121,7 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00050">50</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00055">55</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
 
 </div>
 </div>
@@ -131,7 +139,7 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00054">54</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00059">59</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
 
 </div>
 </div>
@@ -161,9 +169,18 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="classPathApproximation.html#a51251bd234f4f570b6512a90155ca778">PathApproximation</a>.</p>
+<p>Smooths input path by Chaiking algorithm. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting smoothed path. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00081">81</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Implements <a class="el" href="classIPathApproximation.html#a4278aab197574681cf64fb378aa6951a">IPathApproximation</a>.</p>
+
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00086">86</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
 
 </div>
 </div>
@@ -198,16 +215,26 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00057">57</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Smooths input path by Chaiking algorithm. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting smoothed path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">lod</td><td>- level of details. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00086">chaikinCurve()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">62</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+
+<p>References <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00091">chaikinCurve()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classChaikinCurveApproximation_ad74792f8e2073431de7d7df8fd9d2a03_cgraph.png" border="0" usemap="#classChaikinCurveApproximation_ad74792f8e2073431de7d7df8fd9d2a03_cgraph" alt=""/></div>
 <map name="classChaikinCurveApproximation_ad74792f8e2073431de7d7df8fd9d2a03_cgraph" id="classChaikinCurveApproximation_ad74792f8e2073431de7d7df8fd9d2a03_cgraph">
-<area shape="rect" id="node3" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="ChaikinCurveApproximation::chaikinCurve" alt="" coords="316,5,580,35"/><area shape="rect" id="node5" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="356,58,540,89"/><area shape="rect" id="node9" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="389,111,507,142"/><area shape="rect" id="node11" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="391,165,505,195"/><area shape="rect" id="node7" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="631,58,796,89"/></map>
+<area shape="rect" id="node3" href="classChaikinCurveApproximation.html#abe2354445621211c66196a25d9b8917e" title="Implementation of the Chaiking algorithms." alt="" coords="316,5,580,35"/><area shape="rect" id="node5" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="356,58,540,89"/><area shape="rect" id="node9" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="389,111,507,142"/><area shape="rect" id="node11" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="391,165,505,195"/><area shape="rect" id="node7" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="631,58,796,89"/></map>
 </div>
 </p>
 
@@ -238,11 +265,18 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00086">86</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
+<p>Implementation of the Chaiking algorithms. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pointList</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">resultList</td><td>- std::vector &lt;FrameWithId&gt; resulting smoothed path. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="FrameWithId_8h_source.html#l00048">FrameWithId::id</a>.</p>
+<p>Definition at line <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00091">91</a> of file <a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00057">approximate()</a>.</p>
+<p>Referenced by <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">approximate()</a>.</p>
 
 </div>
 </div>
@@ -251,7 +285,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_planner/src/<a class="el" href="ChaikinCurveApproximation_8cpp_source.html">ChaikinCurveApproximation.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

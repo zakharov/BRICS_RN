@@ -42,29 +42,64 @@
 
 #include <ctime>
 
+/**
+ * @brief Implementation of a stopwatch for profiling of the algorithms.
+ */
+
 class Stopwatch {
 public:
+    /**
+     * @brief Default constructor.
+     */
     Stopwatch();
+
+    /**
+     * @brief Copy constructor.
+     */
     Stopwatch(const Stopwatch& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~Stopwatch();
 
+    /**
+     * @brief Start a stop watch
+     */
     void start();
+
+    /**
+     * @brief Stop and reset a stop watch
+     */
     void stop();
+
+    /**
+     * @brief Pause a stopwatch without resetting
+     */
     void pause();
 
+    /**
+     * @brief Return a start time in milliseconds
+     */
     double getStartTime() const;
+
+    /**
+     * @brief Return a top time in milliseconds
+     */
     double getStopTime() const;
+
+    /**
+     * @brief return elapsed time in milliseconds 
+     */
     double getElapsedTime() const;
 
 private:
 
     double convertToMs(const timespec& time) const;
-
     timespec startTime;
     timespec stopTime;
     double elapsedTime;
     bool isPause;
-
 };
 
 #endif	/* STOPWATCH_H */

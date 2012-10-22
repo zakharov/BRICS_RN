@@ -54,7 +54,7 @@ Collaboration diagram for TrajectoryFollowerNode:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTrajectoryFollowerNode__coll__graph.png" border="0" usemap="#TrajectoryFollowerNode_coll__map" alt="Collaboration graph"/></div>
 <map name="TrajectoryFollowerNode_coll__map" id="TrajectoryFollowerNode_coll__map">
-<area shape="rect" id="node2" href="classPositionController.html" title="{PositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="11,6,184,226"/></map>
+<area shape="rect" id="node2" href="classIPositionController.html" title="{IPositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="11,6,184,226"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classTrajectoryFollowerNode-members.html">List of all members.</a></p>
@@ -65,12 +65,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a482b43d728a64eaf1e2643d9143024df">TrajectoryFollowerNode</a> (const <a class="el" href="classTrajectoryFollowerNode.html">TrajectoryFollowerNode</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a5ae78af5034159914dc93b18398221f6">publishTwist</a> (const geometry_msgs::Twist &amp;twist)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#af78b22b85aea5dbb06e99c3415a47700">setActualOdometry</a> (const nav_msgs::Odometry &amp;odometry)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a7b4fe51cc899b1d8cd7d55aad0d9ed28">setActualTrajectory</a> (const navigation_trajectory_msgs::Trajectory &amp;trajectory)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a26a250163b9e7b947e1940def86eae61">~TrajectoryFollowerNode</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a62b63658f5e2dd48ed9a1ca87d7eb9dd">controlLoop</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">KDL::Trajectory *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#af103420d18a523e35de8761d6f9a3e12">createTrajectoryKDL</a> (const navigation_trajectory_msgs::Trajectory &amp;trajectory)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a3a6c371190d1c465bccbfa8842e9bd3a">createKDLFrame</a> (const nav_msgs::Odometry &amp;odometry, KDL::Frame &amp;frame)</td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -82,9 +80,8 @@ Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a8e09279524cbba68ffe727f24b4c81f6">odomSubscriber</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a5c71db25711c3885b87fa360bd38cd86">twistPublisher</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a6c1baca7166c0a740c8d8440c650093f">nodeName</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPositionController.html">PositionController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a091a965e3262157d1e97f3706ce3c55d">controller</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIPositionController.html">IPositionController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a8089d1965242424fb76eb95d98894af8">controller</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">nav_msgs::Odometry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a8458254728252cd0dab14dbae193c193">actualOdometry</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">navigation_trajectory_msgs::Trajectory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#af2858f2e4c81b96a70ae1e3465416c3d">actualTrajectory</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">geometry_msgs::Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a19b253c55f6ca4529dfda6a109d086dd">actualAcceleration</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">KDL::Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#a002c8d8466d5c9e47d5d7da6adb86429">desiredTwist</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">KDL::Frame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryFollowerNode.html#aa78b1596cd4bff9089640bc5b4549d51">desiredPose</a></td></tr>
@@ -95,7 +92,7 @@ Private Attributes</h2></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00063">63</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00061">61</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aaf7e326ed5871078cae9594fa9a3dcd6"></a><!-- doxytag: member="TrajectoryFollowerNode::TrajectoryFollowerNode" ref="aaf7e326ed5871078cae9594fa9a3dcd6" args="(std::string name)" -->
 <div class="memitem">
@@ -191,23 +188,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af103420d18a523e35de8761d6f9a3e12"></a><!-- doxytag: member="TrajectoryFollowerNode::createTrajectoryKDL" ref="af103420d18a523e35de8761d6f9a3e12" args="(const navigation_trajectory_msgs::Trajectory &amp;trajectory)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">KDL::Trajectory* TrajectoryFollowerNode::createTrajectoryKDL </td>
-          <td>(</td>
-          <td class="paramtype">const navigation_trajectory_msgs::Trajectory &amp;&#160;</td>
-          <td class="paramname"><em>trajectory</em></td><td>)</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a5ae78af5034159914dc93b18398221f6"></a><!-- doxytag: member="TrajectoryFollowerNode::publishTwist" ref="a5ae78af5034159914dc93b18398221f6" args="(const geometry_msgs::Twist &amp;twist)" -->
 <div class="memitem">
 <div class="memproto">
@@ -242,23 +222,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7b4fe51cc899b1d8cd7d55aad0d9ed28"></a><!-- doxytag: member="TrajectoryFollowerNode::setActualTrajectory" ref="a7b4fe51cc899b1d8cd7d55aad0d9ed28" args="(const navigation_trajectory_msgs::Trajectory &amp;trajectory)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TrajectoryFollowerNode::setActualTrajectory </td>
-          <td>(</td>
-          <td class="paramtype">const navigation_trajectory_msgs::Trajectory &amp;&#160;</td>
-          <td class="paramname"><em>trajectory</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="a19b253c55f6ca4529dfda6a109d086dd"></a><!-- doxytag: member="TrajectoryFollowerNode::actualAcceleration" ref="a19b253c55f6ca4529dfda6a109d086dd" args="" -->
 <div class="memitem">
@@ -271,7 +234,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00096">96</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00090">90</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -286,7 +249,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00094">94</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00089">89</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -301,22 +264,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00078">78</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af2858f2e4c81b96a70ae1e3465416c3d"></a><!-- doxytag: member="TrajectoryFollowerNode::actualTrajectory" ref="af2858f2e4c81b96a70ae1e3465416c3d" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">navigation_trajectory_msgs::Trajectory <a class="el" href="classTrajectoryFollowerNode.html#af2858f2e4c81b96a70ae1e3465416c3d">TrajectoryFollowerNode::actualTrajectory</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00095">95</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00074">74</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -331,22 +279,22 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00083">83</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00078">78</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a091a965e3262157d1e97f3706ce3c55d"></a><!-- doxytag: member="TrajectoryFollowerNode::controller" ref="a091a965e3262157d1e97f3706ce3c55d" args="" -->
+<a class="anchor" id="a8089d1965242424fb76eb95d98894af8"></a><!-- doxytag: member="TrajectoryFollowerNode::controller" ref="a8089d1965242424fb76eb95d98894af8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPositionController.html">PositionController</a>* <a class="el" href="classTrajectoryFollowerNode.html#a091a965e3262157d1e97f3706ce3c55d">TrajectoryFollowerNode::controller</a><code> [private]</code></td>
+          <td class="memname"><a class="el" href="classIPositionController.html">IPositionController</a>* <a class="el" href="classTrajectoryFollowerNode.html#a8089d1965242424fb76eb95d98894af8">TrajectoryFollowerNode::controller</a><code> [private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00093">93</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00088">88</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -361,7 +309,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00098">98</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00092">92</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +324,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00097">97</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00091">91</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +339,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00085">85</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00080">80</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +354,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00091">91</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00086">86</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -421,7 +369,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00088">88</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00083">83</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -436,7 +384,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00078">78</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00074">74</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +399,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00100">100</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00094">94</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -466,7 +414,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00101">101</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00095">95</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -481,7 +429,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00087">87</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00082">82</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +444,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00089">89</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00084">84</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +459,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00102">102</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00096">96</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -526,7 +474,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00103">103</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryFollowerNode_8h_source.html#l00097">97</a> of file <a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a>.</p>
 
 </div>
 </div>
@@ -534,7 +482,7 @@ Private Attributes</h2></td></tr>
 <li>navigation_trajectory_follower/include/navigation_trajectory_follower/<a class="el" href="TrajectoryFollowerNode_8h_source.html">TrajectoryFollowerNode.h</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:06 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

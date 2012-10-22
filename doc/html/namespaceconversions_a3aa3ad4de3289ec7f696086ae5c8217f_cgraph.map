@@ -1,5 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="conversions::pathRosToPath" alt="" coords="244,5,431,35"/>
-<area shape="rect" id="node5" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="conversions::poseStampedRosToFrame" alt="" coords="480,5,733,35"/>
-<area shape="rect" id="node7" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="conversions::poseRosToFrame" alt="" coords="783,5,983,35"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="244,5,431,35"/>
+<area shape="rect" id="node5" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="480,5,733,35"/>
+<area shape="rect" id="node7" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="783,5,983,35"/>
+<area shape="rect" id="node9" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1032,5,1189,35"/>
 </map>

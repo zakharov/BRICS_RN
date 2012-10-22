@@ -37,38 +37,50 @@
  *
  ******************************************************************************/
 
+#include <kdl/frames.hpp>
+
 #include "navigation_trajectory_common/FrameWithId.h"
 
 using namespace KDL;
 
-FrameWithId::FrameWithId(const std::string& id) : id(id), frame(Frame()) {
-
+FrameWithId::FrameWithId(const std::string& id) {
+    this->id = id; 
+    this->frame = new Frame();
 }
 
-FrameWithId::FrameWithId(const KDL::Frame& frame) : id(""), frame(frame) {
-    
+FrameWithId::FrameWithId(const KDL::Frame& frame) {
+    this->id = "";
+    this->frame = new Frame(frame);
 }
 
-FrameWithId::FrameWithId(const KDL::Frame& frame, const std::string& id) : id(id), frame(frame) {
-    
+FrameWithId::FrameWithId(const KDL::Frame& frame, const std::string& id) {
+    this->id = id;
+    this->frame = new Frame(frame);
 }
 
-FrameWithId::FrameWithId() : id(""), frame(Frame()) {
-
+FrameWithId::FrameWithId() {
+    this->id = ""; 
+    frame = new Frame();
 }
 
-FrameWithId::FrameWithId(const FrameWithId& arg) : id(arg.id), frame(arg.frame) {
-
+FrameWithId::FrameWithId(const FrameWithId& orig) {
+    id = orig.id; 
+    frame = new Frame(orig.getFrame()); 
 }
 
 FrameWithId::~FrameWithId() {
+    delete frame;
+}
 
+void FrameWithId::setFrame(const KDL::Frame& frame) {
+    delete this->frame;
+    this->frame = new Frame(frame);
 }
 
 const KDL::Frame& FrameWithId::getFrame() const {
-    return frame;
+    return *frame;
 }
 
 KDL::Frame& FrameWithId::getFrame() {
-    return frame;
+    return *frame;
 }

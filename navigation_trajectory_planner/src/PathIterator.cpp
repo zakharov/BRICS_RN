@@ -41,8 +41,6 @@
 
 #include "navigation_trajectory_planner/PathIterator.h"
 
-const FrameWithId& PathIterator::dummy = FrameWithId();
-
 PathIterator::PathIterator(const std::vector <FrameWithId>&) : path(path) {
     cursor = 0;
 }

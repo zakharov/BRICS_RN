@@ -42,12 +42,36 @@
 
 #include "navigation_trajectory_planner/IPathInterpolation.h"
 
+/**
+ * @brief Implementation of the interface class for path interpolation algorithms, 
+ * linear path interpolation algorithm.
+ */
+
 class LinearInterpolation : IPathInterpolation {
 public:
+
+    /**
+     * Constructor.
+     */
     LinearInterpolation();
+
+    /**
+     * @brief Copy constructor.
+     */
     LinearInterpolation(const LinearInterpolation& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~LinearInterpolation();
 
+    /**
+     * @brief An interface for linear path approximation algorithms.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting interpolated path.
+     * @param step - step size.
+     * @param numberOfSteps - number of steps.
+     */
     size_t interpolate(const std::vector <FrameWithId>& in,
             std::vector <FrameWithId>& out,
             double step,
@@ -55,6 +79,13 @@ public:
 
 private:
 
+    /**
+     * @brief An implementation of the linear path approximation algorithms.
+     * @param[in] in - std::vector <FrameWithId> input path.
+     * @param[out] out - std::vector <FrameWithId> resulting interpolated path.
+     * @param step - step size.
+     * @param numberOfSteps - number of steps.
+     */
     size_t linearInterpolation(const std::vector <FrameWithId>& in,
             std::vector <FrameWithId>& out,
             double step,

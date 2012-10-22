@@ -43,50 +43,71 @@
 #include <vector>
 #include "FrameWithId.h"
 
+#include <kdl/frames.hpp>
+
+/**
+ * @brief Some commonly used routines. 
+ */
+
 namespace utilities {
 
-inline double perpendicularDistance(const FrameWithId& point,
-        const FrameWithId& linePoint1, const FrameWithId& linePoint2) {
+    /**
+     * @brief Calculates and returns perpendicular distance form the given point to the line (for 2D space)
+     * @param[in] point - FrameWithId coordinates of the point.
+     * @param[in] linePoint1 - FrameWithId 1st coordinate of the line.
+     * @param[in] linePoint2 - FrameWithId 2nd coordinate of the line.
+     */
+    inline double perpendicularDistance(const FrameWithId& point,
+            const FrameWithId& linePoint1, const FrameWithId& linePoint2) {
 
-    double x0 = point.getFrame().p.x();
-    double y0 = point.getFrame().p.y();
+        double x0 = point.getFrame().p.x();
+        double y0 = point.getFrame().p.y();
 
-    double x1 = linePoint1.getFrame().p.x();
-    double y1 = linePoint1.getFrame().p.y();
+        double x1 = linePoint1.getFrame().p.x();
+        double y1 = linePoint1.getFrame().p.y();
 
-    double x2 = linePoint2.getFrame().p.x();
-    double y2 = linePoint2.getFrame().p.y();
+        double x2 = linePoint2.getFrame().p.x();
+        double y2 = linePoint2.getFrame().p.y();
 
-    double dist = fabs((x2 - x1)*(y1 - y0)-(x1 - x0)*(y2 - y1)) /
-            sqrt((x2 - x1)*(x2 - x1)+(y2 - y1)*(y2 - y1));
+        double dist = fabs((x2 - x1)*(y1 - y0)-(x1 - x0)*(y2 - y1)) /
+                sqrt((x2 - x1)*(x2 - x1)+(y2 - y1)*(y2 - y1));
 
-    return dist;
+        return dist;
 
-}
-
-inline void prunePath(const std::vector<FrameWithId>& path,
-        const FrameWithId& point,
-        std::vector<FrameWithId>& prunedPath) {
-
-    std::vector<FrameWithId> localPath;
-    localPath = path;
-
-    double dmax = perpendicularDistance(localPath[0], localPath[1], point);
-    unsigned int index = 1;
-
-    for (unsigned int i = 1; i < localPath.size(); i++) {
-        double d = perpendicularDistance(localPath[i - 1], localPath[i],
-                point);
-        if (d <= dmax) {
-            index = i;
-            dmax = d;
-        }
     }
 
-    prunedPath.push_back(point);
-    prunedPath.insert(prunedPath.end(), localPath.begin() + index, localPath.end());
+   /**
+     * @brief Calculates pruned path, builds perpendiculars to the 
+     * original path, takes the shortest perpendicular as a trimming line, 
+     * trims the path, insert the point argument as a new starting point of 
+     * the path (for 2D space). 
+     * @param[in] path - std::vector<FrameWithId> original path, a vector of FrameWithId.
+     * @param[in] point - FrameWithId trimming point.
+     * @param[out] prunedPath - std::vector<FrameWithId> resulting pruned path.
+     */
+    inline void prunePath(const std::vector<FrameWithId>& path,
+            const FrameWithId& point,
+            std::vector<FrameWithId>& prunedPath) {
 
-}
+        std::vector<FrameWithId> localPath;
+        localPath = path;
+
+        double dmax = perpendicularDistance(localPath[0], localPath[1], point);
+        unsigned int index = 1;
+
+        for (unsigned int i = 1; i < localPath.size(); i++) {
+            double d = perpendicularDistance(localPath[i - 1], localPath[i],
+                    point);
+            if (d <= dmax) {
+                index = i;
+                dmax = d;
+            }
+        }
+
+        prunedPath.push_back(point);
+        prunedPath.insert(prunedPath.end(), localPath.begin() + index, localPath.end());
+
+    }
 
 }
 

@@ -44,8 +44,20 @@
 
 class FrameWithId;
 
+/**
+ * @brief Interface class for path planning algorithms.
+ */
+
 class IPathPlanner {
 public:
+    
+    /**
+     * @brief An interface for path planning.
+     * @param[in] start - FrameWithId start position for a planner.
+     * @param[in] goal - FrameWithId goal position for a planner.
+     * @param[out] path - std::vector <FrameWithId> computed path
+     * @return true if planner has found a path, otherwise false.
+     */
     virtual bool computePath(const FrameWithId& start, const FrameWithId& goal, std::vector <FrameWithId>& path) = 0;
 private:
 

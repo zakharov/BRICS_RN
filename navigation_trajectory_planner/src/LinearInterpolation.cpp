@@ -46,6 +46,8 @@
 
 #include "navigation_trajectory_planner/LinearInterpolation.h"
 
+#include <kdl/frames.hpp>
+
 LinearInterpolation::LinearInterpolation() {
 
 }

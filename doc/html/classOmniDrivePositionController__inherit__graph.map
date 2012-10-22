@@ -1,3 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$classPositionController.html" title="{PositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="24,6,197,226"/>
+<area shape="rect" id="node2" href="$classIPositionController.html" title="{IPositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="24,6,197,226"/>
 </map>

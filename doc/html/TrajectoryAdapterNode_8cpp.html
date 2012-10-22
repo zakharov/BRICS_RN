@@ -56,8 +56,6 @@
 <code>#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_common/TwistWithId.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_common/Conversions.h&quot;</code><br/>
-<code>#include &quot;navigation_trajectory_planner/TrajectoryAdapter.h&quot;</code><br/>
-<code>#include &quot;navigation_trajectory_planner/TrajectoryAdapterObserver.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_planner/PathPlannerRos.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_planner/DouglasPeuckerApproximation.h&quot;</code><br/>
 <code>#include &quot;navigation_trajectory_planner/ChaikinCurveApproximation.h&quot;</code><br/>
@@ -72,7 +70,6 @@ Include dependency graph for TrajectoryAdapterNode.cpp:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryAdapterObserverROS.html">TrajectoryAdapterObserverROS</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -82,15 +79,14 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTrajectoryAdapter.html">TrajectoryAdapter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTrajectoryAdapterNodeState.html">TrajectoryAdapterNodeState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#ab41d30a6ad7e56d0a468ae6f14ffb6c6">actualState</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">pathPublisher</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">simplifiedPathPublisher</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTwistWithId.html">TwistWithId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#af4e0e12f1bdc66e9a668ef1916ca8475">actualTwist</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFrameWithId.html">FrameWithId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFrameWithId.html">FrameWithId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPathPlanner.html">PathPlanner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCollisionChecking.html">CollisionChecking</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIPathPlanner.html">IPathPlanner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classICollisionChecking.html">ICollisionChecking</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TrajectoryAdapterNode_8cpp.html#aab9e75b1a2d87f909244e0cce3912d31">simplifiedPath</a></td></tr>
 </table>
@@ -109,18 +105,18 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">126</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">116</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">actualPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00100">actualState</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00103">actualTwist</a>, <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00059">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e">CollisionChecking::check()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00074">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00106">collisionChecker</a>, <a class="el" href="classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e">PathPlanner::computePath()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00089">TrajectoryAdapterNodeState::get()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">goalPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00074">TrajectoryAdapterNodeState::IDLING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00124">path</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">pathPlanner</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">pathPublisher</a>, <a class="el" href="Conversions_8h_source.html#l00093">conversions::pathToPathRos()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00074">TrajectoryAdapterNodeState::PLANNING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00085">TrajectoryAdapterNodeState::set()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00124">simplifiedPath</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">simplifiedPathPublisher</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00099">trajectoryAdapter</a>, and <a class="el" href="TrajectoryAdapter_8cpp_source.html#l00066">TrajectoryAdapter::updateOdometry()</a>.</p>
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">actualPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00090">actualState</a>, <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00059">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96">ICollisionChecking::check()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00065">TrajectoryAdapterNodeState::COLLISION_CHECKING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00096">collisionChecker</a>, <a class="el" href="classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9">IPathPlanner::computePath()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00080">TrajectoryAdapterNodeState::get()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">goalPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00065">TrajectoryAdapterNodeState::IDLING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">path</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00095">pathPlanner</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">pathPublisher</a>, <a class="el" href="Conversions_8h_source.html#l00139">conversions::pathToPathRos()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00065">TrajectoryAdapterNodeState::PLANNING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00076">TrajectoryAdapterNodeState::set()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">simplifiedPath</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">simplifiedPathPublisher</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00191">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00152">main()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="TrajectoryAdapterNode_8cpp_a077653068e40e321988844e5df19fd7a_cgraph.png" border="0" usemap="#TrajectoryAdapterNode_8cpp_a077653068e40e321988844e5df19fd7a_cgraph" alt=""/></div>
 <map name="TrajectoryAdapterNode_8cpp_a077653068e40e321988844e5df19fd7a_cgraph" id="TrajectoryAdapterNode_8cpp_a077653068e40e321988844e5df19fd7a_cgraph">
-<area shape="rect" id="node3" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="DouglasPeuckerApproximation::approximate" alt="" coords="145,5,423,35"/><area shape="rect" id="node5" href="classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e" title="CollisionChecking::check" alt="" coords="200,58,368,89"/><area shape="rect" id="node7" href="classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e" title="PathPlanner::computePath" alt="" coords="196,111,372,142"/><area shape="rect" id="node9" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="179,165,389,195"/><area shape="rect" id="node11" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="conversions::pathToPathRos" alt="" coords="191,218,377,249"/><area shape="rect" id="node17" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="179,271,389,302"/><area shape="rect" id="node19" href="classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8" title="TrajectoryAdapter::updateOdometry" alt="" coords="171,325,397,355"/><area shape="rect" id="node13" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="472,218,723,249"/><area shape="rect" id="node15" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="772,218,969,249"/></map>
+<area shape="rect" id="node3" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="145,5,423,35"/><area shape="rect" id="node5" href="classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="199,58,369,89"/><area shape="rect" id="node7" href="classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="195,111,373,142"/><area shape="rect" id="node9" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="179,165,389,195"/><area shape="rect" id="node11" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="191,218,377,249"/><area shape="rect" id="node19" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="179,271,389,302"/><area shape="rect" id="node13" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="472,218,723,249"/><area shape="rect" id="node15" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="772,218,969,249"/><area shape="rect" id="node17" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1019,218,1176,249"/></map>
 </div>
 </p>
 
@@ -141,18 +137,18 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00115">115</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">105</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00100">actualState</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">goalPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00074">TrajectoryAdapterNodeState::PLANNING</a>, <a class="el" href="Conversions_8h_source.html#l00074">conversions::poseStampedRosToFrame()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00085">TrajectoryAdapterNodeState::set()</a>.</p>
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00090">actualState</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">goalPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00065">TrajectoryAdapterNodeState::PLANNING</a>, <a class="el" href="Conversions_8h_source.html#l00103">conversions::poseStampedRosToFrame()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00076">TrajectoryAdapterNodeState::set()</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="TrajectoryAdapterNode_8cpp_a2fc180559b92aff97cf462c09ad1d007_cgraph.png" border="0" usemap="#TrajectoryAdapterNode_8cpp_a2fc180559b92aff97cf462c09ad1d007_cgraph" alt=""/></div>
 <map name="TrajectoryAdapterNode_8cpp_a2fc180559b92aff97cf462c09ad1d007_cgraph" id="TrajectoryAdapterNode_8cpp_a2fc180559b92aff97cf462c09ad1d007_cgraph">
-<area shape="rect" id="node3" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="conversions::poseStampedRosToFrame" alt="" coords="149,5,403,35"/><area shape="rect" id="node7" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="171,58,381,89"/><area shape="rect" id="node5" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="conversions::poseRosToFrame" alt="" coords="452,5,652,35"/></map>
+<area shape="rect" id="node3" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="149,5,403,35"/><area shape="rect" id="node9" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="171,58,381,89"/><area shape="rect" id="node5" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="452,5,652,35"/><area shape="rect" id="node7" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="701,5,859,35"/></map>
 </div>
 </p>
 
@@ -183,16 +179,16 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">177</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">170</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00100">actualState</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00106">collisionChecker</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00115">goalCallback()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00074">TrajectoryAdapterNodeState::IDLING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00108">odometryCallback()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">pathPlanner</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">pathPublisher</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00085">TrajectoryAdapterNodeState::set()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">simplifiedPathPublisher</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00099">trajectoryAdapter</a>.</p>
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00090">actualState</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00096">collisionChecker</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">goalCallback()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00065">TrajectoryAdapterNodeState::IDLING</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00098">odometryCallback()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00095">pathPlanner</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">pathPublisher</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00076">TrajectoryAdapterNodeState::set()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">simplifiedPathPublisher</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="TrajectoryAdapterNode_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png" border="0" usemap="#TrajectoryAdapterNode_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" alt=""/></div>
 <map name="TrajectoryAdapterNode_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" id="TrajectoryAdapterNode_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph">
-<area shape="rect" id="node3" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="124,191,212,222"/><area shape="rect" id="node19" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="315,325,525,355"/><area shape="rect" id="node23" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007" title="goalCallback" alt="" coords="120,377,216,407"/><area shape="rect" id="node30" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9" title="odometryCallback" alt="" coords="105,431,231,462"/><area shape="rect" id="node5" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="DouglasPeuckerApproximation::approximate" alt="" coords="281,5,559,35"/><area shape="rect" id="node7" href="classCollisionChecking.html#ab4a6f78475cc97d98ef0e4b92ed3302e" title="CollisionChecking::check" alt="" coords="336,58,504,89"/><area shape="rect" id="node9" href="classPathPlanner.html#a2c43325a36f8c76289db76d4e0a5685e" title="PathPlanner::computePath" alt="" coords="332,111,508,142"/><area shape="rect" id="node11" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="315,165,525,195"/><area shape="rect" id="node13" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="conversions::pathToPathRos" alt="" coords="327,218,513,249"/><area shape="rect" id="node21" href="classTrajectoryAdapter.html#a9430919591cc7fa8b9504070f0c347b8" title="TrajectoryAdapter::updateOdometry" alt="" coords="307,271,533,302"/><area shape="rect" id="node15" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="conversions::frameToPoseStampedRos" alt="" coords="608,218,859,249"/><area shape="rect" id="node17" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="conversions::frameToPoseRos" alt="" coords="908,218,1105,249"/><area shape="rect" id="node25" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="conversions::poseStampedRosToFrame" alt="" coords="293,378,547,409"/><area shape="rect" id="node27" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="conversions::poseRosToFrame" alt="" coords="633,378,833,409"/><area shape="rect" id="node32" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="conversions::odometryRosToFrame" alt="" coords="307,431,533,462"/><area shape="rect" id="node34" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="conversions::odometryRosToTwist" alt="" coords="309,485,531,515"/></map>
+<area shape="rect" id="node3" href="TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="124,165,212,195"/><area shape="rect" id="node21" href="classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="315,271,525,302"/><area shape="rect" id="node23" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007" title="goalCallback" alt="" coords="120,323,216,354"/><area shape="rect" id="node31" href="TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9" title="odometryCallback" alt="" coords="105,377,231,407"/><area shape="rect" id="node5" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="281,5,559,35"/><area shape="rect" id="node7" href="classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="335,58,505,89"/><area shape="rect" id="node9" href="classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="331,111,509,142"/><area shape="rect" id="node11" href="classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="315,165,525,195"/><area shape="rect" id="node13" href="namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="327,218,513,249"/><area shape="rect" id="node15" href="namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="609,231,860,262"/><area shape="rect" id="node17" href="namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="924,257,1121,287"/><area shape="rect" id="node19" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1184,322,1341,353"/><area shape="rect" id="node25" href="namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="608,322,861,353"/><area shape="rect" id="node27" href="namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="923,322,1123,353"/><area shape="rect" id="node33" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)..." alt="" coords="909,375,1136,406"/><area shape="rect" id="node36" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)..." alt="" coords="309,427,531,458"/><area shape="rect" id="node38" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="661,427,808,458"/></map>
 </div>
 </p>
 
@@ -213,18 +209,18 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00108">108</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00098">98</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">actualPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00103">actualTwist</a>, <a class="el" href="Conversions_8h_source.html#l00050">conversions::odometryRosToFrame()</a>, and <a class="el" href="Conversions_8h_source.html#l00058">conversions::odometryRosToTwist()</a>.</p>
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">actualPose</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00093">actualTwist</a>, <a class="el" href="Conversions_8h_source.html#l00061">conversions::odometryRosToFrame()</a>, and <a class="el" href="Conversions_8h_source.html#l00075">conversions::odometryRosToTwist()</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="TrajectoryAdapterNode_8cpp_a80ca5cc016145db2f7e3baeea223fac9_cgraph.png" border="0" usemap="#TrajectoryAdapterNode_8cpp_a80ca5cc016145db2f7e3baeea223fac9_cgraph" alt=""/></div>
 <map name="TrajectoryAdapterNode_8cpp_a80ca5cc016145db2f7e3baeea223fac9_cgraph" id="TrajectoryAdapterNode_8cpp_a80ca5cc016145db2f7e3baeea223fac9_cgraph">
-<area shape="rect" id="node3" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="conversions::odometryRosToFrame" alt="" coords="181,5,408,35"/><area shape="rect" id="node5" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="conversions::odometryRosToTwist" alt="" coords="184,58,405,89"/></map>
+<area shape="rect" id="node3" href="namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)..." alt="" coords="181,5,408,35"/><area shape="rect" id="node7" href="namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)..." alt="" coords="184,58,405,89"/><area shape="rect" id="node5" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="456,5,613,35"/><area shape="rect" id="node9" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="461,58,608,89"/></map>
 </div>
 </p>
 
@@ -242,9 +238,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">104</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">94</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00108">odometryCallback()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00130">OmniDrivePositionController::setTargetTrajectory()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00221">OmniDrivePositionController::targetReached()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00098">odometryCallback()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">OmniDrivePositionController::targetReached()</a>.</p>
 
 </div>
 </div>
@@ -259,9 +255,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00100">100</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00090">90</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00115">goalCallback()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">goalCallback()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 </div>
 </div>
@@ -276,26 +272,26 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00103">103</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00093">93</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00108">odometryCallback()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00098">odometryCallback()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0d901fd3ff894d8f8ae99130714a9741"></a><!-- doxytag: member="TrajectoryAdapterNode.cpp::collisionChecker" ref="a0d901fd3ff894d8f8ae99130714a9741" args="" -->
+<a class="anchor" id="a306d1c52b0901b24926365cb436d0937"></a><!-- doxytag: member="TrajectoryAdapterNode.cpp::collisionChecker" ref="a306d1c52b0901b24926365cb436d0937" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCollisionChecking.html">CollisionChecking</a>* <a class="el" href="TrajectoryAdapterNode_8cpp.html#a0d901fd3ff894d8f8ae99130714a9741">collisionChecker</a></td>
+          <td class="memname"><a class="el" href="classICollisionChecking.html">ICollisionChecking</a>* <a class="el" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">collisionChecker</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00106">106</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00096">96</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00070">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 </div>
 </div>
@@ -310,9 +306,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00104">104</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">94</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00115">goalCallback()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">goalCallback()</a>.</p>
 
 </div>
 </div>
@@ -327,26 +323,26 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00124">124</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">114</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00071">OmniDriveTrajectoryGenerator::computeTrajectoryComposite()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, <a class="el" href="PathUtilities_8h_source.html#l00065">prunePath()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00130">OmniDrivePositionController::setTargetTrajectory()</a>, and <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00139">trajectoryCallback()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00129">OmniDriveTrajectoryGenerator::computeTrajectroy()</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="Utilities_8h_source.html#l00089">utilities::prunePath()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adbbc1a6f067213cc90588b07bbb67330"></a><!-- doxytag: member="TrajectoryAdapterNode.cpp::pathPlanner" ref="adbbc1a6f067213cc90588b07bbb67330" args="" -->
+<a class="anchor" id="a306238f09fd6e605174a0979752b7277"></a><!-- doxytag: member="TrajectoryAdapterNode.cpp::pathPlanner" ref="a306238f09fd6e605174a0979752b7277" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classPathPlanner.html">PathPlanner</a>* <a class="el" href="TrajectoryAdapterNode_8cpp.html#adbbc1a6f067213cc90588b07bbb67330">pathPlanner</a></td>
+          <td class="memname"><a class="el" href="classIPathPlanner.html">IPathPlanner</a>* <a class="el" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">pathPlanner</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00105">105</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00095">95</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 </div>
 </div>
@@ -361,9 +357,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">102</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">92</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 </div>
 </div>
@@ -378,9 +374,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00124">124</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">114</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>.</p>
 
 </div>
 </div>
@@ -395,31 +391,14 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00102">102</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
+<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00092">92</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2c19f2f19e4aebaabebf9f15868bb952"></a><!-- doxytag: member="TrajectoryAdapterNode.cpp::trajectoryAdapter" ref="a2c19f2f19e4aebaabebf9f15868bb952" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTrajectoryAdapter.html">TrajectoryAdapter</a>* <a class="el" href="TrajectoryAdapterNode_8cpp.html#a2c19f2f19e4aebaabebf9f15868bb952">trajectoryAdapter</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00099">99</a> of file <a class="el" href="TrajectoryAdapterNode_8cpp_source.html">TrajectoryAdapterNode.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00177">main()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>, and <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00170">main()</a>.</p>
 
 </div>
 </div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

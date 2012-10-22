@@ -46,6 +46,8 @@
 
 #include "navigation_trajectory_planner/ChaikinCurveApproximation.h"
 
+#include <kdl/frames.hpp>
+
 ChaikinCurveApproximation::ChaikinCurveApproximation() {
 
 }

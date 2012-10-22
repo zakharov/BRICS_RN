@@ -48,6 +48,9 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="Stopwatch" -->
+<p>Implementation of a stopwatch for profiling of the algorithms.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>&gt;</code></p>
 
 <p><a href="classStopwatch-members.html">List of all members.</a></p>
@@ -55,14 +58,23 @@
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a628b5ebeed5df065dd847e68fb6336cf">Stopwatch</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a628b5ebeed5df065dd847e68fb6336cf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#abaafbb3a670cb51194da0cbe58b18068">Stopwatch</a> (const <a class="el" href="classStopwatch.html">Stopwatch</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#abaafbb3a670cb51194da0cbe58b18068"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a534c433482f8fe8144c91c0fe37aac20">~Stopwatch</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a534c433482f8fe8144c91c0fe37aac20"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d">start</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a stop watch.  <a href="#a6d01ecc80c92f1d5210cd9c3eb72883d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4">stop</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop and reset a stop watch.  <a href="#aa0266311b7392b948061bb985b49cff4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a2cc48295d6b083361d062b8eb68d753a">pause</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause a stopwatch without resetting.  <a href="#a2cc48295d6b083361d062b8eb68d753a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a7a580038651979e85a75664155f10d69">getStartTime</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a start time in milliseconds.  <a href="#a7a580038651979e85a75664155f10d69"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a0be08fc99ea42a8e65a6296e6ceb4c10">getStopTime</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a top time in milliseconds.  <a href="#a0be08fc99ea42a8e65a6296e6ceb4c10"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b">getElapsedTime</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">return elapsed time in milliseconds  <a href="#ad5c8540836d2fe5200ac94edfb83bc6b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6">convertToMs</a> (const timespec &amp;time) const </td></tr>
@@ -74,8 +86,9 @@ Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStopwatch.html#aab942f3822c02ee8b41190985a3e7210">isPause</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00045">45</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
+<div class="textblock"><p>Implementation of a stopwatch for profiling of the algorithms. </p>
+
+<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00049">49</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a628b5ebeed5df065dd847e68fb6336cf"></a><!-- doxytag: member="Stopwatch::Stopwatch" ref="a628b5ebeed5df065dd847e68fb6336cf" args="()" -->
 <div class="memitem">
@@ -91,9 +104,11 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Default constructor. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00042">42</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8h_source.html#l00065">elapsedTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00066">isPause</a>.</p>
+<p>References <a class="el" href="Stopwatch_8h_source.html#l00101">elapsedTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00102">isPause</a>.</p>
 
 </div>
 </div>
@@ -112,9 +127,11 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Copy constructor. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00047">47</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8h_source.html#l00065">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00066">isPause</a>, <a class="el" href="Stopwatch_8h_source.html#l00063">startTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00064">stopTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8h_source.html#l00101">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00102">isPause</a>, <a class="el" href="Stopwatch_8h_source.html#l00099">startTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00100">stopTime</a>.</p>
 
 </div>
 </div>
@@ -131,6 +148,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor. </p>
 
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00054">54</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
@@ -172,11 +191,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>return elapsed time in milliseconds </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00088">88</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, <a class="el" href="Stopwatch_8h_source.html#l00065">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00063">startTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00064">stopTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, <a class="el" href="Stopwatch_8h_source.html#l00101">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00099">startTime</a>, and <a class="el" href="Stopwatch_8h_source.html#l00100">stopTime</a>.</p>
 
-<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00057">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00070">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">PathPlannerRos::computePath()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00026">LinearInterpolation::interpolate()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00068">pause()</a>.</p>
+<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">PathPlannerRos::computePath()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">LinearInterpolation::interpolate()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00068">pause()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -203,9 +224,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Return a start time in milliseconds. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00080">80</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, and <a class="el" href="Stopwatch_8h_source.html#l00063">startTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, and <a class="el" href="Stopwatch_8h_source.html#l00099">startTime</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -232,9 +255,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Return a top time in milliseconds. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00084">84</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, and <a class="el" href="Stopwatch_8h_source.html#l00064">stopTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00076">convertToMs()</a>, and <a class="el" href="Stopwatch_8h_source.html#l00100">stopTime</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -261,16 +286,18 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Pause a stopwatch without resetting. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00068">68</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8h_source.html#l00065">elapsedTime</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">getElapsedTime()</a>, <a class="el" href="Stopwatch_8h_source.html#l00066">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00064">stopTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8h_source.html#l00101">elapsedTime</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">getElapsedTime()</a>, <a class="el" href="Stopwatch_8h_source.html#l00102">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00100">stopTime</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStopwatch_a2cc48295d6b083361d062b8eb68d753a_cgraph.png" border="0" usemap="#classStopwatch_a2cc48295d6b083361d062b8eb68d753a_cgraph" alt=""/></div>
 <map name="classStopwatch_a2cc48295d6b083361d062b8eb68d753a_cgraph" id="classStopwatch_a2cc48295d6b083361d062b8eb68d753a_cgraph">
-<area shape="rect" id="node3" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="183,5,367,35"/><area shape="rect" id="node5" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="417,5,583,35"/></map>
+<area shape="rect" id="node3" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="183,5,367,35"/><area shape="rect" id="node5" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="417,5,583,35"/></map>
 </div>
 </p>
 
@@ -290,11 +317,13 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Start a stop watch. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00057">57</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8h_source.html#l00066">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00063">startTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8h_source.html#l00102">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00099">startTime</a>.</p>
 
-<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00057">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="DifferentialDrive_8cpp_source.html#l00022">DifferentialDrive::calculateOrientation()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00070">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">PathPlannerRos::computePath()</a>, and <a class="el" href="LinearInterpolation_8cpp_source.html#l00026">LinearInterpolation::interpolate()</a>.</p>
+<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">PathPlannerRos::computePath()</a>, and <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">LinearInterpolation::interpolate()</a>.</p>
 
 </div>
 </div>
@@ -312,11 +341,13 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Stop and reset a stop watch. </p>
+
 <p>Definition at line <a class="el" href="Stopwatch_8cpp_source.html#l00062">62</a> of file <a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8h_source.html#l00065">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00066">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00064">stopTime</a>.</p>
+<p>References <a class="el" href="Stopwatch_8h_source.html#l00101">elapsedTime</a>, <a class="el" href="Stopwatch_8h_source.html#l00102">isPause</a>, and <a class="el" href="Stopwatch_8h_source.html#l00100">stopTime</a>.</p>
 
-<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00057">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="DifferentialDrive_8cpp_source.html#l00022">DifferentialDrive::calculateOrientation()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00070">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00058">PathPlannerRos::computePath()</a>, and <a class="el" href="LinearInterpolation_8cpp_source.html#l00026">LinearInterpolation::interpolate()</a>.</p>
+<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">PathPlannerRos::computePath()</a>, and <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">LinearInterpolation::interpolate()</a>.</p>
 
 </div>
 </div>
@@ -332,7 +363,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00065">65</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
+<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00101">101</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Stopwatch_8cpp_source.html#l00088">getElapsedTime()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00068">pause()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00062">stop()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00042">Stopwatch()</a>.</p>
 
@@ -349,7 +380,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00066">66</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
+<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00102">102</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Stopwatch_8cpp_source.html#l00068">pause()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">start()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00062">stop()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00042">Stopwatch()</a>.</p>
 
@@ -366,7 +397,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00063">63</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
+<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00099">99</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Stopwatch_8cpp_source.html#l00088">getElapsedTime()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00080">getStartTime()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00047">Stopwatch()</a>.</p>
 
@@ -383,18 +414,18 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00064">64</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
+<p>Definition at line <a class="el" href="Stopwatch_8h_source.html#l00100">100</a> of file <a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Stopwatch_8cpp_source.html#l00088">getElapsedTime()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00084">getStopTime()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00068">pause()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00062">stop()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00047">Stopwatch()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>navigation_trajectory_planner/include/navigation_trajectory_planner/<a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a></li>
-<li>navigation_trajectory_planner/src/<a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a></li>
+<li>navigation_trajectory_common/include/navigation_trajectory_common/<a class="el" href="Stopwatch_8h_source.html">Stopwatch.h</a></li>
+<li>navigation_trajectory_common/src/<a class="el" href="Stopwatch_8cpp_source.html">Stopwatch.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

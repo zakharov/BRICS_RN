@@ -48,13 +48,16 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="PathIterator" -->
+<p>A path iterator class.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for PathIterator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPathIterator__coll__graph.png" border="0" usemap="#PathIterator_coll__map" alt="Collaboration graph"/></div>
 <map name="PathIterator_coll__map" id="PathIterator_coll__map">
-<area shape="rect" id="node2" href="classFrameWithId.html" title="{FrameWithId\n|+ id\l|+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ ~FrameWithId()\l}" alt="" coords="5,6,128,207"/></map>
+<area shape="rect" id="node2" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id." alt="" coords="5,6,128,263"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classPathIterator-members.html">List of all members.</a></p>
@@ -62,21 +65,30 @@ Collaboration diagram for PathIterator:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a61d5db8b3ec93da87080df2a4fb638f5">PathIterator</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="classPathIterator.html#a4e8af6087a0b549dde28127ae43cd8ef">path</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A path iterator constructor.  <a href="#a61d5db8b3ec93da87080df2a4fb638f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a9d3da39cc0cf69fcdee88d1e8b54e579">PathIterator</a> (const <a class="el" href="classPathIterator.html">PathIterator</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a9d3da39cc0cf69fcdee88d1e8b54e579"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a3d35bc41f2cecf4ac6d28aa9a5628c8b">~PathIterator</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a3d35bc41f2cecf4ac6d28aa9a5628c8b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a10ffdc7dfc66f56b27552504aa1a35d5">hasNext</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if iterator has the next point, otherwise false.  <a href="#a10ffdc7dfc66f56b27552504aa1a35d5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a6f522eb1c5bf1f0efc4aa4bf096fc396">next</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Move cursor to the next point and return it.  <a href="#a6f522eb1c5bf1f0efc4aa4bf096fc396"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a4e8af6087a0b549dde28127ae43cd8ef">path</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An input path.  <a href="#a4e8af6087a0b549dde28127ae43cd8ef"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a4adba7a4cd8d41cd5cb9c6d93c3f625e">cursor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual position of the cursor.  <a href="#a4adba7a4cd8d41cd5cb9c6d93c3f625e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#a77ab62113d4a5a4b1449005e44cca32e">dummy</a> = <a class="el" href="classFrameWithId.html">FrameWithId</a>()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPathIterator.html#add641283e74dcc5d7181cc7d35f99bec">dummy</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Move cursor to the next point and return it.  <a href="#add641283e74dcc5d7181cc7d35f99bec"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00016">16</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+<div class="textblock"><p>A path iterator class. </p>
+
+<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00052">52</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a61d5db8b3ec93da87080df2a4fb638f5"></a><!-- doxytag: member="PathIterator::PathIterator" ref="a61d5db8b3ec93da87080df2a4fb638f5" args="(const std::vector&lt; FrameWithId &gt; &amp;path)" -->
 <div class="memitem">
@@ -93,9 +105,17 @@ Static Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00014">14</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+<p>A path iterator constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- an input path to iterate. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="PathIterator_8h_source.html#l00027">cursor</a>.</p>
+<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00044">44</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+
+<p>References <a class="el" href="PathIterator_8h_source.html#l00090">cursor</a>.</p>
 
 </div>
 </div>
@@ -114,7 +134,9 @@ Static Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00018">18</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00048">48</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
 
 </div>
 </div>
@@ -132,7 +154,9 @@ Static Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00022">22</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00052">52</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
 
 </div>
 </div>
@@ -151,11 +175,13 @@ Static Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00026">26</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+<p>return true if iterator has the next point, otherwise false. </p>
 
-<p>References <a class="el" href="PathIterator_8h_source.html#l00027">cursor</a>, and <a class="el" href="PathIterator_8h_source.html#l00026">path</a>.</p>
+<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00056">56</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00032">next()</a>.</p>
+<p>References <a class="el" href="PathIterator_8h_source.html#l00090">cursor</a>, and <a class="el" href="PathIterator_8h_source.html#l00085">path</a>.</p>
+
+<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00062">next()</a>.</p>
 
 </div>
 </div>
@@ -173,16 +199,18 @@ Static Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00032">32</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+<p>Move cursor to the next point and return it. </p>
 
-<p>References <a class="el" href="PathIterator_8h_source.html#l00027">cursor</a>, <a class="el" href="PathIterator_8cpp_source.html#l00026">hasNext()</a>, and <a class="el" href="PathIterator_8h_source.html#l00026">path</a>.</p>
+<p>Definition at line <a class="el" href="PathIterator_8cpp_source.html#l00062">62</a> of file <a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a>.</p>
+
+<p>References <a class="el" href="PathIterator_8h_source.html#l00090">cursor</a>, <a class="el" href="PathIterator_8cpp_source.html#l00056">hasNext()</a>, and <a class="el" href="PathIterator_8h_source.html#l00085">path</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPathIterator_a6f522eb1c5bf1f0efc4aa4bf096fc396_cgraph.png" border="0" usemap="#classPathIterator_a6f522eb1c5bf1f0efc4aa4bf096fc396_cgraph" alt=""/></div>
 <map name="classPathIterator_a6f522eb1c5bf1f0efc4aa4bf096fc396_cgraph" id="classPathIterator_a6f522eb1c5bf1f0efc4aa4bf096fc396_cgraph">
-<area shape="rect" id="node3" href="classPathIterator.html#a10ffdc7dfc66f56b27552504aa1a35d5" title="PathIterator::hasNext" alt="" coords="177,5,321,35"/></map>
+<area shape="rect" id="node3" href="classPathIterator.html#a10ffdc7dfc66f56b27552504aa1a35d5" title="return true if iterator has the next point, otherwise false." alt="" coords="177,5,321,35"/></map>
 </div>
 </p>
 
@@ -200,24 +228,28 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00027">27</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+<p>Actual position of the cursor. </p>
 
-<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00026">hasNext()</a>, <a class="el" href="PathIterator_8cpp_source.html#l00032">next()</a>, and <a class="el" href="PathIterator_8cpp_source.html#l00014">PathIterator()</a>.</p>
+<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00090">90</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00056">hasNext()</a>, <a class="el" href="PathIterator_8cpp_source.html#l00062">next()</a>, and <a class="el" href="PathIterator_8cpp_source.html#l00044">PathIterator()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a77ab62113d4a5a4b1449005e44cca32e"></a><!-- doxytag: member="PathIterator::dummy" ref="a77ab62113d4a5a4b1449005e44cca32e" args="" -->
+<a class="anchor" id="add641283e74dcc5d7181cc7d35f99bec"></a><!-- doxytag: member="PathIterator::dummy" ref="add641283e74dcc5d7181cc7d35f99bec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp; <a class="el" href="classPathIterator.html#a77ab62113d4a5a4b1449005e44cca32e">PathIterator::dummy</a> = <a class="el" href="classFrameWithId.html">FrameWithId</a>()<code> [static, private]</code></td>
+          <td class="memname">const <a class="el" href="classFrameWithId.html">FrameWithId</a>&amp; <a class="el" href="classPathIterator.html#add641283e74dcc5d7181cc7d35f99bec">PathIterator::dummy</a><code> [static, private]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00028">28</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+<p>Move cursor to the next point and return it. </p>
+
+<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00095">95</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
 
 </div>
 </div>
@@ -232,9 +264,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00026">26</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+<p>An input path. </p>
 
-<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00026">hasNext()</a>, and <a class="el" href="PathIterator_8cpp_source.html#l00032">next()</a>.</p>
+<p>Definition at line <a class="el" href="PathIterator_8h_source.html#l00085">85</a> of file <a class="el" href="PathIterator_8h_source.html">PathIterator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="PathIterator_8cpp_source.html#l00056">hasNext()</a>, and <a class="el" href="PathIterator_8cpp_source.html#l00062">next()</a>.</p>
 
 </div>
 </div>
@@ -243,7 +277,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_planner/src/<a class="el" href="PathIterator_8cpp_source.html">PathIterator.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

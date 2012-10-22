@@ -41,12 +41,16 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <h1>TwistWithId Class Reference</h1>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="TwistWithId" -->
+<p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with frame id.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>&gt;</code></p>
 
 <p><a href="classTwistWithId-members.html">List of all members.</a></p>
@@ -54,17 +58,36 @@
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a50c2f53518a714f7770b348599635aa9">TwistWithId</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="#a50c2f53518a714f7770b348599635aa9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a0a33fe96b49909193654610615c5f08e">TwistWithId</a> (const KDL::Twist &amp;<a class="el" href="classTwistWithId.html#a31ab8b04294673416e12d2afde94f8ba">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a0a33fe96b49909193654610615c5f08e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a18a16f482bb8456041ee02133ecd8808">TwistWithId</a> (const std::string &amp;<a class="el" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a">id</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a79f62badab7b37e740fcea0bb4b117a3">TwistWithId</a> (const KDL::Vector &amp;_vel, const KDL::Vector &amp;_rot, const std::string &amp;<a class="el" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a">id</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a18a16f482bb8456041ee02133ecd8808"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#ae135cbb2c9f04a8fd2c0cf6b15d8afb4">TwistWithId</a> (const KDL::Twist &amp;<a class="el" href="classTwistWithId.html#a31ab8b04294673416e12d2afde94f8ba">twist</a>, const std::string &amp;<a class="el" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a">id</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ae135cbb2c9f04a8fd2c0cf6b15d8afb4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a2545b67d94776d4872c17506e1fa1937">TwistWithId</a> (const <a class="el" href="classTwistWithId.html">TwistWithId</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a2545b67d94776d4872c17506e1fa1937"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">~TwistWithId</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#af3ced1d8b2b471c6e94680970da5647b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824">setTwist</a> (const KDL::Twist &amp;<a class="el" href="classTwistWithId.html#a31ab8b04294673416e12d2afde94f8ba">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new value of the KDL::Twist.  <a href="#abce7b23f50faf9041a305c432ffc5824"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const KDL::Twist &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9">getTwist</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> twist as a const reference or a copy.  <a href="#ae2d66ee49cadf28418787b869f421ca9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">KDL::Twist &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#aaef5011b54f7855d8632b84e41c73bc9">getTwist</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> trajectory as a reference.  <a href="#aaef5011b54f7855d8632b84e41c73bc9"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a">id</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String identifier of the Twist.  <a href="#a76c1f4082dfc5c91d1175f4dc7b8974a"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">KDL::Twist *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTwistWithId.html#a31ab8b04294673416e12d2afde94f8ba">twist</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregation of the KDL::Twist.  <a href="#a31ab8b04294673416e12d2afde94f8ba"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00046">46</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+<div class="textblock"><p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with frame id. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00053">53</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a50c2f53518a714f7770b348599635aa9"></a><!-- doxytag: member="TwistWithId::TwistWithId" ref="a50c2f53518a714f7770b348599635aa9" args="()" -->
 <div class="memitem">
@@ -80,7 +103,36 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00044">44</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+<p>Default Constructor. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00046">46</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a33fe96b49909193654610615c5f08e"></a><!-- doxytag: member="TwistWithId::TwistWithId" ref="a0a33fe96b49909193654610615c5f08e" args="(const KDL::Twist &amp;twist)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TwistWithId::TwistWithId </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Twist &amp;&#160;</td>
+          <td class="paramname"><em>twist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- initial value of KDL::Twist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00056">56</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
 </div>
 </div>
@@ -99,25 +151,27 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00047">47</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">is</td><td>- initial value of twist identifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00051">51</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a79f62badab7b37e740fcea0bb4b117a3"></a><!-- doxytag: member="TwistWithId::TwistWithId" ref="a79f62badab7b37e740fcea0bb4b117a3" args="(const KDL::Vector &amp;_vel, const KDL::Vector &amp;_rot, const std::string &amp;id)" -->
+<a class="anchor" id="ae135cbb2c9f04a8fd2c0cf6b15d8afb4"></a><!-- doxytag: member="TwistWithId::TwistWithId" ref="ae135cbb2c9f04a8fd2c0cf6b15d8afb4" args="(const KDL::Twist &amp;twist, const std::string &amp;id)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">TwistWithId::TwistWithId </td>
           <td>(</td>
-          <td class="paramtype">const KDL::Vector &amp;&#160;</td>
-          <td class="paramname"><em>_vel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const KDL::Vector &amp;&#160;</td>
-          <td class="paramname"><em>_rot</em>, </td>
+          <td class="paramtype">const KDL::Twist &amp;&#160;</td>
+          <td class="paramname"><em>twist</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -133,6 +187,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- initial value of KDL::Twist. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is</td><td>- initial value of twist identifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00061">61</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
 </div>
 </div>
@@ -151,7 +216,26 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00051">51</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+<p>Copy constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">orig</td><td>- reference to the original object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00066">66</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+
+<p>References <a class="el" href="TwistWithId_8cpp_source.html#l00076">getTwist()</a>, and <a class="el" href="TwistWithId_8h_source.html#l00058">id</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTwistWithId_a2545b67d94776d4872c17506e1fa1937_cgraph.png" border="0" usemap="#classTwistWithId_a2545b67d94776d4872c17506e1fa1937_cgraph" alt=""/></div>
+<map name="classTwistWithId_a2545b67d94776d4872c17506e1fa1937_cgraph" id="classTwistWithId_a2545b67d94776d4872c17506e1fa1937_cgraph">
+<area shape="rect" id="node3" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="221,5,368,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -169,7 +253,79 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00059">59</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00084">84</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ae2d66ee49cadf28418787b869f421ca9"></a><!-- doxytag: member="TwistWithId::getTwist" ref="ae2d66ee49cadf28418787b869f421ca9" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const KDL::Twist &amp; TwistWithId::getTwist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> twist as a const reference or a copy. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00076">76</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00075">conversions::odometryRosToTwist()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaef5011b54f7855d8632b84e41c73bc9"></a><!-- doxytag: member="TwistWithId::getTwist" ref="aaef5011b54f7855d8632b84e41c73bc9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDL::Twist &amp; TwistWithId::getTwist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> trajectory as a reference. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00080">80</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abce7b23f50faf9041a305c432ffc5824"></a><!-- doxytag: member="TwistWithId::setTwist" ref="abce7b23f50faf9041a305c432ffc5824" args="(const KDL::Twist &amp;twist)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TwistWithId::setTwist </td>
+          <td>(</td>
+          <td class="paramtype">const KDL::Twist &amp;&#160;</td>
+          <td class="paramname"><em>twist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets a new value of the KDL::Twist. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- new value of KDL::Twist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00071">71</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,9 +341,28 @@ Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00048">48</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+<p>String identifier of the Twist. </p>
 
-<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00058">conversions::odometryRosToTwist()</a>.</p>
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00058">58</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00075">conversions::odometryRosToTwist()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31ab8b04294673416e12d2afde94f8ba"></a><!-- doxytag: member="TwistWithId::twist" ref="a31ab8b04294673416e12d2afde94f8ba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KDL::Twist* <a class="el" href="classTwistWithId.html#a31ab8b04294673416e12d2afde94f8ba">TwistWithId::twist</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Aggregation of the KDL::Twist. </p>
+
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00118">118</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
 
 </div>
 </div>
@@ -196,7 +371,7 @@ Public Attributes</h2></td></tr>
 <li>navigation_trajectory_common/src/<a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:06 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

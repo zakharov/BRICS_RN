@@ -1,16 +1,16 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html#a140f3543bd7dcda7cade3013356b601e" title="OmniDriveKinematicsModel::convertToLocalReferenceFrame" alt="" coords="380,291,753,321"/>
-<area shape="rect" id="node7" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="875,421,1024,452"/>
-<area shape="rect" id="node9" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Twist2D::getTheta" alt="" coords="885,53,1013,84"/>
-<area shape="rect" id="node11" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="887,475,1012,505"/>
-<area shape="rect" id="node13" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Odometry::getTwist2D" alt="" coords="873,107,1025,137"/>
-<area shape="rect" id="node15" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Twist2D::getX" alt="" coords="897,160,1001,191"/>
-<area shape="rect" id="node17" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="1145,369,1247,400"/>
-<area shape="rect" id="node19" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Twist2D::getY" alt="" coords="897,368,1001,399"/>
-<area shape="rect" id="node21" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="1145,605,1247,636"/>
-<area shape="rect" id="node24" href="$classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="804,683,1095,713"/>
-<area shape="rect" id="node33" href="$classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d" title="Odometry::setTwist2D" alt="" coords="491,629,643,660"/>
-<area shape="rect" id="node35" href="$classOmniDrivePositionController.html#af4cb7ca013f2051ee70c64c485d71502" title="OmniDrivePositionController::targetReached" alt="" coords="429,525,704,556"/>
-<area shape="rect" id="node5" href="$classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="OmniDriveKinematicsModel::convert" alt="" coords="832,264,1067,295"/>
-<area shape="rect" id="node37" href="$classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68" title="OmniDrivePositionController::getDistance" alt="" coords="819,579,1080,609"/>
+<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html#a140f3543bd7dcda7cade3013356b601e" title="OmniDriveKinematicsModel::convertToLocalReferenceFrame" alt="" coords="380,220,753,251"/>
+<area shape="rect" id="node7" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="845,7,995,38"/>
+<area shape="rect" id="node9" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Twist2D::getTheta" alt="" coords="856,60,984,91"/>
+<area shape="rect" id="node11" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="857,114,983,144"/>
+<area shape="rect" id="node13" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Odometry::getTwist2D" alt="" coords="844,167,996,198"/>
+<area shape="rect" id="node15" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Twist2D::getX" alt="" coords="868,274,972,304"/>
+<area shape="rect" id="node17" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="869,327,971,358"/>
+<area shape="rect" id="node19" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Twist2D::getY" alt="" coords="868,380,972,411"/>
+<area shape="rect" id="node21" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="869,434,971,464"/>
+<area shape="rect" id="node24" href="$classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="421,476,712,507"/>
+<area shape="rect" id="node28" href="$classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="468,530,665,560"/>
+<area shape="rect" id="node35" href="$classOmniDrivePositionController.html#a92dc592f441852e8ab5470a73ae32dde" title="OmniDrivePositionController::isTargetReached" alt="" coords="423,583,711,614"/>
+<area shape="rect" id="node37" href="$classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d" title="Odometry::setTwist2D" alt="" coords="491,636,643,667"/>
+<area shape="rect" id="node5" href="$classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="OmniDriveKinematicsModel::convert" alt="" coords="803,220,1037,251"/>
 </map>

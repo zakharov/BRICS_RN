@@ -81,53 +81,53 @@
 <a name="l00038"></a>00038 <span class="comment"> ******************************************************************************/</span>
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;navigation_trajectory_common/FrameWithId.h&quot;</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;navigation_trajectory_planner/DouglasPeuckerApproximation.h&quot;</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;navigation_trajectory_planner/PathUtilities.h&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;navigation_trajectory_planner/Logger.h&quot;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#include &quot;navigation_trajectory_planner/Stopwatch.h&quot;</span>
-<a name="l00048"></a>00048 <span class="preprocessor">#endif</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span>
-<a name="l00050"></a><a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443">00050</a> <a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443">DouglasPeuckerApproximation::DouglasPeuckerApproximation</a>() {
+<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;navigation_trajectory_common/Utilities.h&quot;</span>
+<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;navigation_trajectory_common/Logger.h&quot;</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#include &quot;navigation_trajectory_common/Stopwatch.h&quot;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#endif</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a>00048 <span class="preprocessor">#include &quot;navigation_trajectory_planner/DouglasPeuckerApproximation.h&quot;</span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443">00050</a> <a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443" title="Constructor.">DouglasPeuckerApproximation::DouglasPeuckerApproximation</a>() {
 <a name="l00051"></a>00051 }
 <a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="classDouglasPeuckerApproximation.html#aa378586e74a03e42ae43447b35896891">00053</a> <a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443">DouglasPeuckerApproximation::DouglasPeuckerApproximation</a>(<span class="keyword">const</span> <a class="code" href="classDouglasPeuckerApproximation.html">DouglasPeuckerApproximation</a>&amp; orig) {
+<a name="l00053"></a><a class="code" href="classDouglasPeuckerApproximation.html#aa378586e74a03e42ae43447b35896891">00053</a> <a class="code" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443" title="Constructor.">DouglasPeuckerApproximation::DouglasPeuckerApproximation</a>(<span class="keyword">const</span> <a class="code" href="classDouglasPeuckerApproximation.html" title="Implementation of path approximation algorithm.">DouglasPeuckerApproximation</a>&amp; orig) {
 <a name="l00054"></a>00054 }
 <a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="classDouglasPeuckerApproximation.html#aa18ae3227ab700038cffefc59a3033f5">00056</a> <a class="code" href="classDouglasPeuckerApproximation.html#aa18ae3227ab700038cffefc59a3033f5">DouglasPeuckerApproximation::~DouglasPeuckerApproximation</a>() {
+<a name="l00056"></a><a class="code" href="classDouglasPeuckerApproximation.html#aa18ae3227ab700038cffefc59a3033f5">00056</a> <a class="code" href="classDouglasPeuckerApproximation.html#aa18ae3227ab700038cffefc59a3033f5" title="Destructor.">DouglasPeuckerApproximation::~DouglasPeuckerApproximation</a>() {
 <a name="l00057"></a>00057 }
 <a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">00059</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">DouglasPeuckerApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
+<a name="l00059"></a><a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">00059</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">DouglasPeuckerApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
 <a name="l00060"></a>00060         std::vector &lt;FrameWithId&gt;&amp; out) {
-<a name="l00061"></a>00061     <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">approximate</a>(in, out, 0.1);
+<a name="l00061"></a>00061     <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">approximate</a>(in, out, 0.1);
 <a name="l00062"></a>00062 }
 <a name="l00063"></a>00063 
-<a name="l00064"></a><a class="code" href="classDouglasPeuckerApproximation.html#a1d4e37b7a79cdfa18adda7c13219bd7a">00064</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">DouglasPeuckerApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
+<a name="l00064"></a><a class="code" href="classDouglasPeuckerApproximation.html#a1d4e37b7a79cdfa18adda7c13219bd7a">00064</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">DouglasPeuckerApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in,
 <a name="l00065"></a>00065         std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">double</span> epsilon) {
 <a name="l00066"></a>00066 
 <a name="l00067"></a>00067 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00068"></a>00068 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html">Stopwatch</a> stopwatch;
-<a name="l00069"></a>00069     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d">start</a>();
+<a name="l00068"></a>00068 <span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;
+<a name="l00069"></a>00069     stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();
 <a name="l00070"></a>00070 <span class="preprocessor">#endif</span>
 <a name="l00071"></a>00071 <span class="preprocessor"></span>    std::vector &lt;FrameWithId&gt; inputCopy;
 <a name="l00072"></a>00072     inputCopy = in;
 <a name="l00073"></a>00073     out.clear();
 <a name="l00074"></a>00074     <span class="keywordtype">int</span> counter = 0;
-<a name="l00075"></a>00075     <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">douglasPeucker</a>(inputCopy, out, counter, epsilon);
+<a name="l00075"></a>00075     <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">douglasPeucker</a>(inputCopy, out, counter, epsilon);
 <a name="l00076"></a>00076 <span class="preprocessor">#ifdef DEBUG  </span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4">stop</a>();
+<a name="l00077"></a>00077 <span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();
 <a name="l00078"></a>00078     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Douglas-Peucker approximation algorithm:&quot;</span>);
 <a name="l00079"></a>00079     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, inputCopy.size());
 <a name="l00080"></a>00080     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - epsilon: %f&quot;</span>, epsilon);
 <a name="l00081"></a>00081     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());
 <a name="l00082"></a>00082     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);
-<a name="l00083"></a>00083     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b">getElapsedTime</a>());
+<a name="l00083"></a>00083     <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());
 <a name="l00084"></a>00084 <span class="preprocessor">#endif</span>
 <a name="l00085"></a>00085 <span class="preprocessor"></span>}
 <a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">00087</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">DouglasPeuckerApproximation::douglasPeucker</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
+<a name="l00087"></a><a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">00087</a> <span class="keywordtype">void</span> <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">DouglasPeuckerApproximation::douglasPeucker</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; pointList,
 <a name="l00088"></a>00088         std::vector &lt;FrameWithId&gt;&amp; resultList, <span class="keywordtype">int</span>&amp; numberOfIterations, <span class="keywordtype">double</span> epsilon) {
 <a name="l00089"></a>00089 
 <a name="l00090"></a>00090     ++numberOfIterations;
@@ -143,7 +143,7 @@
 <a name="l00100"></a>00100     std::vector &lt;FrameWithId&gt; result2;
 <a name="l00101"></a>00101 
 <a name="l00102"></a>00102     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt; pointList.size() - 1; i++) {
-<a name="l00103"></a>00103         <span class="keywordtype">double</span> d = <a class="code" href="PathUtilities_8h.html#a1eb0a05e1c2ceb370236faec58b4b805">perpendicularDistance</a>(pointList[i], pointList[0],
+<a name="l00103"></a>00103         <span class="keywordtype">double</span> d = <a class="code" href="namespaceutilities.html#a78a54487ba80bf9a4f135a6a71a543d2" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)...">utilities::perpendicularDistance</a>(pointList[i], pointList[0],
 <a name="l00104"></a>00104                 pointList[pointList.size() - 1]);
 <a name="l00105"></a>00105         <span class="keywordflow">if</span> (d &gt; dmax) {
 <a name="l00106"></a>00106             index = i;
@@ -158,8 +158,8 @@
 <a name="l00115"></a>00115         std::vector &lt;FrameWithId&gt; pointSubList2(&amp;pointList[index],
 <a name="l00116"></a>00116                 &amp;pointList[pointList.size()]);
 <a name="l00117"></a>00117 
-<a name="l00118"></a>00118         <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">douglasPeucker</a>(pointSubList1, result1, numberOfIterations, epsilon);
-<a name="l00119"></a>00119         <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">douglasPeucker</a>(pointSubList2, result2, numberOfIterations, epsilon);
+<a name="l00118"></a>00118         <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">douglasPeucker</a>(pointSubList1, result1, numberOfIterations, epsilon);
+<a name="l00119"></a>00119         <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">douglasPeucker</a>(pointSubList2, result2, numberOfIterations, epsilon);
 <a name="l00120"></a>00120         resultList.insert(resultList.begin(), result1.begin(), result1.end() - 1);
 <a name="l00121"></a>00121         resultList.insert(resultList.end(), result2.begin(), result2.end());
 <a name="l00122"></a>00122     } <span class="keywordflow">else</span> {
@@ -169,7 +169,7 @@
 <a name="l00126"></a>00126 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

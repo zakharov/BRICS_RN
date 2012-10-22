@@ -109,19 +109,19 @@
 <a name="l00066"></a><a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">00066</a> <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">Pose2D::getY</a>()<span class="keyword"> const </span>{
 <a name="l00067"></a>00067     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9">y</a>;
 <a name="l00068"></a>00068 }
-<a name="l00069"></a>00069     
+<a name="l00069"></a>00069 
 <a name="l00070"></a><a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">00070</a> <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">Pose2D::getTheta</a>()<span class="keyword"> const </span>{
 <a name="l00071"></a>00071     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006">theta</a>;
 <a name="l00072"></a>00072 }
 <a name="l00073"></a>00073 
 <a name="l00074"></a><a class="code" href="Pose2D_8cpp.html#aaed5088c5bd11064ae3e31a17747b303">00074</a> <a class="code" href="classPose2D.html">Pose2D</a> <a class="code" href="Pose2D_8cpp.html#aaed5088c5bd11064ae3e31a17747b303">operator+</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; op2) {
 <a name="l00075"></a>00075     <a class="code" href="classPose2D.html">Pose2D</a> pose(op1.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>() + op2.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>(), op1.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>() + op2.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>(), op1.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>() + op2.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>());
-<a name="l00076"></a>00076     
+<a name="l00076"></a>00076 
 <a name="l00077"></a>00077     <span class="keywordflow">return</span> pose;
 <a name="l00078"></a>00078 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

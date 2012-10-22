@@ -83,36 +83,47 @@
 <a name="l00040"></a>00040 <span class="preprocessor">#ifndef FRAMEWITHID_H</span>
 <a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define FRAMEWITHID_H</span>
 <a name="l00042"></a>00042 <span class="preprocessor"></span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &lt;kdl/frames.hpp&gt;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classFrameWithId.html">00046</a> <span class="keyword">class </span><a class="code" href="classFrameWithId.html">FrameWithId</a> : <span class="keyword">public</span> KDL::Frame {
-<a name="l00047"></a>00047 <span class="keyword">public</span>:
-<a name="l00048"></a><a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">00048</a>     std::string <a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">id</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">public</span>:
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>(<span class="keyword">const</span> KDL::Rotation&amp; R, <span class="keyword">const</span> KDL::Vector&amp; V, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>(<span class="keyword">const</span> KDL::Vector&amp; V, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>(<span class="keyword">const</span> KDL::Rotation&amp; R, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>(<span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00043"></a>00043 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="namespaceKDL.html">00045</a> <span class="keyword">namespace </span>KDL {
+<a name="l00046"></a>00046     <span class="keyword">class </span>Frame;
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00053"></a><a class="code" href="classFrameWithId.html">00053</a> <span class="keyword">class </span><a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> {
+<a name="l00054"></a>00054 <span class="keyword">public</span>:
+<a name="l00058"></a><a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d">00058</a>     std::string <a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d" title="String identifier of the frame.">id</a>;
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>();
+<a name="l00060"></a>00060 <span class="keyword">public</span>:
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce">FrameWithId</a>(<span class="keyword">const</span> <a class="code" href="classFrameWithId.html">FrameWithId</a>&amp; arg);
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keyword">virtual</span> <a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">~FrameWithId</a>();
-<a name="l00065"></a>00065 };
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="preprocessor">#endif  </span><span class="comment">/* FRAMEWITHID_H */</span>
-<a name="l00069"></a>00069 
+<a name="l00066"></a>00066     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce" title="Default constructor.">FrameWithId</a>(<span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00067"></a>00067     
+<a name="l00072"></a>00072     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce" title="Default constructor.">FrameWithId</a>(<span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb" title="Aggregated KDL::Frame.">frame</a>);
+<a name="l00073"></a>00073     
+<a name="l00079"></a>00079     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce" title="Default constructor.">FrameWithId</a>(<span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb" title="Aggregated KDL::Frame.">frame</a>, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);
+<a name="l00080"></a>00080 
+<a name="l00084"></a>00084     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce" title="Default constructor.">FrameWithId</a>();
+<a name="l00085"></a>00085 
+<a name="l00090"></a>00090     <a class="code" href="classFrameWithId.html#a857bf6190263f3a4dccf304b6c5778ce" title="Default constructor.">FrameWithId</a>(<span class="keyword">const</span> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>&amp; orig);
+<a name="l00091"></a>00091     
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025" title="Sets new KDL::Frame.">setFrame</a>(<span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb" title="Aggregated KDL::Frame.">frame</a>);
+<a name="l00096"></a>00096         
+<a name="l00100"></a>00100     <span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">getFrame</a>() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     
+<a name="l00105"></a>00105     KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">getFrame</a>();
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107     <span class="keyword">virtual</span> <a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">~FrameWithId</a>();
+<a name="l00108"></a>00108     
+<a name="l00109"></a>00109 <span class="keyword">private</span>:
+<a name="l00113"></a><a class="code" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">00113</a>     KDL::Frame* <a class="code" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb" title="Aggregated KDL::Frame.">frame</a>; 
+<a name="l00114"></a>00114  
+<a name="l00115"></a>00115 };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 <span class="preprocessor">#endif  </span><span class="comment">/* FRAMEWITHID_H */</span>
+<a name="l00119"></a>00119 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

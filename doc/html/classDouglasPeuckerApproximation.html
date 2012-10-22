@@ -46,21 +46,24 @@
 <h1>DouglasPeuckerApproximation Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="DouglasPeuckerApproximation" --><!-- doxytag: inherits="PathApproximation" -->
+<!-- doxytag: class="DouglasPeuckerApproximation" --><!-- doxytag: inherits="IPathApproximation" -->
+<p>Implementation of path approximation algorithm.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="DouglasPeuckerApproximation_8h_source.html">DouglasPeuckerApproximation.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DouglasPeuckerApproximation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDouglasPeuckerApproximation__inherit__graph.png" border="0" usemap="#DouglasPeuckerApproximation_inherit__map" alt="Inheritance graph"/></div>
 <map name="DouglasPeuckerApproximation_inherit__map" id="DouglasPeuckerApproximation_inherit__map">
-<area shape="rect" id="node2" href="classPathApproximation.html" title="{PathApproximation\n||&#45; approximate()\l}" alt="" coords="53,6,184,95"/></map>
+<area shape="rect" id="node2" href="classIPathApproximation.html" title="Interface class for path approximation algorithms." alt="" coords="52,6,185,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for DouglasPeuckerApproximation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDouglasPeuckerApproximation__coll__graph.png" border="0" usemap="#DouglasPeuckerApproximation_coll__map" alt="Collaboration graph"/></div>
 <map name="DouglasPeuckerApproximation_coll__map" id="DouglasPeuckerApproximation_coll__map">
-<area shape="rect" id="node2" href="classPathApproximation.html" title="{PathApproximation\n||&#45; approximate()\l}" alt="" coords="53,6,184,95"/></map>
+<area shape="rect" id="node2" href="classIPathApproximation.html" title="Interface class for path approximation algorithms." alt="" coords="52,6,185,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classDouglasPeuckerApproximation-members.html">List of all members.</a></p>
@@ -68,17 +71,25 @@ Collaboration diagram for DouglasPeuckerApproximation:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#abc37c420d0cbf0b2ab903d8af7a1b443">DouglasPeuckerApproximation</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#abc37c420d0cbf0b2ab903d8af7a1b443"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#aa378586e74a03e42ae43447b35896891">DouglasPeuckerApproximation</a> (const <a class="el" href="classDouglasPeuckerApproximation.html">DouglasPeuckerApproximation</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#aa378586e74a03e42ae43447b35896891"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#aa18ae3227ab700038cffefc59a3033f5">~DouglasPeuckerApproximation</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#aa18ae3227ab700038cffefc59a3033f5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9">approximate</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;in, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;out)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.  <a href="#a1ae301f6aa00065dc2a79b2150ddbab9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#a1d4e37b7a79cdfa18adda7c13219bd7a">approximate</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;in, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;out, double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.  <a href="#a1d4e37b7a79cdfa18adda7c13219bd7a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3">douglasPeucker</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;pointList, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;resultList, int &amp;counter, double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.  <a href="#a9d3d11c6606c89ddd214b8a301d293a3"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8h_source.html#l00048">48</a> of file <a class="el" href="DouglasPeuckerApproximation_8h_source.html">DouglasPeuckerApproximation.h</a>.</p>
+<div class="textblock"><p>Implementation of path approximation algorithm. </p>
+<p>Ramer–Douglas–Peucker algorithm is an algorithm for reducing the number of points in a curve that is approximated by a series of points. </p>
+
+<p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8h_source.html#l00055">55</a> of file <a class="el" href="DouglasPeuckerApproximation_8h_source.html">DouglasPeuckerApproximation.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="abc37c420d0cbf0b2ab903d8af7a1b443"></a><!-- doxytag: member="DouglasPeuckerApproximation::DouglasPeuckerApproximation" ref="abc37c420d0cbf0b2ab903d8af7a1b443" args="()" -->
 <div class="memitem">
@@ -93,6 +104,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor. </p>
 
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00050">50</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
@@ -113,6 +126,8 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Copy constructor. </p>
+
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00053">53</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
 </div>
@@ -130,6 +145,8 @@ Private Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor. </p>
 
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00056">56</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
@@ -161,11 +178,20 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Implements <a class="el" href="classPathApproximation.html#a51251bd234f4f570b6512a90155ca778">PathApproximation</a>.</p>
+<p>Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting smoothed path. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classIPathApproximation.html#a4278aab197574681cf64fb378aa6951a">IPathApproximation</a>.</p>
 
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00059">59</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00126">controlLoop()</a>.</p>
+<p>Referenced by <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00116">controlLoop()</a>.</p>
 
 </div>
 </div>
@@ -200,6 +226,16 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting path with reduced number of points. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">epsilon</td><td>- minimum distance between points. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">64</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
 <p>References <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00087">douglasPeucker()</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
@@ -209,7 +245,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDouglasPeuckerApproximation_a1d4e37b7a79cdfa18adda7c13219bd7a_cgraph.png" border="0" usemap="#classDouglasPeuckerApproximation_a1d4e37b7a79cdfa18adda7c13219bd7a_cgraph" alt=""/></div>
 <map name="classDouglasPeuckerApproximation_a1d4e37b7a79cdfa18adda7c13219bd7a_cgraph" id="classDouglasPeuckerApproximation_a1d4e37b7a79cdfa18adda7c13219bd7a_cgraph">
-<area shape="rect" id="node3" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="DouglasPeuckerApproximation::douglasPeucker" alt="" coords="333,5,632,35"/><area shape="rect" id="node7" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="Stopwatch::getElapsedTime" alt="" coords="391,58,575,89"/><area shape="rect" id="node11" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Stopwatch::start" alt="" coords="424,111,541,142"/><area shape="rect" id="node13" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stopwatch::stop" alt="" coords="425,165,540,195"/><area shape="rect" id="node5" href="PathUtilities_8h.html#a1eb0a05e1c2ceb370236faec58b4b805" title="perpendicularDistance" alt="" coords="689,5,839,35"/><area shape="rect" id="node9" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="681,58,847,89"/></map>
+<area shape="rect" id="node3" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="333,5,632,35"/><area shape="rect" id="node9" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="391,58,575,89"/><area shape="rect" id="node13" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="424,111,541,142"/><area shape="rect" id="node15" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="425,165,540,195"/><area shape="rect" id="node5" href="namespaceutilities.html#a78a54487ba80bf9a4f135a6a71a543d2" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="681,5,879,35"/><area shape="rect" id="node7" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="928,5,1085,35"/><area shape="rect" id="node11" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="697,58,863,89"/></map>
 </div>
 </p>
 
@@ -252,9 +288,20 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting path with reduced number of points. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">counter</td><td>- internal number of operations' counter. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">epsilon</td><td>- minimum distance between points. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00087">87</a> of file <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a>.</p>
 
-<p>References <a class="el" href="PathUtilities_8h_source.html#l00046">perpendicularDistance()</a>.</p>
+<p>References <a class="el" href="Utilities_8h_source.html#l00061">utilities::perpendicularDistance()</a>.</p>
 
 <p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">approximate()</a>.</p>
 
@@ -263,7 +310,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDouglasPeuckerApproximation_a9d3d11c6606c89ddd214b8a301d293a3_cgraph.png" border="0" usemap="#classDouglasPeuckerApproximation_a9d3d11c6606c89ddd214b8a301d293a3_cgraph" alt=""/></div>
 <map name="classDouglasPeuckerApproximation_a9d3d11c6606c89ddd214b8a301d293a3_cgraph" id="classDouglasPeuckerApproximation_a9d3d11c6606c89ddd214b8a301d293a3_cgraph">
-<area shape="rect" id="node3" href="PathUtilities_8h.html#a1eb0a05e1c2ceb370236faec58b4b805" title="perpendicularDistance" alt="" coords="353,5,503,35"/></map>
+<area shape="rect" id="node3" href="namespaceutilities.html#a78a54487ba80bf9a4f135a6a71a543d2" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="353,5,551,35"/><area shape="rect" id="node5" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="600,5,757,35"/></map>
 </div>
 </p>
 
@@ -274,7 +321,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_planner/src/<a class="el" href="DouglasPeuckerApproximation_8cpp_source.html">DouglasPeuckerApproximation.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Fri Oct 12 2012 11:39:05 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -44,8 +44,18 @@
 
 class FrameWithId;
 
+/**
+ * @brief Interface class for a collision checking.
+ */
+
 class ICollisionChecking {
 public:
+    /**
+     * @brief An interface for collision checking.
+     * @param[in] path - std::vector <FrameWithId> actual path.
+     * @param[in] actualPose - FrameWithId actual pose.
+     * @return true if there is a collision, false otherwise. 
+     */
     virtual bool check(const std::vector <FrameWithId>& path, const FrameWithId& actualPose) = 0;
 };
 

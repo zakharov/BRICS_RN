@@ -1,8 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68" title="OmniDrivePositionController::getDistance" alt="" coords="347,43,608,74"/>
-<area shape="rect" id="node5" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="673,5,775,35"/>
-<area shape="rect" id="node7" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="673,70,775,101"/>
-<area shape="rect" id="node9" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="403,147,552,178"/>
-<area shape="rect" id="node11" href="$classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="332,201,623,231"/>
-<area shape="rect" id="node13" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="415,254,540,285"/>
+<area shape="rect" id="node3" href="$classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68" title="OmniDrivePositionController::getDistance" alt="" coords="347,45,608,76"/>
+<area shape="rect" id="node5" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="673,6,775,37"/>
+<area shape="rect" id="node7" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="673,72,775,102"/>
+<area shape="rect" id="node9" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="403,149,552,180"/>
+<area shape="rect" id="node11" href="$classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="332,202,623,233"/>
+<area shape="rect" id="node13" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="415,256,540,286"/>
+<area shape="rect" id="node15" href="$classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="379,309,576,340"/>
 </map>
