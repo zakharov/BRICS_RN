@@ -40,26 +40,91 @@
 #ifndef TWIST2D_H
 #define	TWIST2D_H
 
+/**
+ * @brief Class represents twist 2D data.
+ */
+
 class Twist2D {
 public:
+
+    /**
+     * @brief Constructor.
+     */
     Twist2D();
+
+    /**
+     * @brief Constructor.
+     * @param[in] x - coordinate
+     * @param[in] y - coordinate
+     * @param[in] theta - angle
+     */
     Twist2D(float x, float y, float theta);
+
+    /**
+     * @brief Copy constructor.
+     */
     Twist2D(const Twist2D& orig);
+
+    /**
+     * @brief Assignment operation.
+     */
     const Twist2D& operator=(const Twist2D& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~Twist2D();
 
+    /**
+     * @brief Summation.
+     */
     friend Twist2D operator+(const Twist2D& op1, const Twist2D& op2);
 
+    /**
+     * @brief Getting x coordinate.
+     */
     float getX() const;
+
+    /**
+     * @brief Setting x coordinate.
+     */
     void setX(float x);
+
+    /**
+     * @brief Getting y coordinate.
+     */
     float getY() const;
+
+    /**
+     * @brief Setting y coordinate.
+     */
     void setY(float y);
+
+    /**
+     * @brief Getting theta coordinate.
+     */
     float getTheta() const;
+
+    /**
+     * @brief Setting theta coordinate.
+     */
     void setTheta(float theta);
 
 private:
+
+    /**
+     * @brief x coordinate
+     */
     float x;
+
+    /**
+     * @brief y coordinate
+     */
     float y;
+
+    /**
+     * @brief theta coordinate
+     */
     float theta;
 };
 

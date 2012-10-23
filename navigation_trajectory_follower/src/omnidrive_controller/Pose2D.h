@@ -40,22 +40,76 @@
 #ifndef POSE2D_H
 #define	POSE2D_H
 
+/**
+ * @brief Class represents pose 2D data.
+ */
+
 class Pose2D {
 public:
+
+    /**
+     * @brief Constructor.
+     */
     Pose2D();
+
+    /**
+     * @brief Constructor.
+     * @param[in] x - coordinate
+     * @param[in] y - coordinate
+     * @param[in] theta - coordinate
+     */
     Pose2D(float x, float y, float theta);
+
+    /**
+     * @brief Copy constructor.
+     */
     Pose2D(const Pose2D& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~Pose2D();
 
+    /**
+     * @brief Summation.
+     */
     friend Pose2D operator+(const Pose2D& op1, const Pose2D& op2);
+
+    /**
+     * @brief Assignment.
+     */
     const Pose2D& operator=(const Pose2D& orig);
+
+    /**
+     * @brief Getting x coordinate.
+     */
     float getX() const;
+
+    /**
+     * @brief Getting y coordinate.
+     */
     float getY() const;
+
+    /**
+     * @brief Getting theta angle.
+     */
     float getTheta() const;
 
 private:
+
+    /**
+     * @brief x coordinate.
+     */
     float x;
+
+    /**
+     * @brief y coordinate.
+     */
     float y;
+
+    /**
+     * @brief theta coordinate.
+     */
     float theta;
 
 };

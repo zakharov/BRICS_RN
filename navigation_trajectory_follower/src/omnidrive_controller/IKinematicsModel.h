@@ -42,9 +42,27 @@
 
 class Odometry;
 
+/**
+ * @brief Interface class for computing mobile base motion in global and local reference frame.
+ */
+
 class IKinematicsModel {
 public:
+ 
+    /**
+     * @brief Mapping motion in the global reference frame to motion
+     * in terms of the local reference frame.
+     * @param[in] globalFrame - odometry in the global reference frame
+     * @param[out]  localFrame - resulting conversion to the local reference frame
+     */
     virtual void convertToLocalReferenceFrame(const Odometry& globalFrame, Odometry& localFrame) = 0;
+
+    /**
+     * @brief Mapping motion in the local reference frame to motion
+     * in terms of the global reference frame.
+     * @param[in] localFrame - odometry in the local reference frame
+     * @param[out]  globalFrame - resulting conversion to the global reference frame
+     */
     virtual void convertToGlobalReferenceFrame(const Odometry& localFrame, Odometry& globalFrame) = 0;
 private:
 

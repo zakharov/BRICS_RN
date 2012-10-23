@@ -44,17 +44,51 @@
 
 class Odometry;
 
+/**
+ * @brief Implementation of the interface class for computing motion in global and local reference frames
+ * for omnidirectional mobile platform.
+ */
+
 class OmniDriveKinematicsModel : public IKinematicsModel {
 public:
+
+    /**
+     * @brief Constructor.
+     */
     OmniDriveKinematicsModel();
+
+    /**
+     * @brief Copy constructor.
+     */
     OmniDriveKinematicsModel(const OmniDriveKinematicsModel& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~OmniDriveKinematicsModel();
 
+    /**
+     * @brief Mapping motion in the global reference frame to motion
+     * in terms of the local reference frame for the omnidirectional platform.
+     * @param[in] globalFrame - odometry in the global reference frame
+     * @param[out]  localFrame - resulting conversion to the local reference frame
+     */
     void convertToLocalReferenceFrame(const Odometry& globalFrame, Odometry& localFrame);
+
+    /**
+     * @brief Mapping motion in the local reference frame to motion
+     * in terms of the global reference frame.
+     * @param[in] localFrame - odometry in the local reference frame
+     * @param[out]  globalFrame - resulting conversion to the global reference frame
+     */
     void convertToGlobalReferenceFrame(const Odometry& localFrame, Odometry& globalFrame);
 
 private:
 
+    /**
+     * @brief Implementation of the interface class for computing motion in global and local reference frames
+     * for omnidirectional mobile platform.
+     */
     void convert(const double& x1, const double& y1, const double& theta, double& x2, double& y2, bool inverse);
 
 };

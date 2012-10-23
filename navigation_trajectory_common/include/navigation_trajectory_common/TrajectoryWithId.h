@@ -89,6 +89,12 @@ public:
     TrajectoryWithId(const TrajectoryWithId& orig);
 
     /**
+     * @brief Operation assignment
+     * @param[in] orig - reference to the original object
+     */
+    const TrajectoryWithId& operator=(const TrajectoryWithId& orig);
+    
+    /**
      * @brief Destructor
      */
     virtual ~TrajectoryWithId();

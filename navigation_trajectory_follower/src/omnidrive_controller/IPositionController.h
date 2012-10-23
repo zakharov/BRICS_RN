@@ -43,25 +43,61 @@
 #include <vector>
 
 class TrajectoryWithId;
-
-
-
 class Odometry;
+
+/**
+ * @brief Interface class for a position controller.
+ */
 
 class IPositionController {
 public:
 
+    /**
+     * @brief Sets a trajectory to follow.
+     * @param[in] trajectory - a target trajectory
+     */
     virtual void setTargetTrajectory(const TrajectoryWithId& trajectory) = 0;
+
+    /**
+     * @brief Gets an actual trajectory
+     * @return TrajectoryWithId is and aggregatin of KDL::Trajectory with frame id.
+     */
     virtual const TrajectoryWithId& getTargetTrajectory() const = 0;
-    
+
+    /**
+     * @brief Sets a goal pose to reach.
+     * @param[in] targetOdometry - a goal pose
+     */
     virtual void setTargetOdometry(const Odometry& targetOdometry) = 0;
+
+    /**
+     * @brief Gets an actual goal pose.
+     * @return Odometry value of the actual goal pose.
+     */
     virtual const Odometry& getTargetOdometry() const = 0;
-    
+
+    /**
+     * @brief Returns true if target has been reached. otherwise false.
+     */
     virtual bool isTargetReached() const = 0;
-    
+
+    /**
+     * @brief Sets tolerance parameter for a controller.
+     * @param[in] tolerance - required tolerance for positioning procedure.
+     */
     virtual void setTolerance(const Odometry& tolerance) = 0;
+
+    /**
+     * @brief Get tolerance parameter.
+     * @return tolerance of the positioning procedure.
+     */
     virtual const Odometry& getTolerance() const = 0;
-    
+
+    /**
+     * @brief Interface to compute desired odometry, given actual odometry and a time step.
+     * @param[in] actualOdometry - actual odometry.
+     * @param elapsedTimeInSec - a time step.
+     */
     virtual const Odometry& computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec) = 0;
 
 };

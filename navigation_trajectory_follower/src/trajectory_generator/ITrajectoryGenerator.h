@@ -47,9 +47,18 @@ namespace KDL {
     class Trajectory_Composite;
 }
 
+/**
+ * @brief Interface class for trajectory generation.
+ */
+
 class ITrajectoryGenerator {
 public:
 
+    /**
+     * @brief Interface for trajectory generation.
+     * @param[in] path - input path
+     * @param[out] trajectory - calculated trajectory
+     */
     virtual void computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory) = 0;
 
 private:

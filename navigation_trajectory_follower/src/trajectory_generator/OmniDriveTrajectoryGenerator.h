@@ -49,18 +49,62 @@ namespace KDL {
 
 class FrameWithId;
 
+/**
+ * @brief Implementation of the interface class for trajectory generation for omnidrive mobile base.
+ */
+
 class OmniDriveTrajectoryGenerator : public ITrajectoryGenerator {
 public:
+
+    /**
+     * @brief Constructor.
+     */
     OmniDriveTrajectoryGenerator();
+
+    /**
+     * @brief Copy constructor.
+     */
     OmniDriveTrajectoryGenerator(const OmniDriveTrajectoryGenerator& orig);
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~OmniDriveTrajectoryGenerator();
 
-
+    /**
+     * @brief Computes shortest angle.
+     * @param[in] goalAngle - 1st angle.
+     * @param[in] actualAngle - 2nd angle.
+     * @return shortest angle
+     */
     float getShortestAngle(float goalAngle, float actualAngle);
+
+    /**
+     * @brief Converts vector of FrameWithId to KDL::Path_Composite.
+     * @param[in] path - input path as a vector of FrameWithId.
+     * @param[out] pathComposite - converted path to KDL::Path_Composite.
+     */
     void computePathComposite(const std::vector<FrameWithId>& path, KDL::Path_Composite& pathComposite);
 
+    /**
+     * @brief Calculates rotation.
+     * @param[in] path - input path as a vector of FrameWithId
+     * @param[out] pathWithRotation - output path with orientation in each path point.
+     */
     void interpolateRotation(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& pathWithRotation);
+
+    /**
+     * @brief Implementation if an interface for computing a trajectory.
+     * @param[in] path - input path, KDL::Path_Composite
+     * @param[out] trajectory - computed trajectory
+     */
     void computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory);
+
+    /**
+     * @brief Computes trajectory given a path as a vector of FrameWithId.
+     * @param[in] path - input path, a vector of FrameWithId
+     * @param[out] trajectory - computed trajectory
+     */
     void computeTrajectroy(const std::vector<FrameWithId> path, KDL::Trajectory_Composite& trajectory);
 
 private:

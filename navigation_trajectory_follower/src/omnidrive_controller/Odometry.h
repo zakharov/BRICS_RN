@@ -43,27 +43,81 @@
 #include "Twist2D.h"
 #include "Pose2D.h"
 
+/**
+ * @brief Class represents odometry data, which is an aggregation of Twist2D and Pose2D.
+ */
 class Odometry {
 public:
+
+    /**
+     * @brief Constructor.
+     */
     Odometry(); // creates odometry with 0,0,0 pose and 0,0,0 twist
+
+    /**
+     * @brief Constructor.
+     * @param[in] pose - initial 2D pose.
+     * @param[in] twist - initial 2D twist.
+     */
     Odometry(const Pose2D& pose, const Twist2D& twist);
+
+    /**
+     * @brief Constructor.
+     * @param[in] pose - initial pose.
+     */
     Odometry(const Pose2D& pose);
+
+    /**
+     * @brief Constructor.
+     * @param[in] twist - initial twist.
+     */
     Odometry(const Twist2D& twist);
+
+    /**
+     * @brief Copy constructor.
+     */
     Odometry(const Odometry& orig);
 
+    /**
+     * @brief Assignment operator.
+     */
     const Odometry& operator=(const Odometry& orig);
 
+    /**
+     * @brief Class represents an odometry data.
+     */
     const Pose2D& getPose2D() const;
+
+    /**
+     * @brief Class represents an odometry data.
+     */
     void setPose2D(const Pose2D& twist);
 
+    /**
+     * @brief Class represents an odometry data.
+     */
     const Twist2D& getTwist2D() const;
+
+    /**
+     * @brief Class represents an odometry data.
+     */
     void setTwist2D(const Twist2D& twist);
 
+    /**
+     * @brief Class represents an odometry data.
+     */
     virtual ~Odometry();
 
 private:
 
+    /**
+     * @brief Class represents an odometry data.
+     */
     Pose2D pose;
+
+    /**
+     * @brief Class represents an odometry data.
+     */
     Twist2D twist;
 };
 

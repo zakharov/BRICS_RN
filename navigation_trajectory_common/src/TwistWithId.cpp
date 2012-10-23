@@ -68,6 +68,14 @@ TwistWithId::TwistWithId(const TwistWithId& orig) {
     twist = new Twist(orig.getTwist());
 }
 
+const TwistWithId& TwistWithId::operator=(const TwistWithId& orig) {
+    id = orig.id;
+    delete twist;
+    twist = new Twist(orig.getTwist());
+    
+    return *this;
+}
+
 void TwistWithId::setTwist(const KDL::Twist& orig) {
     delete this->twist;
     this->twist = new Twist(orig);

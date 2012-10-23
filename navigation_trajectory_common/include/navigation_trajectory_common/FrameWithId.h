@@ -90,6 +90,12 @@ public:
     FrameWithId(const FrameWithId& orig);
     
     /**
+     * @brief Operation assignment
+     * @param[in] orig - reference to the original object
+     */
+    const FrameWithId& operator=(const FrameWithId& orig);
+    
+    /**
      * @brief Sets new KDL::Frame
      */
     void setFrame(const KDL::Frame& frame);

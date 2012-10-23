@@ -21,10 +21,18 @@ TrajectoryWithId::TrajectoryWithId(const KDL::Trajectory& trajectory, const std:
     this->id = id;
     this->trajectory = trajectory.Clone();
 }
+   
+const TrajectoryWithId& TrajectoryWithId::operator=(const TrajectoryWithId& orig) {
+    id = orig.id;
+    delete trajectory;
+    trajectory = orig.trajectory;
     
+    return *this;
+}
+
 TrajectoryWithId::TrajectoryWithId(const TrajectoryWithId& orig) {
     id = orig.id;
-    trajectory = orig.trajectory;
+    trajectory = orig.getTrajectory().Clone();
 }
 
 TrajectoryWithId::~TrajectoryWithId() {

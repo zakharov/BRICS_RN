@@ -68,6 +68,13 @@ FrameWithId::FrameWithId(const FrameWithId& orig) {
     frame = new Frame(orig.getFrame()); 
 }
 
+const FrameWithId& FrameWithId::operator=(const FrameWithId& orig) {
+    id = orig.id; 
+    delete frame;
+    frame = new Frame(orig.getFrame());    
+    return *this;
+}
+
 FrameWithId::~FrameWithId() {
     delete frame;
 }

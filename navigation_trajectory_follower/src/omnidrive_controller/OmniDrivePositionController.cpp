@@ -61,10 +61,7 @@ OmniDrivePositionController::OmniDrivePositionController(double positionGainTran
         double velocityToleranceRotation) {
 
     actualTime = 0;
-    timeOffset = 0;
-
-
-
+ 
     tolerance = Odometry(Pose2D(positionToleranceTranslation,
             positionToleranceTranslation,
             positionToleranceRotation),
@@ -85,7 +82,6 @@ OmniDrivePositionController::OmniDrivePositionController(double positionGainTran
 
 OmniDrivePositionController::OmniDrivePositionController() {
     actualTime = 0;
-    timeOffset = 0;
     tolerance = Odometry(Pose2D(0.1, 0.1, 0.05));
 
     resetFlags();
@@ -95,7 +91,6 @@ OmniDrivePositionController::OmniDrivePositionController(const OmniDrivePosition
 targetTrajectory(targetTrajectory) {
 
     actualTime = 0;
-    timeOffset = 0;
     tolerance = orig.getTolerance();
 
     targetOdometry = orig.getTargetOdometry();
@@ -140,10 +135,10 @@ bool OmniDrivePositionController::isTargetReached() const {
 
 void OmniDrivePositionController::targetReached(bool& translation, bool& rotation) {
 
-    KDL::Trajectory* trajectoryComposite = targetTrajectory.getTrajectory();
+    KDL::Trajectory& trajectoryComposite = targetTrajectory.getTrajectory();
 
-    double duration = trajectoryComposite->Duration();
-    KDL::Frame frame = trajectoryComposite->Pos(duration);
+    double duration = trajectoryComposite.Duration();
+    KDL::Frame frame = trajectoryComposite.Pos(duration);
 
     double roll, pitch, yaw;
     frame.M.GetRPY(roll, pitch, yaw);
@@ -169,18 +164,18 @@ void OmniDrivePositionController::targetReached(bool& translation, bool& rotatio
 const Odometry& OmniDrivePositionController::computeNewOdometry(const Odometry& actualOdometry, double elapsedTimeInSec) {
 
 
-    KDL::Trajectory* trajectoryComposite = targetTrajectory.getTrajectory();
+    KDL::Trajectory& trajectoryComposite = targetTrajectory.getTrajectory();
 
     this->actualOdometry = actualOdometry;
     computedOdometry = Odometry();
 
-    if (trajectoryComposite != NULL && trajectoryComposite->Duration() > 0 && !isTargetReached()) {
+    if (trajectoryComposite.Duration() > 0 && !isTargetReached()) {
   
-        actualTime = elapsedTimeInSec + timeOffset;
+        actualTime = elapsedTimeInSec;
 
-        KDL::Frame desiredPose = trajectoryComposite->Pos(actualTime);
-        KDL::Twist desiredTwist = trajectoryComposite->Vel(actualTime);
-        KDL::Frame initPose = trajectoryComposite->Pos(0);
+        KDL::Frame desiredPose = trajectoryComposite.Pos(actualTime);
+        KDL::Twist desiredTwist = trajectoryComposite.Vel(actualTime);
+        KDL::Frame initPose = trajectoryComposite.Pos(0);
 
         double r, p, y;
         desiredPose.M.GetRPY(r, p, y);

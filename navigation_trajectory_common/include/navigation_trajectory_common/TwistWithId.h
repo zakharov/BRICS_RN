@@ -90,6 +90,12 @@ public:
     TwistWithId(const TwistWithId& orig);
 
     /**
+     * @brief Operation assignment
+     * @param[in] orig - reference to the original object
+     */
+    const TwistWithId& operator=(const TwistWithId& orig);
+    
+    /**
      * @brief Destructor.
      */
     virtual ~TwistWithId();
