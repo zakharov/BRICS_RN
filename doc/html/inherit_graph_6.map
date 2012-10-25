@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classIPositionController.html" title="IPositionController" alt="" coords="7,5,132,35"/>
-<area shape="rect" id="node3" href="$classOmniDrivePositionController.html" title="OmniDrivePositionController" alt="" coords="181,5,365,35"/>
+<area shape="rect" id="node1" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="7,5,132,35"/>
+<area shape="rect" id="node3" href="$classOmniDrivePositionController.html" title="Implementation of the interface class for a position controller for omnidirectional mobile platform..." alt="" coords="181,5,365,35"/>
 </map>

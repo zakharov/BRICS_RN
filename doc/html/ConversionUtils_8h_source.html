@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -88,12 +87,12 @@
 <a name="l00045"></a>00045 <span class="preprocessor">#include &quot;<a class="code" href="Twist2D_8h.html">Twist2D.h</a>&quot;</span>
 <a name="l00046"></a>00046 <span class="preprocessor">#include &quot;kdl/frames.hpp&quot;</span>
 <a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="ConversionUtils_8h.html#a27990c6f99474663b94bd6bb7fc587cf">00048</a> <span class="keywordtype">void</span> <a class="code" href="ConversionUtils_8h.html#a27990c6f99474663b94bd6bb7fc587cf">pose2dToFrameKdl</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose2d, KDL::Frame&amp; pose) {
-<a name="l00049"></a>00049     pose = KDL::Frame(KDL::Rotation::RPY(0, 0, pose2d.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>()), KDL::Vector(pose2d.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>(), pose2d.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>(), 0));
+<a name="l00048"></a><a class="code" href="ConversionUtils_8h.html#a27990c6f99474663b94bd6bb7fc587cf">00048</a> <span class="keywordtype">void</span> <a class="code" href="ConversionUtils_8h.html#a27990c6f99474663b94bd6bb7fc587cf">pose2dToFrameKdl</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; pose2d, KDL::Frame&amp; pose) {
+<a name="l00049"></a>00049     pose = KDL::Frame(KDL::Rotation::RPY(0, 0, pose2d.<a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle.">getTheta</a>()), KDL::Vector(pose2d.<a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate.">getX</a>(), pose2d.<a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate.">getY</a>(), 0));
 <a name="l00050"></a>00050 }
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="ConversionUtils_8h.html#a51deae14a4c9a48e7a934f48983d7fd5">00052</a> <span class="keywordtype">void</span> <a class="code" href="ConversionUtils_8h.html#a51deae14a4c9a48e7a934f48983d7fd5">twist2dToTwistKdl</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist2d, KDL::Twist&amp; twist) {
-<a name="l00053"></a>00053     twist = KDL::Twist(KDL::Vector(twist2d.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>(), twist2d.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>(), 0), KDL::Vector(0, 0, twist2d.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>()));
+<a name="l00052"></a><a class="code" href="ConversionUtils_8h.html#a51deae14a4c9a48e7a934f48983d7fd5">00052</a> <span class="keywordtype">void</span> <a class="code" href="ConversionUtils_8h.html#a51deae14a4c9a48e7a934f48983d7fd5">twist2dToTwistKdl</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; twist2d, KDL::Twist&amp; twist) {
+<a name="l00053"></a>00053     twist = KDL::Twist(KDL::Vector(twist2d.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate.">getX</a>(), twist2d.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate.">getY</a>(), 0), KDL::Vector(0, 0, twist2d.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate.">getTheta</a>()));
 <a name="l00054"></a>00054 }
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056 
@@ -101,7 +100,7 @@
 <a name="l00058"></a>00058 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

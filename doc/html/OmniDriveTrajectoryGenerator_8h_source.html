@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -92,29 +91,34 @@
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050 <span class="keyword">class </span><a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>;
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html">00052</a> <span class="keyword">class </span><a class="code" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a> : <span class="keyword">public</span> <a class="code" href="classITrajectoryGenerator.html">ITrajectoryGenerator</a> {
-<a name="l00053"></a>00053 <span class="keyword">public</span>:
-<a name="l00054"></a>00054     <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator</a>();
-<a name="l00055"></a>00055     <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator</a>(<span class="keyword">const</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a>&amp; orig);
-<a name="l00056"></a>00056     <span class="keyword">virtual</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">~OmniDriveTrajectoryGenerator</a>();
-<a name="l00057"></a>00057 
+<a name="l00056"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html">00056</a> <span class="keyword">class </span><a class="code" href="classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base...">OmniDriveTrajectoryGenerator</a> : <span class="keyword">public</span> <a class="code" href="classITrajectoryGenerator.html" title="Interface class for trajectory generation.">ITrajectoryGenerator</a> {
+<a name="l00057"></a>00057 <span class="keyword">public</span>:
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="keywordtype">float</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">getShortestAngle</a>(<span class="keywordtype">float</span> goalAngle, <span class="keywordtype">float</span> actualAngle);
-<a name="l00060"></a>00060     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite);
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; path, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation);
-<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; path, KDL::Trajectory_Composite&amp; trajectory);
-<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; path, KDL::Trajectory_Composite&amp; trajectory);
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="keyword">private</span>:
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 };
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="preprocessor">#endif  </span><span class="comment">/* OMNIDRIVETRAJECTORYGENERATOR_H */</span>
-<a name="l00071"></a>00071 
+<a name="l00062"></a>00062     <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9" title="Constructor.">OmniDriveTrajectoryGenerator</a>();
+<a name="l00063"></a>00063 
+<a name="l00067"></a>00067     <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9" title="Constructor.">OmniDriveTrajectoryGenerator</a>(<span class="keyword">const</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base...">OmniDriveTrajectoryGenerator</a>&amp; orig);
+<a name="l00068"></a>00068 
+<a name="l00072"></a>00072     <span class="keyword">virtual</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36" title="Destructor.">~OmniDriveTrajectoryGenerator</a>();
+<a name="l00073"></a>00073 
+<a name="l00080"></a>00080     <span class="keywordtype">float</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle.">getShortestAngle</a>(<span class="keywordtype">float</span> goalAngle, <span class="keywordtype">float</span> actualAngle);
+<a name="l00081"></a>00081 
+<a name="l00087"></a>00087     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite.">computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite);
+<a name="l00088"></a>00088 
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation.">interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; path, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation);
+<a name="l00095"></a>00095 
+<a name="l00101"></a>00101     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; path, KDL::Trajectory_Composite&amp; trajectory);
+<a name="l00102"></a>00102 
+<a name="l00108"></a>00108     <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; path, KDL::Trajectory_Composite&amp; trajectory);
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="keyword">private</span>:
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 };
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="preprocessor">#endif  </span><span class="comment">/* OMNIDRIVETRAJECTORYGENERATOR_H */</span>
+<a name="l00115"></a>00115 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

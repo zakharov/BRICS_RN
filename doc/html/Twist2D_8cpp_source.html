@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -82,58 +81,58 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="Twist2D_8h.html">Twist2D.h</a>&quot;</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34">00042</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34">Twist2D::Twist2D</a>() : x(0), y(0), theta(0) {
+<a name="l00042"></a><a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34">00042</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34" title="Constructor.">Twist2D::Twist2D</a>() : x(0), y(0), theta(0) {
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classTwist2D.html#aead62c156b315b7edcb89002f5a091bd">00046</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34">Twist2D::Twist2D</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> theta) : x(x), y(y), theta(theta) {
+<a name="l00046"></a><a class="code" href="classTwist2D.html#aead62c156b315b7edcb89002f5a091bd">00046</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34" title="Constructor.">Twist2D::Twist2D</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> theta) : x(x), y(y), theta(theta) {
 <a name="l00047"></a>00047 }
 <a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="classTwist2D.html#afb601bf1149f37732e2a529ece275804">00049</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34">Twist2D::Twist2D</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; orig) : x(orig.getX()), y(orig.getY()), theta(orig.getTheta()) {
+<a name="l00049"></a><a class="code" href="classTwist2D.html#afb601bf1149f37732e2a529ece275804">00049</a> <a class="code" href="classTwist2D.html#a9e70c656dc4a0b3d77d6078146cc1c34" title="Constructor.">Twist2D::Twist2D</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; orig) : x(orig.getX()), y(orig.getY()), theta(orig.getTheta()) {
 <a name="l00050"></a>00050 }
 <a name="l00051"></a>00051 
-<a name="l00052"></a><a class="code" href="classTwist2D.html#ae409a5aea9cd3889811f9def769f4999">00052</a> <a class="code" href="classTwist2D.html#ae409a5aea9cd3889811f9def769f4999">Twist2D::~Twist2D</a>() {
+<a name="l00052"></a><a class="code" href="classTwist2D.html#ae409a5aea9cd3889811f9def769f4999">00052</a> <a class="code" href="classTwist2D.html#ae409a5aea9cd3889811f9def769f4999" title="Destructor.">Twist2D::~Twist2D</a>() {
 <a name="l00053"></a>00053 }
 <a name="l00054"></a>00054 
-<a name="l00055"></a><a class="code" href="classTwist2D.html#a8e8dde860acd7db631cb011ff3fbd1b1">00055</a> <span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; <a class="code" href="classTwist2D.html#a8e8dde860acd7db631cb011ff3fbd1b1">Twist2D::operator=</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; orig) {
-<a name="l00056"></a>00056     this-&gt;<a class="code" href="classTwist2D.html#a424769ba1ec26d9b4ac894b5b5470a3c">x</a> = orig.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>();
-<a name="l00057"></a>00057     this-&gt;<a class="code" href="classTwist2D.html#af89b53cd5c4f7ca4b167ef6e124cb539">y</a> = orig.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>();
-<a name="l00058"></a>00058     this-&gt;<a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992">theta</a> = orig.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>();
+<a name="l00055"></a><a class="code" href="classTwist2D.html#a8e8dde860acd7db631cb011ff3fbd1b1">00055</a> <span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; <a class="code" href="classTwist2D.html#a8e8dde860acd7db631cb011ff3fbd1b1" title="Assignment operation.">Twist2D::operator=</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; orig) {
+<a name="l00056"></a>00056     this-&gt;<a class="code" href="classTwist2D.html#a424769ba1ec26d9b4ac894b5b5470a3c" title="x coordinate">x</a> = orig.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate.">getX</a>();
+<a name="l00057"></a>00057     this-&gt;<a class="code" href="classTwist2D.html#af89b53cd5c4f7ca4b167ef6e124cb539" title="y coordinate">y</a> = orig.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate.">getY</a>();
+<a name="l00058"></a>00058     this-&gt;<a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992" title="theta coordinate">theta</a> = orig.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate.">getTheta</a>();
 <a name="l00059"></a>00059     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00060"></a>00060 }
 <a name="l00061"></a>00061 
-<a name="l00062"></a><a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">00062</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">Twist2D::getX</a>()<span class="keyword"> const </span>{
-<a name="l00063"></a>00063     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#a424769ba1ec26d9b4ac894b5b5470a3c">x</a>;
+<a name="l00062"></a><a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">00062</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate.">Twist2D::getX</a>()<span class="keyword"> const </span>{
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#a424769ba1ec26d9b4ac894b5b5470a3c" title="x coordinate">x</a>;
 <a name="l00064"></a>00064 }
 <a name="l00065"></a>00065 
-<a name="l00066"></a><a class="code" href="classTwist2D.html#ab219a7c3ca06e6428d88d9c3f51d66bc">00066</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#ab219a7c3ca06e6428d88d9c3f51d66bc">Twist2D::setX</a>(<span class="keywordtype">float</span> x) {
+<a name="l00066"></a><a class="code" href="classTwist2D.html#ab219a7c3ca06e6428d88d9c3f51d66bc">00066</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#ab219a7c3ca06e6428d88d9c3f51d66bc" title="Setting x coordinate.">Twist2D::setX</a>(<span class="keywordtype">float</span> x) {
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068 }
 <a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">00070</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">Twist2D::getY</a>()<span class="keyword"> const </span>{
-<a name="l00071"></a>00071     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#af89b53cd5c4f7ca4b167ef6e124cb539">y</a>;
+<a name="l00070"></a><a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">00070</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate.">Twist2D::getY</a>()<span class="keyword"> const </span>{
+<a name="l00071"></a>00071     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#af89b53cd5c4f7ca4b167ef6e124cb539" title="y coordinate">y</a>;
 <a name="l00072"></a>00072 }
 <a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="classTwist2D.html#aa9dd3540b020168f58cf4dca0820c70d">00074</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#aa9dd3540b020168f58cf4dca0820c70d">Twist2D::setY</a>(<span class="keywordtype">float</span> y) {
+<a name="l00074"></a><a class="code" href="classTwist2D.html#aa9dd3540b020168f58cf4dca0820c70d">00074</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#aa9dd3540b020168f58cf4dca0820c70d" title="Setting y coordinate.">Twist2D::setY</a>(<span class="keywordtype">float</span> y) {
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 }
 <a name="l00077"></a>00077 
-<a name="l00078"></a><a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">00078</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">Twist2D::getTheta</a>()<span class="keyword"> const </span>{
-<a name="l00079"></a>00079     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992">theta</a>;
+<a name="l00078"></a><a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">00078</a> <span class="keywordtype">float</span> <a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate.">Twist2D::getTheta</a>()<span class="keyword"> const </span>{
+<a name="l00079"></a>00079     <span class="keywordflow">return</span> this-&gt;<a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992" title="theta coordinate">theta</a>;
 <a name="l00080"></a>00080 }
 <a name="l00081"></a>00081 
-<a name="l00082"></a><a class="code" href="classTwist2D.html#a0065cdd9fcdb2f84eb798ae443811396">00082</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#a0065cdd9fcdb2f84eb798ae443811396">Twist2D::setTheta</a>(<span class="keywordtype">float</span> theta) {
-<a name="l00083"></a>00083     this-&gt;theta = <a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992">theta</a>;
+<a name="l00082"></a><a class="code" href="classTwist2D.html#a0065cdd9fcdb2f84eb798ae443811396">00082</a> <span class="keywordtype">void</span> <a class="code" href="classTwist2D.html#a0065cdd9fcdb2f84eb798ae443811396" title="Setting theta coordinate.">Twist2D::setTheta</a>(<span class="keywordtype">float</span> theta) {
+<a name="l00083"></a>00083     this-&gt;theta = <a class="code" href="classTwist2D.html#af41f20735945ba87bd2b98d3c701b992" title="theta coordinate">theta</a>;
 <a name="l00084"></a>00084 }
 <a name="l00085"></a>00085 
-<a name="l00086"></a><a class="code" href="Twist2D_8cpp.html#ae0cb0fb595384c1f50135996c0b13b27">00086</a> <a class="code" href="classTwist2D.html">Twist2D</a> <a class="code" href="Pose2D_8cpp.html#aaed5088c5bd11064ae3e31a17747b303">operator+</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; op2) {
-<a name="l00087"></a>00087     <a class="code" href="classTwist2D.html">Twist2D</a> twist(op1.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>() + op2.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1">getX</a>(), op1.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>() + op2.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9">getY</a>(), op1.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>() + op2.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40">getTheta</a>());
+<a name="l00086"></a><a class="code" href="Twist2D_8cpp.html#ae0cb0fb595384c1f50135996c0b13b27">00086</a> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a> <a class="code" href="Pose2D_8cpp.html#aaed5088c5bd11064ae3e31a17747b303">operator+</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; op2) {
+<a name="l00087"></a>00087     <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a> twist(op1.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate.">getX</a>() + op2.<a class="code" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate.">getX</a>(), op1.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate.">getY</a>() + op2.<a class="code" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate.">getY</a>(), op1.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate.">getTheta</a>() + op2.<a class="code" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate.">getTheta</a>());
 <a name="l00088"></a>00088 
 <a name="l00089"></a>00089     <span class="keywordflow">return</span> twist;
 <a name="l00090"></a>00090 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

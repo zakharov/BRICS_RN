@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -82,54 +81,54 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="Odometry_8h.html">Odometry.h</a>&quot;</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">00042</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry::Odometry</a>() : pose(<a class="code" href="classPose2D.html">Pose2D</a>()), twist(<a class="code" href="classTwist2D.html">Twist2D</a>()) {
+<a name="l00042"></a><a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">00042</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35" title="Constructor.">Odometry::Odometry</a>() : pose(<a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>()), twist(<a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>()) {
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classOdometry.html#acdf9825a4c411e312161906190bd7545">00046</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose, <span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist) : pose(pose), twist(twist) {
+<a name="l00046"></a><a class="code" href="classOdometry.html#acdf9825a4c411e312161906190bd7545">00046</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35" title="Constructor.">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; pose, <span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; twist) : pose(pose), twist(twist) {
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classOdometry.html#a03b85471c4c9be9818157e010b015433">00050</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose) : pose(pose), twist(<a class="code" href="classTwist2D.html">Twist2D</a>()) {
+<a name="l00050"></a><a class="code" href="classOdometry.html#a03b85471c4c9be9818157e010b015433">00050</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35" title="Constructor.">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; pose) : pose(pose), twist(<a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>()) {
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052 }
 <a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="classOdometry.html#a440e4b02fad7510011d7e8d56bd31b9e">00054</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist) : pose(<a class="code" href="classPose2D.html">Pose2D</a>()), twist(twist) {
+<a name="l00054"></a><a class="code" href="classOdometry.html#a440e4b02fad7510011d7e8d56bd31b9e">00054</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35" title="Constructor.">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; twist) : pose(<a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>()), twist(twist) {
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056 }
 <a name="l00057"></a>00057 
-<a name="l00058"></a><a class="code" href="classOdometry.html#a8645610d04666b3b43083b8de3a07d3a">00058</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; orig) : pose(orig.getPose2D()), twist(orig.getTwist2D()) {
+<a name="l00058"></a><a class="code" href="classOdometry.html#a8645610d04666b3b43083b8de3a07d3a">00058</a> <a class="code" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35" title="Constructor.">Odometry::Odometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; orig) : pose(orig.getPose2D()), twist(orig.getTwist2D()) {
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060 }
 <a name="l00061"></a>00061 
-<a name="l00062"></a><a class="code" href="classOdometry.html#a0e7b04f174550b8187ac80702eff30a7">00062</a> <span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; <a class="code" href="classOdometry.html#a0e7b04f174550b8187ac80702eff30a7">Odometry::operator=</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; orig) {
-<a name="l00063"></a>00063     this-&gt;<a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a> = orig.<a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">getPose2D</a>();
-<a name="l00064"></a>00064     this-&gt;<a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a> = orig.<a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">getTwist2D</a>();
+<a name="l00062"></a><a class="code" href="classOdometry.html#a0e7b04f174550b8187ac80702eff30a7">00062</a> <span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; <a class="code" href="classOdometry.html#a0e7b04f174550b8187ac80702eff30a7" title="Assignment operator.">Odometry::operator=</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; orig) {
+<a name="l00063"></a>00063     this-&gt;<a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd" title="Class represents an odometry data.">pose</a> = orig.<a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data.">getPose2D</a>();
+<a name="l00064"></a>00064     this-&gt;<a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31" title="Class represents an odometry data.">twist</a> = orig.<a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data.">getTwist2D</a>();
 <a name="l00065"></a>00065     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
 <a name="l00066"></a>00066 }
 <a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="classOdometry.html#a5695daf4511a383286361f9ef6c0a20f">00068</a> <a class="code" href="classOdometry.html#a5695daf4511a383286361f9ef6c0a20f">Odometry::~Odometry</a>() {
+<a name="l00068"></a><a class="code" href="classOdometry.html#a5695daf4511a383286361f9ef6c0a20f">00068</a> <a class="code" href="classOdometry.html#a5695daf4511a383286361f9ef6c0a20f" title="Class represents an odometry data.">Odometry::~Odometry</a>() {
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070 }
 <a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">00072</a> <span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; <a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">Odometry::getPose2D</a>()<span class="keyword"> const </span>{
-<a name="l00073"></a>00073     <span class="keywordflow">return</span> <a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a>;
+<a name="l00072"></a><a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">00072</a> <span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; <a class="code" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data.">Odometry::getPose2D</a>()<span class="keyword"> const </span>{
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> <a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd" title="Class represents an odometry data.">pose</a>;
 <a name="l00074"></a>00074 }
 <a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="classOdometry.html#a671d9f3df91cb599ebb39ab2e4ff93dd">00076</a> <span class="keywordtype">void</span> <a class="code" href="classOdometry.html#a671d9f3df91cb599ebb39ab2e4ff93dd">Odometry::setPose2D</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; pose) {
-<a name="l00077"></a>00077     this-&gt;pose = <a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a>;
+<a name="l00076"></a><a class="code" href="classOdometry.html#a671d9f3df91cb599ebb39ab2e4ff93dd">00076</a> <span class="keywordtype">void</span> <a class="code" href="classOdometry.html#a671d9f3df91cb599ebb39ab2e4ff93dd" title="Class represents an odometry data.">Odometry::setPose2D</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; pose) {
+<a name="l00077"></a>00077     this-&gt;pose = <a class="code" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd" title="Class represents an odometry data.">pose</a>;
 <a name="l00078"></a>00078 }
 <a name="l00079"></a>00079 
-<a name="l00080"></a><a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">00080</a> <span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; <a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">Odometry::getTwist2D</a>()<span class="keyword"> const </span>{
-<a name="l00081"></a>00081     <span class="keywordflow">return</span> <a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>;
+<a name="l00080"></a><a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">00080</a> <span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; <a class="code" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data.">Odometry::getTwist2D</a>()<span class="keyword"> const </span>{
+<a name="l00081"></a>00081     <span class="keywordflow">return</span> <a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31" title="Class represents an odometry data.">twist</a>;
 <a name="l00082"></a>00082 }
 <a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d">00084</a> <span class="keywordtype">void</span> <a class="code" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d">Odometry::setTwist2D</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html">Twist2D</a>&amp; twist) {
-<a name="l00085"></a>00085     this-&gt;twist = <a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>;
+<a name="l00084"></a><a class="code" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d">00084</a> <span class="keywordtype">void</span> <a class="code" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d" title="Class represents an odometry data.">Odometry::setTwist2D</a>(<span class="keyword">const</span> <a class="code" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a>&amp; twist) {
+<a name="l00085"></a>00085     this-&gt;twist = <a class="code" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31" title="Class represents an odometry data.">twist</a>;
 <a name="l00086"></a>00086 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

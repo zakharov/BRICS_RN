@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -47,13 +46,16 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="Odometry" -->
+<p>Class represents odometry data, which is an aggregation of <a class="el" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a> and <a class="el" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Odometry_8h_source.html">Odometry.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Odometry:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOdometry__coll__graph.png" border="0" usemap="#Odometry_coll__map" alt="Collaboration graph"/></div>
 <map name="Odometry_coll__map" id="Odometry_coll__map">
-<area shape="rect" id="node2" href="classPose2D.html" title="{Pose2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Pose2D()\l+ Pose2D()\l+ Pose2D()\l+ ~Pose2D()\l+ operator=()\l+ getX()\l+ getY()\l+ getTheta()\l}" alt="" coords="5,34,101,291"/><area shape="rect" id="node4" href="classTwist2D.html" title="{Twist2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Twist2D()\l+ Twist2D()\l+ Twist2D()\l+ operator=()\l+ ~Twist2D()\l+ getX()\l+ setX()\l+ getY()\l+ setY()\l+ getTheta()\l+ setTheta()\l}" alt="" coords="125,6,221,319"/></map>
+<area shape="rect" id="node2" href="classPose2D.html" title="Class represents pose 2D data." alt="" coords="5,34,101,291"/><area shape="rect" id="node4" href="classTwist2D.html" title="Class represents twist 2D data." alt="" coords="125,6,221,319"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classOdometry-members.html">List of all members.</a></p>
@@ -61,24 +63,38 @@ Collaboration diagram for Odometry:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a54b672ac09bd117fa04773f131492c35">Odometry</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a54b672ac09bd117fa04773f131492c35"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#acdf9825a4c411e312161906190bd7545">Odometry</a> (const <a class="el" href="classPose2D.html">Pose2D</a> &amp;<a class="el" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a>, const <a class="el" href="classTwist2D.html">Twist2D</a> &amp;<a class="el" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#acdf9825a4c411e312161906190bd7545"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a03b85471c4c9be9818157e010b015433">Odometry</a> (const <a class="el" href="classPose2D.html">Pose2D</a> &amp;<a class="el" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a03b85471c4c9be9818157e010b015433"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a440e4b02fad7510011d7e8d56bd31b9e">Odometry</a> (const <a class="el" href="classTwist2D.html">Twist2D</a> &amp;<a class="el" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a440e4b02fad7510011d7e8d56bd31b9e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a8645610d04666b3b43083b8de3a07d3a">Odometry</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a8645610d04666b3b43083b8de3a07d3a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a0e7b04f174550b8187ac80702eff30a7">operator=</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="#a0e7b04f174550b8187ac80702eff30a7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classPose2D.html">Pose2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e">getPose2D</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#ad1a474a340d44e986df9758237e36c3e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a671d9f3df91cb599ebb39ab2e4ff93dd">setPose2D</a> (const <a class="el" href="classPose2D.html">Pose2D</a> &amp;<a class="el" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#a671d9f3df91cb599ebb39ab2e4ff93dd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTwist2D.html">Twist2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a">getTwist2D</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#afc1172d4008b39a70bd1e4b3b3b11b8a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d">setTwist2D</a> (const <a class="el" href="classTwist2D.html">Twist2D</a> &amp;<a class="el" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#aea81b93a70b0c5a9f79a28f911113d4d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a5695daf4511a383286361f9ef6c0a20f">~Odometry</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#a5695daf4511a383286361f9ef6c0a20f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPose2D.html">Pose2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#a874ff9c9c73714ff3a3c9e8b2a77f6fd">pose</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#a874ff9c9c73714ff3a3c9e8b2a77f6fd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTwist2D.html">Twist2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOdometry.html#afeacf0a038bee086b478a9340965cb31">twist</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class represents an odometry data.  <a href="#afeacf0a038bee086b478a9340965cb31"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00046">46</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
+<div class="textblock"><p>Class represents odometry data, which is an aggregation of <a class="el" href="classTwist2D.html" title="Class represents twist 2D data.">Twist2D</a> and <a class="el" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>. </p>
+
+<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00049">49</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a54b672ac09bd117fa04773f131492c35"></a><!-- doxytag: member="Odometry::Odometry" ref="a54b672ac09bd117fa04773f131492c35" args="()" -->
 <div class="memitem">
@@ -93,6 +109,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor. </p>
 
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00042">42</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
@@ -123,6 +141,15 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pose</td><td>- initial 2D pose. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- initial 2D twist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00046">46</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
 </div>
@@ -141,6 +168,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pose</td><td>- initial pose. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00050">50</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
@@ -161,6 +196,14 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- initial twist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00054">54</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
 </div>
@@ -180,6 +223,8 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Copy constructor. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00058">58</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
 </div>
@@ -197,6 +242,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Class represents an odometry data. </p>
 
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00068">68</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
@@ -217,11 +264,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Class represents an odometry data. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00072">72</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
-<p>References <a class="el" href="Odometry_8h_source.html#l00066">pose</a>.</p>
+<p>References <a class="el" href="Odometry_8h_source.html#l00116">pose</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">OmniDrivePositionController::computeNewOdometry()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00088">OmniDriveKinematicsModel::convertToGlobalReferenceFrame()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00128">publishOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">OmniDrivePositionController::targetReached()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">OmniDrivePositionController::computeNewOdometry()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00088">OmniDriveKinematicsModel::convertToGlobalReferenceFrame()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00128">publishOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">OmniDrivePositionController::targetReached()</a>.</p>
 
 </div>
 </div>
@@ -239,11 +288,13 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Class represents an odometry data. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00080">80</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
-<p>References <a class="el" href="Odometry_8h_source.html#l00067">twist</a>.</p>
+<p>References <a class="el" href="Odometry_8h_source.html#l00121">twist</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">OmniDrivePositionController::computeNewOdometry()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00088">OmniDriveKinematicsModel::convertToGlobalReferenceFrame()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, and <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00128">publishOdometry()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">OmniDrivePositionController::computeNewOdometry()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00088">OmniDriveKinematicsModel::convertToGlobalReferenceFrame()</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, and <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00128">publishOdometry()</a>.</p>
 
 </div>
 </div>
@@ -262,16 +313,18 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Assignment operator. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00062">62</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
-<p>References <a class="el" href="Odometry_8cpp_source.html#l00072">getPose2D()</a>, <a class="el" href="Odometry_8cpp_source.html#l00080">getTwist2D()</a>, <a class="el" href="Odometry_8h_source.html#l00066">pose</a>, and <a class="el" href="Odometry_8h_source.html#l00067">twist</a>.</p>
+<p>References <a class="el" href="Odometry_8cpp_source.html#l00072">getPose2D()</a>, <a class="el" href="Odometry_8cpp_source.html#l00080">getTwist2D()</a>, <a class="el" href="Odometry_8h_source.html#l00116">pose</a>, and <a class="el" href="Odometry_8h_source.html#l00121">twist</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOdometry_a0e7b04f174550b8187ac80702eff30a7_cgraph.png" border="0" usemap="#classOdometry_a0e7b04f174550b8187ac80702eff30a7_cgraph" alt=""/></div>
 <map name="classOdometry_a0e7b04f174550b8187ac80702eff30a7_cgraph" id="classOdometry_a0e7b04f174550b8187ac80702eff30a7_cgraph">
-<area shape="rect" id="node3" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="199,5,348,35"/><area shape="rect" id="node5" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Odometry::getTwist2D" alt="" coords="197,58,349,89"/></map>
+<area shape="rect" id="node3" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="199,5,348,35"/><area shape="rect" id="node5" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="197,58,349,89"/></map>
 </div>
 </p>
 
@@ -292,9 +345,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Class represents an odometry data. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00076">76</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
-<p>References <a class="el" href="Odometry_8h_source.html#l00066">pose</a>.</p>
+<p>References <a class="el" href="Odometry_8h_source.html#l00116">pose</a>.</p>
 
 </div>
 </div>
@@ -313,11 +368,13 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Class represents an odometry data. </p>
+
 <p>Definition at line <a class="el" href="Odometry_8cpp_source.html#l00084">84</a> of file <a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a>.</p>
 
-<p>References <a class="el" href="Odometry_8h_source.html#l00067">twist</a>.</p>
+<p>References <a class="el" href="Odometry_8h_source.html#l00121">twist</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">OmniDrivePositionController::computeNewOdometry()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">OmniDrivePositionController::computeNewOdometry()</a>.</p>
 
 </div>
 </div>
@@ -333,7 +390,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00066">66</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
+<p>Class represents an odometry data. </p>
+
+<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00116">116</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Odometry_8cpp_source.html#l00072">getPose2D()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, and <a class="el" href="Odometry_8cpp_source.html#l00076">setPose2D()</a>.</p>
 
@@ -350,7 +409,9 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00067">67</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
+<p>Class represents an odometry data. </p>
+
+<p>Definition at line <a class="el" href="Odometry_8h_source.html#l00121">121</a> of file <a class="el" href="Odometry_8h_source.html">Odometry.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Odometry_8cpp_source.html#l00080">getTwist2D()</a>, <a class="el" href="Odometry_8cpp_source.html#l00062">operator=()</a>, and <a class="el" href="Odometry_8cpp_source.html#l00084">setTwist2D()</a>.</p>
 
@@ -361,7 +422,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_follower/src/omnidrive_controller/<a class="el" href="Odometry_8cpp_source.html">Odometry.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

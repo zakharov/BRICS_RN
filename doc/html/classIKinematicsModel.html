@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -46,13 +45,16 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="IKinematicsModel" -->
+<p>Interface class for computing mobile base motion in global and local reference frame.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="IKinematicsModel_8h_source.html">IKinematicsModel.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IKinematicsModel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIKinematicsModel__inherit__graph.png" border="0" usemap="#IKinematicsModel_inherit__map" alt="Inheritance graph"/></div>
 <map name="IKinematicsModel_inherit__map" id="IKinematicsModel_inherit__map">
-<area shape="rect" id="node3" href="classOmniDriveKinematicsModel.html" title="{OmniDriveKinematicsModel\n||+ OmniDriveKinematicsModel()\l+ OmniDriveKinematicsModel()\l+ ~OmniDriveKinematicsModel()\l+ convertToLocalReferenceFrame()\l+ convertToGlobalReferenceFrame()\l&#45; convert()\l}" alt="" coords="5,163,235,346"/></map>
+<area shape="rect" id="node3" href="classOmniDriveKinematicsModel.html" title="Implementation of the interface class for computing motion in global and local reference frames for o..." alt="" coords="5,163,235,346"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classIKinematicsModel-members.html">List of all members.</a></p>
@@ -60,11 +62,14 @@ Inheritance diagram for IKinematicsModel:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIKinematicsModel.html#aeeb4f9008d7419b5ec69621c1587a354">convertToLocalReferenceFrame</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;globalFrame, <a class="el" href="classOdometry.html">Odometry</a> &amp;localFrame)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapping motion in the global reference frame to motion in terms of the local reference frame.  <a href="#aeeb4f9008d7419b5ec69621c1587a354"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIKinematicsModel.html#a24e4a29af8089bdb6b04ff52055b6394">convertToGlobalReferenceFrame</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;localFrame, <a class="el" href="classOdometry.html">Odometry</a> &amp;globalFrame)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapping motion in the local reference frame to motion in terms of the global reference frame.  <a href="#a24e4a29af8089bdb6b04ff52055b6394"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="IKinematicsModel_8h_source.html#l00045">45</a> of file <a class="el" href="IKinematicsModel_8h_source.html">IKinematicsModel.h</a>.</p>
+<div class="textblock"><p>Interface class for computing mobile base motion in global and local reference frame. </p>
+
+<p>Definition at line <a class="el" href="IKinematicsModel_8h_source.html#l00049">49</a> of file <a class="el" href="IKinematicsModel_8h_source.html">IKinematicsModel.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a24e4a29af8089bdb6b04ff52055b6394"></a><!-- doxytag: member="IKinematicsModel::convertToGlobalReferenceFrame" ref="a24e4a29af8089bdb6b04ff52055b6394" args="(const Odometry &amp;localFrame, Odometry &amp;globalFrame)=0" -->
 <div class="memitem">
@@ -90,6 +95,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Mapping motion in the local reference frame to motion in terms of the global reference frame. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">localFrame</td><td>- odometry in the local reference frame </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">globalFrame</td><td>- resulting conversion to the global reference frame </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classOmniDriveKinematicsModel.html#a8aec0133877d0840bb39152c29ad9d56">OmniDriveKinematicsModel</a>.</p>
 
@@ -120,6 +134,15 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Mapping motion in the global reference frame to motion in terms of the local reference frame. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">globalFrame</td><td>- odometry in the global reference frame </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">localFrame</td><td>- resulting conversion to the local reference frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classOmniDriveKinematicsModel.html#a140f3543bd7dcda7cade3013356b601e">OmniDriveKinematicsModel</a>.</p>
 
 </div>
@@ -128,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <li>navigation_trajectory_follower/src/omnidrive_controller/<a class="el" href="IKinematicsModel_8h_source.html">IKinematicsModel.h</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

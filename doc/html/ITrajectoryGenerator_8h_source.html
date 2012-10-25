@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -90,20 +89,20 @@
 <a name="l00047"></a>00047     <span class="keyword">class </span>Trajectory_Composite;
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classITrajectoryGenerator.html">00050</a> <span class="keyword">class </span><a class="code" href="classITrajectoryGenerator.html">ITrajectoryGenerator</a> {
-<a name="l00051"></a>00051 <span class="keyword">public</span>:
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) = 0;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keyword">private</span>:
+<a name="l00054"></a><a class="code" href="classITrajectoryGenerator.html">00054</a> <span class="keyword">class </span><a class="code" href="classITrajectoryGenerator.html" title="Interface class for trajectory generation.">ITrajectoryGenerator</a> {
+<a name="l00055"></a>00055 <span class="keyword">public</span>:
 <a name="l00056"></a>00056 
-<a name="l00057"></a>00057 };
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#endif  </span><span class="comment">/* ITRAJECTORYGENERATOR_H */</span>
-<a name="l00060"></a>00060 
+<a name="l00062"></a>00062     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312" title="Interface for trajectory generation.">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) = 0;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="keyword">private</span>:
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="preprocessor">#endif  </span><span class="comment">/* ITRAJECTORYGENERATOR_H */</span>
+<a name="l00069"></a>00069 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

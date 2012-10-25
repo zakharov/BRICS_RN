@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classIKinematicsModel.html" title="IKinematicsModel" alt="" coords="7,5,132,35"/>
-<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html" title="OmniDriveKinematicsModel" alt="" coords="183,5,364,35"/>
+<area shape="rect" id="node1" href="$classIKinematicsModel.html" title="Interface class for computing mobile base motion in global and local reference frame." alt="" coords="7,5,132,35"/>
+<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html" title="Implementation of the interface class for computing motion in global and local reference frames for o..." alt="" coords="183,5,364,35"/>
 </map>

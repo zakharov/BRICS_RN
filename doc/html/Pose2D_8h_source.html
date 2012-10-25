@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -83,31 +82,42 @@
 <a name="l00040"></a>00040 <span class="preprocessor">#ifndef POSE2D_H</span>
 <a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define POSE2D_H</span>
 <a name="l00042"></a>00042 <span class="preprocessor"></span>
-<a name="l00043"></a><a class="code" href="classPose2D.html">00043</a> <span class="keyword">class </span><a class="code" href="classPose2D.html">Pose2D</a> {
-<a name="l00044"></a>00044 <span class="keyword">public</span>:
-<a name="l00045"></a>00045     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae">Pose2D</a>();
-<a name="l00046"></a>00046     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae">Pose2D</a>(<span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991">x</a>, <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9">y</a>, <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006">theta</a>);
-<a name="l00047"></a>00047     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae">Pose2D</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; orig);
-<a name="l00048"></a>00048     <span class="keyword">virtual</span> <a class="code" href="classPose2D.html#ab5cf82d2a66a281b04891ef35f384a73">~Pose2D</a>();
+<a name="l00047"></a><a class="code" href="classPose2D.html">00047</a> <span class="keyword">class </span><a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a> {
+<a name="l00048"></a>00048 <span class="keyword">public</span>:
 <a name="l00049"></a>00049 
-<a name="l00050"></a>00050     <span class="keyword">friend</span> <a class="code" href="classPose2D.html">Pose2D</a> <a class="code" href="classPose2D.html#aaed5088c5bd11064ae3e31a17747b303">operator+</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; op2);
-<a name="l00051"></a>00051     <span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; <a class="code" href="classPose2D.html#a3bd2dca8212f7daaa44b9f4e85ebe6af">operator=</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html">Pose2D</a>&amp; orig);
-<a name="l00052"></a>00052     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8">getX</a>() <span class="keyword">const</span>;
-<a name="l00053"></a>00053     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1">getY</a>() <span class="keyword">const</span>;
-<a name="l00054"></a>00054     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2">getTheta</a>() <span class="keyword">const</span>;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keyword">private</span>:
-<a name="l00057"></a><a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991">00057</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991">x</a>;
-<a name="l00058"></a><a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9">00058</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9">y</a>;
-<a name="l00059"></a><a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006">00059</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006">theta</a>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 };
+<a name="l00053"></a>00053     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae" title="Constructor.">Pose2D</a>();
+<a name="l00054"></a>00054 
+<a name="l00061"></a>00061     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae" title="Constructor.">Pose2D</a>(<span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991" title="x coordinate.">x</a>, <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9" title="y coordinate.">y</a>, <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006" title="theta coordinate.">theta</a>);
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <span class="preprocessor">#endif  </span><span class="comment">/* POSE2D_H */</span>
-<a name="l00064"></a>00064 
+<a name="l00066"></a>00066     <a class="code" href="classPose2D.html#a216182882a02017665c754b16c1328ae" title="Constructor.">Pose2D</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; orig);
+<a name="l00067"></a>00067 
+<a name="l00071"></a>00071     <span class="keyword">virtual</span> <a class="code" href="classPose2D.html#ab5cf82d2a66a281b04891ef35f384a73" title="Destructor.">~Pose2D</a>();
+<a name="l00072"></a>00072 
+<a name="l00076"></a>00076     <span class="keyword">friend</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a> <a class="code" href="classPose2D.html#aaed5088c5bd11064ae3e31a17747b303" title="Summation.">operator+</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; op1, <span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; op2);
+<a name="l00077"></a>00077 
+<a name="l00081"></a>00081     <span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; <a class="code" href="classPose2D.html#a3bd2dca8212f7daaa44b9f4e85ebe6af" title="Assignment.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classPose2D.html" title="Class represents pose 2D data.">Pose2D</a>&amp; orig);
+<a name="l00082"></a>00082 
+<a name="l00086"></a>00086     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate.">getX</a>() <span class="keyword">const</span>;
+<a name="l00087"></a>00087 
+<a name="l00091"></a>00091     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate.">getY</a>() <span class="keyword">const</span>;
+<a name="l00092"></a>00092 
+<a name="l00096"></a>00096     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle.">getTheta</a>() <span class="keyword">const</span>;
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="keyword">private</span>:
+<a name="l00099"></a>00099 
+<a name="l00103"></a><a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991">00103</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aa599b2a67c0a70f79377f73a2fb6b991" title="x coordinate.">x</a>;
+<a name="l00104"></a>00104 
+<a name="l00108"></a><a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9">00108</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#aeba9fc8afec71dee4adf460cfde34db9" title="y coordinate.">y</a>;
+<a name="l00109"></a>00109 
+<a name="l00113"></a><a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006">00113</a>     <span class="keywordtype">float</span> <a class="code" href="classPose2D.html#a3c136b0a74c5967661d2e3dec03db006" title="theta coordinate.">theta</a>;
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="preprocessor">#endif  </span><span class="comment">/* POSE2D_H */</span>
+<a name="l00118"></a>00118 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

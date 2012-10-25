@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="199,5,348,35"/>
-<area shape="rect" id="node5" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Odometry::getTwist2D" alt="" coords="197,58,349,89"/>
+<area shape="rect" id="node3" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="199,5,348,35"/>
+<area shape="rect" id="node5" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="197,58,349,89"/>
 </map>

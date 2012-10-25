@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -46,20 +45,23 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="OmniDriveTrajectoryGenerator" --><!-- doxytag: inherits="ITrajectoryGenerator" -->
+<p>Implementation of the interface class for trajectory generation for omnidrive mobile base.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OmniDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator__inherit__graph.png" border="0" usemap="#OmniDriveTrajectoryGenerator_inherit__map" alt="Inheritance graph"/></div>
 <map name="OmniDriveTrajectoryGenerator_inherit__map" id="OmniDriveTrajectoryGenerator_inherit__map">
-<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="Interface class for trajectory generation." alt="" coords="43,6,192,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for OmniDriveTrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator__coll__graph.png" border="0" usemap="#OmniDriveTrajectoryGenerator_coll__map" alt="Collaboration graph"/></div>
 <map name="OmniDriveTrajectoryGenerator_coll__map" id="OmniDriveTrajectoryGenerator_coll__map">
-<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="{ITrajectoryGenerator\n||+ computeTrajectroy()\l}" alt="" coords="43,6,192,95"/></map>
+<area shape="rect" id="node2" href="classITrajectoryGenerator.html" title="Interface class for trajectory generation." alt="" coords="43,6,192,95"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classOmniDriveTrajectoryGenerator-members.html">List of all members.</a></p>
@@ -67,17 +69,26 @@ Collaboration diagram for OmniDriveTrajectoryGenerator:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ad346ca178cefe4b24df965664afd5bc9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a49b5fd8609e3853f3a7d13ea470236e3">OmniDriveTrajectoryGenerator</a> (const <a class="el" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a> &amp;orig)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a49b5fd8609e3853f3a7d13ea470236e3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">~OmniDriveTrajectoryGenerator</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a5bf13c0d17c61b1f8f26a46914ea1e36"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">getShortestAngle</a> (float goalAngle, float actualAngle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes shortest angle.  <a href="#a59cd7881fef04c139ee9a98da5d1c398"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">computePathComposite</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite &amp;pathComposite)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> to KDL::Path_Composite.  <a href="#a0cc926d7b8e3e71fd692e5999f5993ff"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">interpolateRotation</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;pathWithRotation)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates rotation.  <a href="#aae76d044b48371818a00a242f4b18e35"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a> (const KDL::Path_Composite &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation if an interface for computing a trajectory.  <a href="#acc46ed1c7634bc3ce8e2070c0c79c2d5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#adcdaff53c362b250d36ada63b8b1e588">computeTrajectroy</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; <a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>.  <a href="#adcdaff53c362b250d36ada63b8b1e588"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html#l00052">52</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>.</p>
+<div class="textblock"><p>Implementation of the interface class for trajectory generation for omnidrive mobile base. </p>
+
+<p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html#l00056">56</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8h_source.html">OmniDriveTrajectoryGenerator.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad346ca178cefe4b24df965664afd5bc9"></a><!-- doxytag: member="OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator" ref="ad346ca178cefe4b24df965664afd5bc9" args="()" -->
 <div class="memitem">
@@ -92,6 +103,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Constructor. </p>
 
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00056">56</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
@@ -112,6 +125,8 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Copy constructor. </p>
+
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00059">59</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 </div>
@@ -129,6 +144,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Destructor. </p>
 
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00062">62</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
@@ -160,9 +177,18 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> to KDL::Path_Composite. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pathComposite</td><td>- converted path to KDL::Path_Composite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">69</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
-<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00080">FrameWithId::getFrame()</a>.</p>
+<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">FrameWithId::getFrame()</a>.</p>
 
 <p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">computeTrajectroy()</a>.</p>
 
@@ -202,6 +228,15 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path, a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trajectory</td><td>- computed trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00145">145</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 <p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">computePathComposite()</a>, <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00129">computeTrajectroy()</a>, and <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">interpolateRotation()</a>.</p>
@@ -211,7 +246,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" alt=""/></div>
 <map name="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" id="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph">
-<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="OmniDriveTrajectoryGenerator::computePathComposite" alt="" coords="367,5,708,35"/><area shape="rect" id="node7" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="OmniDriveTrajectoryGenerator::computeTrajectroy" alt="" coords="381,58,693,89"/><area shape="rect" id="node9" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="OmniDriveTrajectoryGenerator::interpolateRotation" alt="" coords="381,111,693,142"/><area shape="rect" id="node5" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="832,5,989,35"/><area shape="rect" id="node11" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="OmniDriveTrajectoryGenerator::getShortestAngle" alt="" coords="759,111,1063,142"/></map>
+<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite." alt="" coords="367,5,708,35"/><area shape="rect" id="node7" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="381,58,693,89"/><area shape="rect" id="node9" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation." alt="" coords="381,111,693,142"/><area shape="rect" id="node5" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="832,5,989,35"/><area shape="rect" id="node11" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle." alt="" coords="759,111,1063,142"/></map>
 </div>
 </p>
 
@@ -241,6 +276,15 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Implementation if an interface for computing a trajectory. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path, KDL::Path_Composite </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trajectory</td><td>- computed trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312">ITrajectoryGenerator</a>.</p>
 
@@ -277,6 +321,16 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Computes shortest angle. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">goalAngle</td><td>- 1st angle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualAngle</td><td>- 2nd angle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>shortest angle </dd></dl>
+
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00065">65</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">interpolateRotation()</a>.</p>
@@ -308,6 +362,15 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Calculates rotation. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pathWithRotation</td><td>- output path with orientation in each path point. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00095">95</a> of file <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a>.</p>
 
 <p>References <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00065">getShortestAngle()</a>.</p>
@@ -319,7 +382,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator_aae76d044b48371818a00a242f4b18e35_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_aae76d044b48371818a00a242f4b18e35_cgraph" alt=""/></div>
 <map name="classOmniDriveTrajectoryGenerator_aae76d044b48371818a00a242f4b18e35_cgraph" id="classOmniDriveTrajectoryGenerator_aae76d044b48371818a00a242f4b18e35_cgraph">
-<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="OmniDriveTrajectoryGenerator::getShortestAngle" alt="" coords="369,5,673,35"/></map>
+<area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle." alt="" coords="369,5,673,35"/></map>
 </div>
 </p>
 
@@ -330,7 +393,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_follower/src/trajectory_generator/<a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html">OmniDriveTrajectoryGenerator.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,20 +95,20 @@
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054 <span class="preprocessor">#include &lt;cmath&gt;</span>
 <a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">00056</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator</a>() {
+<a name="l00056"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">00056</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9" title="Constructor.">OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator</a>() {
 <a name="l00057"></a>00057 }
 <a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a49b5fd8609e3853f3a7d13ea470236e3">00059</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9">OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator</a>(<span class="keyword">const</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html">OmniDriveTrajectoryGenerator</a>&amp; orig) {
+<a name="l00059"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a49b5fd8609e3853f3a7d13ea470236e3">00059</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#ad346ca178cefe4b24df965664afd5bc9" title="Constructor.">OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator</a>(<span class="keyword">const</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base...">OmniDriveTrajectoryGenerator</a>&amp; orig) {
 <a name="l00060"></a>00060 }
 <a name="l00061"></a>00061 
-<a name="l00062"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">00062</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">OmniDriveTrajectoryGenerator::~OmniDriveTrajectoryGenerator</a>() {
+<a name="l00062"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36">00062</a> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36" title="Destructor.">OmniDriveTrajectoryGenerator::~OmniDriveTrajectoryGenerator</a>() {
 <a name="l00063"></a>00063 }
 <a name="l00064"></a>00064 
-<a name="l00065"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">00065</a> <span class="keywordtype">float</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">OmniDriveTrajectoryGenerator::getShortestAngle</a>(<span class="keywordtype">float</span> goalAngle, <span class="keywordtype">float</span> actualAngle) {
+<a name="l00065"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">00065</a> <span class="keywordtype">float</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle.">OmniDriveTrajectoryGenerator::getShortestAngle</a>(<span class="keywordtype">float</span> goalAngle, <span class="keywordtype">float</span> actualAngle) {
 <a name="l00066"></a>00066     <span class="keywordflow">return</span> atan2(sin(goalAngle - actualAngle), cos(goalAngle - actualAngle));
 <a name="l00067"></a>00067 }
 <a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">00069</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">OmniDriveTrajectoryGenerator::computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite) {
+<a name="l00069"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">00069</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite.">OmniDriveTrajectoryGenerator::computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite) {
 <a name="l00070"></a>00070     std::vector&lt;FrameWithId&gt;::const_iterator it;
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072     <span class="keywordflow">if</span> (path.size() &gt; 1) {
@@ -135,7 +134,7 @@
 <a name="l00092"></a>00092     }
 <a name="l00093"></a>00093 }
 <a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">00095</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">OmniDriveTrajectoryGenerator::interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation) {
+<a name="l00095"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">00095</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation.">OmniDriveTrajectoryGenerator::interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation) {
 <a name="l00096"></a>00096 
 <a name="l00097"></a>00097     <span class="keywordflow">if</span> (path.size() &lt;= 1)
 <a name="l00098"></a>00098         <span class="keywordflow">return</span>;
@@ -148,7 +147,7 @@
 <a name="l00105"></a>00105 
 <a name="l00106"></a>00106     path.back().getFrame().M.GetRPY(r, p, y);
 <a name="l00107"></a>00107     <span class="keywordtype">double</span> end = y;
-<a name="l00108"></a>00108     <span class="keywordtype">double</span> step = <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398">getShortestAngle</a>(end, start) / (path.size() - 1);
+<a name="l00108"></a>00108     <span class="keywordtype">double</span> step = <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle.">getShortestAngle</a>(end, start) / (path.size() - 1);
 <a name="l00109"></a>00109 
 <a name="l00110"></a>00110 
 <a name="l00111"></a>00111     std::vector&lt;FrameWithId&gt;::const_iterator it;
@@ -169,7 +168,7 @@
 <a name="l00126"></a>00126     <span class="comment">// pathWithRotation.back() = path.back();</span>
 <a name="l00127"></a>00127 }
 <a name="l00128"></a>00128 
-<a name="l00129"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">00129</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">OmniDriveTrajectoryGenerator::computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) {
+<a name="l00129"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">00129</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">OmniDriveTrajectoryGenerator::computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) {
 <a name="l00130"></a>00130 
 <a name="l00131"></a>00131     <span class="keyword">const</span> <span class="keywordtype">double</span> maxVel = 1.0;
 <a name="l00132"></a>00132     <span class="keyword">const</span> <span class="keywordtype">double</span> maxAcc = 0.1;
@@ -185,17 +184,17 @@
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143 }
 <a name="l00144"></a>00144 
-<a name="l00145"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#adcdaff53c362b250d36ada63b8b1e588">00145</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">OmniDriveTrajectoryGenerator::computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) {
+<a name="l00145"></a><a class="code" href="classOmniDriveTrajectoryGenerator.html#adcdaff53c362b250d36ada63b8b1e588">00145</a> <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">OmniDriveTrajectoryGenerator::computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite&amp; trajectory) {
 <a name="l00146"></a>00146     std::vector&lt;FrameWithId&gt; pathWithRotation;
-<a name="l00147"></a>00147     <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">interpolateRotation</a>(path, pathWithRotation);
+<a name="l00147"></a>00147     <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation.">interpolateRotation</a>(path, pathWithRotation);
 <a name="l00148"></a>00148 
 <a name="l00149"></a>00149     KDL::Path_Composite pathComposite;
-<a name="l00150"></a>00150     <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">computePathComposite</a>(pathWithRotation, pathComposite);
-<a name="l00151"></a>00151     <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">computeTrajectroy</a>(pathComposite, trajectory);
+<a name="l00150"></a>00150     <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite.">computePathComposite</a>(pathWithRotation, pathComposite);
+<a name="l00151"></a>00151     <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(pathComposite, trajectory);
 <a name="l00152"></a>00152 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

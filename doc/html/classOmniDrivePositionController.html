@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -48,20 +47,23 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="OmniDrivePositionController" --><!-- doxytag: inherits="IPositionController" -->
+<p>Implementation of the interface class for a position controller for omnidirectional mobile platform.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OmniDrivePositionController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController__inherit__graph.png" border="0" usemap="#OmniDrivePositionController_inherit__map" alt="Inheritance graph"/></div>
 <map name="OmniDrivePositionController_inherit__map" id="OmniDrivePositionController_inherit__map">
-<area shape="rect" id="node2" href="classIPositionController.html" title="{IPositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="24,6,197,226"/></map>
+<area shape="rect" id="node2" href="classIPositionController.html" title="Interface class for a position controller." alt="" coords="24,6,197,226"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for OmniDrivePositionController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController__coll__graph.png" border="0" usemap="#OmniDrivePositionController_coll__map" alt="Collaboration graph"/></div>
 <map name="OmniDrivePositionController_coll__map" id="OmniDrivePositionController_coll__map">
-<area shape="rect" id="node2" href="classIPositionController.html" title="{IPositionController\n||+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ isTargetReached()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l}" alt="" coords="5,425,179,645"/><area shape="rect" id="node4" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id." alt="" coords="203,406,347,663"/><area shape="rect" id="node6" href="classOdometry.html" title="{Odometry\n|&#45; pose\l&#45; twist\l|+ Odometry()\l+ Odometry()\l+ Odometry()\l+ Odometry()\l+ Odometry()\l+ operator=()\l+ getPose2D()\l+ setPose2D()\l+ getTwist2D()\l+ setTwist2D()\l+ ~Odometry()\l}" alt="" coords="371,387,477,682"/><area shape="rect" id="node8" href="classPose2D.html" title="{Pose2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Pose2D()\l+ Pose2D()\l+ Pose2D()\l+ ~Pose2D()\l+ operator=()\l+ getX()\l+ getY()\l+ getTheta()\l}" alt="" coords="316,34,412,291"/><area shape="rect" id="node10" href="classTwist2D.html" title="{Twist2D\n|&#45; x\l&#45; y\l&#45; theta\l|+ Twist2D()\l+ Twist2D()\l+ Twist2D()\l+ operator=()\l+ ~Twist2D()\l+ getX()\l+ setX()\l+ getY()\l+ setY()\l+ getTheta()\l+ setTheta()\l}" alt="" coords="436,6,532,319"/></map>
+<area shape="rect" id="node2" href="classIPositionController.html" title="Interface class for a position controller." alt="" coords="5,425,179,645"/><area shape="rect" id="node4" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id." alt="" coords="203,397,347,673"/><area shape="rect" id="node6" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D." alt="" coords="371,387,477,682"/><area shape="rect" id="node8" href="classPose2D.html" title="Class represents pose 2D data." alt="" coords="316,34,412,291"/><area shape="rect" id="node10" href="classTwist2D.html" title="Class represents twist 2D data." alt="" coords="436,6,532,319"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classOmniDrivePositionController-members.html">List of all members.</a></p>
@@ -69,39 +71,62 @@ Collaboration diagram for OmniDrivePositionController:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a11ff91bc68f5d17203bc087eaf0f1e34">OmniDrivePositionController</a> (double positionGainTranslation, double velocityGainTranslation, double positionGainRotation, double velocityGainRotation, double positionToleranceTranslation, double velocityToleranceTranslation, double positionToleranceRotation, double velocityToleranceRotation)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a11ff91bc68f5d17203bc087eaf0f1e34"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a5f295fa4bfd9a1b6c5401b5c58d2a125">OmniDrivePositionController</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a5f295fa4bfd9a1b6c5401b5c58d2a125"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#ac240a9594bac7f81d166eef3a9e525ce">OmniDrivePositionController</a> (const <a class="el" href="classOmniDrivePositionController.html">OmniDrivePositionController</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a41bb82e5ff78e9334d2f126af31748ff">~OmniDrivePositionController</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962">setTargetTrajectory</a> (const <a class="el" href="classTrajectoryWithId.html">TrajectoryWithId</a> &amp;trajectory)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a trajectory to follow.  <a href="#a59981f06759bc9741d2f4bdd8c8fe962"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classTrajectoryWithId.html">TrajectoryWithId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e">getTargetTrajectory</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an actual trajectory.  <a href="#a085bedf794108340410f3cc8fafa235e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a94c0de50054f288155cfe1e154949913">setTargetOdometry</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;<a class="el" href="classOmniDrivePositionController.html#ae696459f73be0b438ad3af1a400434f3">targetOdometry</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a goal pose to reach.  <a href="#a94c0de50054f288155cfe1e154949913"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd">getTargetOdometry</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an actual goal pose.  <a href="#a9bf32741e05c8b93bf59ed85b2f769cd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a3a5fb427db67b702f1d979de6687f179">setTolerance</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;<a class="el" href="classOmniDrivePositionController.html#a53700dd5a42eeb8a11c2f88a6d9a72d6">tolerance</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets tolerance parameter for a controller.  <a href="#a3a5fb427db67b702f1d979de6687f179"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545">getTolerance</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get tolerance parameter.  <a href="#aec26eda3ec8a7c90288f2c7ee1624545"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#afa67e6f3662cfa4b4debe4607a376c6b">computeNewOdometry</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;<a class="el" href="classOmniDrivePositionController.html#ae67fb0451e26e3f176dd6410d09b6f8b">actualOdometry</a>, double elapsedTimeInSec)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes desired odometry, given actual odometry and a time step.  <a href="#afa67e6f3662cfa4b4debe4607a376c6b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a92dc592f441852e8ab5470a73ae32dde">isTargetReached</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if target has been reached.  <a href="#a92dc592f441852e8ab5470a73ae32dde"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68">getDistance</a> (const <a class="el" href="classPose2D.html">Pose2D</a> &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a3a218be423e4ed0cd77a752b08273867">actualPose</a>, const <a class="el" href="classPose2D.html">Pose2D</a> &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">goalPose</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a distance between two points (for 2D space).  <a href="#aad4c64f79056348d5ac2c523ff2cce68"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6">getShortestAngle</a> (float goalAngle, float actualAngle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a shortest rotation angle (for 2D space).  <a href="#a48f73499573a212622fe77cf2b51f0d6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8">resetFlags</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets internal flags.  <a href="#a5771802a93c79b447e7daa1a336e4de8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#af4cb7ca013f2051ee70c64c485d71502">targetReached</a> (bool &amp;translation, bool &amp;rotation)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the goal has been reached.  <a href="#af4cb7ca013f2051ee70c64c485d71502"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOdometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#afd4ce03a88752f7eda3ac3f4f7845d0f">gains</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds gain values.  <a href="#afd4ce03a88752f7eda3ac3f4f7845d0f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOdometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a53700dd5a42eeb8a11c2f88a6d9a72d6">tolerance</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds tolerance values.  <a href="#a53700dd5a42eeb8a11c2f88a6d9a72d6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTrajectoryWithId.html">TrajectoryWithId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a88eeee92cb14e0144d22b426eb6a5130">targetTrajectory</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds target trajectory.  <a href="#a88eeee92cb14e0144d22b426eb6a5130"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOdometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#ae696459f73be0b438ad3af1a400434f3">targetOdometry</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds goal position.  <a href="#ae696459f73be0b438ad3af1a400434f3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOdometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a0c6a99483394a24e85cd7fd3a9f5cc13">computedOdometry</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds last setpoint for odometry.  <a href="#a0c6a99483394a24e85cd7fd3a9f5cc13"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOdometry.html">Odometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#ae67fb0451e26e3f176dd6410d09b6f8b">actualOdometry</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds odometry feedback from the sensors.  <a href="#ae67fb0451e26e3f176dd6410d09b6f8b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a95587e0d0c343dfba2a38023dff95078">actualTime</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a8f29836b559144564c7da1b8760def5b">timeOffset</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds actual execution time.  <a href="#a95587e0d0c343dfba2a38023dff95078"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#abc6a5e9563dd8fa580d342cc16008411">translationFlag</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal flags.  <a href="#abc6a5e9563dd8fa580d342cc16008411"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDrivePositionController.html#a62662e5daf933925fd1137e1cb1c7836">rotationFlag</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal flags.  <a href="#a62662e5daf933925fd1137e1cb1c7836"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00049">49</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<div class="textblock"><p>Implementation of the interface class for a position controller for omnidirectional mobile platform. </p>
+
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00053">53</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a11ff91bc68f5d17203bc087eaf0f1e34"></a><!-- doxytag: member="OmniDrivePositionController::OmniDrivePositionController" ref="a11ff91bc68f5d17203bc087eaf0f1e34" args="(double positionGainTranslation, double velocityGainTranslation, double positionGainRotation, double velocityGainRotation, double positionToleranceTranslation, double velocityToleranceTranslation, double positionToleranceRotation, double velocityToleranceRotation)" -->
 <div class="memitem">
@@ -164,6 +189,21 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Constructor. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">positionGainTranslation</td><td>- gain coefficient for a position feedback for linear motion. </td></tr>
+    <tr><td class="paramname">velocityGainTranslation</td><td>- gain coefficient for a velocity feedback for linear motion. </td></tr>
+    <tr><td class="paramname">positionGainRotation</td><td>- gain coefficient for a position feedback for angular motion. </td></tr>
+    <tr><td class="paramname">velocityGainRotation</td><td>- gain coefficient for a velocity feedback for angular motion. </td></tr>
+    <tr><td class="paramname">positionToleranceTranslation</td><td>- tolerance value for a position for linear motion. </td></tr>
+    <tr><td class="paramname">velocityToleranceTranslation</td><td>- tolerance value for a velocity for linear motion. </td></tr>
+    <tr><td class="paramname">positionToleranceRotation</td><td>- tolerance value for a position for linear motion. </td></tr>
+    <tr><td class="paramname">velocityToleranceRotation</td><td>- tolerance value for a velocity for linear motion. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00054">54</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
 </div>
@@ -182,7 +222,9 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00086">86</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Default constructor. </p>
+
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00083">83</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,16 +243,16 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">94</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">90</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00096">actualTime</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00120">getTargetOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00251">getTolerance()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00101">rotationFlag</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00093">targetOdometry</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00097">timeOffset</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00090">tolerance</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00100">translationFlag</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00196">actualTime</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00115">getTargetOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00246">getTolerance()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00206">rotationFlag</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00181">targetOdometry</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00171">tolerance</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00201">translationFlag</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController_ac240a9594bac7f81d166eef3a9e525ce_cgraph.png" border="0" usemap="#classOmniDrivePositionController_ac240a9594bac7f81d166eef3a9e525ce_cgraph" alt=""/></div>
 <map name="classOmniDrivePositionController_ac240a9594bac7f81d166eef3a9e525ce_cgraph" id="classOmniDrivePositionController_ac240a9594bac7f81d166eef3a9e525ce_cgraph">
-<area shape="rect" id="node3" href="classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd" title="OmniDrivePositionController::getTargetOdometry" alt="" coords="409,5,711,35"/><area shape="rect" id="node5" href="classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545" title="OmniDrivePositionController::getTolerance" alt="" coords="427,58,693,89"/></map>
+<area shape="rect" id="node3" href="classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd" title="Gets an actual goal pose." alt="" coords="409,5,711,35"/><area shape="rect" id="node5" href="classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545" title="Get tolerance parameter." alt="" coords="427,58,693,89"/></map>
 </div>
 </p>
 
@@ -230,7 +272,7 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00107">107</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00102">102</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
 </div>
 </div>
@@ -260,18 +302,28 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Computes desired odometry, given actual odometry and a time step. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualOdometry</td><td>- actual odometry. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">elapsedTimeInSec</td><td>- a time step. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>setpoint odometry, which includes updated velocities and pose </dd></dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#adf06eaf32115d9d2995dd045bdb445a7">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">169</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">164</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00095">actualOdometry</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00096">actualTime</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00094">computedOdometry</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00089">gains</a>, <a class="el" href="Odometry_8cpp_source.html#l00072">Odometry::getPose2D()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00238">getShortestAngle()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00078">Twist2D::getTheta()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00070">Pose2D::getTheta()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00040">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="Odometry_8cpp_source.html#l00080">Odometry::getTwist2D()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00062">Twist2D::getX()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00062">Pose2D::getX()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00070">Twist2D::getY()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00066">Pose2D::getY()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">isTargetReached()</a>, <a class="el" href="Odometry_8cpp_source.html#l00084">Odometry::setTwist2D()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00091">targetTrajectory</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00097">timeOffset</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00191">actualOdometry</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00196">actualTime</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00186">computedOdometry</a>, <a class="el" href="OmniDriveKinematicsModel_8cpp_source.html#l00062">OmniDriveKinematicsModel::convertToLocalReferenceFrame()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00166">gains</a>, <a class="el" href="Odometry_8cpp_source.html#l00072">Odometry::getPose2D()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00233">getShortestAngle()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00078">Twist2D::getTheta()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00070">Pose2D::getTheta()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00048">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="Odometry_8cpp_source.html#l00080">Odometry::getTwist2D()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00062">Twist2D::getX()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00062">Pose2D::getX()</a>, <a class="el" href="Twist2D_8cpp_source.html#l00070">Twist2D::getY()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00066">Pose2D::getY()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00131">isTargetReached()</a>, <a class="el" href="Odometry_8cpp_source.html#l00084">Odometry::setTwist2D()</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00176">targetTrajectory</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController_afa67e6f3662cfa4b4debe4607a376c6b_cgraph.png" border="0" usemap="#classOmniDrivePositionController_afa67e6f3662cfa4b4debe4607a376c6b_cgraph" alt=""/></div>
 <map name="classOmniDrivePositionController_afa67e6f3662cfa4b4debe4607a376c6b_cgraph" id="classOmniDrivePositionController_afa67e6f3662cfa4b4debe4607a376c6b_cgraph">
-<area shape="rect" id="node3" href="classOmniDriveKinematicsModel.html#a140f3543bd7dcda7cade3013356b601e" title="OmniDriveKinematicsModel::convertToLocalReferenceFrame" alt="" coords="380,220,753,251"/><area shape="rect" id="node7" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="845,7,995,38"/><area shape="rect" id="node9" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Twist2D::getTheta" alt="" coords="856,60,984,91"/><area shape="rect" id="node11" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="857,114,983,144"/><area shape="rect" id="node13" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Odometry::getTwist2D" alt="" coords="844,167,996,198"/><area shape="rect" id="node15" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Twist2D::getX" alt="" coords="868,274,972,304"/><area shape="rect" id="node17" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="869,327,971,358"/><area shape="rect" id="node19" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Twist2D::getY" alt="" coords="868,380,972,411"/><area shape="rect" id="node21" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="869,434,971,464"/><area shape="rect" id="node24" href="classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="421,476,712,507"/><area shape="rect" id="node28" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="468,530,665,560"/><area shape="rect" id="node35" href="classOmniDrivePositionController.html#a92dc592f441852e8ab5470a73ae32dde" title="OmniDrivePositionController::isTargetReached" alt="" coords="423,583,711,614"/><area shape="rect" id="node37" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d" title="Odometry::setTwist2D" alt="" coords="491,636,643,667"/><area shape="rect" id="node5" href="classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="OmniDriveKinematicsModel::convert" alt="" coords="803,220,1037,251"/></map>
+<area shape="rect" id="node3" href="classOmniDriveKinematicsModel.html#a140f3543bd7dcda7cade3013356b601e" title="Mapping motion in the global reference frame to motion in terms of the local reference frame for the ..." alt="" coords="380,220,753,251"/><area shape="rect" id="node7" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="845,7,995,38"/><area shape="rect" id="node9" href="classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="856,60,984,91"/><area shape="rect" id="node11" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="857,114,983,144"/><area shape="rect" id="node13" href="classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="844,167,996,198"/><area shape="rect" id="node15" href="classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="868,274,972,304"/><area shape="rect" id="node17" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="869,327,971,358"/><area shape="rect" id="node19" href="classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="868,380,972,411"/><area shape="rect" id="node21" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="869,434,971,464"/><area shape="rect" id="node24" href="classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="Calculates a shortest rotation angle (for 2D space)." alt="" coords="421,476,712,507"/><area shape="rect" id="node28" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="468,530,665,560"/><area shape="rect" id="node35" href="classOmniDrivePositionController.html#a92dc592f441852e8ab5470a73ae32dde" title="Returns true if target has been reached." alt="" coords="423,583,711,614"/><area shape="rect" id="node37" href="classOdometry.html#aea81b93a70b0c5a9f79a28f911113d4d" title="Class represents an odometry data." alt="" coords="491,636,643,667"/><area shape="rect" id="node5" href="classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="Implementation of the interface class for computing motion in global and local reference frames for o..." alt="" coords="803,220,1037,251"/></map>
 </div>
 </p>
 
@@ -302,18 +354,28 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00242">242</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Calculates a distance between two points (for 2D space). </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualPose</td><td>- 1st point coordinates. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">goalPose</td><td>- 2nd point coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>distance </dd></dl>
+
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00237">237</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
 <p>References <a class="el" href="Pose2D_8cpp_source.html#l00062">Pose2D::getX()</a>, and <a class="el" href="Pose2D_8cpp_source.html#l00066">Pose2D::getY()</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">targetReached()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">targetReached()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController_aad4c64f79056348d5ac2c523ff2cce68_cgraph.png" border="0" usemap="#classOmniDrivePositionController_aad4c64f79056348d5ac2c523ff2cce68_cgraph" alt=""/></div>
 <map name="classOmniDrivePositionController_aad4c64f79056348d5ac2c523ff2cce68_cgraph" id="classOmniDrivePositionController_aad4c64f79056348d5ac2c523ff2cce68_cgraph">
-<area shape="rect" id="node3" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="316,5,417,35"/><area shape="rect" id="node5" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="316,58,417,89"/></map>
+<area shape="rect" id="node3" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="316,5,417,35"/><area shape="rect" id="node5" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="316,58,417,89"/></map>
 </div>
 </p>
 
@@ -344,9 +406,19 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00238">238</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Calculates a shortest rotation angle (for 2D space). </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">goalAngle</td><td>- 1st angle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualAngle</td><td>- 2nd angle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>shortest angle </dd></dl>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">targetReached()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00233">233</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">targetReached()</a>.</p>
 
 </div>
 </div>
@@ -364,13 +436,16 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Gets an actual goal pose. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a> value of the actual goal pose. </dd></dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#ad5c99a42dbd42374c65f3a13118b6ac9">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00120">120</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00115">115</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00093">targetOdometry</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00181">targetOdometry</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>.</p>
 
 </div>
 </div>
@@ -388,11 +463,14 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Gets an actual trajectory. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a> is and aggregatin of KDL::Trajectory with frame id. </dd></dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#af8ecb735946fd3ec3caeedbd098d5f9e">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00132">132</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00127">127</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00091">targetTrajectory</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00176">targetTrajectory</a>.</p>
 
 </div>
 </div>
@@ -410,13 +488,16 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Get tolerance parameter. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>tolerance of the positioning procedure. </dd></dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#a761ee939a2b92182828ca6c3d2cb0766">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00251">251</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00246">246</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00090">tolerance</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00171">tolerance</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>.</p>
 
 </div>
 </div>
@@ -434,13 +515,16 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Returns true if target has been reached. </p>
+<p>otherwise false. </p>
+
 <p>Implements <a class="el" href="classIPositionController.html#a8247cbcdb6f285f832f2b14f946830c2">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">136</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00131">131</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00101">rotationFlag</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00100">translationFlag</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00206">rotationFlag</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00201">translationFlag</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>.</p>
 
 </div>
 </div>
@@ -458,11 +542,13 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">111</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Resets internal flags. </p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00101">rotationFlag</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00100">translationFlag</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00106">106</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00124">setTargetTrajectory()</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00206">rotationFlag</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00201">translationFlag</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00119">setTargetTrajectory()</a>.</p>
 
 </div>
 </div>
@@ -481,11 +567,19 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Sets a goal pose to reach. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">targetOdometry</td><td>- a goal pose </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#ae47a26c4a3fa21dbbfb1b62cb9decb13">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00116">116</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">111</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00093">targetOdometry</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00181">targetOdometry</a>.</p>
 
 </div>
 </div>
@@ -504,18 +598,26 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Sets a trajectory to follow. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">trajectory</td><td>- a target trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00124">124</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00119">119</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="TrajectoryWithId_8cpp_source.html#l00040">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="TrajectoryWithId_8h_source.html#l00059">TrajectoryWithId::id</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">resetFlags()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00035">TrajectoryWithId::setTrajectory()</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00091">targetTrajectory</a>.</p>
+<p>References <a class="el" href="TrajectoryWithId_8cpp_source.html#l00048">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="TrajectoryWithId_8h_source.html#l00059">TrajectoryWithId::id</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00106">resetFlags()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00043">TrajectoryWithId::setTrajectory()</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00176">targetTrajectory</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController_a59981f06759bc9741d2f4bdd8c8fe962_cgraph.png" border="0" usemap="#classOmniDrivePositionController_a59981f06759bc9741d2f4bdd8c8fe962_cgraph" alt=""/></div>
 <map name="classOmniDrivePositionController_a59981f06759bc9741d2f4bdd8c8fe962_cgraph" id="classOmniDrivePositionController_a59981f06759bc9741d2f4bdd8c8fe962_cgraph">
-<area shape="rect" id="node3" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="385,5,583,35"/><area shape="rect" id="node5" href="classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8" title="OmniDrivePositionController::resetFlags" alt="" coords="357,58,611,89"/><area shape="rect" id="node7" href="classTrajectoryWithId.html#ae64ee67ff598d984fbbe2403c97edc2b" title="Sets a trajectory." alt="" coords="385,111,583,142"/></map>
+<area shape="rect" id="node3" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="385,5,583,35"/><area shape="rect" id="node5" href="classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8" title="Resets internal flags." alt="" coords="357,58,611,89"/><area shape="rect" id="node7" href="classTrajectoryWithId.html#ae64ee67ff598d984fbbe2403c97edc2b" title="Sets a trajectory." alt="" coords="385,111,583,142"/></map>
 </div>
 </p>
 
@@ -536,11 +638,19 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
+<p>Sets tolerance parameter for a controller. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tolerance</td><td>- required tolerance for positioning procedure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="classIPositionController.html#a37e53a4eace2c9ea1d840819e738f59c">IPositionController</a>.</p>
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00247">247</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00242">242</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00090">tolerance</a>.</p>
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00171">tolerance</a>.</p>
 
 </div>
 </div>
@@ -569,16 +679,25 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">141</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+<p>Checks if the goal has been reached. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">translation</td><td>- flag is set to true if target location is reached, otherwise false. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rotation</td><td>- flag is set to true if target rotation is reached, otherwise false. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00095">actualOdometry</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">actualPose</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00242">getDistance()</a>, <a class="el" href="Odometry_8cpp_source.html#l00072">Odometry::getPose2D()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00238">getShortestAngle()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00070">Pose2D::getTheta()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00040">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00062">Pose2D::getX()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00066">Pose2D::getY()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00091">targetTrajectory</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00090">tolerance</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">136</a> of file <a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a>.</p>
+
+<p>References <a class="el" href="OmniDrivePositionController_8h_source.html#l00191">actualOdometry</a>, <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00094">actualPose</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00237">getDistance()</a>, <a class="el" href="Odometry_8cpp_source.html#l00072">Odometry::getPose2D()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00233">getShortestAngle()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00070">Pose2D::getTheta()</a>, <a class="el" href="TrajectoryWithId_8cpp_source.html#l00048">TrajectoryWithId::getTrajectory()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00062">Pose2D::getX()</a>, <a class="el" href="Pose2D_8cpp_source.html#l00066">Pose2D::getY()</a>, <a class="el" href="OmniDrivePositionController_8h_source.html#l00176">targetTrajectory</a>, and <a class="el" href="OmniDrivePositionController_8h_source.html#l00171">tolerance</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDrivePositionController_af4cb7ca013f2051ee70c64c485d71502_cgraph.png" border="0" usemap="#classOmniDrivePositionController_af4cb7ca013f2051ee70c64c485d71502_cgraph" alt=""/></div>
 <map name="classOmniDrivePositionController_af4cb7ca013f2051ee70c64c485d71502_cgraph" id="classOmniDrivePositionController_af4cb7ca013f2051ee70c64c485d71502_cgraph">
-<area shape="rect" id="node3" href="classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68" title="OmniDrivePositionController::getDistance" alt="" coords="347,45,608,76"/><area shape="rect" id="node5" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Pose2D::getX" alt="" coords="673,6,775,37"/><area shape="rect" id="node7" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Pose2D::getY" alt="" coords="673,72,775,102"/><area shape="rect" id="node9" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Odometry::getPose2D" alt="" coords="403,149,552,180"/><area shape="rect" id="node11" href="classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="OmniDrivePositionController::getShortestAngle" alt="" coords="332,202,623,233"/><area shape="rect" id="node13" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Pose2D::getTheta" alt="" coords="415,256,540,286"/><area shape="rect" id="node15" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="379,309,576,340"/></map>
+<area shape="rect" id="node3" href="classOmniDrivePositionController.html#aad4c64f79056348d5ac2c523ff2cce68" title="Calculates a distance between two points (for 2D space)." alt="" coords="347,45,608,76"/><area shape="rect" id="node5" href="classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="673,6,775,37"/><area shape="rect" id="node7" href="classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="673,72,775,102"/><area shape="rect" id="node9" href="classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="403,149,552,180"/><area shape="rect" id="node11" href="classOmniDrivePositionController.html#a48f73499573a212622fe77cf2b51f0d6" title="Calculates a shortest rotation angle (for 2D space)." alt="" coords="332,202,623,233"/><area shape="rect" id="node13" href="classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="415,256,540,286"/><area shape="rect" id="node15" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="379,309,576,340"/></map>
 </div>
 </p>
 
@@ -596,9 +715,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00095">95</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds odometry feedback from the sensors. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">targetReached()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00191">191</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">targetReached()</a>.</p>
 
 </div>
 </div>
@@ -613,9 +734,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00096">96</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds actual execution time. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00196">196</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>.</p>
 
 </div>
 </div>
@@ -630,9 +753,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00094">94</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds last setpoint for odometry. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00186">186</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>.</p>
 
 </div>
 </div>
@@ -647,9 +772,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00089">89</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds gain values. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00166">166</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>.</p>
 
 </div>
 </div>
@@ -664,9 +791,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00101">101</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Internal flags. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">isTargetReached()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">resetFlags()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00206">206</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00131">isTargetReached()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00106">resetFlags()</a>.</p>
 
 </div>
 </div>
@@ -681,9 +810,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00093">93</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds goal position. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00120">getTargetOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00116">setTargetOdometry()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00181">181</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00115">getTargetOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">setTargetOdometry()</a>.</p>
 
 </div>
 </div>
@@ -698,26 +829,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00091">91</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds target trajectory. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00132">getTargetTrajectory()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00124">setTargetTrajectory()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">targetReached()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00176">176</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a8f29836b559144564c7da1b8760def5b"></a><!-- doxytag: member="OmniDrivePositionController::timeOffset" ref="a8f29836b559144564c7da1b8760def5b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="classOmniDrivePositionController.html#a8f29836b559144564c7da1b8760def5b">OmniDrivePositionController::timeOffset</a><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00097">97</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00169">computeNewOdometry()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00164">computeNewOdometry()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00127">getTargetTrajectory()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00119">setTargetTrajectory()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">targetReached()</a>.</p>
 
 </div>
 </div>
@@ -732,9 +848,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00090">90</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Holds tolerance values. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00251">getTolerance()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00247">setTolerance()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00141">targetReached()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00171">171</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00246">getTolerance()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00242">setTolerance()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">targetReached()</a>.</p>
 
 </div>
 </div>
@@ -749,9 +867,11 @@ Here is the call graph for this function:</div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00100">100</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+<p>Internal flags. </p>
 
-<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00136">isTargetReached()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00094">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00111">resetFlags()</a>.</p>
+<p>Definition at line <a class="el" href="OmniDrivePositionController_8h_source.html#l00201">201</a> of file <a class="el" href="OmniDrivePositionController_8h_source.html">OmniDrivePositionController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00131">isTargetReached()</a>, <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00090">OmniDrivePositionController()</a>, and <a class="el" href="OmniDrivePositionController_8cpp_source.html#l00106">resetFlags()</a>.</p>
 
 </div>
 </div>
@@ -760,7 +880,7 @@ Here is the call graph for this function:</div>
 <li>navigation_trajectory_follower/src/omnidrive_controller/<a class="el" href="OmniDrivePositionController_8cpp_source.html">OmniDrivePositionController.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

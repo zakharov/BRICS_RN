@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -111,25 +110,32 @@
 <a name="l00068"></a>00068     frame = <span class="keyword">new</span> Frame(orig.<a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">getFrame</a>()); 
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
-<a name="l00071"></a><a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">00071</a> <a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">FrameWithId::~FrameWithId</a>() {
-<a name="l00072"></a>00072     <span class="keyword">delete</span> frame;
-<a name="l00073"></a>00073 }
-<a name="l00074"></a>00074 
-<a name="l00075"></a><a class="code" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025">00075</a> <span class="keywordtype">void</span> <a class="code" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025" title="Sets new KDL::Frame.">FrameWithId::setFrame</a>(<span class="keyword">const</span> KDL::Frame&amp; frame) {
-<a name="l00076"></a>00076     <span class="keyword">delete</span> this-&gt;frame;
-<a name="l00077"></a>00077     this-&gt;frame = <span class="keyword">new</span> Frame(frame);
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079 
-<a name="l00080"></a><a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8">00080</a> <span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">FrameWithId::getFrame</a>()<span class="keyword"> const </span>{
-<a name="l00081"></a>00081     <span class="keywordflow">return</span> *frame;
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="classFrameWithId.html#a0d3071d1270247561c23194e3c0541c7">00084</a> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">FrameWithId::getFrame</a>() {
-<a name="l00085"></a>00085     <span class="keywordflow">return</span> *frame;
-<a name="l00086"></a>00086 }
+<a name="l00071"></a><a class="code" href="classFrameWithId.html#a249c6c014aade162b353795a929e9ee7">00071</a> <span class="keyword">const</span> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>&amp; <a class="code" href="classFrameWithId.html#a249c6c014aade162b353795a929e9ee7" title="Operation assignment.">FrameWithId::operator=</a>(<span class="keyword">const</span> <a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>&amp; orig) {
+<a name="l00072"></a>00072     <span class="keywordtype">id</span> = orig.<a class="code" href="classFrameWithId.html#ae99cece9ab316fc5684d4ac13afff36d" title="String identifier of the frame.">id</a>; 
+<a name="l00073"></a>00073     <span class="keyword">delete</span> frame;
+<a name="l00074"></a>00074     frame = <span class="keyword">new</span> Frame(orig.<a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">getFrame</a>());    
+<a name="l00075"></a>00075     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00076"></a>00076 }
+<a name="l00077"></a>00077 
+<a name="l00078"></a><a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">00078</a> <a class="code" href="classFrameWithId.html#ac7c431e2392ee9336f1075d1505a17b5">FrameWithId::~FrameWithId</a>() {
+<a name="l00079"></a>00079     <span class="keyword">delete</span> frame;
+<a name="l00080"></a>00080 }
+<a name="l00081"></a>00081 
+<a name="l00082"></a><a class="code" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025">00082</a> <span class="keywordtype">void</span> <a class="code" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025" title="Sets new KDL::Frame.">FrameWithId::setFrame</a>(<span class="keyword">const</span> KDL::Frame&amp; frame) {
+<a name="l00083"></a>00083     <span class="keyword">delete</span> this-&gt;frame;
+<a name="l00084"></a>00084     this-&gt;frame = <span class="keyword">new</span> Frame(frame);
+<a name="l00085"></a>00085 }
+<a name="l00086"></a>00086 
+<a name="l00087"></a><a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8">00087</a> <span class="keyword">const</span> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">FrameWithId::getFrame</a>()<span class="keyword"> const </span>{
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> *frame;
+<a name="l00089"></a>00089 }
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="classFrameWithId.html#a0d3071d1270247561c23194e3c0541c7">00091</a> KDL::Frame&amp; <a class="code" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy.">FrameWithId::getFrame</a>() {
+<a name="l00092"></a>00092     <span class="keywordflow">return</span> *frame;
+<a name="l00093"></a>00093 }
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

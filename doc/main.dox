@@ -1,14 +1,24 @@
 /*! 
 @mainpage BRICS_RN Documentation pages 
 
-	BRICS_RN is the BRICS library for RN perception and modeling. It offers perception
-	algorithms to create a processing chain for object recognition or environment reconstruction 
-	(e.g. triangle representation) via data from 3D sensors. 
+	BRICS_RN is the BRICS library for robust navigation and obstacle avoidance. 
+	Robust navigation is the ability of a mobile robot to perform autonomous 
+	navigating, while avoiding dangerous situations such as collisions with obstacles. 
+	It is a cross-sectional domain, which includes path planning, motion control and
+	sensor data processing.
 	
-	Beside the algorithms for perception the BRICS_3D library implements a novel scene graph based
-	world modeling approach to maintain the processed 3D data over a longer period of time.	 
-	This library is biased towards 3D perception and modeling for mobile manipulation applications.
- 
+	BRICS_RN is a collection of interfaces and implementations of various navigation related
+        algorithms such as path planning, dynamic path adaptation and path execution. Initial effort
+        has been made to implement robust navigation functionality as a set of reusable components 
+        that can be assembled into flexible systems.
+	
+	BRICS_RN provides several simple example of  a local navigation for a omnidirectional 
+        mobile platform. 
+
+        Future work is to increase a number of navigation algorithms and a number of mobile
+        platforms.
+
+/* 
 @section toc Table of Contents
 
 - @ref introduction
@@ -22,6 +32,7 @@
  - @ref path_following
 - @ref license
 - @ref references 
+*/
 
 @section license Licensing
 This software is published under a dual-license: GNU Lesser General Public
@@ -31,87 +42,13 @@ called <a href="../../LGPL-2.1">LGPL-2.1</a> and <a href="../../BSDlicense">BSDl
 
 @section references References 
 
-If you want to cite the BRICS_3D library you can use the following reference. Among others it contains an overwiew of the 3D Perception an Modeling domain and the basic design principles behind this library. 
-
 @code
 @INPROCEEDINGS{blumenthal11towards,
-  author = {Blumenthal, S. and Prassler, E. and Fischer, J. and Nowak, W.},
-  title = {Towards identification of best practice algorithms in 3D perception and modeling},
-  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-  year = {2011},
-  pages = {3554--3561},
-  organization = {IEEE},
-  doi = {10.1109/ICRA.2011.5980106}
+  author = {Brugali, D. and Gherardi, L. and Luzzana, A. and Zakharov, A.},
+  title = {A Reuse-Oriented Development Process for Component-based Robotic Systems},
+  booktitle = {SIMULATION, MODELING, and PROGRAMMING for AUTONOMOUS ROBOTS (SIMPAR)},
+  year = {2012},
 }
 @endcode
 
 */
- 
-/*!  
- 
-
-@namespace brics_3d 
-	@brief The BRICS 3D perception and modeling library.
- 
- 
- 
-@defgroup depth_perception Depth perception
-	@brief This module has simple capabilities for depth perception.
-		
-	An introduction can be found in the @ref depth_perception_def section. 
-
- 
- 
-@defgroup filtering Filtering
-	@brief This module contains algorithms for filtering of point clouds. 
-	
-    An introduction can be found in the @ref filtering_def section. 
- 
-	For example the Octree based size reduction filter can be found here.
- 
-
-@defgroup featureExtraction Feature Extraction
-	@brief This module contains algorithms for feature extraction from point clouds. 
-	
-	An introduction can be found in the @ref feature_extraction_def section.
- 
-
-@defgroup registration Registration
-	@brief This module contains algorithms for registration of point clouds.
- 
-    An introduction can be found in the @ref registration_def section. 
-    This modules module comprises in particular the Iterative Closest Point algorithm (ICP) and atomic sub components.
- 
-@defgroup segmentation Segmentation
-	@brief This module contains algorithms for segmenation algorithms for point clouds.
- 
-    An introduction can be found in the @ref segmentation_def section. 
-
-  
-@defgroup mesh_generation Mesh generation
- 	@brief This module offers algorithms for mesh generation.
-
-    An introduction can be found in the @ref mesh_generation_def section.   
- 	The module contains Delaunay triangulation and related methods.
-  
-  
- 
-@defgroup visualization Visualization
- 	@brief This module has tools for visualization of 3D representations
-  
-    An introduction can be found in the @ref visualization_def section.
-  
-  
-@defgroup nearestNeighbor NearestNeighbor
-	@brief This module contains algorithms for nearest neighbor search.
-
-    An introduction can be found in the @ref classification_def section.
-    
-
-@defgroup sceneGraph Scenegraph
-	@brief This module contains the implementation of the scenegraph based world model. 
-
-    A detailed descussion can be found in @ref worldmodel.    
-    
- */
-  

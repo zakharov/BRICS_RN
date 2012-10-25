@@ -13,9 +13,9 @@
 <area shape="rect" id="node19" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1168,325,1325,355"/>
 <area shape="rect" id="node25" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="347,325,477,355"/>
 <area shape="rect" id="node27" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="347,378,477,409"/>
-<area shape="rect" id="node31" href="$classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="OmniDriveTrajectoryGenerator::computeTrajectroy" alt="" coords="256,431,568,462"/>
+<area shape="rect" id="node31" href="$classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="256,431,568,462"/>
 <area shape="rect" id="node33" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="319,485,505,515"/>
-<area shape="rect" id="node40" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="IPositionController::setTargetTrajectory" alt="" coords="289,538,535,569"/>
+<area shape="rect" id="node40" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow." alt="" coords="289,538,535,569"/>
 <area shape="rect" id="node35" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="616,378,869,409"/>
 <area shape="rect" id="node37" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="919,365,1119,395"/>
 </map>

@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -46,13 +45,16 @@
 </div>
 <div class="contents">
 <!-- doxytag: class="IPositionController" -->
+<p>Interface class for a position controller.  
+<a href="#_details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="IPositionController_8h_source.html">IPositionController.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IPositionController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIPositionController__inherit__graph.png" border="0" usemap="#IPositionController_inherit__map" alt="Inheritance graph"/></div>
 <map name="IPositionController_inherit__map" id="IPositionController_inherit__map">
-<area shape="rect" id="node3" href="classOmniDrivePositionController.html" title="{OmniDrivePositionController\n|&#45; gains\l&#45; tolerance\l&#45; targetTrajectory\l&#45; targetOdometry\l&#45; computedOdometry\l&#45; actualOdometry\l&#45; actualTime\l&#45; timeOffset\l&#45; translationFlag\l&#45; rotationFlag\l|+ OmniDrivePositionController()\l+ OmniDrivePositionController()\l+ OmniDrivePositionController()\l+ ~OmniDrivePositionController()\l+ setTargetTrajectory()\l+ getTargetTrajectory()\l+ setTargetOdometry()\l+ getTargetOdometry()\l+ setTolerance()\l+ getTolerance()\l+ computeNewOdometry()\l+ isTargetReached()\l&#45; getDistance()\l&#45; getShortestAngle()\l&#45; resetFlags()\l&#45; targetReached()\l}" alt="" coords="5,275,216,813"/></map>
+<area shape="rect" id="node3" href="classOmniDrivePositionController.html" title="Implementation of the interface class for a position controller for omnidirectional mobile platform..." alt="" coords="5,275,216,794"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classIPositionController-members.html">List of all members.</a></p>
@@ -60,17 +62,26 @@ Inheritance diagram for IPositionController:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08">setTargetTrajectory</a> (const <a class="el" href="classTrajectoryWithId.html">TrajectoryWithId</a> &amp;trajectory)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a trajectory to follow.  <a href="#aa63fdf343638b876488b90e7af2e9d08"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classTrajectoryWithId.html">TrajectoryWithId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#af8ecb735946fd3ec3caeedbd098d5f9e">getTargetTrajectory</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an actual trajectory.  <a href="#af8ecb735946fd3ec3caeedbd098d5f9e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#ae47a26c4a3fa21dbbfb1b62cb9decb13">setTargetOdometry</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;targetOdometry)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a goal pose to reach.  <a href="#ae47a26c4a3fa21dbbfb1b62cb9decb13"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#ad5c99a42dbd42374c65f3a13118b6ac9">getTargetOdometry</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an actual goal pose.  <a href="#ad5c99a42dbd42374c65f3a13118b6ac9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#a8247cbcdb6f285f832f2b14f946830c2">isTargetReached</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if target has been reached.  <a href="#a8247cbcdb6f285f832f2b14f946830c2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#a37e53a4eace2c9ea1d840819e738f59c">setTolerance</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;tolerance)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets tolerance parameter for a controller.  <a href="#a37e53a4eace2c9ea1d840819e738f59c"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#a761ee939a2b92182828ca6c3d2cb0766">getTolerance</a> () const =0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get tolerance parameter.  <a href="#a761ee939a2b92182828ca6c3d2cb0766"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classOdometry.html">Odometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIPositionController.html#adf06eaf32115d9d2995dd045bdb445a7">computeNewOdometry</a> (const <a class="el" href="classOdometry.html">Odometry</a> &amp;<a class="el" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>, double elapsedTimeInSec)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to compute desired odometry, given actual odometry and a time step.  <a href="#adf06eaf32115d9d2995dd045bdb445a7"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="IPositionController_8h_source.html#l00051">51</a> of file <a class="el" href="IPositionController_8h_source.html">IPositionController.h</a>.</p>
+<div class="textblock"><p>Interface class for a position controller. </p>
+
+<p>Definition at line <a class="el" href="IPositionController_8h_source.html#l00052">52</a> of file <a class="el" href="IPositionController_8h_source.html">IPositionController.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="adf06eaf32115d9d2995dd045bdb445a7"></a><!-- doxytag: member="IPositionController::computeNewOdometry" ref="adf06eaf32115d9d2995dd045bdb445a7" args="(const Odometry &amp;actualOdometry, double elapsedTimeInSec)=0" -->
 <div class="memitem">
@@ -97,6 +108,15 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Interface to compute desired odometry, given actual odometry and a time step. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualOdometry</td><td>- actual odometry. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">elapsedTimeInSec</td><td>- a time step. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#afa67e6f3662cfa4b4debe4607a376c6b">OmniDrivePositionController</a>.</p>
 
 <p>Referenced by <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00144">controlLoop()</a>.</p>
@@ -117,6 +137,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Gets an actual goal pose. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a> value of the actual goal pose. </dd></dl>
+
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd">OmniDrivePositionController</a>.</p>
 
 </div>
@@ -134,6 +157,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Gets an actual trajectory. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a> is and aggregatin of KDL::Trajectory with frame id. </dd></dl>
 
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e">OmniDrivePositionController</a>.</p>
 
@@ -153,6 +179,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Get tolerance parameter. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>tolerance of the positioning procedure. </dd></dl>
+
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545">OmniDrivePositionController</a>.</p>
 
 </div>
@@ -170,6 +199,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Returns true if target has been reached. </p>
+<p>otherwise false. </p>
 
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a92dc592f441852e8ab5470a73ae32dde">OmniDrivePositionController</a>.</p>
 
@@ -190,6 +222,14 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Sets a goal pose to reach. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">targetOdometry</td><td>- a goal pose </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a94c0de50054f288155cfe1e154949913">OmniDrivePositionController</a>.</p>
 
 </div>
@@ -208,6 +248,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Sets a trajectory to follow. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">trajectory</td><td>- a target trajectory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962">OmniDrivePositionController</a>.</p>
 
@@ -230,6 +278,14 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Sets tolerance parameter for a controller. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tolerance</td><td>- required tolerance for positioning procedure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classOmniDrivePositionController.html#a3a5fb427db67b702f1d979de6687f179">OmniDrivePositionController</a>.</p>
 
 </div>
@@ -238,7 +294,7 @@ Public Member Functions</h2></td></tr>
 <li>navigation_trajectory_follower/src/omnidrive_controller/<a class="el" href="IPositionController_8h_source.html">IPositionController.h</a></li>
 </ul>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

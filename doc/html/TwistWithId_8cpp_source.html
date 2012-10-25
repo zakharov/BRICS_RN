@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -111,26 +110,34 @@
 <a name="l00068"></a>00068     twist = <span class="keyword">new</span> Twist(orig.<a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">getTwist</a>());
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
-<a name="l00071"></a><a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824">00071</a> <span class="keywordtype">void</span> <a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824" title="Sets a new value of the KDL::Twist.">TwistWithId::setTwist</a>(<span class="keyword">const</span> KDL::Twist&amp; orig) {
-<a name="l00072"></a>00072     <span class="keyword">delete</span> this-&gt;twist;
-<a name="l00073"></a>00073     this-&gt;twist = <span class="keyword">new</span> Twist(orig);
-<a name="l00074"></a>00074 }
-<a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9">00076</a> <span class="keyword">const</span> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>()<span class="keyword"> const </span>{
-<a name="l00077"></a>00077     <span class="keywordflow">return</span> *twist;
-<a name="l00078"></a>00078 }
-<a name="l00079"></a>00079     
-<a name="l00080"></a><a class="code" href="classTwistWithId.html#aaef5011b54f7855d8632b84e41c73bc9">00080</a> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>() {
-<a name="l00081"></a>00081     <span class="keywordflow">return</span> *twist;
+<a name="l00071"></a><a class="code" href="classTwistWithId.html#ab71e40fce4cbe0275a5bc7a0d6465a0b">00071</a> <span class="keyword">const</span> <a class="code" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a>&amp; <a class="code" href="classTwistWithId.html#ab71e40fce4cbe0275a5bc7a0d6465a0b" title="Operation assignment.">TwistWithId::operator=</a>(<span class="keyword">const</span> <a class="code" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a>&amp; orig) {
+<a name="l00072"></a>00072     <span class="keywordtype">id</span> = orig.<a class="code" href="classTwistWithId.html#a76c1f4082dfc5c91d1175f4dc7b8974a" title="String identifier of the Twist.">id</a>;
+<a name="l00073"></a>00073     <span class="keyword">delete</span> twist;
+<a name="l00074"></a>00074     twist = <span class="keyword">new</span> Twist(orig.<a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">getTwist</a>());
+<a name="l00075"></a>00075     
+<a name="l00076"></a>00076     <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00077"></a>00077 }
+<a name="l00078"></a>00078 
+<a name="l00079"></a><a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824">00079</a> <span class="keywordtype">void</span> <a class="code" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824" title="Sets a new value of the KDL::Twist.">TwistWithId::setTwist</a>(<span class="keyword">const</span> KDL::Twist&amp; orig) {
+<a name="l00080"></a>00080     <span class="keyword">delete</span> this-&gt;twist;
+<a name="l00081"></a>00081     this-&gt;twist = <span class="keyword">new</span> Twist(orig);
 <a name="l00082"></a>00082 }
 <a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">00084</a> <a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b" title="Destructor.">TwistWithId::~TwistWithId</a>() {
-<a name="l00085"></a>00085     <span class="keyword">delete</span> twist;
+<a name="l00084"></a><a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9">00084</a> <span class="keyword">const</span> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>()<span class="keyword"> const </span>{
+<a name="l00085"></a>00085     <span class="keywordflow">return</span> *twist;
 <a name="l00086"></a>00086 }
-<a name="l00087"></a>00087 
+<a name="l00087"></a>00087     
+<a name="l00088"></a><a class="code" href="classTwistWithId.html#aaef5011b54f7855d8632b84e41c73bc9">00088</a> KDL::Twist&amp; <a class="code" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">TwistWithId::getTwist</a>() {
+<a name="l00089"></a>00089     <span class="keywordflow">return</span> *twist;
+<a name="l00090"></a>00090 }
+<a name="l00091"></a>00091 
+<a name="l00092"></a><a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b">00092</a> <a class="code" href="classTwistWithId.html#af3ced1d8b2b471c6e94680970da5647b" title="Destructor.">TwistWithId::~TwistWithId</a>() {
+<a name="l00093"></a>00093     <span class="keyword">delete</span> twist;
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

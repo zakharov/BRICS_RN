@@ -24,7 +24,6 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -86,34 +85,34 @@
 <a name="l00043"></a>00043 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 <span class="keyword">class </span><a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>;
-<a name="l00046"></a>00046 
+<a name="l00046"></a>00046 <span class="keyword">class </span><a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>;
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keyword">class </span><a class="code" href="classOdometry.html">Odometry</a>;
-<a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classIPositionController.html">00051</a> <span class="keyword">class </span><a class="code" href="classIPositionController.html">IPositionController</a> {
-<a name="l00052"></a>00052 <span class="keyword">public</span>:
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08">setTargetTrajectory</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; trajectory) = 0;
-<a name="l00055"></a>00055     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; <a class="code" href="classIPositionController.html#af8ecb735946fd3ec3caeedbd098d5f9e">getTargetTrajectory</a>() <span class="keyword">const</span> = 0;
-<a name="l00056"></a>00056     
-<a name="l00057"></a>00057     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#ae47a26c4a3fa21dbbfb1b62cb9decb13">setTargetOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; targetOdometry) = 0;
-<a name="l00058"></a>00058     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; <a class="code" href="classIPositionController.html#ad5c99a42dbd42374c65f3a13118b6ac9">getTargetOdometry</a>() <span class="keyword">const</span> = 0;
-<a name="l00059"></a>00059     
-<a name="l00060"></a>00060     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classIPositionController.html#a8247cbcdb6f285f832f2b14f946830c2">isTargetReached</a>() <span class="keyword">const</span> = 0;
-<a name="l00061"></a>00061     
-<a name="l00062"></a>00062     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#a37e53a4eace2c9ea1d840819e738f59c">setTolerance</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; tolerance) = 0;
-<a name="l00063"></a>00063     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; <a class="code" href="classIPositionController.html#a761ee939a2b92182828ca6c3d2cb0766">getTolerance</a>() <span class="keyword">const</span> = 0;
-<a name="l00064"></a>00064     
-<a name="l00065"></a>00065     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; <a class="code" href="classIPositionController.html#adf06eaf32115d9d2995dd045bdb445a7">computeNewOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html">Odometry</a>&amp; <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>, <span class="keywordtype">double</span> elapsedTimeInSec) = 0;
+<a name="l00052"></a><a class="code" href="classIPositionController.html">00052</a> <span class="keyword">class </span><a class="code" href="classIPositionController.html" title="Interface class for a position controller.">IPositionController</a> {
+<a name="l00053"></a>00053 <span class="keyword">public</span>:
+<a name="l00054"></a>00054 
+<a name="l00059"></a>00059     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow.">setTargetTrajectory</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; trajectory) = 0;
+<a name="l00060"></a>00060 
+<a name="l00065"></a>00065     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; <a class="code" href="classIPositionController.html#af8ecb735946fd3ec3caeedbd098d5f9e" title="Gets an actual trajectory.">getTargetTrajectory</a>() <span class="keyword">const</span> = 0;
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067 };
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#endif  </span><span class="comment">/* IPOSITIONCONTROLLER_H */</span>
-<a name="l00070"></a>00070 
+<a name="l00071"></a>00071     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#ae47a26c4a3fa21dbbfb1b62cb9decb13" title="Sets a goal pose to reach.">setTargetOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; targetOdometry) = 0;
+<a name="l00072"></a>00072 
+<a name="l00077"></a>00077     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; <a class="code" href="classIPositionController.html#ad5c99a42dbd42374c65f3a13118b6ac9" title="Gets an actual goal pose.">getTargetOdometry</a>() <span class="keyword">const</span> = 0;
+<a name="l00078"></a>00078 
+<a name="l00082"></a>00082     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classIPositionController.html#a8247cbcdb6f285f832f2b14f946830c2" title="Returns true if target has been reached.">isTargetReached</a>() <span class="keyword">const</span> = 0;
+<a name="l00083"></a>00083 
+<a name="l00088"></a>00088     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classIPositionController.html#a37e53a4eace2c9ea1d840819e738f59c" title="Sets tolerance parameter for a controller.">setTolerance</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; tolerance) = 0;
+<a name="l00089"></a>00089 
+<a name="l00094"></a>00094     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; <a class="code" href="classIPositionController.html#a761ee939a2b92182828ca6c3d2cb0766" title="Get tolerance parameter.">getTolerance</a>() <span class="keyword">const</span> = 0;
+<a name="l00095"></a>00095 
+<a name="l00101"></a>00101     <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; <a class="code" href="classIPositionController.html#adf06eaf32115d9d2995dd045bdb445a7" title="Interface to compute desired odometry, given actual odometry and a time step.">computeNewOdometry</a>(<span class="keyword">const</span> <a class="code" href="classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D.">Odometry</a>&amp; <a class="code" href="TrajectoryFollowerNode_8cpp.html#a3859b6625e90ad39de449f67a46e4eec">actualOdometry</a>, <span class="keywordtype">double</span> elapsedTimeInSec) = 0;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 };
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 <span class="preprocessor">#endif  </span><span class="comment">/* IPOSITIONCONTROLLER_H */</span>
+<a name="l00106"></a>00106 
 </pre></div></div>
 </div>
-<hr class="footer"/><address class="footer"><small>Generated on Mon Oct 22 2012 16:10:36 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Oct 24 2012 14:10:25 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
