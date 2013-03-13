@@ -1,0 +1,6 @@
+<map id="navigation_trajectory_common/include/navigation_trajectory_common/Conversions.h" name="navigation_trajectory_common/include/navigation_trajectory_common/Conversions.h">
+<area shape="rect" id="node2" href="$CollisionCheckingRos_8cpp.html" title="navigation_trajectory\l_planner/src/CollisionChecking\lRos.cpp" alt="" coords="5,109,219,165"/>
+<area shape="rect" id="node3" href="$PathPlannerRos_8cpp.html" title="navigation_trajectory\l_planner/src/PathPlannerRos.cpp" alt="" coords="243,117,473,158"/>
+<area shape="rect" id="node4" href="$TrajectoryAdapterNode_8cpp.html" title="navigation_trajectory\l_planner/src/TrajectoryAdapter\lNode.cpp" alt="" coords="498,109,715,165"/>
+<area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="739,109,956,165"/>
+</map>

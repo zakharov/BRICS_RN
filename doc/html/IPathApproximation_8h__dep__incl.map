@@ -1,0 +1,7 @@
+<map id="navigation_trajectory_planner/include/navigation_trajectory_planner/IPathApproximation.h" name="navigation_trajectory_planner/include/navigation_trajectory_planner/IPathApproximation.h">
+<area shape="rect" id="node2" href="$ChaikinCurveApproximation_8h.html" title="navigation_trajectory\l_planner/include/navigation\l_trajectory_planner/ChaikinCurve\lApproximation.h" alt="" coords="180,110,412,181"/>
+<area shape="rect" id="node5" href="$DouglasPeuckerApproximation_8h.html" title="navigation_trajectory\l_planner/include/navigation\l_trajectory_planner/DouglasPeucker\lApproximation.h" alt="" coords="437,110,688,181"/>
+<area shape="rect" id="node3" href="$ChaikinCurveApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/ChaikinCurveApproximation.cpp" alt="" coords="5,237,312,278"/>
+<area shape="rect" id="node4" href="$TrajectoryAdapterNode_8cpp.html" title="navigation_trajectory\l_planner/src/TrajectoryAdapter\lNode.cpp" alt="" coords="337,229,553,285"/>
+<area shape="rect" id="node6" href="$DouglasPeuckerApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/DouglasPeucker\lApproximation.cpp" alt="" coords="578,229,784,285"/>
+</map>
