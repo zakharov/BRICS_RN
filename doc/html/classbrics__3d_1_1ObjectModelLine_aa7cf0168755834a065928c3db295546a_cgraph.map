@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1ObjectModelLine.html#adb7c5061198a60fcd277074d5d67fd68" title="brics_3d::ObjectModelLine::computeModelCoefficients" alt="" coords="371,5,709,35"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1ObjectModelLine.html#a3940d49d16324c44e570e4eb39c4ed0b" title="brics_3d::ObjectModelLine::getSamples" alt="" coords="413,58,667,89"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="757,5,1003,35"/>
-</map>

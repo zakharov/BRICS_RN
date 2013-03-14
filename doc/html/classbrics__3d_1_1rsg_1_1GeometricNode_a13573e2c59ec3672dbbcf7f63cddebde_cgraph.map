@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1Node.html#a11f84315325fd4e9f725c7641975ca1c" title="brics_3d::rsg::Node::accept" alt="" coords="297,116,479,147"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html#a6d3cf8bef748eefd254a2c6f56bf3f62" title="brics_3d::rsg::INodeVisitor::getDirection" alt="" coords="528,47,781,78"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1rsg_1_1Node.html#ac21ab5662addcb947a9ce517744f21d6" title="brics_3d::rsg::Node::getNumberOfParents" alt="" coords="829,108,1093,139"/>
-<area shape="rect" id="node10" href="$classbrics__3d_1_1rsg_1_1Node.html#ad44fb577e89946eacb829ee656496ac1" title="brics_3d::rsg::Node::getParent" alt="" coords="556,214,753,244"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html#a45a3d64bedc6031c15bca1c57af40ccc" title="brics_3d::rsg::INodeVisitor::visit" alt="" coords="551,160,759,191"/>
-</map>

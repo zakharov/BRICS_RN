@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd" title="Gets an actual goal pose." alt="" coords="409,5,711,35"/>
-<area shape="rect" id="node5" href="$classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545" title="Get tolerance parameter." alt="" coords="427,58,693,89"/>
+<map id="OmniDrivePositionController::OmniDrivePositionController" name="OmniDrivePositionController::OmniDrivePositionController">
+<area shape="rect" id="node2" href="$classOmniDrivePositionController.html#a9bf32741e05c8b93bf59ed85b2f769cd" title="Gets an actual goal pose." alt="" coords="265,5,466,46"/>
+<area shape="rect" id="node3" href="$classOmniDrivePositionController.html#aec26eda3ec8a7c90288f2c7ee1624545" title="Get tolerance parameter." alt="" coords="265,70,466,111"/>
 </map>

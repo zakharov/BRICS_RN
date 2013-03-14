@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1ObjectModelPlane.html" title="{brics_3d::ObjectModelPlane\n||+ ObjectModelPlane()\l+ getSamples()\l+ computeModelCoefficients()\l+ getDistancesToModel()\l+ selectWithinDistance()\l+ getInlierDistance()\l+ doSamplesVerifyModel()\l+ computeRandomModel()\l+ getNumberOfSamplesRequired()\l+ ~ObjectModelPlane()\l}" alt="" coords="17,406,239,663"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="15,6,241,357"/>
-</map>

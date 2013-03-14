@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html#aff11b90dc36ad443976892ad339fcbd8" title="Add a new parent&#45;child relation between two nodes." alt="" coords="469,5,757,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1Node.html#a6dc7cae34514e3773f9fa0f2c5fdd637" title="brics_3d::rsg::Node::getId" alt="" coords="528,58,699,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1Node.html#adcd27fd56b17d488e9380f5513a586cd" title="brics_3d::rsg::Node::getParents" alt="" coords="511,111,716,142"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1OutdatedDataDeleter.html" title="Visitor that traverses the graph and deletes transform nodes that are outdated." alt="" coords="147,462,400,775"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html" title="Abstract interface for visitors of the scene graph (Visitor pattern)." alt="" coords="5,6,181,226"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1Timer.html" title="Timer to measure elapsed time in [ms]." alt="" coords="205,25,341,207"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html" title="The central handle to create and maintain a robot scenegraph." alt="" coords="607,313,825,925"/>
-<area shape="rect" id="node10" href="$classbrics__3d_1_1rsg_1_1ISceneGraphQuery.html" title="Abstract interface for all scenegraph related query functions." alt="" coords="365,25,581,207"/>
-<area shape="rect" id="node12" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html" title="Abstract interface for all scene graph related update functions." alt="" coords="605,6,827,226"/>
-<area shape="rect" id="node16" href="$classbrics__3d_1_1rsg_1_1IIdGenerator.html" title="Abstract interface for unique ID generation." alt="" coords="1141,34,1317,198"/>
-</map>

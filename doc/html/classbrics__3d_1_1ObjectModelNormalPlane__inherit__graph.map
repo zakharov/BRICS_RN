@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1IObjectModelUsingNormals.html" title="{brics_3d::IObjectModelUsingNormals\n|# normalDistanceWeight\l# normals\l# axis\l# epsAngle\l|+ IObjectModelUsingNormals()\l+ ~IObjectModelUsingNormals()\l+ setEpsAngle()\l+ getEpsAngle()\l+ setInputNormals()\l+ getInputNormals()\l+ setNormalDistanceWeight()\l+ getNormalDistanceWeight()\l+ setAxis()\l+ getAxis()\l}" alt="" coords="5,406,243,719"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="11,6,237,357"/>
-</map>

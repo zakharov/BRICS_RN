@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1INearestNeighbor.html" title="Abstract interface for the Nearest Neighbor search algorithm." alt="" coords="5,6,184,189"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1INearestPoint3DNeighbor.html" title="Abstract interface for the nearest neighbor search algorithm for 3D points." alt="" coords="208,25,432,170"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1INearestNeighborSetup.html" title="Abstract interface for to configure the Nearest Neighbor search algorithm." alt="" coords="456,6,669,189"/>
-</map>

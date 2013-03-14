@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1IObjectModel.html#a58d86091df3046146dbba0c385399616" title="Compute the smallest angle between two vectors in the [ 0, PI ) interval in 3D." alt="" coords="432,5,661,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1NormalSet3D.html#a7288e1c3a52f51762bc1053eb4ecc7d1" title="Get the pointer to the normals." alt="" coords="432,58,661,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="424,111,669,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="443,165,651,195"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1ObjectModelCylinder.html#a0d215361228cf012afe7df7c19c028d4" title="Get the distance from a point to a line (represented by a point and a direction)" alt="" coords="385,218,708,249"/>
-</map>

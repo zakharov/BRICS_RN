@@ -1,19 +1,19 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="124,165,212,195"/>
-<area shape="rect" id="node21" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="315,271,525,302"/>
-<area shape="rect" id="node23" href="$TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007" title="goalCallback" alt="" coords="120,323,216,354"/>
-<area shape="rect" id="node31" href="$TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9" title="odometryCallback" alt="" coords="105,377,231,407"/>
-<area shape="rect" id="node5" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="281,5,559,35"/>
-<area shape="rect" id="node7" href="$classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="335,58,505,89"/>
-<area shape="rect" id="node9" href="$classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="331,111,509,142"/>
-<area shape="rect" id="node11" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="315,165,525,195"/>
-<area shape="rect" id="node13" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="327,218,513,249"/>
-<area shape="rect" id="node15" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="609,231,860,262"/>
-<area shape="rect" id="node17" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="924,257,1121,287"/>
-<area shape="rect" id="node19" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1184,322,1341,353"/>
-<area shape="rect" id="node25" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="608,322,861,353"/>
-<area shape="rect" id="node27" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="923,322,1123,353"/>
-<area shape="rect" id="node33" href="$namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)..." alt="" coords="909,375,1136,406"/>
-<area shape="rect" id="node36" href="$namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)..." alt="" coords="309,427,531,458"/>
-<area shape="rect" id="node38" href="$classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="661,427,808,458"/>
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="130,187,227,213"/>
+<area shape="rect" id="node12" href="$TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007" title="goalCallback" alt="" coords="127,339,230,365"/>
+<area shape="rect" id="node15" href="$TrajectoryAdapterNode_8cpp.html#a80ca5cc016145db2f7e3baeea223fac9" title="odometryCallback" alt="" coords="110,389,247,416"/>
+<area shape="rect" id="node11" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="297,288,529,315"/>
+<area shape="rect" id="node3" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="304,5,523,46"/>
+<area shape="rect" id="node4" href="$classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="346,70,481,111"/>
+<area shape="rect" id="node5" href="$classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="315,136,511,163"/>
+<area shape="rect" id="node6" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="297,187,530,213"/>
+<area shape="rect" id="node7" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="313,237,514,264"/>
+<area shape="rect" id="node8" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="583,245,772,286"/>
+<area shape="rect" id="node9" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="826,267,1038,293"/>
+<area shape="rect" id="node10" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1088,331,1259,357"/>
+<area shape="rect" id="node13" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="579,323,775,365"/>
+<area shape="rect" id="node14" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="825,331,1039,357"/>
+<area shape="rect" id="node16" href="$namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)..." alt="" coords="837,382,1027,423"/>
+<area shape="rect" id="node17" href="$namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)..." alt="" coords="318,441,509,482"/>
+<area shape="rect" id="node18" href="$classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="603,448,752,475"/>
 </map>

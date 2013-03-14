@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classGnuplot.html#a8ced9e766e0677b938178dafe9264ff7" title="creates tmpfile and returns its name" alt="" coords="176,5,333,35"/>
-<area shape="rect" id="node5" href="$classGnuplot.html#a9dbde2a91eb816481657f3a22c9b0046" title="plot x,y,z triples: x y z from file" alt="" coords="185,58,324,89"/>
-<area shape="rect" id="node7" href="$classGnuplot.html#a07607803ede8dd5416906df0a1924fc5" title="send a command to gnuplot" alt="" coords="408,31,507,62"/>
-<area shape="rect" id="node9" href="$classGnuplot.html#a3ceb471d375865fccd412105cb587dd1" title="checks if file is available" alt="" coords="383,85,532,115"/>
-<area shape="rect" id="node11" href="$classGnuplot.html#abc0f1d75cb78804a5b8efdfa4df582cd" title="checks if file exists" alt="" coords="583,85,716,115"/>
-</map>

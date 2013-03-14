@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1PointCloud3D.html#a7ed684452092f9b087755f854107ce14" title="Add a point to the point cloud." alt="" coords="221,5,435,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="205,58,451,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="224,111,432,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1Point3D.html#abfa2c5d4c23ad2e1c6cf58dfc2a3c136" title="Set the x coordinate This is the only way to manipulate a coordinate." alt="" coords="249,165,407,195"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1Point3D.html#a04b5633e4b0af8cb305c05b0db38bcdb" title="Set the y coordinate This is the only way to manipulate a coordinate." alt="" coords="249,218,407,249"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1Point3D.html#abb07cc3b6d4d0d8ddbb7025e4e0425d2" title="Set the z coordinate This is the only way to manipulate a coordinate." alt="" coords="249,271,407,302"/>
-</map>

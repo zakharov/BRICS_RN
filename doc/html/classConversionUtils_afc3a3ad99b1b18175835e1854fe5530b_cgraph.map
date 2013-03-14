@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classConversionUtils.html#a65edf4e61406629f8e60938ee502ab97" title="ConversionUtils::poseKdlToRos" alt="" coords="287,5,489,35"/>
-<area shape="rect" id="node5" href="$classConversionUtils.html#a167e87506004a1a04b97682e580d73c2" title="ConversionUtils::twistKdlToRos" alt="" coords="287,58,489,89"/>
-</map>

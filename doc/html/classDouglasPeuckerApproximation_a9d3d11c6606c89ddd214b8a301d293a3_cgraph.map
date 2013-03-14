@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceutilities.html#a78a54487ba80bf9a4f135a6a71a543d2" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="353,5,551,35"/>
-<area shape="rect" id="node5" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="600,5,757,35"/>
+<map id="DouglasPeuckerApproximation::douglasPeucker" name="DouglasPeuckerApproximation::douglasPeucker">
+<area shape="rect" id="node2" href="$namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="272,5,435,46"/>
+<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="483,12,653,39"/>
 </map>

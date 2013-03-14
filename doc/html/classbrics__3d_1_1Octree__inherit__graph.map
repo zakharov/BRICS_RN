@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1IOctreeReductionFilter.html" title="Abstract interface for the point cloud size reduction algorithm." alt="" coords="5,191,213,318"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1IFiltering.html" title="Generic interface for a point cloud filtering component." alt="" coords="45,6,173,133"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1IOctreePartition.html" title="Abstract interface for spatial partition of point clouds." alt="" coords="237,191,405,318"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1IOctreeSetup.html" title="Abstract setup interface for the octree component." alt="" coords="429,182,584,327"/>
-</map>

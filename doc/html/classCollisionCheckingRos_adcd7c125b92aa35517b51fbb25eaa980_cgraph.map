@@ -1,13 +1,13 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="293,6,544,37"/>
-<area shape="rect" id="node9" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="620,111,804,142"/>
-<area shape="rect" id="node13" href="$classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d" title="An interface for linear path approximation algorithms." alt="" coords="321,165,516,195"/>
-<area shape="rect" id="node18" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="653,218,771,249"/>
-<area shape="rect" id="node20" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="655,271,769,302"/>
-<area shape="rect" id="node22" href="$namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41" title="Calculates pruned path, builds perpendiculars to the original path, takes the shortest perpendicular ..." alt="" coords="355,59,483,90"/>
-<area shape="rect" id="node5" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="613,5,811,35"/>
-<area shape="rect" id="node7" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="885,31,1043,62"/>
-<area shape="rect" id="node11" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="881,111,1047,142"/>
-<area shape="rect" id="node16" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="593,165,831,195"/>
-<area shape="rect" id="node24" href="$namespaceutilities.html#a78a54487ba80bf9a4f135a6a71a543d2" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="613,58,811,89"/>
+<map id="CollisionCheckingRos::collisionCheck" name="CollisionCheckingRos::collisionCheck">
+<area shape="rect" id="node2" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="208,5,397,46"/>
+<area shape="rect" id="node5" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="453,127,651,153"/>
+<area shape="rect" id="node7" href="$classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d" title="An interface for linear path approximation algorithms." alt="" coords="232,229,373,270"/>
+<area shape="rect" id="node11" href="$namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41" title="Calculates pruned path, builds perpendiculars to the original path, takes the shortest perpendicular ..." alt="" coords="232,72,373,99"/>
+<area shape="rect" id="node8" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="489,177,615,204"/>
+<area shape="rect" id="node10" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="489,295,615,321"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="446,9,658,36"/>
+<area shape="rect" id="node4" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="711,39,881,65"/>
+<area shape="rect" id="node6" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="707,127,885,153"/>
+<area shape="rect" id="node9" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="479,229,625,270"/>
+<area shape="rect" id="node12" href="$namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="471,61,633,102"/>
 </map>

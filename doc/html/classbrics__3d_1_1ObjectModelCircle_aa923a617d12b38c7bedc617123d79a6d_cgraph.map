@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1ObjectModelCircle.html#a36ce9ea49d290f74df7b726d2abc0df1" title="brics_3d::ObjectModelCircle::computeModelCoefficients" alt="" coords="381,5,728,35"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1ObjectModelCircle.html#a678e7d21862917db4c907fd552433332" title="brics_3d::ObjectModelCircle::getSamples" alt="" coords="424,58,685,89"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="776,5,1021,35"/>
-<area shape="rect" id="node10" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="795,58,1003,89"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1ObjectModelSphere.html#a2feec148ce8494c38ce52d6866e262bc" title="brics_3d::ObjectModelSphere::computeModelCoefficients" alt="" coords="389,5,744,35"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1ObjectModelSphere.html#a36fa571456817f30f142c4232065209a" title="brics_3d::ObjectModelSphere::getSamples" alt="" coords="432,58,701,89"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="792,5,1037,35"/>
-<area shape="rect" id="node10" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="811,58,1019,89"/>
-</map>

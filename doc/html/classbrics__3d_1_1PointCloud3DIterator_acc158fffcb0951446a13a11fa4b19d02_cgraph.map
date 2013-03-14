@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1PointCloud3DIterator.html#aaa16aa10ba9a9f66f03a58d30856e1f9" title="Check whether the end has been reached or not." alt="" coords="321,5,548,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1Point3D.html#a8d6e2e992917744c0a737cab11cbf96d" title="Applies a homogeneous transformation matrix to the point." alt="" coords="285,58,584,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1IHomogeneousMatrix44.html#a1bdf71d20984756e5b44f4ee9cfa684f" title="Returns a pointer to a read&#45;only buffer where the raw data of the matrix is stored." alt="" coords="633,58,927,89"/>
-</map>

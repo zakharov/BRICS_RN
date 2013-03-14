@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1RegionBasedSACSegmentation.html" title="Adapter class for initialization of sample consensus based segmentation method." alt="" coords="63,1539,380,2357"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1ISegmentation.html" title="Abstract interface for segmentation methods." alt="" coords="119,726,281,853"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1PointCloud3D.html" title="Class to represent a Cartesian 3D point cloud." alt="" coords="120,6,328,282"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="275,350,501,701"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1ISACMethods.html" title="Abstract interface for Sample&#45;Based&#45;Consensus(SAC) methods." alt="" coords="5,878,187,1471"/>
-<area shape="rect" id="node17" href="$classbrics__3d_1_1IObjectModelUsingNormals.html" title="{brics_3d::IObjectModelUsingNormals\n|# normalDistanceWeight\l# normals\l# axis\l# epsAngle\l|+ IObjectModelUsingNormals()\l+ ~IObjectModelUsingNormals()\l+ setEpsAngle()\l+ getEpsAngle()\l+ setInputNormals()\l+ getInputNormals()\l+ setNormalDistanceWeight()\l+ getNormalDistanceWeight()\l+ setAxis()\l+ getAxis()\l}" alt="" coords="404,1791,641,2105"/>
-<area shape="rect" id="node15" href="$classbrics__3d_1_1NormalSet3D.html" title="Class to represent a set of 3D normals." alt="" coords="583,1093,737,1257"/>
-</map>

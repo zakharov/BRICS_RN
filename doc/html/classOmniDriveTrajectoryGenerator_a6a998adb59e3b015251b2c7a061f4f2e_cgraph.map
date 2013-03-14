@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classOmniDriveTrajectoryGenerator.html#aaeda263dad20cf2307d2a6e0e1bb7a6b" title="OmniDriveTrajectoryGenerator::computeTrajectoryComposite" alt="" coords="367,5,740,35"/>
-<area shape="rect" id="node5" href="$classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="OmniDriveTrajectoryGenerator::interpolateRotation" alt="" coords="397,58,709,89"/>
-<area shape="rect" id="node7" href="$classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="OmniDriveTrajectoryGenerator::getShortestAngle" alt="" coords="791,58,1095,89"/>
-</map>

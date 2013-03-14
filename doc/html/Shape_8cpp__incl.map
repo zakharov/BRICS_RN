@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$Shape_8h.html" title="Shape.h" alt="" coords="161,166,231,197"/>
-<area shape="rect" id="node7" href="$GeometricNode_8h.html" title="GeometricNode.h" alt="" coords="233,86,356,117"/>
-<area shape="rect" id="node9" href="$Node_8h.html" title="Node.h" alt="" coords="260,166,321,197"/>
-<area shape="rect" id="node16" href="$Attribute_8h.html" title="Attribute.h" alt="" coords="509,246,592,277"/>
-<area shape="rect" id="node25" href="$TimeStamp_8h.html" title="TimeStamp.h" alt="" coords="396,166,495,197"/>
-<area shape="rect" id="node23" href="$INodeVisitor_8h.html" title="INodeVisitor.h" alt="" coords="381,246,485,277"/>
-</map>

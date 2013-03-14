@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1TriangleMeshImplicit.html#a20ab658dd16fb279fbcc5bae21dcb250" title="Get the pointer to the vertex indices To get access to the vertices of the mesh, prefer getTriangleVe..." alt="" coords="448,5,715,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1TriangleMeshImplicit.html#ab546971fea6aaa6d8bf48f9505927d1c" title="Get the number of vertices in the mesh." alt="" coords="416,58,747,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1TriangleMeshImplicit.html#af1b29a44334d841e5dcd562b25251eca" title="Get the number of triangles in the mesh." alt="" coords="456,111,707,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1TriangleMeshImplicit.html#a7e46173e4ebddf49105786dd57a1ae74" title="Get the pointer to the vertices To get access to the vertices of the mesh, prefer getTriangleVertex()..." alt="" coords="447,165,716,195"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1Point3D.html#acb678a8e49bfe8c4c8328e5118848459" title="Get the x coordinate This is the only way to access a coordinate." alt="" coords="503,218,660,249"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1Point3D.html#a15a776575f6260ea04fc892d7c38650e" title="Get the y coordinate This is the only way to access a coordinate." alt="" coords="503,271,660,302"/>
-<area shape="rect" id="node15" href="$classbrics__3d_1_1Point3D.html#aa23255c6881b4aab04b9400de4563ee2" title="Get the y coordinate This is the only way to access a coordinate." alt="" coords="503,325,660,355"/>
-</map>

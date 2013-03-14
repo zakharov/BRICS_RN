@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3"/>
-<title>BRICS_RN_Robust_Navigation_Library(BRICS_RN): Introduction to the used algorithm taxonomy</title>
+<title>BRICS_RN_Robust_Navigation_Library(BRICS_RN): Introduction to the BRICS Robust Navigation Library BRICS_RN.</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,62 +39,67 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Introduction to the used algorithm taxonomy </div>  </div>
+<div class="title">Introduction to the BRICS Robust Navigation Library BRICS_RN. </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="taxonomy"></a>
-Algorithm taxonomy</h1>
-<p>The 3D perception and modeling domain can be classified into several subareas:</p>
+<div class="textblock"><p>Robust navigation is the ability of a mobile robot to perform autonomous navigation while avoiding dangerous situations such as collisions with obstacles. It is a cross-sectional domain which includes path planning, motion control and sensor data processing.</p>
+<p>The goal of the BRICS_RN library is, to unify several existing software libraries, that provide algorithms for (robust) navigation, into one coherent software framework. The purpose is, to allow an application developer, to easily choose from a set of existing algorithms, and to easily exchange those algorithm at a later stage in the application development process, without breaking any dependencies or application internal interfaces.</p>
+<p>The following discussion is almost entirely taken from section 3 of the <a class="el" href="references.html#bib_bricsd33">BRICS deliverable D3.3</a> with some additional material from <a class="el" href="references.html#bib_brugali2012">[Brugali2012]</a>, sections 3.1 and 4.1.</p>
+<h1><a class="anchor" id="taxonomy"></a>
+Navigation Algorithms</h1>
+<p>Mobile robot navigation algorithms can be roughly classified as one- and multi-step methods. One-step methods directly convert the sensor data to motion commands. The majority of one- step algorithms are either based on classical planning or on potential fields approaches <a class="el" href="references.html#bib_siciliano2008">[Siciliano2008]</a>. Today, they are rarely used due to their inability to cope with dynamic environments and vehicle constraints. Multi-step methods (e.g. Dynamic Window Approach <a class="el" href="references.html#bib_fox1997">[Fox1997]</a>, Vector Field Histogram <a class="el" href="references.html#bib_ulrich1998">[Ulrich1998]</a>, Nearness Diagram <a class="el" href="references.html#bib_minguez2004">[Minguez2004]</a>) overcome these limitations by creating a local map of the environment around the robot and performing local planning by computing possible motion directions (Nearness Diagram) and velocities (VHF) taking into account distance to the goal or to a precomputed path.</p>
+<p>A complete navigation system consists usually of many more-or-less independent sub components, some examples, taken from <a class="el" href="references.html#bib_bricsd33">[BRICS deliverable D3.3]</a>, are listed below:</p>
 <ul>
-<li><a class="el" href="introduction.html#depth_perception_def">Depth perception</a></li>
-<li><a class="el" href="introduction.html#filtering_def">Filtering</a></li>
-<li><a class="el" href="introduction.html#feature_extraction_def">Feature extraction</a></li>
-<li><a class="el" href="introduction.html#registration_def">Registration</a></li>
-<li><a class="el" href="introduction.html#segmentation_def">Segmentation</a></li>
-<li><a class="el" href="introduction.html#classification_def">Classification</a></li>
-<li><a class="el" href="introduction.html#mesh_generation_def">Mesh generation</a></li>
-<li><a class="el" href="introduction.html#visualization_def">Visualization</a></li>
+<li>Motion planning (aka BaseGlobalPlanner, PathPlanner) is the process of computing a collision-free global path in a static environment between a given start position and a given goal position. The path is typically represented as a sequence of intermediate waypoints. </li>
+<li>Trajectory generation (aka ParameterizedTrajectoryGenerator, DWAPlanner) is the process of refining a path in order to introduce velocity information. A trajectory defines the planned positions of the robot over the time and is typically represented as a sequence of positions with an associated velocity. </li>
+<li>Obstacle detection and representation (aka CostMap2D, OgMap) is the process of using sensor information (e.g. from laser scanners) in order to detect the positions of obstacles around the robot. This information is then used for creating and updating a map of the environment. </li>
+<li>Obstacle avoidance (aka LocalBaseNavigation, LocalNav, CAbstractHolonomicReactiveMethod) is the process of adapting the precomputed trajectory while the robot is moving in order to avoid unexpected obstacles that occlude the path. Position and velocity control (aka LocalBaseNavigation, LocalNav, MotionController) is the process of generating velocity commands to the robot in order to move it along the computed trajectory. This functionality has a strong dependency with the kinematics model, which is often implicit in the library implementations. </li>
+<li>Localization (aka FaithLocaliser, amcl): is the process of estimating the robot position with respect to a global reference frame. In the simplest case this functionality is implemented by using only the robot odometry but other sensors can be used to improve the odometric estimation. For example it is possible to use a camera for locating visual markers in the environment whose position is known in the global reference frame, and use this information for computing the robot position.</li>
 </ul>
-<h2><a class="anchor" id="depth_perception_def"></a>
-Depth perception</h2>
-<p>For depth perception various kinds of sensors exist. Laser scanners emit laser beams that are reflected when the beams hit the surface. The traveling time of the light is used to deduce the distance. Time-of-Flight cameras follow the same principle, but some devices measure the phase shift of a modulated frequency rather than the traveled time. Stereo camera systems consists of two cameras that are mounted on a fixed baseline. As the baseline is known, distances to corresponding points can be calculated via triangulation. Sensor data is often encoded into depth or range images. Although the depth perception is a crucial step for 3D perception, it is assumed in this work that depth images are already given. Algorithms in this domain are typically hardware dependent. This library will provide functionality to turn a depth image into a point cloud representation.</p>
-<p>Further information on the implemented algorithms can be found in the depth_perception section.</p>
-<h2><a class="anchor" id="filtering_def"></a>
-Filtering</h2>
-<p>A filter is an algorithm that is able to process a data stream, in this case point cloud data. Three major filtering techniques are often applied to point clouds: noise reduction, size reduction or ROI extraction.</p>
-<p>Noise reduction filters try to remedy shortcomings of the sensors measurements. Size reduction filters sub-sample the input data to get an approximated but smaller amount of data. The less input data an algorithms has, the faster the processing is. Filters for ROI extraction follow the same spirit but they reduce the data by focusing on a particular region rather than sub-sampling the complete input data. However how such ROI is derived is out scope of filtering algorithms. The filtering stage can be regarded as optional, but it is a valuable contribution to create more robust or faster results.</p>
-<p>Further information on the implemented algorithms can be found in the filtering section.</p>
-<h2><a class="anchor" id="feature_extraction_def"></a>
-Feature extraction</h2>
-<p>Feature extraction methods typically try to detect distinctive points or regions in the input image or point cloud data. Different descriptors exist to describe these regions on a local scale for points and regions or on global scale that takes bigger portions or the complete scene into account.</p>
-<p>Normal estimation methods are needed to compute a normal vector for each point in a point cloud. The normal represents the plane normal vector of an underlying patch of the surface. Many algorithms requires point clouds with normals to further process the data.</p>
-<p>Further information on the implemented algorithms can be found in the featureExtraction section.</p>
-<h2><a class="anchor" id="registration_def"></a>
-Registration</h2>
-<p>Registration, also sometimes referred as <em>matching</em>, is the process of merging captures from different viewpoints into one global, consistent coordinate frame. This is a robotic problem, because mobile robots move in their environment and thus are able to perceive the environment from different perspectives. Some tasks require to integrate all perceived scene captures into one consistent model to reason about it (for example to plan a path). The most prominent algorithm to solve the registration problem for point clouds is the Iterative Closest Point (ICP) method.</p>
-<p>Further information on the implemented algorithms can be found in the registration section.</p>
-<h2><a class="anchor" id="segmentation_def"></a>
-Segmentation</h2>
-<p>Segmentation means a spatial partition of point clouds into subsets that belong to different objects. 3D models of special shapes, like planes, cylinders or speres are often fitted into these regions to model the perceived objects. <br/>
- With respect to a mobile manipulation application that needs a triangle set representation of an environment this stage can be regarded as optional. However, the segmentation of data might be helpful to recognize objects that can be grasped, for example.</p>
-<p>Further information on the implemented algorithms can be found in the segmentation section.</p>
-<h2><a class="anchor" id="classification_def"></a>
-Classification</h2>
-<p>A classification algorithm tries to associate the data with categories or objects stored in prior knowledge database. To find such correspondences, methods like for instance Nearest Neighbor Search, Support Vector Machines or Neural Networks can be used.</p>
-<p>Further information on the implemented algorithms can be found in the nearestNeighbor section.</p>
-<h2><a class="anchor" id="mesh_generation_def"></a>
-Mesh generation</h2>
-<p>The goal of the mesh generation step is to transform a 3D point cloud into a triangle mesh. Similar terms are <em>meshing, shape recovery, surface recovery, surface reconstruction, model retrieval, inverse CAD or geometric modeling</em> (in computer vision). Most of these terms are used in a broader context that already includes some filtering or registration steps. The notion mesh generation is used here in a more limited way restricted to the part of model transformation from point cloud to triangle mesh.</p>
-<p>Further information on the implemented algorithms can be found in the mesh_generation section.</p>
-<h2><a class="anchor" id="visualization_def"></a>
-Visualization</h2>
-<p>Visualization, or rendering, is the process of displaying the 3D models. This involves a transformation from the models into a 2D image, which can be displayed on a monitor. This task is often performed by specialized hardware: graphic adapters. The graphic adapters offer a software interface to render the models that consist of primitive elements like points, lines or polygons. One standardized interface is OpenGL, which allows operating system independent access the graphic adapters. <br/>
- Robotic applications do not necessarily need to visualize the generated models, but visualization can serve as a development or debug tool to visually inspect intermediate results or the output of certain algorithms.</p>
-<p>Further information on the implemented algorithms can be found in the visualization section. </p>
+<h1><a class="anchor" id="intro_design"></a>
+BRICS_RN Design Overview</h1>
+<p>In many navigation systems, these components are rather tightly coupled. For example, the very popular ROS navigation stack exports a single ROS node called "move_base" as its public interface, which then created all the other components. The <code>move_base</code> node and the other nodes communicate by standard ROS methods, including ROS-Services, ROS topics or direct calls. The generall architecture of ROS navigation stack is shown below (taken from <a class="el" href="references.html#bib_bricsd33">[BRICS_D3.3]</a>).</p>
+<div class="image">
+<img src="brics-rn-fig2b.png" alt="brics-rn-fig2b.png"/>
+<div class="caption">
+Simplified ROS navigation stack architecture.</div></div>
+<p> In the BRICS_RN library, these sub components are grouped into four functional gropus and organized into a pipeline structure (image taken from <a class="el" href="references.html#bib_bricsd33">[BRICS_D3.3]</a>):</p>
+<div class="image">
+<img src="brics-rn-fig3.png" alt="brics-rn-fig3.png"/>
+<div class="caption">
+BRICS_RN generall architecture.</div></div>
+<p> The following functional groups are used: </p>
+<ul>
+<li>Trajectory Planner implements the motion planning and trajectory generation functionalities. It gets a goal position, the current robot position and sensor observations as an input. Desired velocity profile and mobile-base kinematic and dynamic properties are configuration parameters. Trajectory Planner produces a trajectory that is a vector of poses with twist. </li>
+<li>trajectory Adapter interpolates the precomputed trajectory and produces an obstacle-free trajectory toward the next waypoint taking into account the actual sensor information produced by the laser scanner. Mobile-base kinematic and dynamic properties are configuration parameters. </li>
+<li>Trajectory Follower receives as input the adapted trajectory and the robot's estimated pose and produces as output a twist for following the input trajectory. </li>
+<li>Optional component is coordinator, which implements the coordination logic among components. It monitors events generated by components that could represent abnormal situations (e.g. the Trajectory Adapter cannot generate a trajectory to avoid an obstacle) and generates events that triggers state changes in other components (e.g. the Trajectory Planner should plan a new trajectory).</li>
+</ul>
+<p>In BRICS_RN key functionalities are mapped to finer grained components. Each component has only one thread of control. This allows to replace individual functionalities easier and to select the most appropriate frequency for each functionality. Coordination mechanisms have been made independent from the components implementations by introducing a Coordinator component. Robot kinematics and dynamics are taken into account during trajectory planning and adaptation. The following diagram shows the BRICS_RN components in greater detail, including their connection to relevant other parts of a robot system.</p>
+<div class="image">
+<img src="brics-rn-fig4.png" alt="brics-rn-fig4.png"/>
+<div class="caption">
+BRICS_RN components and interfaces towards other services.</div></div>
+<p> Continuous lines depict the default connections between input and output ports while dashed lines represent the optional connections that may be created to configure a specific application. Continuous boxes represent mandatory components, while dashed boxes represent optional components. Boxes inside components indicate their properties.</p>
+<p>More specifically: </p>
+<ul>
+<li>Trajectory Planner implements the motion planning and trajectory generation functionalities. It gets a goal position and the current robot position as input and produces a trajectory that is a vector of poses with twist. </li>
+<li>Trajectory Adapter interpolates the precomputed trajectory and produces an obstacle-free trajectory toward the next waypoint taking into account the sensor information produced by the laser scanner. </li>
+<li>Trajectory Follower receives the adapted trajectory and the robot estimated pose and produces as output a twist for following the input trajectory. </li>
+<li>Robot Driver drives the physical robot. It receives twist commands and produces the robot odometry. </li>
+<li>Laser Scanner Driver reads the raw data from the device and produces as output the laser scans expressed as a vector of distances and angles. </li>
+<li>Pose Tracker keeps track of the current pose and twist of the robot. It fuses odometry estimates with position estimates computed by other components. </li>
+<li>Marker Locator is an optional component, which is in charge of localizing visual markers placed in the environment and computing their positions with respect to a global reference frame. It receives as input an image and the odometry of the robot and produces as output the absolute marker position. </li>
+<li>RGB Camera Driver is an optional component, which reads data from the RGB camera and produces as output an RGB image. </li>
+<li>Coordinator implements the coordination logic among components. It monitors events generated by components that could represent abnormal situations (e.g. the Trajectory Adapter cannot generate a trajectory to avoid an obstacle) and generates events that triggers state changes in other components (e.g. the Trajectory Planner should plan a new trajectory).</li>
+</ul>
+<p>There are some important differences between the proposed BRICS_RN solution and the ROS navigation stack. First of all the navigation functionalities are mapped to finer grained components. Each component has only one thread of control. This allows to replace individual functionalities easier and to select the most appropriate frequency for each functionality.</p>
+<p>Accordingly, the trajectory follower and the trajectory adapter functionalities are implemented in two different components, in <a class="el" href="TrajectoryAdapterNode_8cpp.html">TrajectoryAdapterNode.cpp</a> and <a class="el" href="TrajectoryFollowerNode_8cpp.html">TrajectoryFollowerNode.cpp</a> . This separation reflects the different operating frequencies of the two components: the Trajectory Follower runs at a higher frequency, as required by the closed loop position and velocity control algorithm. On the contrary the Trajectory Adapter component computes a new output only when receives a new laser scan or a new trajectory.</p>
+<p>Unlike in ROS, the coordination mechanisms have been made independent from the components implementations by introducing a Coordinator component. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 4 2013 13:54:56 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

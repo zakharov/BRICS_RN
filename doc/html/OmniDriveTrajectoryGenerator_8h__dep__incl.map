@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory_follower/src/trajectory_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="5,86,544,117"/>
-<area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory_follower/src/TrajectoryFollowerNode.cpp" alt="" coords="568,86,947,117"/>
+<map id="navigation_trajectory_follower/src/trajectory_generator/OmniDriveTrajectoryGenerator.h" name="navigation_trajectory_follower/src/trajectory_generator/OmniDriveTrajectoryGenerator.h">
+<area shape="rect" id="node2" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="5,109,320,165"/>
+<area shape="rect" id="node3" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="345,109,561,165"/>
 </map>

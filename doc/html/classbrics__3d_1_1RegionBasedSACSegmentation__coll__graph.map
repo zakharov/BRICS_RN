@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1ISegmentation.html" title="Abstract interface for segmentation methods." alt="" coords="5,726,168,853"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1PointCloud3D.html" title="Class to represent a Cartesian 3D point cloud." alt="" coords="121,6,329,282"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1IObjectModel.html" title="Base class for representing 3D shapes." alt="" coords="112,350,339,701"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1ISACMethods.html" title="Abstract interface for Sample&#45;Based&#45;Consensus(SAC) methods." alt="" coords="284,878,465,1471"/>
-</map>

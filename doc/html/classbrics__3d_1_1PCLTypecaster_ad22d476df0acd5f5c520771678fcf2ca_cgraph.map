@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="396,5,641,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="415,58,623,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1ColorSpaceConvertor.html#afc59c9b3cd20314c6002ab6b72c86203" title="Calculates rgb&#45;24 bit encoding for R, G, B values." alt="" coords="369,111,668,142"/>
-</map>

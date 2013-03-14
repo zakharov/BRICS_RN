@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1MetricCalculator.html#a7d72148539b86d29935b58d8ad915d43" title="Method to copare two vectors and return number of identical elements." alt="" coords="343,5,617,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1Evaluator.html#aa224b53fb03276f3322cbf8dbd0545f2" title="brics_3d::Evaluator::getCountGt" alt="" coords="377,58,583,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1Evaluator.html#a30d20533786d3d9f4e9308d790ad394e" title="brics_3d::Evaluator::getCountMs" alt="" coords="375,111,585,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1Evaluator.html#a46159a54dac91024f77bf5598905873b" title="brics_3d::Evaluator::getRegionCorrespondence" alt="" coords="333,165,627,195"/>
-</map>

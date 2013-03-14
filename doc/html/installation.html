@@ -45,107 +45,46 @@
 <div class="textblock"><ul>
 <li><a class="el" href="installation.html#latest_version">The Latest Version</a></li>
 <li><a class="el" href="installation.html#external_libraries">External libraries</a></li>
-<li><a class="el" href="installation.html#install_preperation">Preparation for installation</a></li>
-<li><a class="el" href="installation.html#install_external_libraries">Installing required libraries:</a></li>
-<li><a class="el" href="installation.html#install_optional_birearies">Installing optional libraries:</a></li>
-<li><a class="el" href="installation.html#brics_3d_compilation">Compilation of BRICS_3D</a></li>
-<li><a class="el" href="installation.html#brics_3d_ros_compilation">Alternative compilation of BRICS_3D with the ROS build system</a></li>
+<li><a class="el" href="installation.html#brics_rn_compilation">Compilation of BRICS_RN</a></li>
+<li><a class="el" href="installation.html#brics_rn_ros_compilation">Alternative compilation of BRICS_RN with the ROS build system</a></li>
 <li><a class="el" href="installation.html#doxygen_generation">Generating the latest documentation with Doxygen</a></li>
 </ul>
 <h1><a class="anchor" id="latest_version"></a>
 The Latest Version</h1>
-<p>The latest version can be found on the project page under <a href="https://svn.best-of-robotics.org/brics/BROCRE/BRICS_3D/trunk">https://svn.best-of-robotics.org/brics/BROCRE/BRICS_3D/trunk</a></p>
-<p>In case you are asked for a SVN login take <em>svnuser</em> as username and <em>svnuser</em> as password to retrive the latest read-only copy.</p>
+<p>The latest version can be found on Github under <a href="https://github.com/zakharov/BRICS_RN">https://github.com/zakharov/BRICS_RN</a></p>
 <h1><a class="anchor" id="external_libraries"></a>
 External libraries</h1>
-<p>Required libraries:</p>
-<ul>
-<li>Boost 1.37 (or higher)</li>
-<li>Eigen2 2.0.13 (or higher, Eigen3 is recommended)</li>
-<li>OpenCV 2.0 (or higher)</li>
-</ul>
-<p>Optional libraries</p>
-<ul>
-<li>XERCES</li>
-<li>OpenSceneGraph</li>
-<li>CPPUNIT</li>
-<li>CGAL</li>
-</ul>
-<h1><a class="anchor" id="install_preperation"></a>
-Preparation for installation</h1>
-<p>To setup compiler and tools, etc in particular</p>
-<p>Install build-essential and cmake package.</p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install build-essential cmake subversion</div>
-</div><!-- fragment --><h1><a class="anchor" id="install_external_libraries"></a>
-Installing required libraries:</h1>
-<p>Boost: </p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libboost-dev</div>
-</div><!-- fragment --><p>Eigen2/3:</p>
-<ul>
-<li>Download Eigen 2.0.13: <a href="http://bitbucket.org/eigen/eigen2/get/2.0.13.tar.gz">http://bitbucket.org/eigen/eigen2/get/2.0.13.tar.gz</a></li>
-<li>Compile and install with standard cmake procedure</li>
-</ul>
-<div class="fragment"><div class="line">$ mkdir build</div>
-<div class="line">$ cd build</div>
-<div class="line">$ cmake ..</div>
-<div class="line">$ make   </div>
-<div class="line">$ sudo make install </div>
-</div><!-- fragment --><p>or use </p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libeigen2-dev</div>
-</div><!-- fragment --><p> or </p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libeigen3-dev</div>
-</div><!-- fragment --><p>OpenCV: </p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libopencv2.3-dev</div>
-</div><!-- fragment --><h1><a class="anchor" id="install_optional_birearies"></a>
-Installing optional libraries:</h1>
-<p>XERCES:</p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libxerces-c-dev</div>
-</div><!-- fragment --><p>NOTE: enable the USE_XERCES cmake variable during invocation of cmake for BRICS_3D</p>
-<p>OpenSceneGraph (OSG):</p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libopenscenegraph-dev</div>
-</div><!-- fragment --><p>NOTE: enable the USE_OSG cmake variable during invocation of cmake for BRICS_3D</p>
-<p>CppUnit:</p>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libcppunit-dev</div>
-</div><!-- fragment --><p>CGAL:</p>
-<ul>
-<li>Download CGAL e.g. version 3.4 or higher: <a href="http://gforge.inria.fr/frs/download.php/15692/CGAL-3.4.tar.gz">http://gforge.inria.fr/frs/download.php/15692/CGAL-3.4.tar.gz</a></li>
-<li>Satisfy prerequisites with:</li>
-</ul>
-<div class="fragment"><div class="line">$ sudo apt-<span class="keyword">get</span> install libgmp3-dev libmpfr-dev  qt4-dev-tools libboost-dev geomview zlib1g-dev</div>
-</div><!-- fragment --><p>Compile and install with standard cmake procedure:</p>
-<div class="fragment"><div class="line">$ mkdir build</div>
-<div class="line">$ cd build</div>
-<div class="line">$ cmake ..</div>
-<div class="line">$ make   </div>
-<div class="line">$ sudo make install </div>
-</div><!-- fragment --><p>NOTE: enable the USE_OSG cmake variable during invocation of cmake for BRICS_3D</p>
-<h1><a class="anchor" id="brics_3d_compilation"></a>
-Compilation of BRICS_3D</h1>
+<p>Since BRICS_RN is based on the ROS navigation stack, it requires a working ROS installation. For instruction on how to install ROS, please refere to the ROS website at <a href="http://www.ros.org">http://www.ros.org</a>.</p>
+<h1><a class="anchor" id="installation2"></a>
+Installation from Github</h1>
+<p>After installing ROS, navigate to a folder in your ROS package path (see ROS documentation of packages paths) and clone the Github repository into a new sub folder. </p>
+<div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/zakharov/BRICS_RN</span></div>
+</div><!-- fragment --><p> Above command will create a new folder BRICS_RN and populate it with all needed files.</p>
+<h1><a class="anchor" id="brics_rn_compilation"></a>
+Compilation of BRICS_RN</h1>
+<p>The BRICS_RN library follows the usual CMake process:</p>
 <div class="fragment"><div class="line">$ mkdir build</div>
 <div class="line">$ cd build </div>
 <div class="line">$ cmake ..</div>
 <div class="line">$ make</div>
 <div class="line">$ sudo make install</div>
-</div><!-- fragment --><p>Note: Enable the USE_OSG cmake variable to compile all the applications with OSG visualization (e.g. BRICS_3D_Demo) In that case configure it with</p>
-<div class="fragment"><div class="line">$ cmake .. -DUSE_OSG</div>
-</div><!-- fragment --><h1><a class="anchor" id="brics_3d_ros_compilation"></a>
-Alternative compilation of BRICS_3D with the ROS build system</h1>
-<p>As an alternative to the above described method you can also use the ROS build system. However this method will not include any <em>optional</em> libraries.</p>
-<p>First make sure the folder of BRICS_3D is located somewhere in the ROS_PACKAGE_PATH. You can check this i.e. if <em>roscd</em> <em>brics_3d</em> goes to the correct folder.</p>
-<div class="fragment"><div class="line">$ rosmake brics_3d --rosdep-install</div>
-</div><!-- fragment --><p>If you want to install BRICS_3D as a system wide library you can type:</p>
-<div class="fragment"><div class="line">$ roscd brics_3d/build</div>
+</div><!-- fragment --><h1><a class="anchor" id="brics_rn_ros_compilation"></a>
+Alternative compilation of BRICS_RN with the ROS build system</h1>
+<p>As an alternative to the above described method you can also use the ROS build system.</p>
+<p>First make sure the folder of BRICS_RN is located somewhere in the ROS_PACKAGE_PATH. You can check this i.e. if <em>roscd</em> <em>brics_rn</em> goes to the correct folder.</p>
+<div class="fragment"><div class="line">$ rosmake brics_rn --rosdep-install</div>
+</div><!-- fragment --><p>If you want to install BRICS_RN as a system wide library you can type:</p>
+<div class="fragment"><div class="line">$ roscd brics_rn/build</div>
 <div class="line">$ sudo make install</div>
 </div><!-- fragment --><h1><a class="anchor" id="doxygen_generation"></a>
 Generating the latest documentation with Doxygen</h1>
-<p>To generate the latest version of the accompanied documentation go the BRICS_3D folder and use the doxygen tool. Then open the html files with your favorite web browser. Then type:</p>
-<div class="fragment"><div class="line">$ doxygen BRICS_3D.doxyfile</div>
+<p>To generate the latest version of the accompanied documentation go the BRICS_RN folder and use the doxygen tool. Then open the html files with your favorite web browser. Example:</p>
+<div class="fragment"><div class="line">$ doxygen BRICS_RN.doxyfile</div>
 <div class="line">$ firefox ./doc/html/index.htm</div>
-</div><!-- fragment --><p>After sucesfully installing the BRICS_3D library you can continue with <a class="el" href="quickstart.html">Getting started</a>. </p>
-</div></div><!-- contents -->
+</div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 4 2013 13:54:56 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

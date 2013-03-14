@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="385,5,583,35"/>
-<area shape="rect" id="node5" href="$classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8" title="Resets internal flags." alt="" coords="357,58,611,89"/>
-<area shape="rect" id="node7" href="$classTrajectoryWithId.html#ae64ee67ff598d984fbbe2403c97edc2b" title="Sets a trajectory." alt="" coords="385,111,583,142"/>
+<map id="OmniDrivePositionController::setTargetTrajectory" name="OmniDrivePositionController::setTargetTrajectory">
+<area shape="rect" id="node2" href="$classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference." alt="" coords="256,5,469,32"/>
+<area shape="rect" id="node3" href="$classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8" title="Resets internal flags." alt="" coords="262,57,463,98"/>
+<area shape="rect" id="node4" href="$classTrajectoryWithId.html#ae64ee67ff598d984fbbe2403c97edc2b" title="Sets a trajectory." alt="" coords="257,123,469,149"/>
 </map>

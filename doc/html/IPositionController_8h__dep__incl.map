@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$OmniDrivePositionController_8h.html" title="navigation_trajectory_follower/src/omnidrive_controller/OmniDrivePositionController.h" alt="" coords="249,86,761,117"/>
-<area shape="rect" id="node5" href="$OmniDrivePositionController_8cpp.html" title="navigation_trajectory_follower/src/omnidrive_controller/OmniDrivePositionController.cpp" alt="" coords="5,166,531,197"/>
-<area shape="rect" id="node7" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory_follower/src/TrajectoryFollowerNode.cpp" alt="" coords="555,166,933,197"/>
+<map id="navigation_trajectory_follower/src/omnidrive_controller/IPositionController.h" name="navigation_trajectory_follower/src/omnidrive_controller/IPositionController.h">
+<area shape="rect" id="node2" href="$OmniDrivePositionController_8h.html" title="navigation_trajectory\l_follower/src/omnidrive\l_controller/OmniDrivePositionController.h" alt="" coords="155,109,437,165"/>
+<area shape="rect" id="node3" href="$OmniDrivePositionController_8cpp.html" title="navigation_trajectory\l_follower/src/omnidrive\l_controller/OmniDrivePositionController.cpp" alt="" coords="5,213,304,269"/>
+<area shape="rect" id="node4" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="329,213,545,269"/>
 </map>

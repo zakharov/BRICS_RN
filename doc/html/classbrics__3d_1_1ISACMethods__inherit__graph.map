@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1SACMethodALMeDS.html" title="{brics_3d::SACMethodALMeDS\n||+ SACMethodALMeDS()\l+ computeModel()\l+ ~SACMethodALMeDS()\l}" alt="" coords="5,705,205,831"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1SACMethodLMeDS.html" title="class implementing the MLESAC method." alt="" coords="229,705,419,831"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1SACMethodMLESAC.html" title="class implementing the MLESAC method." alt="" coords="443,649,680,887"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1SACMethodMSAC.html" title="class implementing the MSAC method." alt="" coords="704,705,888,831"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1SACMethodRANSAC.html" title="class implementing the Random Sample Consensus based segmentation method." alt="" coords="912,705,1112,831"/>
-</map>

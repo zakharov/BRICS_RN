@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classDifferentialDriveTrajectoryGenerator.html" title="{DifferentialDriveTrajectoryGenerator\n||+ DifferentialDriveTrajectoryGenerator()\l+ DifferentialDriveTrajectoryGenerator()\l+ ~DifferentialDriveTrajectoryGenerator()\l+ computeTrajectroy()\l}" alt="" coords="5,182,261,327"/>
-<area shape="rect" id="node5" href="$classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base..." alt="" coords="285,145,509,365"/>
+<map id="ITrajectoryGenerator" name="ITrajectoryGenerator">
+<area shape="rect" id="node2" href="$classDifferentialDriveTrajectoryGenerator.html" title="{DifferentialDriveTrajectory\lGenerator\n||+ DifferentialDriveTrajectory\lGenerator()\l+ DifferentialDriveTrajectory\lGenerator()\l+ ~DifferentialDriveTrajectory\lGenerator()\l+ computeTrajectroy()\l}" alt="" coords="5,131,216,311"/>
+<area shape="rect" id="node3" href="$classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base..." alt="" coords="241,131,492,311"/>
 </map>

@@ -1,38 +1,54 @@
 /*! 
 @mainpage BRICS_RN Documentation pages 
 
-	BRICS_RN is the BRICS library for robust navigation and obstacle avoidance. 
-	Robust navigation is the ability of a mobile robot to perform autonomous 
-	navigating, while avoiding dangerous situations such as collisions with obstacles. 
-	It is a cross-sectional domain, which includes path planning, motion control and
-	sensor data processing.
-	
-	BRICS_RN is a collection of interfaces and implementations of various navigation related
-        algorithms such as path planning, dynamic path adaptation and path execution. Initial effort
-        has been made to implement robust navigation functionality as a set of reusable components 
-        that can be assembled into flexible systems.
-	
-	BRICS_RN provides several simple example of  a local navigation for a omnidirectional 
-        mobile platform. 
+BRICS_RN is the BRICS library for robust navigation and obstacle avoidance. 
+Robust navigation is the ability of a mobile robot to perform autonomous 
+navigating, while avoiding dangerous situations such as collisions with obstacles. 
+It is a cross-sectional domain, which includes path planning, motion control and
+sensor data processing.
 
-        Future work is to increase a number of navigation algorithms and a number of mobile
-        platforms.
+The term "robust" here refers to the robots ability, to reach it (navigation) 
+goal even under the presence of unforeseen challenges, like obstacles not present 
+in its map, moderate mismatch between map and environment, imprecise sensor data 
+etc.
 
-/* 
+The term "unforeseen challenges" here refers to challenges, for which the robot
+is not @e explicitly programmed to cope with, but for which it has @e generic
+strategies programmed in. The challenges are only "unforeseen" in the sense, that
+the robot dos not know beforehand if and when it will face such a challenge.
+They are @e foreseen in the sense that the robot's system software contains directions
+and measures to deal with such challenges, in case the occur.
+
+BRICS_RN is a collection of interfaces and implementations of various navigation related
+algorithms such as path planning, dynamic path adaptation and path execution. Initial effort
+has been made to implement robust navigation functionality as a set of reusable components 
+that can be assembled into flexible systems.
+
+BRICS_RN provides several simple example of  a local navigation for a omnidirectional 
+mobile platform. 
+
+For a more in-depth discussion, see following pages and 
+@code
+@INPROCEEDINGS{brugali2012,
+  author = {Brugali, D. and Gherardi, L. and Luzzana, A. and Zakharov, A.},
+  title = {A Reuse-Oriented Development Process for Component-based Robotic Systems},
+  booktitle = {SIMULATION, MODELING, and PROGRAMMING for AUTONOMOUS ROBOTS (SIMPAR)},
+  year = {2012},
+}
+@endcode
+
+
+Future work is to increase the number of navigation algorithms included and
+the number of mobile platforms covered.
+
+
 @section toc Table of Contents
 
-- @ref introduction
+- @ref introduction "Introduction"
 - @ref installation
-- @ref quickstart
-- @ref examples
- - @ref ...
- - @ref ...
-- @ref Algorithms for navigation
- - @ref path_planning
- - @ref path_following
 - @ref license
-- @ref references 
-*/
+- @ref references
+
 
 @section license Licensing
 This software is published under a dual-license: GNU Lesser General Public
@@ -40,15 +56,5 @@ License LGPL 2.1 and Modified BSD license. The dual-license implies that
 users of this code may choose which terms they prefer. Please see the files
 called <a href="../../LGPL-2.1">LGPL-2.1</a> and <a href="../../BSDlicense">BSDlicense</a>. 
 
-@section references References 
-
-@code
-@INPROCEEDINGS{blumenthal11towards,
-  author = {Brugali, D. and Gherardi, L. and Luzzana, A. and Zakharov, A.},
-  title = {A Reuse-Oriented Development Process for Component-based Robotic Systems},
-  booktitle = {SIMULATION, MODELING, and PROGRAMMING for AUTONOMOUS ROBOTS (SIMPAR)},
-  year = {2012},
-}
-@endcode
 
 */

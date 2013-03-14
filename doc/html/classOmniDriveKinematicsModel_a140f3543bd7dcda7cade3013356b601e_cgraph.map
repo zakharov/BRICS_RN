@@ -1,11 +1,11 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="Implementation of the interface class for computing motion in global and local reference frames for o..." alt="" coords="429,5,664,35"/>
-<area shape="rect" id="node5" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="472,58,621,89"/>
-<area shape="rect" id="node7" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="483,111,611,142"/>
-<area shape="rect" id="node9" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="484,165,609,195"/>
-<area shape="rect" id="node11" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="471,218,623,249"/>
-<area shape="rect" id="node13" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="495,271,599,302"/>
-<area shape="rect" id="node15" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="496,325,597,355"/>
-<area shape="rect" id="node17" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="495,378,599,409"/>
-<area shape="rect" id="node19" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="496,431,597,462"/>
+<map id="OmniDriveKinematicsModel::convertToLocalReferenceFrame" name="OmniDriveKinematicsModel::convertToLocalReferenceFrame">
+<area shape="rect" id="node2" href="$classOmniDriveKinematicsModel.html#abdb931c4588da60dc6ed6dbb122ad196" title="Implementation of the interface class for computing motion in global and local reference frames for o..." alt="" coords="285,5,483,46"/>
+<area shape="rect" id="node3" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="302,71,466,97"/>
+<area shape="rect" id="node4" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="316,121,452,148"/>
+<area shape="rect" id="node5" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="317,172,451,199"/>
+<area shape="rect" id="node6" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="303,223,465,249"/>
+<area shape="rect" id="node7" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="329,273,439,300"/>
+<area shape="rect" id="node8" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="329,324,439,351"/>
+<area shape="rect" id="node9" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="331,375,437,401"/>
+<area shape="rect" id="node10" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="331,425,437,452"/>
 </map>

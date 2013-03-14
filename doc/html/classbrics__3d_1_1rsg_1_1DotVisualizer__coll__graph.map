@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdateObserver.html" title="Interface to observe any updates to the scenegraph." alt="" coords="39,574,313,663"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html" title="Abstract interface for all scene graph related update functions." alt="" coords="5,6,227,226"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html" title="The central handle to create and maintain a robot scenegraph." alt="" coords="396,313,615,925"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1rsg_1_1ISceneGraphQuery.html" title="Abstract interface for all scenegraph related query functions." alt="" coords="251,25,467,207"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1rsg_1_1IIdGenerator.html" title="Abstract interface for unique ID generation." alt="" coords="781,34,957,198"/>
-<area shape="rect" id="node15" href="$classbrics__3d_1_1rsg_1_1DotGraphGenerator.html" title="Node visitor that generates a &quot;dot&quot; representation." alt="" coords="837,453,1053,785"/>
-<area shape="rect" id="node17" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html" title="Abstract interface for visitors of the scene graph (Visitor pattern)." alt="" coords="981,6,1157,226"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$structTrajectoryAdapter_1_1Odometry.html" title="{TrajectoryAdapter::Odometry\n|+ pose\l+ twist\l+ updated\l|+ Odometry()\l}" alt="" coords="41,275,231,402"/>
-<area shape="rect" id="node4" href="$classTwistWithId.html" title="{TwistWithId\n|+ id\l|+ TwistWithId()\l+ TwistWithId()\l+ TwistWithId()\l+ TwistWithId()\l+ ~TwistWithId()\l}" alt="" coords="5,25,123,189"/>
-<area shape="rect" id="node6" href="$classFrameWithId.html" title="{FrameWithId\n|+ id\l|+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ FrameWithId()\l+ ~FrameWithId()\l}" alt="" coords="147,6,269,207"/>
-<area shape="rect" id="node8" href="$classTrajectoryAdapterObserver.html" title="{TrajectoryAdapterObserver\n||+ trajectoryCallback()\l}" alt="" coords="255,294,431,383"/>
-</map>

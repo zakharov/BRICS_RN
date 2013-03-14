@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1Node.html#a11f84315325fd4e9f725c7641975ca1c" title="brics_3d::rsg::Node::accept" alt="" coords="309,134,491,165"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html#a6d3cf8bef748eefd254a2c6f56bf3f62" title="brics_3d::rsg::INodeVisitor::getDirection" alt="" coords="584,69,837,100"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1rsg_1_1Node.html#ac21ab5662addcb947a9ce517744f21d6" title="brics_3d::rsg::Node::getNumberOfParents" alt="" coords="885,126,1149,157"/>
-<area shape="rect" id="node10" href="$classbrics__3d_1_1rsg_1_1Node.html#ad44fb577e89946eacb829ee656496ac1" title="brics_3d::rsg::Node::getParent" alt="" coords="612,232,809,262"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html#a45a3d64bedc6031c15bca1c57af40ccc" title="brics_3d::rsg::INodeVisitor::visit" alt="" coords="607,178,815,209"/>
-<area shape="rect" id="node15" href="$classbrics__3d_1_1rsg_1_1Group.html#addff9bef9b0b0f655a1d30cf8dcfc1d3" title="brics_3d::rsg::Group::getChild" alt="" coords="303,289,497,320"/>
-<area shape="rect" id="node18" href="$classbrics__3d_1_1rsg_1_1Group.html#a9bfc4a001b00a8e36369bb9ad41879fb" title="brics_3d::rsg::Group::getNumberOfChildren" alt="" coords="264,342,536,373"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1DotVisualizer.html" title="Observer that will create a print out on every update." alt="" coords="5,451,187,839"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1OSGVisualizer.html" title="Displays a robot scene graph via OSG." alt="" coords="211,414,405,877"/>
-<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1ISceneGraphUpdate.html" title="Abstract interface for all scene graph related update functions." alt="" coords="91,6,312,226"/>
-</map>

@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classPose2D.html" title="Class represents pose 2D data." alt="" coords="5,34,101,291"/>
-<area shape="rect" id="node4" href="$classTwist2D.html" title="Class represents twist 2D data." alt="" coords="125,6,221,319"/>
+<map id="Odometry" name="Odometry">
+<area shape="rect" id="node2" href="$classPose2D.html" title="Class represents pose 2D data." alt="" coords="5,27,117,237"/>
+<area shape="rect" id="node3" href="$classTwist2D.html" title="Class represents twist 2D data." alt="" coords="142,5,255,259"/>
 </map>

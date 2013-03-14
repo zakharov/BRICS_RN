@@ -1,4 +1,4 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$DifferentialDriveTrajectoryGenerator_8h.html" title="DifferentialDriveTrajectoryGenerator.h" alt="" coords="171,86,408,117"/>
-<area shape="rect" id="node5" href="$ITrajectoryGenerator_8h.html" title="ITrajectoryGenerator.h" alt="" coords="215,166,364,197"/>
+<map id="navigation_trajectory_follower/src/trajectory_generator/DifferentialDriveTrajectoryGenerator.cpp" name="navigation_trajectory_follower/src/trajectory_generator/DifferentialDriveTrajectoryGenerator.cpp">
+<area shape="rect" id="node2" href="$DifferentialDriveTrajectoryGenerator_8h.html" title="DifferentialDriveTrajectory\lGenerator.h" alt="" coords="41,126,228,167"/>
+<area shape="rect" id="node3" href="$ITrajectoryGenerator_8h.html" title="ITrajectoryGenerator.h" alt="" coords="53,216,216,243"/>
 </map>

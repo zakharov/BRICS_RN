@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1IIterativeClosestPoint.html" title="Abstract stateless interface for the Iterative Closest Point (ICP) registration algorithm." alt="" coords="5,247,208,374"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1IRegistration.html" title="Generic interface for a point cloud registration componennt." alt="" coords="31,6,183,133"/>
-<area shape="rect" id="node6" href="$classbrics__3d_1_1IIterativeClosestPointSetup.html" title="Abstract interface to setup and configure the ICP." alt="" coords="232,182,469,439"/>
-<area shape="rect" id="node8" href="$classbrics__3d_1_1IIterativeClosestPointDetailed.html" title="Abstract stateful interface for ICP." alt="" coords="493,191,744,430"/>
-</map>

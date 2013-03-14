@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classbrics__3d_1_1rsg_1_1OutdatedDataDeleter.html" title="Visitor that traverses the graph and deletes transform nodes that are outdated." alt="" coords="15,275,268,589"/>
-<area shape="rect" id="node4" href="$classbrics__3d_1_1rsg_1_1INodeVisitor.html" title="Abstract interface for visitors of the scene graph (Visitor pattern)." alt="" coords="53,6,229,226"/>
-</map>

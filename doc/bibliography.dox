@@ -1,0 +1,23 @@
+/*!
+
+@page references Bibliography
+
+@li @anchor bib_siciliano2008 [Siciliano2008] B. Siciliano and O. Khatib. Springer handbook of robotics. Springer-Verlag New
+York Inc, 2008.
+
+
+@li @anchor bib_fox1997 [Fox1997] D. Fox, W. Burgard, and S. Thrun. The dynamic window approach to collision
+avoidance. Robotics & Automation Magazine, IEEE, 4(1):23–33, 1997.
+
+@li @anchor bib_ulrich1998 [Ulrich1998] I. Ulrich and J. Borenstein. Vfh+: Reliable obstacle avoidance for fast mobile
+robots. In IEEE Int. Conference on Robotics and Automation, 1998.
+
+@li @anchor bib_minguez2004 [Minguez2004] J. Minguez and L. Montano. Nearness diagram (nd) navigation: collision avoidance
+in troublesome scenarios. IEEE Transactions on Robotics and Automation, 2004.
+
+@li @anchor bib_bricsd33 [BRICS_D3.3] W. Nowak, S. Blumenthal, A. Zakharov and E. Prassler. BROCRE libraries of best practice algorithms for Mobile Manipulation, Robust Navigation and 3D Perception
+and Modeling.  Available from the authors on request.
+
+@li @anchor bib_brugali2012 [Brugali2012] D. Brugali, L. Gherardi, A. Biziak, A. Luzzana and A. Zakharov. A reuse-oriented development process for component-based robotic systems. Simulation, Modeling, and Programming for Autonomous Robots, 2012.
+
+*/

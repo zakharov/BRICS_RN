@@ -1,7 +1,7 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="5,425,179,645"/>
-<area shape="rect" id="node4" href="$classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id." alt="" coords="203,397,347,673"/>
-<area shape="rect" id="node6" href="$classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D." alt="" coords="371,387,477,682"/>
-<area shape="rect" id="node8" href="$classPose2D.html" title="Class represents pose 2D data." alt="" coords="316,34,412,291"/>
-<area shape="rect" id="node10" href="$classTwist2D.html" title="Class represents twist 2D data." alt="" coords="436,6,532,319"/>
+<map id="OmniDrivePositionController" name="OmniDrivePositionController">
+<area shape="rect" id="node2" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="5,345,200,525"/>
+<area shape="rect" id="node3" href="$classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id." alt="" coords="225,323,383,547"/>
+<area shape="rect" id="node4" href="$classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D." alt="" coords="408,323,531,547"/>
+<area shape="rect" id="node5" href="$classPose2D.html" title="Class represents pose 2D data." alt="" coords="343,27,456,237"/>
+<area shape="rect" id="node6" href="$classTwist2D.html" title="Class represents twist 2D data." alt="" coords="481,5,593,259"/>
 </map>

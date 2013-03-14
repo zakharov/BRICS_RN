@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1INearestPoint3DNeighbor.html#aa864e4ad55ed3809052bb32658683424" title="Find the nearest neighbor point of the query with respect to the data point cloud." alt="" coords="553,5,908,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="608,58,853,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a7f8822b31d8a3b1f7be9722c1a7c698f" title="Get the number of points in the point cloud." alt="" coords="627,111,835,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1INearestPoint3DNeighbor.html#a0d863a1e1e4b6bc2783f54a8b5619033" title="Set the data." alt="" coords="592,165,869,195"/>
-</map>

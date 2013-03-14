@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1BoxROIExtractor.html" title="The origin of box is considered to be in the center of each size value." alt="" coords="5,229,184,579"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1ColorBasedROIExtractorHSV.html" title="Extracts subset of input point cloud based on color&#45;properties in HSV color space." alt="" coords="208,182,456,626"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1ColorBasedROIExtractorRGB.html" title="Extracts subset of input point cloud based on color&#45;properties in RGB color space." alt="" coords="480,210,731,598"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1IOctreeReductionFilter.html" title="Abstract interface for the point cloud size reduction algorithm." alt="" coords="755,341,963,467"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1MaskROIExtractor.html" title="{brics_3d::MaskROIExtractor\n|&#45; mask\l&#45; useInvertedMask\l|+ MaskROIExtractor()\l+ ~MaskROIExtractor()\l+ filter()\l+ extractIndexedPointCloud()\l+ extractNonIndexedPointCloud()\l+ setMask()\l+ setUseInvertedMask()\l+ getUseInvertedMask()\l}" alt="" coords="987,285,1200,523"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1Octree.html" title="Implementation of the Octree component." alt="" coords="784,675,933,858"/>
-</map>

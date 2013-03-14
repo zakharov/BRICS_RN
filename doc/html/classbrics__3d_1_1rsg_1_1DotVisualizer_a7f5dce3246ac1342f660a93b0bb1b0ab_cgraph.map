@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html#a2a94c2e915f2fd92b1f39831068e8c54" title="brics_3d::rsg::SceneGraphFacade::executeGraphTraverser" alt="" coords="304,5,667,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1rsg_1_1DotGraphGenerator.html#ad4bbd1b9e92b6426774410f7771154af" title="brics_3d::rsg::DotGraphGenerator::getDotGraph" alt="" coords="336,58,635,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1rsg_1_1SceneGraphFacade.html#a955dae9a79d60e32acd5ab590d193d3d" title="brics_3d::rsg::SceneGraphFacade::getRootId" alt="" coords="344,111,627,142"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1rsg_1_1DotGraphGenerator.html#a7080fa73c32b5073fe132a791808f960" title="brics_3d::rsg::DotGraphGenerator::reset" alt="" coords="359,165,612,195"/>
-</map>

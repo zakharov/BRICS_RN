@@ -1,3 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1SimplePointCloudGeneratorCube.html" title="{brics_3d::SimplePointCloudGeneratorCube\n|&#45; cubeSideLength\l&#45; pointsOnEachSide\l&#45; numOfFaces\l&#45; origin\l|+ SimplePointCloudGeneratorCube()\l+ ~SimplePointCloudGeneratorCube()\l+ generatePointCloud()\l+ getCubeSideLength()\l+ getNumOfFaces()\l+ getPointsOnEachSide()\l+ getOrigin()\l+ setCubeSideLength()\l+ setNumOfFaces()\l+ setOrigin()\l+ setPointsOnEachSide()\l}" alt="" coords="5,145,272,477"/>
-</map>

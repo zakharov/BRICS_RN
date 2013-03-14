@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1IPointCorrespondence.html#ad45bce44e80be605f09a9a6833a975d6" title="Establishes a point to point correspondence with nearest neighborhood search." alt="" coords="296,5,736,35"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1IRigidTransformationEstimation.html#ada447fe054a4405a3039a3ae2e16a9eb" title="Estimates the rigid transformation between two corresponding point clouds." alt="" coords="315,58,717,89"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1PointCloud3D.html#a68805d5c33c49d58592d281cf8db434e" title="Applies a homogeneous transformation to the point cloud." alt="" coords="351,111,681,142"/>
-</map>

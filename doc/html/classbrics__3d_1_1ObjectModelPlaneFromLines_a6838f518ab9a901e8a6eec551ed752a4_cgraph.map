@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classbrics__3d_1_1ObjectModelPlaneFromLines.html#a82aaaf602ba518e574865bd965cc77af" title="Checks if a line contains a point or not." alt="" coords="484,50,785,81"/>
-<area shape="rect" id="node5" href="$classbrics__3d_1_1Point3D.html#acb678a8e49bfe8c4c8328e5118848459" title="Get the x coordinate This is the only way to access a coordinate." alt="" coords="857,5,1015,35"/>
-<area shape="rect" id="node7" href="$classbrics__3d_1_1Point3D.html#a15a776575f6260ea04fc892d7c38650e" title="Get the y coordinate This is the only way to access a coordinate." alt="" coords="857,63,1015,94"/>
-<area shape="rect" id="node9" href="$classbrics__3d_1_1Point3D.html#aa23255c6881b4aab04b9400de4563ee2" title="Get the y coordinate This is the only way to access a coordinate." alt="" coords="857,129,1015,159"/>
-<area shape="rect" id="node11" href="$classbrics__3d_1_1ObjectModelPlaneFromLines.html#a2ce2e7a1540d2fee939699284c559366" title="Computes the cross product of two 3D vectors, returning a vector normal to both." alt="" coords="461,205,808,235"/>
-<area shape="rect" id="node13" href="$classbrics__3d_1_1PointCloud3D.html#a5ff57ea8aa01002b716e9dfbbb95befe" title="Get the pointer to the point cloud." alt="" coords="512,258,757,289"/>
-</map>

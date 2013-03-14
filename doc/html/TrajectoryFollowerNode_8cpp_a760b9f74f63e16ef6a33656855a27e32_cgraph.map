@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classPositionController.html#ad97676f324c30783ca3ad1154f152ff0" title="PositionController::setTargetTrajectory" alt="" coords="181,5,424,35"/>
-<area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html#add591b133b00f27c8ef0328cf948408b" title="trajectoryRosToOdomVector" alt="" coords="211,58,395,89"/>
-<area shape="rect" id="node7" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="472,31,603,62"/>
-<area shape="rect" id="node9" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="472,85,603,115"/>
-</map>

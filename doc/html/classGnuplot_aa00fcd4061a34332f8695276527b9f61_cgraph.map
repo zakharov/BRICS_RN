@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classGnuplot.html#a8ced9e766e0677b938178dafe9264ff7" title="creates tmpfile and returns its name" alt="" coords="165,5,323,35"/>
-<area shape="rect" id="node5" href="$classGnuplot.html#a4fc34218cdfdd27a65b92eea1f1f9e84" title="plot a single std::vector: x from file" alt="" coords="181,58,307,89"/>
-<area shape="rect" id="node7" href="$classGnuplot.html#a07607803ede8dd5416906df0a1924fc5" title="send a command to gnuplot" alt="" coords="397,31,496,62"/>
-<area shape="rect" id="node9" href="$classGnuplot.html#a3ceb471d375865fccd412105cb587dd1" title="checks if file is available" alt="" coords="372,85,521,115"/>
-<area shape="rect" id="node11" href="$classGnuplot.html#abc0f1d75cb78804a5b8efdfa4df582cd" title="checks if file exists" alt="" coords="572,85,705,115"/>
-</map>

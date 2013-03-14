@@ -1,5 +1,5 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="131,5,259,35"/>
-<area shape="rect" id="node5" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="143,58,247,89"/>
-<area shape="rect" id="node7" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="143,111,247,142"/>
+<map id="operator+" name="operator+">
+<area shape="rect" id="node2" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="142,5,277,32"/>
+<area shape="rect" id="node3" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="155,56,264,83"/>
+<area shape="rect" id="node4" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="156,107,263,133"/>
 </map>
