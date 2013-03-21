@@ -54,9 +54,14 @@
 namespace conversions {
 
     /**
-     * @brief Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted).
+     * @brief Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose is converted).
+     * 
+     * Convert the nav_msgs::Odometry::pose::pose member in a KDL::Frame instance
+     * and return the KDL::Frame wrapped in side a FrameWithID instance.  The 
+     * FrameWithId::id member is set to the nav_msgs::Odometry::header::frame_id value.
+     * 
      * @param[in] nav_msgs::Odometry - odometry ROS message.
-     * @param[out] FrameWithId - converted pose from the odometry message .
+     * @param[out] FrameWithId - converted pose from the odometry message.
      */
     inline void odometryRosToFrame(const nav_msgs::Odometry& odometry, FrameWithId& pose) {
         const geometry_msgs::Quaternion& orientation = odometry.pose.pose.orientation;
@@ -69,6 +74,11 @@ namespace conversions {
 
     /**
      * @brief Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted).
+     * 
+     * Convert the nav_msgs::Odometry::twist::twist member in two KDL::Twist instance
+     * and return the KDL::Twist wrapped in side a TwistWithID instance.  The 
+     * TwistWithId::id member is set to the nav_msgs::Odometry::header::frame_id value.
+     * 
      * @param[in] nav_msgs::Odometry - odometry ROS message.
      * @param[out] TwistWithId - converted twist from the odometry message.
      */
@@ -82,6 +92,10 @@ namespace conversions {
 
     /**
      * @brief Conversion from geometry_msgs::Pose ROS message to FrameWithId data type.
+     * 
+     * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame 
+     * wrapped in side a FrameWithID instance. 
+     * 
      * @param[in] geometry_msgs::Pose - pose ROS message.
      * @param[in] std::string - frame id.
      * @param[out] FrameWithId - result of the conversion.
@@ -97,6 +111,11 @@ namespace conversions {
 
     /**
      * @brief Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type.
+     * 
+     * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame 
+     * wrapped in side a FrameWithID instance. The FrameWithId::id member is set 
+     * to the geometry_msgs::PoseStamped::header::frame_id value.
+     * 
      * @param[in] geometry_msgs::PoseStamped - pose ROS message with frame id.
      * @param[out] FrameWithId - result of the conversion.
      */
@@ -106,6 +125,10 @@ namespace conversions {
 
     /**
      * @brief Conversion from FrameWithId data type to geometry_msgs::Pose ROS message.
+     *
+     * Convert the FrameWithID instance to a ROS geometry_msgs::Pose instance and
+     * return the ID of the FrameWithId as a separate result parameter.
+     * 
      * @param[in] FrameWithId - input frame, including frame id, location and orientation.
      * @param[out] geometry_msgs::Pose - converted pose to a ROS message .
      * @param[out] FrameWithId - converted id.
@@ -124,6 +147,10 @@ namespace conversions {
 
     /**
      * @brief Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message.
+     *
+     * Convert the FrameWithID instance to a ROS geometry_msgs::PoseStamped instance. 
+     * The FrameWithId::id member is copied to geometry_msgs::PoseStamped::header::frame_id
+     * 
      * @param[in] FrameWithId - input frame, including frame id, location and orientation.
      * @param[out] geometry_msgs::PoseStamped - converted pose and frame id to a ROS message.
      */
@@ -133,6 +160,9 @@ namespace conversions {
 
     /**
      * @brief Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages.
+     *
+     * See frameToPoseStampedRos() for details of the conversion process.
+     *
      * @param[in] std::vector<FrameWithId> - input path.
      * @param[out] std::vector<geometry_msgs::PoseStamped> - result of conversion.
      */
@@ -150,6 +180,9 @@ namespace conversions {
 
     /**
      * @brief Conversion of a FrameWithId vector (a path) to nav_msgs::Path ROS message.
+     * 
+     * See frameToPoseStampedRos() for details of the conversion process.
+     *
      * @param[in] std::vector<FrameWithId>& path - input path.
      * @param[out] nav_msgs::Path - result of conversion.
      */
@@ -163,6 +196,9 @@ namespace conversions {
 
     /**
      * @brief Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path).
+     * 
+     * See poseStampedRosToFrame() for details of the conversion process.
+     *
      * @param[in]  std::vector<geometry_msgs::PoseStamped> - input path.
      * @param[out] std::vector<FrameWithId> - result of conversion.
      */
@@ -180,6 +216,9 @@ namespace conversions {
 
     /**
      * @brief Conversion of a nav_msgs::Path ROS message to FrameWithId vector (a path).
+     * 
+     * See poseStampedRosToFrame() for details of the conversion process.
+     *
      * @param[in] nav_msgs::Path - input path.
      * @param[out] std::vector<FrameWithId> - result of conversion.
      */
@@ -187,12 +226,13 @@ namespace conversions {
         pathRosToPath(pathRos.poses, path);
     }
 
-    /**
+/*
+    / **
      * @brief Conversion of a nav_msgs::Path ROS message to KDL::Path_Composite KDL path data type.
      * @param[in] nav_msgs::Path - input path.
      * @param[out] KDL::Path_Composite - result of conversion.
-     */
- /*   inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
+     * /
+    inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
 
 
         if (pathRos.poses.size() > 1) {

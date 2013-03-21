@@ -44,6 +44,15 @@
 
 /**
  * @brief Implementation of a stopwatch for profiling of the algorithms.
+ * 
+ * This class implements a simple, but high-resolution stopwatch.  Note that the 
+ * implementation requires proper support from the running kernel / hardware and 
+ * as such may not be available on all supported platforms.  Notably, it is 
+ * @em not available under MacOSX.
+ * 
+ * The resolution of the stopwatch is platform depended.  It returns time as a 
+ * floating-point number measured in milliseconds.
+ * 
  */
 
 class Stopwatch {
@@ -64,12 +73,15 @@ public:
     virtual ~Stopwatch();
 
     /**
-     * @brief Start a stop watch
+     * @brief Start or restart a stop watch.
+     * 
+     * If the stop watch had been paused before, then it is resumed.  Otherwise it 
+     * is reset and then started.
      */
     void start();
 
     /**
-     * @brief Stop and reset a stop watch
+     * @brief Stop a stop watch
      */
     void stop();
 
@@ -79,17 +91,30 @@ public:
     void pause();
 
     /**
-     * @brief Return a start time in milliseconds
+     * @brief Return the start time in milliseconds
+     * 
+     * The start time is measured against an unspecified, implementation-depending epoch.
      */
     double getStartTime() const;
 
     /**
-     * @brief Return a top time in milliseconds
+     * @brief Return the stop time in milliseconds
+     * 
+     * The stop time is measured against an unspecified, implementation-depending epoch.
      */
     double getStopTime() const;
 
     /**
      * @brief return elapsed time in milliseconds 
+     * 
+     * The returned time is only valid, while the clock is stopped and @em not paused.
+     * 
+     * If the clock is paused by calling pause(), then a wrong value will be returned.
+     * If the clock is stopped, after it has been paused, then the returned value 
+     * will cover the whole time span from the initial start up to the final stop. 
+     * The time step at with the clock was paused is lost.
+     * If the clock is running, i.e. neither paused nor stopped, then a random value 
+     * will be returned.
      */
     double getElapsedTime() const;
 

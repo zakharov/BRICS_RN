@@ -42,6 +42,13 @@
 
 #include <cstdio>
 
+/**  @brief simple printf() style logging.
+ * 
+ * This macro takes the specified format string and arguments and feds these to 
+ * fprintf() using the stderr stream as target file.  After printing the message, 
+ * a single new line "\n" is printed.
+ * 
+ */
 #ifdef DEBUG
 #define LOG(format, args...) { fprintf (stderr, format, ##args); fprintf (stderr, "\n"); }
 #else
@@ -49,7 +56,7 @@
 #endif
 
 /**
- * @brief Implementation of a macro for log output
+ * @file Logger.h Implementation of a macro for log output.
  */
 
 //TODO:: complete

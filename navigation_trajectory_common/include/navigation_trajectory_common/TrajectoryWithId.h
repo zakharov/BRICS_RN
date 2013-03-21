@@ -47,7 +47,8 @@ namespace KDL {
 }
 
 /**
- * @brief TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id. 
+ * @brief TrajectoryWithId is an aggregation of KDL::Trajectory class with a std::string as frame id. 
+ * The embedded KDL::Trajectory will be always heap-allocated.
  */
 
 
@@ -65,12 +66,18 @@ public:
 
     /**
      * @brief Constructor.
+     * 
+     * The embedded KDL::Trajectory is initialized by its default constructor.
+     * 
      * @param[in] id - string identifier of the trajectory.
      */
     TrajectoryWithId(const std::string& id);
 
     /**
      * @brief Constructor
+     * 
+     * The embedded id is set to the empty string.
+     * 
      * @param[in] trajectory - KDL trajectory.
      */
     TrajectoryWithId(const KDL::Trajectory& trajectory);
@@ -101,17 +108,37 @@ public:
 
     /**
      * @brief Sets a trajectory
+     * 
+     * The supplied KDL::Trajectory @p trajectory is copied and can be delete or modified 
+     * without affecting the TrajectoryWithId instance.
+     * The @c id member is not modified.
+     * 
      * @param[in] trajectory - KDL::Trajectory
      */
     void setTrajectory(const KDL::Trajectory& trajectory);
 
     /**
      * @brief Get an underlying KDL trajectory as a reference
+     * 
+     * Modifications on the TrajectoryWithId, except assignment or setTrajectory(), will be 
+     * reflected by the returned reference. Modifications of the returned trajectory 
+     * will be visible in the TrajectoryWithId instance.
+     * 
+     * Assigning or setting a new trajectory invalidates all references obtained from 
+     * KDL::Trajectory& getTrajectory().
+     * 
      */
     KDL::Trajectory& getTrajectory();
 
     /**
      * @brief Gets an underlying KDL trajectory as const reference or a copy
+     * 
+     * Modifications on the TrajectoryWithId, except assignment or setTrajectory(), will be 
+     * reflected by the returned reference.
+     * 
+     * Assigning or setting a new trajectory invalidates all references obtained from 
+     * const KDL::Trajectory& getTrajectory() const.
+     * 
      */
     const KDL::Trajectory& getTrajectory() const;
 

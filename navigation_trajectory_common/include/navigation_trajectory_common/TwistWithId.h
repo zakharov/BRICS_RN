@@ -47,7 +47,8 @@ namespace KDL {
 }
 
 /**
- * @brief TwistWithId is an aggregation of KDL::Twist class with frame id. 
+ * @brief TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id. 
+ * The embedded KDL::Frame will be always heap-allocated.
  */
 
 class TwistWithId {
@@ -66,12 +67,18 @@ public:
 
     /**
      * @brief Constructor.
+     * 
+     * The embedded id is set to the empty string.
+     * 
      * @param[in] twist - initial value of KDL::Twist.
      */
     TwistWithId(const KDL::Twist& twist);
 
     /**
      * @brief Constructor.
+     * 
+     * The embedded KDL::Twist in initialized by its default constructor.
+     * 
      * @param[in] is - initial value of twist identifier.
      */
     TwistWithId(const std::string& id);
@@ -102,17 +109,36 @@ public:
 
     /**
      * @brief Sets a new value of the KDL::Twist.
+     * 
+     * The supplied KDL::Twist @p twist is copied and can be delete or modified 
+     * without affecting the TwistWithId instance.
+     * The @c id member is not modified.
+     * 
      * @param[in] twist - new value of KDL::Twist.
      */
     void setTwist(const KDL::Twist& twist);
 
     /**
-     * @brief Get an underlying KDL twist as a const reference or a copy
+     * @brief Get an underlying KDL twist as a const reference or a copy.
+     * 
+     * Modifications on the TwistWithId, except assignment or setTwist(), will be 
+     * reflected by the returned reference.
+     * 
+     * Assigning or setting a new twist invalidates all references obtained from 
+     * const KDL::Twist& getTwist() const.
+     * 
      */
     const KDL::Twist& getTwist() const;
 
     /**
      * @brief Get an underlying KDL trajectory as a reference
+     * 
+     * Modifications on the TwistWithId, except assignment or setTwist(), will be 
+     * reflected by the returned reference.
+     * 
+     * Assigning or setting a new twist invalidates all references obtained from 
+     * const KDL::Twist& getTwist() const.
+     * 
      */
     KDL::Twist& getTwist();
 

@@ -47,7 +47,8 @@ namespace KDL {
 }
 
 /**
- * @brief FrameWithId is an aggregation of KDL::Frame class with frame id. 
+ * @brief FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id. 
+ * The embedded KDL::Frame will be always heap-allocated.
  */
 
 class FrameWithId {
@@ -106,16 +107,35 @@ public:
     
     /**
      * @brief Sets new KDL::Frame
+     * 
+     * The supplied KDL::Frame @p frame is copied and can be delete or modified 
+     * without affecting the FrameWithId instance.
+     * The @c id member is not modified.
+     * 
      */
     void setFrame(const KDL::Frame& frame);
         
     /**
-     * @brief Returns an underlying KDL::Frame as a const reference or a copy
+     * @brief Returns an underlying KDL::Frame as a const reference.
+     * 
+     * Modifications on the FrameWithId, except assignment or setFrame(), will be 
+     * reflected by the returned reference.
+     * 
+     * Assigning or setting a new frame invalidates all references obtained from 
+     * const KDL::Frame& getFrame() const.
+     * 
      */
     const KDL::Frame& getFrame() const;
     
     /**
      * @brief Returns an underlying KDL::Frame as a reference
+     * 
+     * Modifications on the FrameWithId, except assignment or setFrame(), will be 
+     * reflected by the returned reference.
+     * 
+     * Assigning or setting a new frame invalidates all references obtained from 
+     * KDL::Frame& getFrame().
+     * 
      */
     KDL::Frame& getFrame();
 
@@ -123,7 +143,7 @@ public:
     
 private:
     /**
-     * @brief Aggregated KDL::Frame
+     * @brief Aggregated, heap-allocated KDL::Frame.
      */
     KDL::Frame* frame; 
  

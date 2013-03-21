@@ -53,6 +53,9 @@ namespace utilities {
 
     /**
      * @brief Calculates and returns perpendicular distance form the given point to the line (for 2D space)
+     * 
+     * This function operates only on the @c x and @c y coordinates of the supplied FrameWithIds.
+     * 
      * @param[in] point - FrameWithId coordinates of the point.
      * @param[in] linePoint1 - FrameWithId 1st coordinate of the line.
      * @param[in] linePoint2 - FrameWithId 2nd coordinate of the line.
@@ -78,9 +81,17 @@ namespace utilities {
 
    /**
      * @brief Calculates pruned path, builds perpendiculars to the 
-     * original path, takes the shortest perpendicular as a trimming line, 
-     * trims the path, insert the point argument as a new starting point of 
-     * the path (for 2D space). 
+     * original path.
+     * 
+     * This finds the path segmen s in the original path @p path with the shortests 
+     * distance to @p point, measured perpendicular to s.  The path segment @c s is
+     * defined as the straight line from waypoint @c s to waypoint @c s+1.  The pruned path 
+     * starts with @p point and continues with all waypoints in @p path starting with 
+     * waypoint s+1.
+     * 
+     * If two or more segments in @p path have the same highest distance to @p point, 
+     * then the segment which comes last in @p path is selected.
+     * 
      * @param[in] path - std::vector<FrameWithId> original path, a vector of FrameWithId.
      * @param[in] point - FrameWithId trimming point.
      * @param[out] prunedPath - std::vector<FrameWithId> resulting pruned path.
