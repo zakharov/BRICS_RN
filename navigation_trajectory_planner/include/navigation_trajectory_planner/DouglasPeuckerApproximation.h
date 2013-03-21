@@ -72,6 +72,9 @@ public:
 
     /**
      * @brief Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.
+     * 
+     * The @c epsilon parameter of the algorithm defaults to 0.1.
+     * 
      * @param[in] in - std::vector <FrameWithId> input path.
      * @param[out] out - std::vector <FrameWithId> resulting smoothed path.
      */

@@ -46,6 +46,9 @@ class FrameWithId;
 
 /**
  * @brief Interface class for path interpolation algorithms.
+ * 
+ * Here, path interpolation referrs to adding additional intermediate waypoints 
+ * to a sparse path representation.
  */
 
 class IPathInterpolation {
@@ -63,7 +66,7 @@ class IPathInterpolation {
      * the actual implementation, see the path interpolation implementation classes.  
      * In general, the behavior in that case is not defined.
      * 
-     * In a sense, this is the opposite operation than path approximation as performed
+     * In a sense, this is the opposite operation of path approximation as performed
      * by the IPathApproximate classes. 
      * 
      * @param[in] in - std::vector <FrameWithId> input path.

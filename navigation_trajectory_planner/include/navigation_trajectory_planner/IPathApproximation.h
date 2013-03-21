@@ -46,6 +46,9 @@ class FrameWithId;
 
 /**
  * @brief Interface class for path approximation algorithms.
+ * 
+ * Here, path approximation referrs to a simplification of the input path, by 
+ * removing waypoints not strictly needed. 
  */
 
 class IPathApproximation {
@@ -57,7 +60,7 @@ class IPathApproximation {
      * used algorithm, see the implementation classes for details and for possible 
      * customization parameters.
      * 
-     * In a sense, this is the opposite operation than path interpolation as performed
+     * In a sense, this is the opposite operation of path interpolation as performed
      * by the IPathInterpolate classes. 
      *  
      * @param[in] in - std::vector <FrameWithId> input path.
