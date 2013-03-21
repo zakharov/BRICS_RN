@@ -61,12 +61,18 @@ public:
 
     /**
      * @brief Constructor
+     * 
+     * The embedded KDL::Frame member will be initialized by its default constructor.
+     *  
      * @param[in] id - string identifier of the frame
      */
     FrameWithId(const std::string& id);
     
     /**
      * @brief Constructor
+     * 
+     * The frame's id is set to be the empty string.
+     * 
      * @param[in] frame - initial 6D pose of the frame
      */
     FrameWithId(const KDL::Frame& frame);
@@ -80,6 +86,9 @@ public:
 
     /**
      * @brief Default constructor
+     * 
+     * The embedded KDL::Frame member will be initialized by its default constructor.
+     * The frame's id is set to be the empty string.
      */    
     FrameWithId();
 

@@ -70,7 +70,15 @@ public:
      * @param[in] in - std::vector <FrameWithId> input path.
      * @param[out] out - std::vector <FrameWithId> resulting interpolated path.
      * @param step - step size.
-     * @param numberOfSteps - number of steps.
+     * @param numberOfSteps - number of steps. Specifies an upper limit for the total 
+     * number of waypoints in the interpolated path. If the number of waypoints required 
+     * to interpolate the full input path using steps no larger then @p step exceeds 
+     * @p numberOfSteps, then the interpolation stops and the partially interpolated 
+     * path is returned.
+     * 
+     * @return number of waypoints in the returned path @p out.
+     * 
+     * @sa IPathInterpolation::interpolate()
      */
     size_t interpolate(const std::vector <FrameWithId>& in,
             std::vector <FrameWithId>& out,
