@@ -55,13 +55,15 @@ Stopwatch::~Stopwatch() {
 }
 
 void Stopwatch::start() {
+    if (!isPause)
+        elapsedTime = 0;
+
     isPause = false;
     clock_gettime(CLOCK_MONOTONIC, &startTime);
 }
 
 void Stopwatch::stop() {
     isPause = false;
-    elapsedTime = 0;
     clock_gettime(CLOCK_MONOTONIC, &stopTime);
 }
 
