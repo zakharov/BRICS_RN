@@ -111,7 +111,7 @@ void DouglasPeuckerApproximation::douglasPeucker(const std::vector <FrameWithId>
     if (dmax >= epsilon) {
         //Recursive call
         std::vector <FrameWithId> pointSubList1(&pointList[0],
-                &pointList[index]);
+                &pointList[index]);  // FixMe: THis doesn't make sense, probably this should use the respective iterators.
         std::vector <FrameWithId> pointSubList2(&pointList[index],
                 &pointList[pointList.size()]);
 
