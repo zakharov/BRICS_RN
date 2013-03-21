@@ -5,12 +5,12 @@
 
 TrajectoryWithId::TrajectoryWithId() {
     id = "";
-    trajectory = new KDL::Trajectory_Composite();
+    trajectory = new KDL::Trajectory_Composite();  // FixMe: Why is this using KDL::Trajectory_Composite and not KDL::Trajectory?
 }
     
 TrajectoryWithId::TrajectoryWithId(const std::string& id) {
     this->id = id;
-    trajectory = new KDL::Trajectory_Composite();
+    trajectory = new KDL::Trajectory_Composite();  // FixMe: Why is this using KDL::Trajectory_Composite and not KDL::Trajectory?
 }
     
 TrajectoryWithId::TrajectoryWithId(const KDL::Trajectory& trajectory) {
