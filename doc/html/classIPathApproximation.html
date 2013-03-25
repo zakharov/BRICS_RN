@@ -78,8 +78,9 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface class for path approximation algorithms. </p>
+<p>Here, path approximation referrs to a simplification of the input path, by removing waypoints not strictly needed. </p>
 
-<p>Definition at line <a class="el" href="IPathApproximation_8h_source.html#l00051">51</a> of file <a class="el" href="IPathApproximation_8h_source.html">IPathApproximation.h</a>.</p>
+<p>Definition at line <a class="el" href="IPathApproximation_8h_source.html#l00054">54</a> of file <a class="el" href="IPathApproximation_8h_source.html">IPathApproximation.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4278aab197574681cf64fb378aa6951a"></a>
 <div class="memitem">
@@ -114,6 +115,8 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>An interface for path approximation. </p>
+<p>Here, path approximation referrs to a simplification of the input path, by removing waypoints not strictly needed. The exact semantics depend upon the used algorithm, see the implementation classes for details and for possible customization parameters.</p>
+<p>In a sense, this is the opposite operation of path interpolation as performed by the IPathInterpolate classes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
@@ -132,7 +135,7 @@ Private Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

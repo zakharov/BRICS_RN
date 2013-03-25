@@ -1,7 +1,7 @@
 <map id="LinearInterpolation::interpolate" name="LinearInterpolation::interpolate">
 <area shape="rect" id="node2" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="195,5,394,32"/>
 <area shape="rect" id="node4" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="222,57,367,98"/>
-<area shape="rect" id="node5" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="231,123,358,149"/>
-<area shape="rect" id="node6" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="232,173,357,200"/>
+<area shape="rect" id="node5" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start or restart a stop watch." alt="" coords="231,123,358,149"/>
+<area shape="rect" id="node6" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch." alt="" coords="232,173,357,200"/>
 <area shape="rect" id="node3" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="443,5,621,32"/>
 </map>

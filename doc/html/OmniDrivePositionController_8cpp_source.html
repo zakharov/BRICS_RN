@@ -170,7 +170,7 @@
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classOmniDrivePositionController.html#ae696459f73be0b438ad3af1a400434f3" title="Holds goal position.">targetOdometry</a>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962" title="Sets a trajectory to follow.">OmniDrivePositionController::setTargetTrajectory</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; trajectory) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classOmniDrivePositionController.html#a59981f06759bc9741d2f4bdd8c8fe962" title="Sets a trajectory to follow.">OmniDrivePositionController::setTargetTrajectory</a>(<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with a std::string as frame id...">TrajectoryWithId</a>&amp; trajectory) {</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classOmniDrivePositionController.html#a5771802a93c79b447e7daa1a336e4de8" title="Resets internal flags.">resetFlags</a>();</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classOmniDrivePositionController.html#a88eeee92cb14e0144d22b426eb6a5130" title="Holds target trajectory.">targetTrajectory</a>.<a class="code" href="classTrajectoryWithId.html#ae64ee67ff598d984fbbe2403c97edc2b" title="Sets a trajectory.">setTrajectory</a>(trajectory.<a class="code" href="classTrajectoryWithId.html#ae2a2f2120c19b85418f3167ae6e017dd" title="Get an underlying KDL trajectory as a reference.">getTrajectory</a>());</div>
@@ -178,7 +178,7 @@
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e">  127</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id.">TrajectoryWithId</a>&amp; <a class="code" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e" title="Gets an actual trajectory.">OmniDrivePositionController::getTargetTrajectory</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e">  127</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with a std::string as frame id...">TrajectoryWithId</a>&amp; <a class="code" href="classOmniDrivePositionController.html#a085bedf794108340410f3cc8fafa235e" title="Gets an actual trajectory.">OmniDrivePositionController::getTargetTrajectory</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classOmniDrivePositionController.html#a88eeee92cb14e0144d22b426eb6a5130" title="Holds target trajectory.">targetTrajectory</a>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
@@ -304,7 +304,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:42 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

@@ -87,7 +87,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a59cd7881fef04c139ee9a98da5d1c398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes shortest angle.  <a href="#a59cd7881fef04c139ee9a98da5d1c398"></a><br/></td></tr>
 <tr class="separator:a59cd7881fef04c139ee9a98da5d1c398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc926d7b8e3e71fd692e5999f5993ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff">computePathComposite</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite &amp;pathComposite)</td></tr>
-<tr class="memdesc:a0cc926d7b8e3e71fd692e5999f5993ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> to KDL::Path_Composite.  <a href="#a0cc926d7b8e3e71fd692e5999f5993ff"></a><br/></td></tr>
+<tr class="memdesc:a0cc926d7b8e3e71fd692e5999f5993ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> to KDL::Path_Composite.  <a href="#a0cc926d7b8e3e71fd692e5999f5993ff"></a><br/></td></tr>
 <tr class="separator:a0cc926d7b8e3e71fd692e5999f5993ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae76d044b48371818a00a242f4b18e35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35">interpolateRotation</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;pathWithRotation)</td></tr>
 <tr class="memdesc:aae76d044b48371818a00a242f4b18e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates rotation.  <a href="#aae76d044b48371818a00a242f4b18e35"></a><br/></td></tr>
@@ -96,7 +96,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acc46ed1c7634bc3ce8e2070c0c79c2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation if an interface for computing a trajectory.  <a href="#acc46ed1c7634bc3ce8e2070c0c79c2d5"></a><br/></td></tr>
 <tr class="separator:acc46ed1c7634bc3ce8e2070c0c79c2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcdaff53c362b250d36ada63b8b1e588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOmniDriveTrajectoryGenerator.html#adcdaff53c362b250d36ada63b8b1e588">computeTrajectroy</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; <a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Trajectory_Composite &amp;trajectory)</td></tr>
-<tr class="memdesc:adcdaff53c362b250d36ada63b8b1e588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>.  <a href="#adcdaff53c362b250d36ada63b8b1e588"></a><br/></td></tr>
+<tr class="memdesc:adcdaff53c362b250d36ada63b8b1e588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>.  <a href="#adcdaff53c362b250d36ada63b8b1e588"></a><br/></td></tr>
 <tr class="separator:adcdaff53c362b250d36ada63b8b1e588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -195,10 +195,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> to KDL::Path_Composite. </p>
+<p>Converts vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> to KDL::Path_Composite. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pathComposite</td><td>- converted path to KDL::Path_Composite. </td></tr>
   </table>
   </dd>
@@ -215,7 +215,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph" alt=""/></div>
 <map name="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph" id="classOmniDriveTrajectoryGenerator_a0cc926d7b8e3e71fd692e5999f5993ff_cgraph">
-<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="269,12,440,39"/></map>
+<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="269,12,440,39"/></map>
 </div>
 </p>
 
@@ -296,10 +296,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>. </p>
+<p>Computes trajectory given a path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path, a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path, a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">trajectory</td><td>- computed trajectory </td></tr>
   </table>
   </dd>
@@ -314,7 +314,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph.png" border="0" usemap="#classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" alt=""/></div>
 <map name="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph" id="classOmniDriveTrajectoryGenerator_adcdaff53c362b250d36ada63b8b1e588_cgraph">
-<area shape="rect" id="node2" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite." alt="" coords="269,5,485,46"/><area shape="rect" id="node4" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="269,70,485,111"/><area shape="rect" id="node5" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation." alt="" coords="269,135,485,177"/><area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="556,12,727,39"/><area shape="rect" id="node6" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle." alt="" coords="533,135,749,177"/></map>
+<area shape="rect" id="node2" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite." alt="" coords="269,5,485,46"/><area shape="rect" id="node4" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="269,70,485,111"/><area shape="rect" id="node5" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation." alt="" coords="269,135,485,177"/><area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="556,12,727,39"/><area shape="rect" id="node6" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle." alt="" coords="533,135,749,177"/></map>
 </div>
 </p>
 
@@ -387,7 +387,7 @@ Here is the call graph for this function:</div>
 <p>Calculates rotation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path as a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pathWithRotation</td><td>- output path with orientation in each path point. </td></tr>
   </table>
   </dd>
@@ -417,7 +417,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

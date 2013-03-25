@@ -4,5 +4,5 @@
 <area shape="rect" id="node7" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow." alt="" coords="189,122,341,163"/>
 <area shape="rect" id="node4" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="422,63,618,105"/>
 <area shape="rect" id="node5" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="667,71,882,97"/>
-<area shape="rect" id="node6" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="931,71,1101,97"/>
+<area shape="rect" id="node6" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="931,71,1101,97"/>
 </map>

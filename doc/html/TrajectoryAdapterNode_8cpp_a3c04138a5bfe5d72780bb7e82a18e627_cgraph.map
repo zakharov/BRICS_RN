@@ -10,10 +10,10 @@
 <area shape="rect" id="node7" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="313,237,514,264"/>
 <area shape="rect" id="node8" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="583,245,772,286"/>
 <area shape="rect" id="node9" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="826,267,1038,293"/>
-<area shape="rect" id="node10" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1088,331,1259,357"/>
+<area shape="rect" id="node10" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="1088,331,1259,357"/>
 <area shape="rect" id="node13" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="579,323,775,365"/>
 <area shape="rect" id="node14" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="825,331,1039,357"/>
-<area shape="rect" id="node16" href="$namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose in converted)..." alt="" coords="837,382,1027,423"/>
+<area shape="rect" id="node16" href="$namespaceconversions.html#ac7a5af5c9bc4009a96b80eda8385f112" title="Conversion from nav_msgs::Odometry ROS message to FrameWithId data type (only pose is converted)..." alt="" coords="837,382,1027,423"/>
 <area shape="rect" id="node17" href="$namespaceconversions.html#acdf98c821297b2e72918329facc9b9d4" title="Conversion from nav_msgs::Odometry ROS message to TwistWithId data type (only twist is converted)..." alt="" coords="318,441,509,482"/>
 <area shape="rect" id="node18" href="$classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy." alt="" coords="603,448,752,475"/>
 </map>

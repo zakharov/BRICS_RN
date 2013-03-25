@@ -92,7 +92,7 @@
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="FrameWithId_8h.html">navigation_trajectory_common/FrameWithId.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Logger_8h.html">navigation_trajectory_common/Logger.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Logger_8h.html" title="Implementation of a macro for log output.">navigation_trajectory_common/Logger.h</a>&quot;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="Stopwatch_8h.html">navigation_trajectory_common/Stopwatch.h</a>&quot;</span></div>
@@ -117,19 +117,19 @@
 <div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d">   63</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d" title="An interface for linear path approximation algorithms.">LinearInterpolation::interpolate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">double</span> step, <span class="keywordtype">size_t</span> numberOfsteps = 0) {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start or restart a stop watch.">start</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">size_t</span> result = <a class="code" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms.">linearInterpolation</a>(in, out, step, numberOfsteps);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#ifdef DEBUG  </span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Linear interpolation:&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch.">stop</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;Linear interpolation:&quot;</span>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (result &gt; 0) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input end point: %f, %f&quot;</span>, in.back().getFrame().p.x(), in.back().getFrame().p.y());</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output end point: %f, %f&quot;</span>, out.back().getFrame().p.x(), out.back().getFrame().p.y());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - input end point: %f, %f&quot;</span>, in.back().getFrame().p.x(), in.back().getFrame().p.y());</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - output end point: %f, %f&quot;</span>, out.back().getFrame().p.x(), out.back().getFrame().p.y());</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - step size: %f&quot;</span>, step);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %lu&quot;</span>, result);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - step size: %f&quot;</span>, step);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - iterations : %lu&quot;</span>, result);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> result;</div>
@@ -161,18 +161,18 @@
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">double</span> distance = sqrt((xn - x0)*(xn - x0) + (yn - y0)*(yn - y0));</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">size_t</span> steps = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span> (floor(distance / step));</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> (steps == 0) {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Warning: step = 0, interpolation is not possible&quot;</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;Warning: step = 0, interpolation is not possible&quot;</span>);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> counter;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;x0=%f, y0=%f, xn=%f, yn=%f&quot;</span>, x0, y0, xn, yn);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;distance=%f, steps=%lu&quot;</span>, distance, steps);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;x0=%f, y0=%f, xn=%f, yn=%f&quot;</span>, x0, y0, xn, yn);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;distance=%f, steps=%lu&quot;</span>, distance, steps);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> v = 0; v &lt;= steps; ++v) {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            x = x0 + (xn - x0) / steps*v;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            y = y0 + (yn - y0) / steps*v;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            z = z0 + (zn - z0) / steps*v;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;x=%f, y=%f&quot;</span>, x, y);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;x=%f, y=%f&quot;</span>, x, y);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            KDL::Frame frame;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            std::string <span class="keywordtype">id</span> = localCopy[i].id;</div>
@@ -180,7 +180,7 @@
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            frame.p.y(y);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            frame.p.z(z);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            frame.M.DoRotZ(z);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            out.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(frame,<span class="keywordtype">id</span>));</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            out.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>(frame,<span class="keywordtype">id</span>));</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            ++counter;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">if</span> (counter &gt;= (numberOfSteps - 1) &amp;&amp; numberOfSteps != 0) {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="keywordflow">return</span> counter;</div>
@@ -198,7 +198,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:42 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

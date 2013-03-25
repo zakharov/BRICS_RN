@@ -1,4 +1,4 @@
 <map id="conversions::frameToPoseStampedRos" name="conversions::frameToPoseStampedRos">
 <area shape="rect" id="node2" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="243,12,455,39"/>
-<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="504,12,675,39"/>
+<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="504,12,675,39"/>
 </map>

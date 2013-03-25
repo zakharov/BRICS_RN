@@ -1,7 +1,7 @@
 <map id="navigation_trajectory_planner/src/DouglasPeuckerApproximation.cpp" name="navigation_trajectory_planner/src/DouglasPeuckerApproximation.cpp">
 <area shape="rect" id="node2" href="$FrameWithId_8h.html" title="navigation_trajectory\l_common/FrameWithId.h" alt="" coords="5,201,187,242"/>
 <area shape="rect" id="node4" href="$Utilities_8h.html" title="navigation_trajectory\l_common/Utilities.h" alt="" coords="146,110,301,151"/>
-<area shape="rect" id="node7" href="$Logger_8h.html" title="navigation_trajectory\l_common/Logger.h" alt="" coords="326,110,481,151"/>
+<area shape="rect" id="node7" href="$Logger_8h.html" title="Implementation of a macro for log output." alt="" coords="326,110,481,151"/>
 <area shape="rect" id="node9" href="$DouglasPeuckerApproximation_8h.html" title="navigation_trajectory\l_planner/DouglasPeuckerApproximation.h" alt="" coords="506,110,795,151"/>
 <area shape="rect" id="node10" href="$IPathApproximation_8h.html" title="navigation_trajectory\l_planner/IPathApproximation.h" alt="" coords="488,201,707,242"/>
 </map>

@@ -54,6 +54,9 @@
 <div class="title">Logger.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of a macro for log output.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstdio&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Logger.h:</div>
@@ -73,9 +76,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a9003ea3ce8820662c77c762d8e98733b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(format, args...)&#160;&#160;&#160;;</td></tr>
+<tr class="memdesc:a9003ea3ce8820662c77c762d8e98733b"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple printf() style logging.  <a href="#a9003ea3ce8820662c77c762d8e98733b"></a><br/></td></tr>
 <tr class="separator:a9003ea3ce8820662c77c762d8e98733b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of a macro for log output. </p>
+
+<p>Definition in file <a class="el" href="Logger_8h_source.html">Logger.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a9003ea3ce8820662c77c762d8e98733b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -100,7 +108,10 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="Logger_8h_source.html#l00048">48</a> of file <a class="el" href="Logger_8h_source.html">Logger.h</a>.</p>
+<p>simple printf() style logging. </p>
+<p>This macro takes the specified format string and arguments and feds these to fprintf() using the stderr stream as target file. After printing the message, a single new line "\n" is printed. </p>
+
+<p>Definition at line <a class="el" href="Logger_8h_source.html#l00055">55</a> of file <a class="el" href="Logger_8h_source.html">Logger.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ChaikinCurveApproximation_8cpp_source.html#l00062">ChaikinCurveApproximation::approximate()</a>, <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00064">DouglasPeuckerApproximation::approximate()</a>, <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>, <a class="el" href="PathPlannerRos_8cpp_source.html#l00061">PathPlannerRos::computePath()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">LinearInterpolation::interpolate()</a>, and <a class="el" href="LinearInterpolation_8cpp_source.html#l00084">LinearInterpolation::linearInterpolation()</a>.</p>
 
@@ -109,7 +120,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:42 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

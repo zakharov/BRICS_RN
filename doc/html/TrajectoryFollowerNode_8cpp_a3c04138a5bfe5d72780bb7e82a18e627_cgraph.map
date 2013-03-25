@@ -10,7 +10,7 @@
 <area shape="rect" id="node11" href="$classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="319,275,454,317"/>
 <area shape="rect" id="node7" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="556,218,745,259"/>
 <area shape="rect" id="node8" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="799,243,1011,269"/>
-<area shape="rect" id="node9" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="1061,276,1232,303"/>
+<area shape="rect" id="node9" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="1061,276,1232,303"/>
 <area shape="rect" id="node13" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="318,341,455,368"/>
 <area shape="rect" id="node14" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="319,392,454,419"/>
 <area shape="rect" id="node16" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="286,443,487,469"/>

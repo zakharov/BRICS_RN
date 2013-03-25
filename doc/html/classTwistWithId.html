@@ -55,7 +55,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with frame id.  
+<p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with a std::string as frame id.  
  <a href="classTwistWithId.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>&gt;</code></p>
@@ -111,9 +111,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a31ab8b04294673416e12d2afde94f8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with frame id. </p>
+<div class="textblock"><p><a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id.">TwistWithId</a> is an aggregation of KDL::Twist class with a std::string as frame id. </p>
+<p>The embedded KDL::Frame will be always heap-allocated. </p>
 
-<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00053">53</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00054">54</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a50c2f53518a714f7770b348599635aa9"></a>
 <div class="memitem">
@@ -149,6 +150,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
+<p>The embedded id is set to the empty string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- initial value of KDL::Twist. </td></tr>
@@ -175,6 +177,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
+<p>The embedded KDL::Twist in initialized by its default constructor.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">is</td><td>- initial value of twist identifier. </td></tr>
@@ -247,7 +250,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00066">66</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
-<p>References <a class="el" href="TwistWithId_8cpp_source.html#l00084">getTwist()</a>, and <a class="el" href="TwistWithId_8h_source.html#l00058">id</a>.</p>
+<p>References <a class="el" href="TwistWithId_8cpp_source.html#l00084">getTwist()</a>, and <a class="el" href="TwistWithId_8h_source.html#l00059">id</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -302,10 +305,12 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> twist as a const reference or a copy. </p>
+<p>Modifications on the <a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id.">TwistWithId</a>, except assignment or <a class="el" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824" title="Sets a new value of the KDL::Twist.">setTwist()</a>, will be reflected by the returned reference.</p>
+<p>Assigning or setting a new twist invalidates all references obtained from const KDL::Twist&amp; <a class="el" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">getTwist() const</a>. </p>
 
 <p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00084">84</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00075">conversions::odometryRosToTwist()</a>, <a class="el" href="TwistWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00085">conversions::odometryRosToTwist()</a>, <a class="el" href="TwistWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
 
 </div>
 </div>
@@ -323,6 +328,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Get an underlying <a class="el" href="namespaceKDL.html">KDL</a> trajectory as a reference. </p>
+<p>Modifications on the <a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id.">TwistWithId</a>, except assignment or <a class="el" href="classTwistWithId.html#abce7b23f50faf9041a305c432ffc5824" title="Sets a new value of the KDL::Twist.">setTwist()</a>, will be reflected by the returned reference.</p>
+<p>Assigning or setting a new twist invalidates all references obtained from const KDL::Twist&amp; <a class="el" href="classTwistWithId.html#ae2d66ee49cadf28418787b869f421ca9" title="Get an underlying KDL twist as a const reference or a copy.">getTwist() const</a>. </p>
 
 <p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00088">88</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
@@ -352,7 +359,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="TwistWithId_8cpp_source.html#l00071">71</a> of file <a class="el" href="TwistWithId_8cpp_source.html">TwistWithId.cpp</a>.</p>
 
-<p>References <a class="el" href="TwistWithId_8cpp_source.html#l00084">getTwist()</a>, and <a class="el" href="TwistWithId_8h_source.html#l00058">id</a>.</p>
+<p>References <a class="el" href="TwistWithId_8cpp_source.html#l00084">getTwist()</a>, and <a class="el" href="TwistWithId_8h_source.html#l00059">id</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -380,6 +387,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Sets a new value of the KDL::Twist. </p>
+<p>The supplied KDL::Twist <code>twist</code> is copied and can be delete or modified without affecting the <a class="el" href="classTwistWithId.html" title="TwistWithId is an aggregation of KDL::Twist class with a std::string as frame id.">TwistWithId</a> instance. The <code>id</code> member is not modified.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">twist</td><td>- new value of KDL::Twist. </td></tr>
@@ -404,9 +412,9 @@ Here is the call graph for this function:</div>
 
 <p>String identifier of the Twist. </p>
 
-<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00058">58</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00059">59</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00075">conversions::odometryRosToTwist()</a>, <a class="el" href="TwistWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00085">conversions::odometryRosToTwist()</a>, <a class="el" href="TwistWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="TwistWithId_8cpp_source.html#l00066">TwistWithId()</a>.</p>
 
 </div>
 </div>
@@ -430,7 +438,7 @@ Here is the call graph for this function:</div>
 
 <p>Aggregation of the KDL::Twist. </p>
 
-<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00124">124</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="TwistWithId_8h_source.html#l00150">150</a> of file <a class="el" href="TwistWithId_8h_source.html">TwistWithId.h</a>.</p>
 
 </div>
 </div>
@@ -441,7 +449,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:33 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

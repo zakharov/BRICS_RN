@@ -55,7 +55,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with frame id.  
+<p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with a std::string as frame id.  
  <a href="classFrameWithId.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>&gt;</code></p>
@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad02aab755f071b1ef5caa99f5c772025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets new KDL::Frame.  <a href="#ad02aab755f071b1ef5caa99f5c772025"></a><br/></td></tr>
 <tr class="separator:ad02aab755f071b1ef5caa99f5c772025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2355970fa56daec211e147f020c7ae8"><td class="memItemLeft" align="right" valign="top">const KDL::Frame &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8">getFrame</a> () const </td></tr>
-<tr class="memdesc:ad2355970fa56daec211e147f020c7ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an underlying KDL::Frame as a const reference or a copy.  <a href="#ad2355970fa56daec211e147f020c7ae8"></a><br/></td></tr>
+<tr class="memdesc:ad2355970fa56daec211e147f020c7ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an underlying KDL::Frame as a const reference.  <a href="#ad2355970fa56daec211e147f020c7ae8"></a><br/></td></tr>
 <tr class="separator:ad2355970fa56daec211e147f020c7ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d3071d1270247561c23194e3c0541c7"><td class="memItemLeft" align="right" valign="top">KDL::Frame &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#a0d3071d1270247561c23194e3c0541c7">getFrame</a> ()</td></tr>
 <tr class="memdesc:a0d3071d1270247561c23194e3c0541c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an underlying KDL::Frame as a reference.  <a href="#a0d3071d1270247561c23194e3c0541c7"></a><br/></td></tr>
@@ -106,13 +106,14 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ab32798c583dc0779c6345efd4751bfeb"><td class="memItemLeft" align="right" valign="top">KDL::Frame *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameWithId.html#ab32798c583dc0779c6345efd4751bfeb">frame</a></td></tr>
-<tr class="memdesc:ab32798c583dc0779c6345efd4751bfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregated KDL::Frame.  <a href="#ab32798c583dc0779c6345efd4751bfeb"></a><br/></td></tr>
+<tr class="memdesc:ab32798c583dc0779c6345efd4751bfeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggregated, heap-allocated KDL::Frame.  <a href="#ab32798c583dc0779c6345efd4751bfeb"></a><br/></td></tr>
 <tr class="separator:ab32798c583dc0779c6345efd4751bfeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with frame id. </p>
+<div class="textblock"><p><a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> is an aggregation of KDL::Frame class with a std::string as frame id. </p>
+<p>The embedded KDL::Frame will be always heap-allocated. </p>
 
-<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00053">53</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00054">54</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a907376c1f09970efbb402343c1b5ca9b"></a>
 <div class="memitem">
@@ -129,6 +130,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
+<p>The embedded KDL::Frame member will be initialized by its default constructor.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>- string identifier of the frame </td></tr>
@@ -155,6 +157,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
+<p>The frame's id is set to be the empty string.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>- initial 6D pose of the frame </td></tr>
@@ -217,6 +220,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+<p>The embedded KDL::Frame member will be initialized by its default constructor. The frame's id is set to be the empty string. </p>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00061">61</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
@@ -246,14 +250,14 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00066">66</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
-<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">getFrame()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00058">id</a>.</p>
+<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">getFrame()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00059">id</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph.png" border="0" usemap="#classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph" alt=""/></div>
 <map name="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph" id="classFrameWithId_ae64d840e91d3ec7849381221c5e0001d_cgraph">
-<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="243,5,413,32"/></map>
+<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="243,5,413,32"/></map>
 </div>
 </p>
 
@@ -298,11 +302,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Returns an underlying KDL::Frame as a const reference or a copy. </p>
+<p>Returns an underlying KDL::Frame as a const reference. </p>
+<p>Modifications on the <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>, except assignment or <a class="el" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025" title="Sets new KDL::Frame.">setFrame()</a>, will be reflected by the returned reference.</p>
+<p>Assigning or setting a new frame invalidates all references obtained from const KDL::Frame&amp; <a class="el" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference.">getFrame() const</a>. </p>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00087">87</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">OmniDriveTrajectoryGenerator::computePathComposite()</a>, <a class="el" href="Conversions_8h_source.html#l00113">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00061">conversions::odometryRosToFrame()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00071">operator=()</a>, <a class="el" href="Utilities_8h_source.html#l00060">utilities::perpendicularDistance()</a>, and <a class="el" href="Conversions_8h_source.html#l00089">conversions::poseRosToFrame()</a>.</p>
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00069">OmniDriveTrajectoryGenerator::computePathComposite()</a>, <a class="el" href="Conversions_8h_source.html#l00136">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00066">conversions::odometryRosToFrame()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00071">operator=()</a>, <a class="el" href="Utilities_8h_source.html#l00063">utilities::perpendicularDistance()</a>, and <a class="el" href="Conversions_8h_source.html#l00103">conversions::poseRosToFrame()</a>.</p>
 
 </div>
 </div>
@@ -320,6 +326,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns an underlying KDL::Frame as a reference. </p>
+<p>Modifications on the <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>, except assignment or <a class="el" href="classFrameWithId.html#ad02aab755f071b1ef5caa99f5c772025" title="Sets new KDL::Frame.">setFrame()</a>, will be reflected by the returned reference.</p>
+<p>Assigning or setting a new frame invalidates all references obtained from KDL::Frame&amp; <a class="el" href="classFrameWithId.html#a0d3071d1270247561c23194e3c0541c7" title="Returns an underlying KDL::Frame as a reference.">getFrame()</a>. </p>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00091">91</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
@@ -349,14 +357,14 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00071">71</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
-<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">getFrame()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00058">id</a>.</p>
+<p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">getFrame()</a>, and <a class="el" href="FrameWithId_8h_source.html#l00059">id</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFrameWithId_a249c6c014aade162b353795a929e9ee7_cgraph.png" border="0" usemap="#classFrameWithId_a249c6c014aade162b353795a929e9ee7_cgraph" alt=""/></div>
 <map name="classFrameWithId_a249c6c014aade162b353795a929e9ee7_cgraph" id="classFrameWithId_a249c6c014aade162b353795a929e9ee7_cgraph">
-<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="229,5,400,32"/></map>
+<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="229,5,400,32"/></map>
 </div>
 </p>
 
@@ -377,6 +385,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Sets new KDL::Frame. </p>
+<p>The supplied KDL::Frame <code>frame</code> is copied and can be delete or modified without affecting the <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> instance. The <code>id</code> member is not modified. </p>
 
 <p>Definition at line <a class="el" href="FrameWithId_8cpp_source.html#l00082">82</a> of file <a class="el" href="FrameWithId_8cpp_source.html">FrameWithId.cpp</a>.</p>
 
@@ -401,9 +410,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Aggregated KDL::Frame. </p>
+<p>Aggregated, heap-allocated KDL::Frame. </p>
 
-<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00119">119</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00148">148</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
 
 </div>
 </div>
@@ -419,9 +428,9 @@ Here is the call graph for this function:</div>
 
 <p>String identifier of the frame. </p>
 
-<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00058">58</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
+<p>Definition at line <a class="el" href="FrameWithId_8h_source.html#l00059">59</a> of file <a class="el" href="FrameWithId_8h_source.html">FrameWithId.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00113">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00061">conversions::odometryRosToFrame()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="Conversions_8h_source.html#l00089">conversions::poseRosToFrame()</a>.</p>
+<p>Referenced by <a class="el" href="Conversions_8h_source.html#l00136">conversions::frameToPoseRos()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00066">FrameWithId()</a>, <a class="el" href="Conversions_8h_source.html#l00066">conversions::odometryRosToFrame()</a>, <a class="el" href="FrameWithId_8cpp_source.html#l00071">operator=()</a>, and <a class="el" href="Conversions_8h_source.html#l00103">conversions::poseRosToFrame()</a>.</p>
 
 </div>
 </div>
@@ -432,7 +441,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

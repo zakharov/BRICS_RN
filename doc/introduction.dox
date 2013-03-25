@@ -63,7 +63,7 @@ this information for computing the robot position.
 
 In many navigation systems, these components are rather tightly coupled. For example, the 
 very popular ROS navigation stack exports a single ROS node called "move_base" as its 
-public interface, which then created all the other components. The @c move_base node and 
+public interface, which then creates all the other components. The @c move_base node and 
 the other nodes communicate by standard ROS methods, including ROS-Services, ROS topics 
 or direct calls. The generall architecture of ROS navigation stack is shown below (taken 
 from @ref bib_bricsd33 "[BRICS_D3.3]").

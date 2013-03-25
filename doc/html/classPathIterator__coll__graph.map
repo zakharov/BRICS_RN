@@ -1,3 +1,3 @@
 <map id="PathIterator" name="PathIterator">
-<area shape="rect" id="node2" href="$classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id." alt="" coords="5,5,141,229"/>
+<area shape="rect" id="node2" href="$classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id." alt="" coords="5,5,141,229"/>
 </map>

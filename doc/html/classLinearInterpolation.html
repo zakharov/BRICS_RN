@@ -216,16 +216,18 @@ Private Member Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>- std::vector &lt;FrameWithId&gt; input path. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>- std::vector &lt;FrameWithId&gt; resulting interpolated path. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">step</td><td>- step size. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">numberOfSteps</td><td>- number of steps. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">numberOfSteps</td><td>- number of steps. Specifies an upper limit for the total number of waypoints in the interpolated path. If the number of waypoints required to interpolate the full input path using steps no larger then <code>step</code> exceeds <code>numberOfSteps</code>, then the interpolation stops and the partially interpolated path is returned.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>number of waypoints in the returned path <code>out</code>.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classIPathInterpolation.html#a9e5e7edbc4d9e0531c8f46394e157b40" title="An interface for path approximation.">IPathInterpolation::interpolate()</a> </dd></dl>
 
 <p>Implements <a class="el" href="classIPathInterpolation.html#a9e5e7edbc4d9e0531c8f46394e157b40">IPathInterpolation</a>.</p>
 
 <p>Definition at line <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">63</a> of file <a class="el" href="LinearInterpolation_8cpp_source.html">LinearInterpolation.cpp</a>.</p>
 
-<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00088">Stopwatch::getElapsedTime()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00084">linearInterpolation()</a>, <a class="el" href="Logger_8h_source.html#l00048">LOG</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00062">Stopwatch::stop()</a>.</p>
+<p>References <a class="el" href="Stopwatch_8cpp_source.html#l00090">Stopwatch::getElapsedTime()</a>, <a class="el" href="LinearInterpolation_8cpp_source.html#l00084">linearInterpolation()</a>, <a class="el" href="Logger_8h_source.html#l00055">LOG</a>, <a class="el" href="Stopwatch_8cpp_source.html#l00057">Stopwatch::start()</a>, and <a class="el" href="Stopwatch_8cpp_source.html#l00065">Stopwatch::stop()</a>.</p>
 
 <p>Referenced by <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>.</p>
 
@@ -234,7 +236,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLinearInterpolation_ac23529dfeac0098d1053a66f9281c31d_cgraph.png" border="0" usemap="#classLinearInterpolation_ac23529dfeac0098d1053a66f9281c31d_cgraph" alt=""/></div>
 <map name="classLinearInterpolation_ac23529dfeac0098d1053a66f9281c31d_cgraph" id="classLinearInterpolation_ac23529dfeac0098d1053a66f9281c31d_cgraph">
-<area shape="rect" id="node2" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="195,5,394,32"/><area shape="rect" id="node4" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="222,57,367,98"/><area shape="rect" id="node5" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="231,123,358,149"/><area shape="rect" id="node6" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="232,173,357,200"/><area shape="rect" id="node3" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="443,5,621,32"/></map>
+<area shape="rect" id="node2" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="195,5,394,32"/><area shape="rect" id="node4" href="classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="222,57,367,98"/><area shape="rect" id="node5" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start or restart a stop watch." alt="" coords="231,123,358,149"/><area shape="rect" id="node6" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch." alt="" coords="232,173,357,200"/><area shape="rect" id="node3" href="classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="443,5,621,32"/></map>
 </div>
 </p>
 
@@ -297,7 +299,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="LinearInterpolation_8cpp_source.html#l00084">84</a> of file <a class="el" href="LinearInterpolation_8cpp_source.html">LinearInterpolation.cpp</a>.</p>
 
-<p>References <a class="el" href="Logger_8h_source.html#l00048">LOG</a>.</p>
+<p>References <a class="el" href="Logger_8h_source.html#l00055">LOG</a>.</p>
 
 <p>Referenced by <a class="el" href="LinearInterpolation_8cpp_source.html#l00063">interpolate()</a>.</p>
 
@@ -310,7 +312,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

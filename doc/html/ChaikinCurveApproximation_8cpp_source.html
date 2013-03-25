@@ -95,7 +95,7 @@
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Stopwatch_8h.html">navigation_trajectory_common/Stopwatch.h</a>&quot;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="Logger_8h.html">navigation_trajectory_common/Logger.h</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="Logger_8h.html" title="Implementation of a macro for log output.">navigation_trajectory_common/Logger.h</a>&quot;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ChaikinCurveApproximation_8h.html">navigation_trajectory_planner/ChaikinCurveApproximation.h</a>&quot;</span></div>
@@ -116,7 +116,7 @@
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classChaikinCurveApproximation.html#ad74792f8e2073431de7d7df8fd9d2a03">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classChaikinCurveApproximation.html#ab669f5fb9571472758ea6f81f8a14361" title="Smooths input path by Chaiking algorithm.">ChaikinCurveApproximation::approximate</a>(<span class="keyword">const</span> std::vector &lt;FrameWithId&gt;&amp; in, std::vector &lt;FrameWithId&gt;&amp; out, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lod) {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classStopwatch.html" title="Implementation of a stopwatch for profiling of the algorithms.">Stopwatch</a> stopwatch;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch.">start</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    stopwatch.<a class="code" href="classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start or restart a stop watch.">start</a>();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span>    std::vector &lt;FrameWithId&gt; inputCopy;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    inputCopy = in;</div>
@@ -127,13 +127,13 @@
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        inputCopy = out;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#ifdef DEBUG  </span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch.">stop</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;Chaikin curve approximation algorithm:&quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, in.size());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - level of detail: %d&quot;</span>, lod);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch.">stop</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;Chaikin curve approximation algorithm:&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, in.size());</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - level of detail: %d&quot;</span>, lod);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif    </span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
@@ -173,8 +173,8 @@
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        R.p.y((1 - k) * p0.p.y() + k * p1.p.y());</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        R.p.z((1 - k) * p0.p.z() + k * p1.p.z());</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(Q, p0Id));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>(R, p1Id));</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>(Q, p0Id));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        resultList.push_back(<a class="code" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>(R, p1Id));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// keep the last point</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    resultList.push_back(pointList[pointList.size() - 1]);</div>
@@ -183,7 +183,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:32 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:42 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

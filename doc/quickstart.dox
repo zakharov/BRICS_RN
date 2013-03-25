@@ -2,11 +2,18 @@
 
 @page quickstart Getting started
 
-This page is a brief guide to get the first program running with the BRICS_3D library.
+This page is a brief guide to get the first program running with the BRICS_RN library.
 
 @section quickstart_installation How to install
 
-As an overview you will need to satisfy (at least) the required dependencies:
+As an overview you will need to have a working ROS installation, we recommand to use 
+ROS XXX (fuerte? / electric?).  You also need the following ROS packages, which should
+normally be installed:
+
+
+
+
+
 
    -# Boost 1.37 (or higher)
    -# Eigen2 2.0.13 (or higher, Eigen3 is recommended)

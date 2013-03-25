@@ -60,7 +60,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a02b162e5d837e7bcbae3642c3b5bb227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and returns perpendicular distance form the given point to the line (for 2D space)  <a href="#a02b162e5d837e7bcbae3642c3b5bb227"></a><br/></td></tr>
 <tr class="separator:a02b162e5d837e7bcbae3642c3b5bb227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6399b646b80e573ab57ed58c9ed63b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41">prunePath</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;point, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;prunedPath)</td></tr>
-<tr class="memdesc:a6399b646b80e573ab57ed58c9ed63b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates pruned path, builds perpendiculars to the original path, takes the shortest perpendicular as a trimming line, trims the path, insert the point argument as a new starting point of the path (for 2D space).  <a href="#a6399b646b80e573ab57ed58c9ed63b41"></a><br/></td></tr>
+<tr class="memdesc:a6399b646b80e573ab57ed58c9ed63b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates pruned path, builds perpendiculars to the original path.  <a href="#a6399b646b80e573ab57ed58c9ed63b41"></a><br/></td></tr>
 <tr class="separator:a6399b646b80e573ab57ed58c9ed63b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -105,27 +105,28 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Calculates and returns perpendicular distance form the given point to the line (for 2D space) </p>
+<p>This function operates only on the <code>x</code> and <code>y</code> coordinates of the supplied FrameWithIds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> coordinates of the point. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">linePoint1</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> 1st coordinate of the line. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">linePoint2</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> 2nd coordinate of the line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> coordinates of the point. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">linePoint1</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> 1st coordinate of the line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">linePoint2</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> 2nd coordinate of the line. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utilities_8h_source.html#l00060">60</a> of file <a class="el" href="Utilities_8h_source.html">Utilities.h</a>.</p>
+<p>Definition at line <a class="el" href="Utilities_8h_source.html#l00063">63</a> of file <a class="el" href="Utilities_8h_source.html">Utilities.h</a>.</p>
 
 <p>References <a class="el" href="FrameWithId_8cpp_source.html#l00087">FrameWithId::getFrame()</a>.</p>
 
-<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00087">DouglasPeuckerApproximation::douglasPeucker()</a>, and <a class="el" href="Utilities_8h_source.html#l00088">prunePath()</a>.</p>
+<p>Referenced by <a class="el" href="DouglasPeuckerApproximation_8cpp_source.html#l00087">DouglasPeuckerApproximation::douglasPeucker()</a>, and <a class="el" href="Utilities_8h_source.html#l00099">prunePath()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceutilities_a02b162e5d837e7bcbae3642c3b5bb227_cgraph.png" border="0" usemap="#namespaceutilities_a02b162e5d837e7bcbae3642c3b5bb227_cgraph" alt=""/></div>
 <map name="namespaceutilities_a02b162e5d837e7bcbae3642c3b5bb227_cgraph" id="namespaceutilities_a02b162e5d837e7bcbae3642c3b5bb227_cgraph">
-<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="216,12,387,39"/></map>
+<area shape="rect" id="node2" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="216,12,387,39"/></map>
 </div>
 </p>
 
@@ -169,19 +170,21 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates pruned path, builds perpendiculars to the original path, takes the shortest perpendicular as a trimming line, trims the path, insert the point argument as a new starting point of the path (for 2D space). </p>
+<p>Calculates pruned path, builds perpendiculars to the original path. </p>
+<p>This finds the path segmen s in the original path <code>path</code> with the shortests distance to <code>point</code>, measured perpendicular to s. The path segment <code>s</code> is defined as the straight line from waypoint <code>s</code> to waypoint <code>s+1</code>. The pruned path starts with <code>point</code> and continues with all waypoints in <code>path</code> starting with waypoint s+1.</p>
+<p>If two or more segments in <code>path</code> have the same highest distance to <code>point</code>, then the segment which comes last in <code>path</code> is selected.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- std::vector&lt;FrameWithId&gt; original path, a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id.">FrameWithId</a> trimming point. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- std::vector&lt;FrameWithId&gt; original path, a vector of <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>- <a class="el" href="classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id.">FrameWithId</a> trimming point. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">prunedPath</td><td>- std::vector&lt;FrameWithId&gt; resulting pruned path. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Utilities_8h_source.html#l00088">88</a> of file <a class="el" href="Utilities_8h_source.html">Utilities.h</a>.</p>
+<p>Definition at line <a class="el" href="Utilities_8h_source.html#l00099">99</a> of file <a class="el" href="Utilities_8h_source.html">Utilities.h</a>.</p>
 
-<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">path</a>, and <a class="el" href="Utilities_8h_source.html#l00060">perpendicularDistance()</a>.</p>
+<p>References <a class="el" href="TrajectoryAdapterNode_8cpp_source.html#l00114">path</a>, and <a class="el" href="Utilities_8h_source.html#l00063">perpendicularDistance()</a>.</p>
 
 <p>Referenced by <a class="el" href="CollisionCheckingRos_8cpp_source.html#l00073">CollisionCheckingRos::collisionCheck()</a>.</p>
 
@@ -190,7 +193,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceutilities_a6399b646b80e573ab57ed58c9ed63b41_cgraph.png" border="0" usemap="#namespaceutilities_a6399b646b80e573ab57ed58c9ed63b41_cgraph" alt=""/></div>
 <map name="namespaceutilities_a6399b646b80e573ab57ed58c9ed63b41_cgraph" id="namespaceutilities_a6399b646b80e573ab57ed58c9ed63b41_cgraph">
-<area shape="rect" id="node2" href="namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="195,5,357,46"/><area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="405,12,576,39"/></map>
+<area shape="rect" id="node2" href="namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="195,5,357,46"/><area shape="rect" id="node3" href="classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="405,12,576,39"/></map>
 </div>
 </p>
 
@@ -199,7 +202,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 14 2013 15:59:33 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 25 2013 16:44:43 for BRICS_RN_Robust_Navigation_Library(BRICS_RN) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3
 </small></address>

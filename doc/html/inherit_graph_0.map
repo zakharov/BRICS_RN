@@ -1,3 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with frame id." alt="" coords="5,5,107,32"/>
+<area shape="rect" id="node1" href="$classFrameWithId.html" title="FrameWithId is an aggregation of KDL::Frame class with a std::string as frame id." alt="" coords="5,5,107,32"/>
 </map>

@@ -1,13 +1,13 @@
 <map id="CollisionCheckingRos::check" name="CollisionCheckingRos::check">
 <area shape="rect" id="node2" href="$classCollisionCheckingRos.html#adcd7c125b92aa35517b51fbb25eaa980" title="Implementation of collision checking routine." alt="" coords="208,151,363,193"/>
-<area shape="rect" id="node3" href="$namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41" title="Calculates pruned path, builds perpendiculars to the original path, takes the shortest perpendicular ..." alt="" coords="435,12,576,39"/>
+<area shape="rect" id="node3" href="$namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41" title="Calculates pruned path, builds perpendiculars to the original path." alt="" coords="435,12,576,39"/>
 <area shape="rect" id="node6" href="$classLinearInterpolation.html#ac23529dfeac0098d1053a66f9281c31d" title="An interface for linear path approximation algorithms." alt="" coords="435,181,576,222"/>
-<area shape="rect" id="node7" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start a stop watch." alt="" coords="691,129,818,156"/>
+<area shape="rect" id="node7" href="$classStopwatch.html#a6d01ecc80c92f1d5210cd9c3eb72883d" title="Start or restart a stop watch." alt="" coords="691,129,818,156"/>
 <area shape="rect" id="node12" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="411,63,600,105"/>
-<area shape="rect" id="node9" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop and reset a stop watch." alt="" coords="692,247,817,273"/>
+<area shape="rect" id="node9" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch." alt="" coords="692,247,817,273"/>
 <area shape="rect" id="node10" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="655,297,854,324"/>
 <area shape="rect" id="node4" href="$namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="673,5,836,46"/>
-<area shape="rect" id="node5" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference or a copy." alt="" coords="913,41,1084,68"/>
+<area shape="rect" id="node5" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="913,41,1084,68"/>
 <area shape="rect" id="node8" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="682,181,827,222"/>
 <area shape="rect" id="node11" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="910,297,1087,324"/>
 <area shape="rect" id="node13" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="649,71,861,97"/>

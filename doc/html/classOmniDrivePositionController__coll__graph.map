@@ -1,6 +1,6 @@
 <map id="OmniDrivePositionController" name="OmniDrivePositionController">
 <area shape="rect" id="node2" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="5,345,200,525"/>
-<area shape="rect" id="node3" href="$classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with frame id." alt="" coords="225,323,383,547"/>
+<area shape="rect" id="node3" href="$classTrajectoryWithId.html" title="TrajectoryWithId is an aggregation of KDL::Trajectory class with a std::string as frame id..." alt="" coords="225,323,383,547"/>
 <area shape="rect" id="node4" href="$classOdometry.html" title="Class represents odometry data, which is an aggregation of Twist2D and Pose2D." alt="" coords="408,323,531,547"/>
 <area shape="rect" id="node5" href="$classPose2D.html" title="Class represents pose 2D data." alt="" coords="343,27,456,237"/>
 <area shape="rect" id="node6" href="$classTwist2D.html" title="Class represents twist 2D data." alt="" coords="481,5,593,259"/>
