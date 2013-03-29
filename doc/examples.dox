@@ -2,9 +2,30 @@
 
 @page examples Examples
 
-This page summarizes examples on how to use the BRICS_3D library. The following examples are available:
+This page summarizes examples on how to use the BRICS_RN library.  By contrast to 
+for example the BRICS_3D library, which can be used stand-alone, we need a target
+robot platform to demonstrate robot navigation.  This examples will use the youBot
+platform as an example of an omnidirectional mobile base.  All examples below have
+been tested with a simulated youBot and are expected to work unmodified on real hardware.
+
+To simplify installation and setup, we will use a preconfigured ROS image available 
+from http://nootrix.com/downloads/ (linked from http://www.ros.org/wiki/fuerte/Installation) 
+as our foundation.  Please make sure you pick the ROS fuerte virtual machine image 
+since this examples have only been tested against fuerte.  See section ROS installation 
+for BRICS_RN demos on how setup your environment.
+
+Following the ROS tutorials approach (and resusing some of their code), we will start 
+with a simple tele-operated robot (no BRICS_RN involved), then gradually enhance its
+functionality and afterwards swap in BRICS_RN components to show how using BRICS_RN 
+simplifies the code needed to implement robot navigation while at the same time enhances 
+functionality.
+
+The following examples are available:
 
 - @ref examples
+ - @ref examples_install
+ - @ref examples_skeleton (no BRICS_RN)
+ - @ref examples_simple_goal (no BRICS_RN)
  - @ref demo_example
  - @ref pointcloud_viewer
  - @ref world_model_example

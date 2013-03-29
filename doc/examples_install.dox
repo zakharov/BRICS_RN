@@ -1,0 +1,107 @@
+/*!
+
+@page examples_install "ROS installation for BRICS_RN demos"
+
+
+<b>ROS base installation</b>
+
+This page describes how to install the necessary sfotware to run the BRICS_RN examples.
+The examples have been tested against ROS fuerte, using a preconfigured image from
+http://nootrix.com/downloads/ . If you use your own ROS installation, make sure you 
+have the desktop_full package set installed.
+
+For details on installing ROS itself, please refere to the ROS website at http://www.ros.org/wiki/fuerte/Installation.
+
+After completing ROS install or starting up the preinstalled virtual machine image, 
+create a new folder where we will store the examples and additional software:
+
+  mkdir ~/brics_rn_examples
+
+and add it to your ROS_PACKAGE_PATH (note the single quotes in below line):
+
+  echo 'export ROS_PACKAGE_PATH=~/brics_rn_examples:${ROS_PACKAGE_PATH}' >>.bahsrc
+
+Either restart your terminal, or execute the part inside the single quotes in your 
+current terminal.
+
+
+<b>Installing the youBot driver and simulation</b>
+
+Since we are only interested in navigation, not manipulation, we will use the Stage
+simulator.  Stage has the advantage of significantly lower hardware requirements as 
+e.g. Gazebo, the default simulator in ROS.  The downside is, that stage in not a 
+physically correct simulator, so sensors to perfect and effects like ground slipage 
+are not modelled.
+
+If not yet installed, install ROS stage
+
+ sudo apt-get install ros-fuerte-stage
+
+The default ROS stage package does not provide all ROS topics we'd like to use. 
+In the BRICS_RN examples folder you will find some enhancement to stage, see later.
+
+There are a number of competing youBot packages out there, we will use the ones from 
+GitHub, found here: https://github.com/youbot/youbot-ros-pkg.  Following the install
+instraction on that pages, execute in your terminal:
+
+ cd ~/brics_rn_examples
+ git clone https://github.com/youbot/youbot-ros-pkg.git
+
+ cd youbot-ros-pkg
+ git checkout fuerte
+
+ sudo easy_install -U rosinstall vcstools
+
+
+Next we need to install some system-level dependencies:
+
+ ./repository.debs
+ 
+Note that this step may fail, complaining it can't find libopencv2.3-dev. In that case,
+open the repository.deps with a text editor and rename the libopencv2.3-dev dependency 
+to libopencv-dev and then rerun above command.
+
+We also need some extra ROS packages, namly the low-level youBot driver.  These will 
+be installed by the following line.  Note that it will also pull in a copy of BRICS_3D,
+needed by some other sub packages of youbot-ros-pkg.  If you alrady have BRICS_3D
+installed, I suggest to first edit the repository.rosinstall and remove the reference 
+to BRICS_3D
+
+ rosinstall .. /opt/ros/fuerte repository.rosinstall
+ 
+Note: If above line fails to find and/or install BRICS_3D, simply remove BRICS_3D 
+from the repository.rosinstall file and from ~/brics_rn_examples/.rosinstall.  We 
+don't need it.
+
+After finishing rosinstall, @em do @em not follow the on-screen instructions to soure 
+the new generated setup.sh and to add it to bashrc, it would overwrite the existing
+ROS_PACKAGE_PATH.  Instead add the youbot_driver directly:
+
+ echo 'export ROS_PACKAGE_PATH=~/brics_rn_examples/youbot_driver:${ROS_PACKAGE_PATH}' >>.bahsrc
+ export ROS_PACKAGE_PATH=~/brics_rn_examples/youbot_driver:${ROS_PACKAGE_PATH}
+
+
+We are primarily interested in the youBot models and simulation support, found in 
+the common sub package, which will be build by:
+
+ cd youbot_common
+ rosmake youbot_common
+
+
+<b>Installing BRICS_RN</b>
+
+Next we need the BRICS_RN software:
+
+ cd ~/brics_rn_examples
+ git clone https://github.com/BjoKaSH/BRICS_RN.git
+
+ cd BRICS_RN
+ rosmake BRICS_RN
+
+
+
+
+
+
+
+*/
