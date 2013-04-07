@@ -80,11 +80,13 @@ namespace utilities {
     }
 
    /**
-     * @brief Calculates pruned path, builds perpendiculars to the 
+     * @brief Calculates pruned path, starting from @p point to the end of the 
      * original path.
      * 
-     * This finds the path segmen s in the original path @p path with the shortests 
-     * distance to @p point, measured perpendicular to s.  The path segment @c s is
+     * This chops of the leading part of @p path, up to the waypoint  (or the
+     * closeset waypoint to) @p point.  It finds the path segment @c s in the
+     * original path @p path with the shortests 
+     * distance to @p point, measured perpendicular to @c s.  The path segment @c s is
      * defined as the straight line from waypoint @c s to waypoint @c s+1.  The pruned path 
      * starts with @p point and continues with all waypoints in @p path starting with 
      * waypoint s+1.
