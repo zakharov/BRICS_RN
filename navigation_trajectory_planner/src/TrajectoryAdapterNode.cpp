@@ -62,7 +62,15 @@ class TrajectoryAdapterNodeState {
 public:
 
     enum State {
-        IDLING, PLANNING, COLLISION_CHECKING
+        /** Waiting for new goal, doning nothing. */
+        IDLING, 
+        /** Searching for a path, either after initial goal reception or due to failed collision-test. */
+        PLANNING, 
+        /** Continued collision test based on current pose and old plan. 
+         *  Re-executes with defaultCycleFrequencyInHz Hz. */
+        COLLISION_CHECKING,
+        /** Initial check of new path for validity. */
+        INITIAL_COLLISION_CHECK
     };
 
     TrajectoryAdapterNodeState() {
@@ -131,17 +139,17 @@ double controlLoop() {
             simplifiedPath.clear();
             
             DouglasPeuckerApproximation peucker;
-            ChaikinCurveApproximation chaikin;
 
             pathPlanner->computePath(actualPose, goalPose, path);
             
-            if (path.empty())
+            if (path.empty()) {
                 ROS_WARN("Can't plan a path");
-            
+                actualState.set(TrajectoryAdapterNodeState::IDLING);
+                break;
+            }
+
             peucker.approximate(path, simplifiedPath);
                        
-           //  chaikin.approximate(simplifiedPath, simplifiedPath, 2);
-
             nav_msgs::Path pathRos,  simplifiedPathRos;
             conversions::pathToPathRos(path, pathRos);
             conversions::pathToPathRos(simplifiedPath, simplifiedPathRos);
@@ -149,15 +157,25 @@ double controlLoop() {
             pathPublisher.publish(pathRos);
             simplifiedPathPublisher.publish(simplifiedPathRos);
 #endif            
-            actualState.set(TrajectoryAdapterNodeState::COLLISION_CHECKING);
+            actualState.set(TrajectoryAdapterNodeState::INITIAL_COLLISION_CHECK);
 
             break;
         }
+        case TrajectoryAdapterNodeState::INITIAL_COLLISION_CHECK:
+            /* fall through */
         case TrajectoryAdapterNodeState::COLLISION_CHECKING:
         {
             bool collision = collisionChecker->check(simplifiedPath, actualPose);
-            if (collision)
+            if (collision) {
                 actualState.set(TrajectoryAdapterNodeState::PLANNING);
+            } else {
+                if (actualState.get() == TrajectoryAdapterNodeState::INITIAL_COLLISION_CHECK) {
+                    /* New path, passed initial check publish it. */
+                    pathPublisher.publish(pathRos);
+                    simplifiedPathPublisher.publish(simplifiedPathRos);
+                    actualState.set(TrajectoryAdapterNodeState::COLLISION_CHECKING);
+                }
+            }
             break;
         }
         default:
