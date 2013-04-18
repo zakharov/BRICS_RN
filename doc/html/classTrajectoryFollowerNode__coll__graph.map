@@ -1,3 +1,5 @@
 <map id="TrajectoryFollowerNode" name="TrajectoryFollowerNode">
-<area shape="rect" id="node2" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="11,6,205,186"/>
+<area shape="rect" id="node2" href="$classIPositionController.html" title="Interface class for a position controller." alt="" coords="5,150,200,330"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="225,201,311,279"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="199,6,336,98"/>
 </map>

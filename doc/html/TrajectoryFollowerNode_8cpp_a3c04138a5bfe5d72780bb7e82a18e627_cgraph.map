@@ -1,21 +1,21 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="117,173,214,200"/>
+<area shape="rect" id="node2" href="$TrajectoryAdapterNode_8cpp.html#a077653068e40e321988844e5df19fd7a" title="controlLoop" alt="" coords="117,165,214,192"/>
 <area shape="rect" id="node12" href="$TrajectoryFollowerNode_8cpp.html#ad37206bbd55112444f7e1521db83030d" title="odomCallback" alt="" coords="109,367,221,393"/>
 <area shape="rect" id="node15" href="$TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5" title="pathCallback" alt="" coords="113,472,217,499"/>
 <area shape="rect" id="node3" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="270,5,503,32"/>
 <area shape="rect" id="node4" href="$classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="289,56,485,83"/>
-<area shape="rect" id="node5" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="277,107,496,149"/>
-<area shape="rect" id="node6" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="286,173,487,200"/>
-<area shape="rect" id="node10" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="271,224,503,251"/>
+<area shape="rect" id="node5" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="271,107,503,133"/>
+<area shape="rect" id="node6" href="$classDouglasPeuckerApproximation.html#a1ae301f6aa00065dc2a79b2150ddbab9" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm." alt="" coords="277,158,496,199"/>
+<area shape="rect" id="node7" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="286,224,487,251"/>
 <area shape="rect" id="node11" href="$classICollisionChecking.html#ace1becb7f030949a37f338d4469e8e96" title="An interface for collision checking." alt="" coords="319,275,454,317"/>
-<area shape="rect" id="node7" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="556,218,745,259"/>
-<area shape="rect" id="node8" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="799,243,1011,269"/>
-<area shape="rect" id="node9" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="1061,276,1232,303"/>
+<area shape="rect" id="node8" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="556,255,745,297"/>
+<area shape="rect" id="node9" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="799,276,1011,303"/>
+<area shape="rect" id="node10" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="1061,308,1232,335"/>
 <area shape="rect" id="node13" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="318,341,455,368"/>
 <area shape="rect" id="node14" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="319,392,454,419"/>
 <area shape="rect" id="node16" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="286,443,487,469"/>
 <area shape="rect" id="node19" href="$classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="279,494,495,535"/>
 <area shape="rect" id="node20" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow." alt="" coords="311,559,463,601"/>
-<area shape="rect" id="node17" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="553,334,749,375"/>
-<area shape="rect" id="node18" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="798,309,1013,336"/>
+<area shape="rect" id="node17" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="553,359,749,401"/>
+<area shape="rect" id="node18" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="798,340,1013,367"/>
 </map>
