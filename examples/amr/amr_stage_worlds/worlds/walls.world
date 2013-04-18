@@ -1,0 +1,47 @@
+# Desc: world for the bug2 assignment
+# Author: Sergey Alexandrov
+
+include "../models/youbot.inc"
+include "../models/sonars.inc"
+include "../models/hokuyo.inc"
+include "../models/map.inc"
+
+# time to pause (in GUI mode) or quit (in headless mode (-g)) the simulation
+quit_time 3600 # 1 hour of simulated time
+
+paused 1
+
+resolution 0.02
+
+speedup -1.0
+
+# configure the GUI window
+window
+(
+  size [ 594.000 622.000 ] # in pixels
+  scale 28   # pixels per meter
+  center [ 0 0 ]
+  rotate [ 0 0 ]
+  show_data 1
+)
+
+# load an environment bitmap
+floorplan
+(
+  name "walls"
+  boundary 0
+  size [14.000 14.000 0.400]
+  pose [0 0 0 0]
+  bitmap "../bitmaps/walls.png"
+)
+
+youbot
+(
+  # can refer to the robot by this name
+  name "robot1"
+  pose [ 8.0 -5.0 0 180.000 ]
+
+  hokuyolaser( pose [ 0.32 0 -0.12 0 ] )
+  p2dx_sonar( pose [0 0 0 0] )
+  braitenberg_sonar( pose [0 0 -0.03 0] )
+)

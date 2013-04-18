@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Name of the world that should be loaded, without path and extension.
+       The corresponding file has to be present in 'amr_stage_worlds/worlds' folder. -->
+  <arg name="world" default="simple"/>
+
+  <!-- Run stage node without GUI. -->
+  <arg name="headless" default="false"/>
+
+  <!-- Publish the ground-truth map of the world. -->
+  <arg name="map" default="true"/>
+
+  <!-- It is necessary to set this parameter *before* starting the stage node.
+       If this has not been done, the static transforms will not be published. -->
+  <rosparam param="/use_sim_time">true</rosparam>
+
+  <!-- Stage node -->
+  <node pkg="amr_stage" type="stage" name="stage" output="screen"
+        required="true">
+        <param name="headless" type="bool" value="$(arg headless)"/>
+        <param name="world_file" type="string"
+               value="$(find amr_stage_worlds)/worlds/$(arg world).world"/>
+  </node>
+
+  <!-- Map server node (optional) -->
+  <node if="$(arg map)"
+        pkg="map_server" type="map_server" name="map_server_groundtruth"
+        args="$(find amr_stage_worlds)/maps/$(arg world).yaml">
+        <param name="frame_id" value="/odom" type="str"/>
+  </node>
+
+</launch>

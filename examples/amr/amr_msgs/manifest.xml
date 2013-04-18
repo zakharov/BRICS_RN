@@ -1,0 +1,17 @@
+<package>
+  <description brief="amr_msgs">
+
+     amr_msgs
+
+  </description>
+  <author>Sergey Alexandrov</author>
+  <license>BSD</license>
+
+  <depend package="actionlib"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+
+</package>
+
+

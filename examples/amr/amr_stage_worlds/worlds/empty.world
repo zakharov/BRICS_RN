@@ -1,0 +1,47 @@
+# Desc: empty world (thus no collisions whatsoever)
+# Author: Sergey Alexandrov
+
+include "../models/youbot.inc"
+include "../models/sonars.inc"
+include "../models/hokuyo.inc"
+include "../models/map.inc"
+
+# time to pause (in GUI mode) or quit (in headless mode (-g)) the simulation
+quit_time 3600 # 1 hour of simulated time
+
+paused 1
+
+resolution 0.02
+
+speedup -1.0
+
+# configure the GUI window
+window
+(
+  size [ 594.000 622.000 ] # in pixels
+  scale 36.995   # pixels per meter
+  center [ 0 0 ]
+  rotate [ 0 0 ]
+  show_data 1
+)
+
+# load an environment bitmap
+floorplan
+(
+  name "empty"
+  boundary 0
+  size [16.000 16.000 0.800]
+  pose [0 0 0 0]
+  bitmap "../bitmaps/empty.png"
+)
+
+youbot
+(
+  # can refer to the robot by this name
+  name "robot1"
+  pose [ -6.5 -6.5 0 45.000 ]
+
+  hokuyolaser( pose [ 0.32 0 -0.12 0 ] )
+  p2dx_sonar( pose [0 0 0 0] )
+  braitenberg_sonar( pose [0 0 -0.03 0] )
+)

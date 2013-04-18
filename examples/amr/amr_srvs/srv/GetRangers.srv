@@ -1,0 +1,6 @@
+---
+# List of names of the available ranger devices
+string[] names
+# List of states of the corresponding ranger devices
+# true = on, false = off
+bool[] states

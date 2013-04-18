@@ -1,0 +1,6 @@
+image: ../bitmaps/octopus.png
+resolution: 0.04000
+origin: [-10.00, -9.50, 0.00]
+occupied_thresh: 0.35
+free_thresh: 0.196
+negate: 0

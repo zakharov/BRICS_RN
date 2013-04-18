@@ -1,0 +1,14 @@
+<package>
+  <description brief="amr_stage_worlds">
+
+     amr_stage_worlds
+
+  </description>
+  <author>Sergey</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/amr_stage_worlds</url>
+
+</package>
+
+

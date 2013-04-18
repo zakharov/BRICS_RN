@@ -1,0 +1,6 @@
+image: ../bitmaps/rooms.png
+resolution: 0.04000
+origin: [-8.00, -6.00, 0.00]
+occupied_thresh: 0.35
+free_thresh: 0.196
+negate: 0

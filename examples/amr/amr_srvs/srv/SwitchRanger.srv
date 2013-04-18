@@ -1,0 +1,4 @@
+# Name of the ranger device
+string name
+# Desired state (true = on, false = off)
+bool state

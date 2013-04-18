@@ -1,0 +1,16 @@
+<package>
+  <description brief="amr_srvs">
+
+     amr_srvs
+
+  </description>
+  <author>Sergey Alexandrov</author>
+  <license>BSD</license>
+
+  <depend package="geometry_msgs"/>
+
+  <depend package="amr_msgs"/>
+
+</package>
+
+
