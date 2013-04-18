@@ -1,0 +1,18 @@
+<package>
+  <description brief="brics_rn_demo_common">
+
+     brics_rn_demo_common
+
+  </description>
+  <author>Bjoern Kahl</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/brics_rn_demo_pathfollower_omni</url>
+  <depend package="amr_stage"/>
+  <depend package="amr_stage_worlds"/>
+  <depend package="navigation_trajectory_follower"/>
+  <depend package="navigation_trajectory_planner"/>
+
+</package>
+
+

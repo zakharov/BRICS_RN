@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group>
+    <remap from="scan_front" to="base_scan"></remap>
+    <!-- Stage node with "apartment" world -->
+    <include file="$(find amr_stage)/launch/stage.launch">
+      <arg name="world" value="apartment"/>
+    </include>
+  </group>
+
+</launch>

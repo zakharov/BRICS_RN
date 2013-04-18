@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group>
+    <remap from="scan_front" to="base_scan"></remap>
+    <!-- Stage node with "apartment" world -->
+    <include file="$(find amr_stage)/launch/stage.launch">
+      <arg name="world" value="apartment"/>
+    </include>
+  </group>
+
+  <!-- the trajectory follower -->
+  <include file="$(find navigation_trajectory_follower)/launch/trajectory_follower.launch">
+  </include>
+
+  <!-- the trajectory planner -->
+  <include file="$(find navigation_trajectory_planner)/launch/trajectory_planner.launch">
+  </include>
+
+</launch>
