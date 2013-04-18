@@ -7,7 +7,7 @@ navigating, while avoiding dangerous situations such as collisions with obstacle
 It is a cross-sectional domain, which includes path planning, motion control and
 sensor data processing.
 
-The term "robust" here refers to the robots ability, to reach it (navigation) 
+The term "robust" here refers to the robot's ability, to reach its (navigation) 
 goal even under the presence of unforeseen challenges, like obstacles not present 
 in its map, moderate mismatch between map and environment, imprecise sensor data 
 etc.
@@ -15,19 +15,20 @@ etc.
 The term "unforeseen challenges" here refers to challenges, for which the robot
 is not @e explicitly programmed to cope with, but for which it has @e generic
 strategies programmed in. The challenges are only "unforeseen" in the sense, that
-the robot dos not know beforehand if and when it will face such a challenge.
+the robot does not know beforehand if and when it will face such a challenge.
 They are @e foreseen in the sense that the robot's system software contains directions
-and measures to deal with such challenges, in case the occur.
+and measures to deal with such challenges, in case they occur.
 
 BRICS_RN is a collection of interfaces and implementations of various navigation related
 algorithms such as path planning, dynamic path adaptation and path execution. Initial effort
 has been made to implement robust navigation functionality as a set of reusable components 
 that can be assembled into flexible systems.
 
-BRICS_RN provides several simple example of  a local navigation for a omnidirectional 
+BRICS_RN provides a simple examples of a local navigation system for an omnidirectional 
 mobile platform. 
 
-For a more in-depth discussion, see following pages and 
+For a more in-depth discussion, see following pages, the BRICS deliverables
+@ref bib_bricsd33 "D3.3" and @ref bib_bricsd72 "D7.2" and 
 @code
 @INPROCEEDINGS{brugali2012,
   author = {Brugali, D. and Gherardi, L. and Luzzana, A. and Zakharov, A.},

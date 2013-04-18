@@ -30,7 +30,7 @@ current terminal.
 Since we are only interested in navigation, not manipulation, we will use the Stage
 simulator.  Stage has the advantage of significantly lower hardware requirements as 
 e.g. Gazebo, the default simulator in ROS.  The downside is, that stage in not a 
-physically correct simulator, so sensors to perfect and effects like ground slipage 
+physically correct simulator, so sensors are to perfect and effects like ground slipage 
 are not modelled.
 
 If not yet installed, install ROS stage
@@ -42,7 +42,7 @@ In the BRICS_RN examples folder you will find some enhancement to stage, see lat
 
 There are a number of competing youBot packages out there, we will use the ones from 
 GitHub, found here: https://github.com/youbot/youbot-ros-pkg.  Following the install
-instraction on that pages, execute in your terminal:
+instructions on that pages, execute in your terminal:
 
  cd ~/brics_rn_examples
  git clone https://github.com/youbot/youbot-ros-pkg.git
