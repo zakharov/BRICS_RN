@@ -133,7 +133,7 @@ bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
     LOG("Collision checking using costmap2d_ros:");
     LOG("  - collision: %d", collision);
     LOG("  - step size: %f", interpolationStep);
-    LOG("  - iterations : %lu", i);
+    LOG("  - iterations : %u", i);
     LOG("  - duration : %f ms", stopwatch.getElapsedTime());
 #endif
 

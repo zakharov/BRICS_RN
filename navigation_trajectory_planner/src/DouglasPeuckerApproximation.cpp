@@ -76,9 +76,9 @@ void DouglasPeuckerApproximation::approximate(const std::vector <FrameWithId>& i
 #ifdef DEBUG  
     stopwatch.stop();
     LOG("Douglas-Peucker approximation algorithm:");
-    LOG("  - input size: %lu", inputCopy.size());
+    LOG("  - input size: %u", inputCopy.size());
     LOG("  - epsilon: %f", epsilon);
-    LOG("  - output size: %lu", out.size());
+    LOG("  - output size: %u", out.size());
     LOG("  - iterations : %d", counter);
     LOG("  - duration : %f ms", stopwatch.getElapsedTime());
 #endif

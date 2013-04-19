@@ -120,6 +120,7 @@ void goalCallback(const geometry_msgs::PoseStamped& goal) {
 }
 
 std::vector <FrameWithId> path, simplifiedPath;
+nav_msgs::Path pathRos,  simplifiedPathRos;
 
 double controlLoop() {
 
@@ -150,7 +151,6 @@ double controlLoop() {
 
             peucker.approximate(path, simplifiedPath);
                        
-            nav_msgs::Path pathRos,  simplifiedPathRos;
             conversions::pathToPathRos(path, pathRos);
             conversions::pathToPathRos(simplifiedPath, simplifiedPathRos);
 #ifdef DEBUG
