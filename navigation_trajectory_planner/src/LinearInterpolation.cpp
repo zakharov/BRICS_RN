@@ -66,7 +66,7 @@ size_t LinearInterpolation::interpolate(const std::vector <FrameWithId>& in, std
     stopwatch.start();
 #endif
     size_t result = linearInterpolation(in, out, step, numberOfsteps);
-#ifdef DEBUG  
+#ifdef DEBUG_0
     stopwatch.stop();
     LOG("Linear interpolation:");
     if (result > 0) {
@@ -110,15 +110,19 @@ size_t LinearInterpolation::linearInterpolation(const std::vector <FrameWithId>&
             LOG("Warning: step = 0, interpolation is not possible");
             return counter;
         }
+#ifdef DEBUG_0
         LOG("x0=%f, y0=%f, xn=%f, yn=%f", x0, y0, xn, yn);
         LOG("distance=%f, steps=%lu", distance, steps);
+#endif
 
         for (size_t v = 0; v <= steps; ++v) {
             x = x0 + (xn - x0) / steps*v;
             y = y0 + (yn - y0) / steps*v;
             z = z0 + (zn - z0) / steps*v;
 
+#ifdef DEBUG_0
             LOG("x=%f, y=%f", x, y);
+#endif
 
             KDL::Frame frame;
             std::string id = localCopy[i].id;

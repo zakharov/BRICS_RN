@@ -73,7 +73,7 @@ void DouglasPeuckerApproximation::approximate(const std::vector <FrameWithId>& i
     out.clear();
     int counter = 0;
     douglasPeucker(inputCopy, out, counter, epsilon);
-#ifdef DEBUG  
+#ifdef DEBUG_0
     stopwatch.stop();
     LOG("Douglas-Peucker approximation algorithm:");
     LOG("  - input size: %u", inputCopy.size());

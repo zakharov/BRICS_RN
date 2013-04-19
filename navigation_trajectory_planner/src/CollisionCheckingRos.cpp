@@ -128,7 +128,7 @@ bool CollisionCheckingRos::collisionCheck(const std::vector <FrameWithId>& path,
 
     }
 
-#ifdef DEBUG  
+#ifdef DEBUG_0  
     stopwatch.stop();
     LOG("Collision checking using costmap2d_ros:");
     LOG("  - collision: %d", collision);
