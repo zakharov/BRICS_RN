@@ -2,7 +2,7 @@
 # -*- coding: utf -*-
 
 import roslib
-roslib.load_manifest('amr_ui')
+roslib.load_manifest('brics_rn_demo_common')
 
 import sys
 import math
