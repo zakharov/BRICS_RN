@@ -56,7 +56,13 @@ public:
 
     /**
      * @brief Interface for trajectory generation.
-     * @param[in] path - input path
+     *
+     * This call adds a velocity profile to the path, turning it into a trajectory.
+     * The velocity profile is implementation dependen and set by other means of
+     * the actual implementation.  This interface expects a KDL path including
+     * orientation information, i.e. made from poses, not positions.
+     *
+     * @param[in] path - input path (sequence of poses)
      * @param[out] trajectory - calculated trajectory
      */
     virtual void computeTrajectroy(const KDL::Path_Composite& path, KDL::Trajectory_Composite& trajectory) = 0;
