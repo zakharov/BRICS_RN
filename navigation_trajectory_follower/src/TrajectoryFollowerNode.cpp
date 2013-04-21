@@ -53,7 +53,8 @@ using namespace std;
 
 ros::Publisher twistPublisher;
 Odometry actualOdometry;
-IPositionController* controller;
+IPositionController* controller = 0;
+ITrajectoryGenerator* trajectoryGenerator = 0;
 ros::Time startTime;
 
 ros::Publisher debugPath;
@@ -74,14 +75,12 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 }
 
 void pathCallback(const nav_msgs::Path& path) {
-    OmniDriveTrajectoryGenerator trajectoryGenerator;
-
     std::vector<FrameWithId> pathKDL;
     conversions::pathRosToPath(path, pathKDL);
     ROS_INFO("Path size: %u", pathKDL.size());
 
     KDL::Trajectory_Composite trajectoryKDL;
-    trajectoryGenerator.computeTrajectroy(pathKDL, trajectoryKDL);
+    trajectoryGenerator->computeTrajectroy(pathKDL, trajectoryKDL);
 
     startTime = ros::Time::now();
     controller->setTargetTrajectory(trajectoryKDL);
@@ -165,6 +164,8 @@ int main(int argc, char **argv) {
     odomSubscriber = globalNode.subscribe(inputOdometryTopic, 1, &odomCallback);
     pathSubscriber = globalNode.subscribe(inputPathTopic, 1, &pathCallback);
 
+    trajectoryGenerator = new OmniDriveTrajectoryGenerator;
+
     controller = new OmniDrivePositionController(positionGainTranslation,
             velocityGainTranslation,
             positionGainRotation,
@@ -185,6 +186,8 @@ int main(int argc, char **argv) {
     }
 
     delete controller;
+
+    delete trajectoryGenerator;
 
     return 0;
 }
