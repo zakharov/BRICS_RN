@@ -79,13 +79,84 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
 
 }
 
+void computePathComposite(const std::vector<FrameWithId>& path, KDL::Path_Composite& pathComposite) {
+    std::vector<FrameWithId>::const_iterator it;
+
+    if (path.size() > 1) {
+
+        FrameWithId p1 = path.front();
+        FrameWithId p2;
+
+        for (it = path.begin() + 1; it != path.end(); ++it) {
+            p2 = *it;
+            KDL::Frame f1, f2;
+            f1 = p1.getFrame();
+            f2 = p2.getFrame();
+
+            KDL::RotationalInterpolation_SingleAxis* rot = new KDL::RotationalInterpolation_SingleAxis();
+            //   rot->Vel(0.1,0.01);
+            //   rot->Acc(0.1,0.01,0.001);
+            KDL::Path_Line* pathLine = new KDL::Path_Line(f1, f2, rot, 0.001);
+            pathComposite.Add(pathLine);
+
+            p1 = p2;
+        }
+
+    }
+}
+
+void interpolateRotation(const std::vector<FrameWithId>& path, std::vector<FrameWithId>& pathWithRotation) {
+
+    if (path.size() <= 1)
+        return;
+
+    pathWithRotation.clear();
+
+    double r, p, y;
+    path.front().getFrame().M.GetRPY(r, p, y);
+    double start = y;
+
+    path.back().getFrame().M.GetRPY(r, p, y);
+    double end = y;
+    double step = utilities::getShortestAngle(end, start) / (path.size() - 1);
+
+
+    std::vector<FrameWithId>::const_iterator it;
+    for (it = path.begin(); it != path.end(); ++it) {
+
+        KDL::Frame f;
+        std::string id = it->id;
+
+        f.p = it->getFrame().p;
+        f.M = KDL::Rotation::RPY(0, 0, start);
+
+        pathWithRotation.push_back(FrameWithId(f, id));
+
+        start = start + step;
+    }
+
+}
+
 void pathCallback(const nav_msgs::Path& path) {
-    std::vector<FrameWithId> pathKDL;
-    conversions::pathRosToPath(path, pathKDL);
-    ROS_INFO("Path size: %u", pathKDL.size());
+    std::vector<FrameWithId> pathFWI;
+    conversions::pathRosToPath(path, pathFWI);
+    ROS_INFO("Path size: %u", pathFWI.size());
+
+    /*
+     * This is ugly and should really be part of trajectory generation, however
+     * ITrajeczoryGenerator is (currently) defined as expecting a path including
+     * rotation, i.e. poses instead of positions.
+     */
+    std::vector<FrameWithId> pathWithRotation;
+    interpolateRotation(pathFWI, pathWithRotation);
+
+    KDL::Path_Composite pathComposite;
+    computePathComposite(pathWithRotation, pathComposite);
+    /* End of what should go into trajectory generation. */
 
     KDL::Trajectory_Composite trajectoryKDL;
-    trajectoryGenerator->computeTrajectroy(pathKDL, trajectoryKDL);
+
+    trajectoryGenerator->computeTrajectroy(pathComposite, trajectoryKDL);
 
     startTime = ros::Time::now();
     controller->setTargetTrajectory(trajectoryKDL);
