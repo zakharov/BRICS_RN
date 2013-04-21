@@ -47,10 +47,12 @@
 #include <kdl/path_line.hpp>
 #include <kdl/path_point.hpp>
 #include <kdl/rotational_interpolation_sa.hpp>
+#include <kdl/trajectory_composite.hpp>
 #include "tf/transform_datatypes.h"
 
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/TwistWithId.h"
+#include "navigation_trajectory_common/KdlStream.h"
 
 /**
  * @brief Conversions between ROS, BRICS_RN and KDL data types. 
@@ -453,6 +455,48 @@ namespace conversions {
             std::vector<FrameWithId>::const_iterator it = path.begin();
             FrameWithId p1 = *it;
             pathKDL.Add(new KDL::Path_Point(p1.getFrame()), true);
+        }
+    }
+
+    /**
+     * @brief Conversion of a KDL::Trajectory_Composite to a ROS message.
+     *
+     * This function convertes a KDL trajectory into a simple, string-based ROS
+     * message to use with ROS node wrappers around BRICS_RN (or KDL) classes.
+     *
+     * @param[in] KDL::Trajectory_Composite - input trajectory.
+     * @param[out] navigation_trajectory_common::KdlStream - result of conversion.
+     */
+    inline void trajectoryKdlToRosKdlStream(const KDL::Trajectory_Composite &trajectory, navigation_trajectory_common::KdlStream &trajectoryMsg) {
+        std::stringstream buffer;
+        trajectory.Write(buffer);
+        trajectoryMsg.KDLstream = buffer.str();
+    }
+
+    /**
+     * @brief Conversion of a ROS KdlStream message to a KDL::Trajectory_Composite.
+     *
+     * This function convertes a ROS KdlStream message to a KDL trajectory.  To
+     * be use with ROS node wrappers around BRICS_RN (or KDL) classes.
+     *
+     * @param[in] navigation_trajectory_common::KdlStream - input trajectory message.
+     * @param[out] KDL::Trajectory_Composite - result of conversion.
+     */
+    inline void rosKdlStreamToTrajectoryKdl(const navigation_trajectory_common::KdlStream &trajectoryMsg, KDL::Trajectory_Composite &trajectory) {
+
+        std::stringstream buffer;
+        buffer.str(trajectoryMsg.KDLstream);
+        char tmpBuf[80];
+        KDL::EatWord(buffer, "[", tmpBuf, 80);
+        if (strcmp(tmpBuf, "COMPOSITE") != 0) {
+            ROS_WARN("Failed to read trajectory message!");
+            return;
+        }
+        KDL::Eat(buffer, "[");
+        int c = buffer.peek();
+        while (c != ']' && !buffer.eof()) {
+            trajectory.Add(KDL::Trajectory::Read(buffer));
+            c=buffer.peek();
         }
     }
 
