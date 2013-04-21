@@ -58,44 +58,6 @@ ros::Time startTime;
 
 ros::Publisher debugPath;
 
-void poseRosToPose2d(const geometry_msgs::Pose& pose, Pose2D& pose2d) {
-
-    double x = pose.position.x;
-    double y = pose.position.y;
-    double theta = tf::getYaw(pose.orientation);
-
-    pose2d = Pose2D(x, y, theta);
-}
-
-void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
-
-    double x = twist.linear.x;
-    double y = twist.linear.y;
-    double theta = twist.angular.z;
-
-    twist2d = Twist2D(x, y, theta);
-
-}
-
-void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
-
-    pose.position.x = pose2d.getX();
-    pose.position.y = pose2d.getY();
-    tf::Quaternion quat;
-
-    quat.setRPY(0, 0, pose2d.getTheta());
-    tf::quaternionTFToMsg(quat, pose.orientation);
-
-}
-
-void twist2dToTwistRos(const Twist2D& twist2d, geometry_msgs::Twist& twist) {
-
-    twist.linear.x = twist2d.getX();
-    twist.linear.y = twist2d.getY();
-    twist.angular.z = twist2d.getTheta();
-
-}
-
 void odomCallback(const nav_msgs::Odometry& odometry) {
 
     const geometry_msgs::Pose pose = odometry.pose.pose;
@@ -104,8 +66,8 @@ void odomCallback(const nav_msgs::Odometry& odometry) {
     Pose2D pose2d;
     Twist2D twist2d;
 
-    poseRosToPose2d(pose, pose2d);
-    twistRosToTwist2d(twist, twist2d);
+    conversions::poseRosToPose2d(pose, pose2d);
+    conversions::twistRosToTwist2d(twist, twist2d);
 
     actualOdometry = Odometry(pose2d, twist2d);
 
@@ -129,8 +91,8 @@ void publishOdometry(const Odometry& odometry) {
 
     geometry_msgs::Twist twist;
     geometry_msgs::Pose pose;
-    pose2dToPoseRos(odometry.getPose2D(), pose);
-    twist2dToTwistRos(odometry.getTwist2D(), twist);
+    conversions::pose2dToPoseRos(odometry.getPose2D(), pose);
+    conversions::twist2dToTwistRos(odometry.getTwist2D(), twist);
 
     nav_msgs::Odometry odomRos;
     odomRos.pose.pose = pose;

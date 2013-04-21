@@ -44,6 +44,7 @@
 #include <nav_msgs/Path.h>
 #include <kdl/frames.hpp>
 #include <kdl/path_composite.hpp>
+#include "tf/transform_datatypes.h"
 
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/TwistWithId.h"
@@ -91,6 +92,36 @@ namespace conversions {
     }
 
     /**
+     * @brief Conversion from geometry_msgs::Twist ROS message to Twist2D data type.
+     * 
+     * Convert the geometry_msgs::Twist into a Twist2D instance, returned by
+     * assignment to the suppliedd @p twist2d parametrer.
+     * 
+     * @param[in] geometry_msgs::Twist - twist ROS message.
+     * @param[out] TwistWithId - converted twist.
+     */
+    inline void twistRosToTwist2d(const geometry_msgs::Twist& twist, Twist2D& twist2d) {
+        double x = twist.linear.x;
+        double y = twist.linear.y;
+        double theta = twist.angular.z;
+        twist2d = Twist2D(x, y, theta);
+    }
+    
+    /**
+     * @brief Conversion from Twist2D data type to geometry_msgs::Twist ROS message.
+     * 
+     * Convert the Twist2D into a geometry_msgs::Twist instance.
+     * 
+     * @param[in] TwistWithId - twist object.
+     * @param[out] geometry_msgs::Twist - converted twist ROS message.
+     */
+    inline void twist2dToTwistRos(const Twist2D& twist2d, geometry_msgs::Twist& twist) {
+        twist.linear.x = twist2d.getX();
+        twist.linear.y = twist2d.getY();
+        twist.angular.z = twist2d.getTheta();
+    }
+
+    /**
      * @brief Conversion from geometry_msgs::Pose ROS message to FrameWithId data type.
      * 
      * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame 
@@ -121,6 +152,22 @@ namespace conversions {
      */
     inline void poseStampedRosToFrame(const geometry_msgs::PoseStamped& poseStamped, FrameWithId& pose) {
         poseRosToFrame(poseStamped.pose, poseStamped.header.frame_id, pose);
+    }
+
+    /**
+     * @brief Conversion from geometry_msgs::Pose ROS message to Pose2D data type.
+     * 
+     * Convert the ROS pose in a Pose2D instance and return the Pose2D by
+     * assigning to the supplied @p pose2d. 
+     * 
+     * @param[in] geometry_msgs::Pose - pose ROS message.
+     * @param[out] Pose2D - result of the conversion.
+     */
+    inline void poseRosToPose2d(const geometry_msgs::Pose& pose, Pose2D& pose2d) {
+        double x = pose.position.x;
+        double y = pose.position.y;
+        double theta = tf::getYaw(pose.orientation);
+        pose2d = Pose2D(x, y, theta);
     }
 
     /**
@@ -156,6 +203,23 @@ namespace conversions {
      */
     inline void frameToPoseStampedRos(const FrameWithId& pose, geometry_msgs::PoseStamped& poseStamped) {
         frameToPoseRos(pose, poseStamped.pose, poseStamped.header.frame_id);
+    }
+
+    /**
+     * @brief Conversion from Pose2D type to geometry_msgs::Pose ROS message.
+     *
+     * Convert the Pose2D instance to a ROS geometry_msgs::Pose instance.
+     * 
+     * @param[in] Pose2D - input pose, including location and orientation.
+     * @param[out] geometry_msgs::Pose - converted pose to a ROS message .
+     */
+    inline void pose2dToPoseRos(const Pose2D& pose2d, geometry_msgs::Pose& pose) {
+        pose.position.x = pose2d.getX();
+        pose.position.y = pose2d.getY();
+        tf::Quaternion quat;
+
+        quat.setRPY(0, 0, pose2d.getTheta());
+        tf::quaternionTFToMsg(quat, pose.orientation);
     }
 
     /**
