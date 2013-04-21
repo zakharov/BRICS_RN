@@ -122,22 +122,33 @@ namespace conversions {
     }
 
     /**
+     * @brief Conversion from geometry_msgs::Pose ROS message to KDL::Frame data type.
+     * 
+     * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame.
+     * 
+     * @param[in] geometry_msgs::Pose - pose ROS message.
+     * @param[out] KDL::Frame - result of the conversion.
+     */
+    inline void poseRosToFrameKdl(const geometry_msgs::Pose& poseRos, KDL::Frame& frame) {
+        const geometry_msgs::Quaternion& orientation = poseRos.orientation;
+        const geometry_msgs::Point& position = poseRos.position;
+        frame.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
+        frame.p = KDL::Vector(position.x, position.y, position.z);
+    }
+
+    /**
      * @brief Conversion from geometry_msgs::Pose ROS message to FrameWithId data type.
      * 
-     * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame 
-     * wrapped in side a FrameWithID instance. 
-     * 
+     * Convert the ROS pose in a KDL::Frame instance and return the KDL::Frame
+     * wrapped in side a FrameWithID instance.  Uses poseRosToFrameKdl().
+     *
      * @param[in] geometry_msgs::Pose - pose ROS message.
      * @param[in] std::string - frame id.
      * @param[out] FrameWithId - result of the conversion.
      */
     inline void poseRosToFrame(const geometry_msgs::Pose& poseRos, const std::string& id, FrameWithId& pose) {
-        const geometry_msgs::Quaternion& orientation = poseRos.orientation;
-        const geometry_msgs::Point& position = poseRos.position;
         pose.id = id;
-        KDL::Frame& poseKDL = pose.getFrame();
-        poseKDL.M = KDL::Rotation::Quaternion(orientation.x, orientation.y, orientation.z, orientation.w);
-        poseKDL.p = KDL::Vector(position.x, position.y, position.z);
+        poseRosToFrameKdl(poseRos, pose.getFrame());
     }
 
     /**
@@ -171,10 +182,29 @@ namespace conversions {
     }
 
     /**
+     * @brief Conversion from KDL::Frame data type to geometry_msgs::Pose ROS message.
+     *
+     * Convert the KDL::Frame instance to a ROS geometry_msgs::Pose instance.
+     *
+     * @param[in] KDL::Frame - input frame, i.e. location and orientation.
+     * @param[out] geometry_msgs::Pose - converted pose to a ROS message .
+     */
+    inline void frameKdlToPoseRos(const KDL::Frame& frame, geometry_msgs::Pose& poseRos) {
+        frame.M.GetQuaternion(poseRos.orientation.x,
+                poseRos.orientation.y,
+                poseRos.orientation.z,
+                poseRos.orientation.w);
+        poseRos.position.x = frame.p.x();
+        poseRos.position.y = frame.p.y();
+        poseRos.position.z = frame.p.z();
+    }
+
+    /**
      * @brief Conversion from FrameWithId data type to geometry_msgs::Pose ROS message.
      *
      * Convert the FrameWithID instance to a ROS geometry_msgs::Pose instance and
-     * return the ID of the FrameWithId as a separate result parameter.
+     * return the ID of the FrameWithId as a separate result parameter.  Uses
+     * frameKdlToPoseRos().
      * 
      * @param[in] FrameWithId - input frame, including frame id, location and orientation.
      * @param[out] geometry_msgs::Pose - converted pose to a ROS message .
@@ -182,21 +212,15 @@ namespace conversions {
      */
     inline void frameToPoseRos(const FrameWithId& pose, geometry_msgs::Pose& poseRos, std::string& id) {
         id = pose.id;
-        const KDL::Frame& poseKDL = pose.getFrame();
-        poseKDL.M.GetQuaternion(poseRos.orientation.x,
-                poseRos.orientation.y,
-                poseRos.orientation.z,
-                poseRos.orientation.w);
-        poseRos.position.x = poseKDL.p.x();
-        poseRos.position.y = poseKDL.p.y();
-        poseRos.position.z = poseKDL.p.z();
+        frameKdlToPoseRos(pose.getFrame(), poseRos);
     }
 
     /**
      * @brief Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message.
      *
      * Convert the FrameWithID instance to a ROS geometry_msgs::PoseStamped instance. 
-     * The FrameWithId::id member is copied to geometry_msgs::PoseStamped::header::frame_id
+     * The FrameWithId::id member is copied to geometry_msgs::PoseStamped::header::frame_id.
+     * This uses frameToPoseRos().
      * 
      * @param[in] FrameWithId - input frame, including frame id, location and orientation.
      * @param[out] geometry_msgs::PoseStamped - converted pose and frame id to a ROS message.
@@ -316,39 +340,73 @@ namespace conversions {
         twist = KDL::Twist(KDL::Vector(twist2d.getX(), twist2d.getY(), 0), KDL::Vector(0, 0, twist2d.getTheta()));
     }
 
-
-/*
-    / **
+    /**
      * @brief Conversion of a nav_msgs::Path ROS message to KDL::Path_Composite KDL path data type.
+     *
+     * This function convertes an arbitrary ROS path (composed of poses, i.e.
+     * positions with associated orientations) to a KDL path.  The ROS path can
+     * be any mixture of transaltional, rotational or compbined translational-roatational
+     * segments.  Path segments that rotate on the spot are supported.
+     *
+     * The parameter @p eqradius assigns rotational motions a "length".  To be able
+     * to traverse the path, we need a way to parametrize the whole motion,
+     * translational and rotational combined as a 3D curve in the space of
+     * translation and orientation (x,y,theta), by a single monotonic parameter
+     * @c s, the generalized curve length.  For purely translational motion,
+     * this is just the euclidian length of the path segment.  For rotational
+     * motion, the change in orientation is translated in a curve length by taking
+     * the length of an arc spanning the angular change in orientation on a
+     * circle of radius @p eqradius.  For a segment describing a simultaneous
+     * translation and rotation, the longer of the pure translational curve
+     * length and the rotational cureve length is taken, i.e. we do @em not
+     * calculate the true path integral.
+     *
+     * Good values for @p eqradius depend on the intended use of the constructed
+     * path and possible on the kinematic constraints of the vehicle later
+     * executing the path.  As a rule of thumb:
+     * - if you want to later (re)sample the path with an euclidian step size @c es
+     * and an angular step size of @c as, set @p eqradius such that @c as given
+     * an arc length of @c es: @c eq = @c es / @c as.
+     * - similar, if you know the maximum rotational and translational velocities
+     * of the vehicle, make the arc length at maximum turn rate @c tr in a time step
+     * match the translation distance at maximum speed @c ms in a time step:
+     * @c eq = @c ms / @c tr.
+     * - If no better information is available, try 0.5, matching 0.1 meter with
+     * roughly 10 degree.
+     *
      * @param[in] nav_msgs::Path - input path.
+     * @param[in] double eqradius - equivalence radius for rotational components, see details.
      * @param[out] KDL::Path_Composite - result of conversion.
-     * /
-    inline void pathRosToPath(const nav_msgs::Path& pathRos, KDL::Path_Composite& path) {
-
+     */
+    inline void pathRosToPathKdl(const nav_msgs::Path& pathRos, double eqradius, KDL::Path_Composite& path) {
 
         if (pathRos.poses.size() > 1) {
 
-            std::vector<geometry_msgs::PoseStamped>::const_iterator it;
-            geometry_msgs::PoseStamped p1 = pathRos.poses.front();
+            std::vector<geometry_msgs::PoseStamped>::const_iterator it = pathRos.poses.begin();
+            geometry_msgs::PoseStamped p1 = *it;
+            it++;
             geometry_msgs::PoseStamped p2;
 
-            for (it = pathRos.poses.begin() + 1; it != pathRos.poses.end(); ++it) {
+            KDL::Frame f1Kdl;
+            poseRosToFrameKdl(p1.pose, f1Kdl);
+
+            KDL::Frame f2Kdl;
+            for (/* nothing */ ; it != pathRos.poses.end(); it++) {
                 p2 = *it;
-                FrameWithId f1, f2;
-                poseStampedRosToFrame(p1, f1);
-                poseStampedRosToFrame(p2, f2);
+                poseRosToFrameKdl(p2.pose, f2Kdl);
 
-                KDL::Frame f1Kdl = f1.getFrame();
-                KDL::Frame f2Kdl = f2.getFrame();
-
-                KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), 0.0001);
-                path.Add(pathLine);
+                KDL::Path_Line* pathLine = new KDL::Path_Line(f1Kdl, f2Kdl, new KDL::RotationalInterpolation_SingleAxis(), eqradius);
+                path.Add(pathLine, true);
 
                 p1 = p2;
+                f1Kdl = f2Kdl;
             }
 
+        } else if (pathRos.poses.size() == 1) {
+            ROS_WARN("Adding a single point to KDL::Path_composite.  Expect problems later on.");
+            path.Add(new KDL::Path_Point(f1Kdl), true);
         }
-    }*/
+    }
 
 }
 #endif	/* CONVERSIONS_H */
