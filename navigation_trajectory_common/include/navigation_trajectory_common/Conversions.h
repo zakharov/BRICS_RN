@@ -44,6 +44,9 @@
 #include <nav_msgs/Path.h>
 #include <kdl/frames.hpp>
 #include <kdl/path_composite.hpp>
+#include <kdl/path_line.hpp>
+#include <kdl/path_point.hpp>
+#include <kdl/rotational_interpolation_sa.hpp>
 #include "tf/transform_datatypes.h"
 
 #include "navigation_trajectory_common/FrameWithId.h"
@@ -404,7 +407,52 @@ namespace conversions {
 
         } else if (pathRos.poses.size() == 1) {
             ROS_WARN("Adding a single point to KDL::Path_composite.  Expect problems later on.");
+            std::vector<geometry_msgs::PoseStamped>::const_iterator it = pathRos.poses.begin();
+            geometry_msgs::PoseStamped p1 = *it;
+            KDL::Frame f1Kdl;
             path.Add(new KDL::Path_Point(f1Kdl), true);
+        }
+    }
+
+    /**
+     * @brief Conversion of a std::vector<FrameWithId> to KDL::Path_Composite KDL path data type.
+     *
+     * This function convertes an arbitrary path (composed of Frames, i.e.
+     * positions with associated orientations) to a KDL path.  The path can
+     * be any mixture of transaltional, rotational or compbined translational-roatational
+     * segments.  Path segments that rotate on the spot are supported.
+     *
+     * The parameter @p eqradius assigns rotational motions a "length".  See
+     * detailed description of pathRosToPathKdl() for in-depth discussion of
+     * this parameter.
+     *
+     * @param[in] nav_msgs::Path - input path.
+     * @param[in] double eqradius - equivalence radius for rotational components, see details.
+     * @param[out] KDL::Path_Composite - result of conversion.
+     */
+    inline void pathToPathKdl(const std::vector<FrameWithId>& path, double eqradius, KDL::Path_Composite& pathKDL) {
+
+        if (path.size() > 1) {
+
+            std::vector<FrameWithId>::const_iterator it = path.begin();
+            FrameWithId p1 = *it;
+            it++;
+            FrameWithId p2;
+
+            for (/* nothing */ ; it != path.end(); it++) {
+                p2 = *it;
+
+                KDL::Path_Line* pathLine = new KDL::Path_Line(p1.getFrame(), p2.getFrame(), new KDL::RotationalInterpolation_SingleAxis(), eqradius);
+                pathKDL.Add(pathLine, true);
+
+                p1 = p2;
+            }
+
+        } else if (path.size() == 1) {
+            ROS_WARN("Adding a single point to KDL::Path_composite.  Expect problems later on.");
+            std::vector<FrameWithId>::const_iterator it = path.begin();
+            FrameWithId p1 = *it;
+            pathKDL.Add(new KDL::Path_Point(p1.getFrame()), true);
         }
     }
 
