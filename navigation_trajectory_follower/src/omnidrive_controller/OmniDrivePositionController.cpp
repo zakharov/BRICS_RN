@@ -38,7 +38,6 @@
  ******************************************************************************/
 
 #include "OmniDrivePositionController.h"
-#include "ConversionUtils.h"
 
 #include <ros/ros.h>
 #include <kdl/frames.hpp>

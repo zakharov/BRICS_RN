@@ -290,6 +290,33 @@ namespace conversions {
         pathRosToPath(pathRos.poses, path);
     }
 
+    /**
+     * @brief Conversion of a Pose2D to a KDL::Frame.
+     *
+     * Convert the Pose2D into a KDL::Frame instance.  The generated KDL::Frame
+     * will have its Z coordinate and its roll and pitch rotation set to zero.
+     * 
+     * @param[in] Pose2D - input pose.
+     * @param[out] KDL::Frame - result of conversion.
+     */
+    inline void pose2dToFrameKdl(const Pose2D& pose2d, KDL::Frame& pose) {
+        pose = KDL::Frame(KDL::Rotation::RPY(0, 0, pose2d.getTheta()), KDL::Vector(pose2d.getX(), pose2d.getY(), 0));
+    }
+
+    /**
+     * @brief Conversion from Twist2D data type to KDL::Twist.
+     * 
+     * Convert the Twist2D into a KDL::Twist instance.  The generated KDL::Twist
+     * will have its Z translation and its rotation around X and Y set to zero.
+     * 
+     * @param[in] TwistWithId - twist object.
+     * @param[out] KDL::Twist - converted twist object.
+     */
+     inline void twist2dToTwistKdl(const Twist2D& twist2d, KDL::Twist& twist) {
+        twist = KDL::Twist(KDL::Vector(twist2d.getX(), twist2d.getY(), 0), KDL::Vector(0, 0, twist2d.getTheta()));
+    }
+
+
 /*
     / **
      * @brief Conversion of a nav_msgs::Path ROS message to KDL::Path_Composite KDL path data type.
