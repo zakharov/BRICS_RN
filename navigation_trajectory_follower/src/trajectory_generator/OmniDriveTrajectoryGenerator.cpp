@@ -41,6 +41,7 @@
 
 #include <navigation_trajectory_common/FrameWithId.h>
 #include <navigation_trajectory_common/TwistWithId.h>
+#include <navigation_trajectory_common/Utilities.h>
 
 #include <kdl/velocityprofile_trap.hpp>
 #include <kdl/rotational_interpolation_sa.hpp>
@@ -60,10 +61,6 @@ OmniDriveTrajectoryGenerator::OmniDriveTrajectoryGenerator(const OmniDriveTrajec
 }
 
 OmniDriveTrajectoryGenerator::~OmniDriveTrajectoryGenerator() {
-}
-
-float OmniDriveTrajectoryGenerator::getShortestAngle(float goalAngle, float actualAngle) {
-    return atan2(sin(goalAngle - actualAngle), cos(goalAngle - actualAngle));
 }
 
 void OmniDriveTrajectoryGenerator::computePathComposite(const std::vector<FrameWithId>& path, KDL::Path_Composite& pathComposite) {
@@ -105,7 +102,7 @@ void OmniDriveTrajectoryGenerator::interpolateRotation(const std::vector<FrameWi
 
     path.back().getFrame().M.GetRPY(r, p, y);
     double end = y;
-    double step = getShortestAngle(end, start) / (path.size() - 1);
+    double step = utilities::getShortestAngle(end, start) / (path.size() - 1);
 
 
     std::vector<FrameWithId>::const_iterator it;

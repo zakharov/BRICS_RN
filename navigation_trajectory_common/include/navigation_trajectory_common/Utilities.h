@@ -122,6 +122,16 @@ namespace utilities {
 
     }
 
+    /**
+     * @brief Computes shortest angle.
+     * @param[in] goalAngle - 1st angle.
+     * @param[in] actualAngle - 2nd angle.
+     * @return shortest angle
+     */
+    inline float getShortestAngle(float goalAngle, float actualAngle) {
+        return atan2(sin(goalAngle - actualAngle), cos(goalAngle - actualAngle));
+    }
+
 }
 
 #endif	/* UTILITIES_H */

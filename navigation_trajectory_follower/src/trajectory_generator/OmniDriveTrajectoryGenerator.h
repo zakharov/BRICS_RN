@@ -72,14 +72,6 @@ public:
     virtual ~OmniDriveTrajectoryGenerator();
 
     /**
-     * @brief Computes shortest angle.
-     * @param[in] goalAngle - 1st angle.
-     * @param[in] actualAngle - 2nd angle.
-     * @return shortest angle
-     */
-    float getShortestAngle(float goalAngle, float actualAngle);
-
-    /**
      * @brief Converts vector of FrameWithId to KDL::Path_Composite.
      * @param[in] path - input path as a vector of FrameWithId.
      * @param[out] pathComposite - converted path to KDL::Path_Composite.

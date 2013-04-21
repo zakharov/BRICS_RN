@@ -40,6 +40,7 @@
 #include "trajectory_generator/OmniDriveTrajectoryGenerator.h"
 
 #include "navigation_trajectory_common/Conversions.h"
+#include "navigation_trajectory_common/Utilities.h"
 #include "navigation_trajectory_follower/TrajectoryFollowerNode.h"
 
 #include "tf/transform_datatypes.h"
@@ -47,6 +48,10 @@
 #include "nav_msgs/Path.h"
 #include "geometry_msgs/Twist.h"
 
+#include <kdl/rotational_interpolation_sa.hpp>
+#include <kdl/path_line.hpp>
+#include <kdl/path_composite.hpp>
+#include <kdl/trajectory_segment.hpp>
 #include "kdl/trajectory_composite.hpp"
 
 using namespace std;
