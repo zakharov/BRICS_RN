@@ -78,7 +78,7 @@ void pathCallback(const nav_msgs::Path& path) {
 
     std::vector<FrameWithId> pathKDL;
     conversions::pathRosToPath(path, pathKDL);
-    ROS_INFO("Path size: %lu", pathKDL.size());
+    ROS_INFO("Path size: %u", pathKDL.size());
 
     KDL::Trajectory_Composite trajectoryKDL;
     trajectoryGenerator.computeTrajectroy(pathKDL, trajectoryKDL);
