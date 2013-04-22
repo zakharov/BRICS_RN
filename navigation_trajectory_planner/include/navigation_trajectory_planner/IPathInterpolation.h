@@ -64,8 +64,14 @@ class IPathInterpolation {
      * the desired cartessian distance between waypoints, or by specifying the total 
      * number of waypoints to use.  The behavior, when both are specified, depends on 
      * the actual implementation, see the path interpolation implementation classes.  
-     * In general, the behavior in that case is not defined.
-     * 
+     * In general, the behavior in that case is not defined.  Setting both @p step
+     * and @p numberOfSteps to zero is unsupported.
+     *
+     * Note that paths, which consists mainly of rotational motion (e.g. turn
+     * (almost) on the spot), can not be interploated if specifying the cartessian
+     * step size.  Instead, specify the number of desired waypoints @p numberOfSteps
+     * and @p step to zero. 
+     *
      * In a sense, this is the opposite operation of path approximation as performed
      * by the IPathApproximate classes. 
      * 

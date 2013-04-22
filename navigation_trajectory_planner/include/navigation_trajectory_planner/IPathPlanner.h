@@ -53,6 +53,10 @@ public:
     
     /**
      * @brief An interface for path planning.
+     *
+     * This call computes a geometric path including orientation.  I.e. the
+     * returned path is expected to be 3D in the plane, specifying x,y and theta.
+     *
      * @param[in] start - FrameWithId start position for a planner.
      * @param[in] goal - FrameWithId goal position for a planner.
      * @param[out] path - std::vector <FrameWithId> computed path
