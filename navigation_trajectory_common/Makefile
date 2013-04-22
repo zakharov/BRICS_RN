@@ -345,6 +345,21 @@ src/FrameWithId.s:
 .PHONY : src/FrameWithId.s
 
 # target to build an object file
+src/Pose2D.o:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Pose2D.o
+.PHONY : src/Pose2D.o
+
+# target to preprocess a source file
+src/Pose2D.i:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Pose2D.i
+.PHONY : src/Pose2D.i
+
+# target to generate assembly for a file
+src/Pose2D.s:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Pose2D.s
+.PHONY : src/Pose2D.s
+
+# target to build an object file
 src/Stopwatch.o:
 	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Stopwatch.o
 .PHONY : src/Stopwatch.o
@@ -373,6 +388,21 @@ src/TrajectoryWithId.i:
 src/TrajectoryWithId.s:
 	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/TrajectoryWithId.s
 .PHONY : src/TrajectoryWithId.s
+
+# target to build an object file
+src/Twist2D.o:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Twist2D.o
+.PHONY : src/Twist2D.o
+
+# target to preprocess a source file
+src/Twist2D.i:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Twist2D.i
+.PHONY : src/Twist2D.i
+
+# target to generate assembly for a file
+src/Twist2D.s:
+	$(MAKE) -f CMakeFiles/trajectory_common.dir/build.make CMakeFiles/trajectory_common.dir/src/Twist2D.s
+.PHONY : src/Twist2D.s
 
 # target to build an object file
 src/TwistWithId.o:
@@ -418,12 +448,18 @@ help:
 	@echo "... src/FrameWithId.o"
 	@echo "... src/FrameWithId.i"
 	@echo "... src/FrameWithId.s"
+	@echo "... src/Pose2D.o"
+	@echo "... src/Pose2D.i"
+	@echo "... src/Pose2D.s"
 	@echo "... src/Stopwatch.o"
 	@echo "... src/Stopwatch.i"
 	@echo "... src/Stopwatch.s"
 	@echo "... src/TrajectoryWithId.o"
 	@echo "... src/TrajectoryWithId.i"
 	@echo "... src/TrajectoryWithId.s"
+	@echo "... src/Twist2D.o"
+	@echo "... src/Twist2D.i"
+	@echo "... src/Twist2D.s"
 	@echo "... src/TwistWithId.o"
 	@echo "... src/TwistWithId.i"
 	@echo "... src/TwistWithId.s"
