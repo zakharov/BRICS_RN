@@ -98,10 +98,7 @@ Next we need the BRICS_RN software:
  cd BRICS_RN
  rosmake BRICS_RN
 
-
-
-
-
-
+This will compile the BRICS_RN library including the provided example ROS nodes,
+which show how to use the libraries in one's own projects.
 
 */

@@ -1,0 +1,66 @@
+/*!
+
+@page examples Examples
+
+This page summarizes examples on how to use the BRICS_RN library.  By contrast to 
+for example the BRICS_3D library, which can be used stand-alone, we need a target
+robot platform to demonstrate robot navigation.  This examples will use the youBot
+platform as an example of an omnidirectional mobile base.  All examples below have
+been tested with a simulated youBot and are expected to work unmodified on real hardware.
+
+To simplify installation and setup, we will use a preconfigured ROS image available 
+from http://nootrix.com/downloads/ (linked from http://www.ros.org/wiki/fuerte/Installation) 
+as our foundation.  Please make sure you pick the ROS fuerte virtual machine image 
+since this examples have only been tested against fuerte.  See section ROS installation 
+for BRICS_RN demos on how setup your environment.
+
+Following the ROS tutorials approach (and resusing some of their code), we will start 
+with a simple tele-operated robot (no BRICS_RN involved), then gradually enhance its
+functionality and afterwards swap in BRICS_RN components to show how using BRICS_RN 
+simplifies the code needed to implement robot navigation while at the same time enhances 
+functionality.
+
+The following examples are available:
+
+- @ref examples
+ - @ref examples_install
+ - @ref examples_skeleton (no BRICS_RN)
+ - @ref examples_simple_goal (no BRICS_RN)
+ - @ref demo_example
+ - @ref pointcloud_viewer
+ - @ref world_model_example
+
+@section demo_example Demo application
+The BRIC_3D_Demo program demonstrates some core capabilities of the BRICS_3D library.
+It will start by loading either a depth image or a point cloud,
+down-sample the data in an Octree-based filtering step,
+optionally register two point clouds into common coordinate system,
+creates triangle mesh and visualize the result.
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@include BRICS_3D_Demo.cpp
+
+
+@section pointcloud_viewer Simple point cloud viewer
+
+Simple point cloud viewer program loads a point cloud from a txt file, optionally filters the data with an Octree based
+sub-sampling filter to reduce the data and finally visualizes the result.
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@include pointcloud_viewer.cpp
+
+
+@section world_model_example World model sample application
+
+This world model example shows how to initialize a world model, add a SceneObject, formulate a Query to find this SceneObject 
+and browse the result. 
+
+The programs sources are listed below. Find further explanation inline in the code.
+
+@dontinclude WorldModelTest.cpp 
+@skip testSimpleHanoiUseCase
+@until testTowerOfHanoi
+
+*/
