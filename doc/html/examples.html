@@ -43,36 +43,36 @@
 <div class="contents">
 <div class="textblock"><p>This page summarizes examples on how to use the BRICS_RN library. By contrast to for example the BRICS_3D library, which can be used stand-alone, we need a target robot platform to demonstrate robot navigation. This examples will use the youBot platform as an example of an omnidirectional mobile base. All examples below have been tested with a simulated youBot and are expected to work unmodified on real hardware.</p>
 <p>To simplify installation and setup, we will use a preconfigured ROS image available from <a href="http://nootrix.com/downloads/">http://nootrix.com/downloads/</a> (linked from <a href="http://www.ros.org/wiki/fuerte/Installation">http://www.ros.org/wiki/fuerte/Installation</a>) as our foundation. Please make sure you pick the ROS fuerte virtual machine image since this examples have only been tested against fuerte. See section ROS installation for BRICS_RN demos on how setup your environment.</p>
-<p>Following the ROS tutorials approach (and resusing some of their code), we will start with a simple tele-operated robot (no BRICS_RN involved), then gradually enhance its functionality and afterwards swap in BRICS_RN components to show how using BRICS_RN simplifies the code needed to implement robot navigation while at the same time enhances functionality.</p>
 <p>The following examples are available:</p>
 <ul>
 <li><a class="el" href="examples.html">Examples</a><ul>
 <li><a class="el" href="examples_install.html">"ROS installation for BRICS_RN demos"</a></li>
 <li>examples_skeleton (no BRICS_RN)</li>
 <li>examples_simple_goal (no BRICS_RN)</li>
-<li><a class="el" href="examples.html#demo_example">Demo application</a></li>
-<li><a class="el" href="examples.html#pointcloud_viewer">Simple point cloud viewer</a></li>
-<li><a class="el" href="examples.html#world_model_example">World model sample application</a></li>
 </ul>
 </li>
 </ul>
 <h1><a class="anchor" id="demo_example"></a>
 Demo application</h1>
-<p>The BRIC_3D_Demo program demonstrates some core capabilities of the BRICS_3D library. It will start by loading either a depth image or a point cloud, down-sample the data in an Octree-based filtering step, optionally register two point clouds into common coordinate system, creates triangle mesh and visualize the result.</p>
-<p>The programs sources are listed below. Find further explanation inline in the code.</p>
-<div class="fragment"></div><!-- fragment --><h1><a class="anchor" id="pointcloud_viewer"></a>
-Simple point cloud viewer</h1>
-<p>Simple point cloud viewer program loads a point cloud from a txt file, optionally filters the data with an Octree based sub-sampling filter to reduce the data and finally visualizes the result.</p>
-<p>The programs sources are listed below. Find further explanation inline in the code.</p>
-<div class="fragment"></div><!-- fragment --><h1><a class="anchor" id="world_model_example"></a>
-World model sample application</h1>
-<p>This world model example shows how to initialize a world model, add a SceneObject, formulate a Query to find this SceneObject and browse the result.</p>
-<p>The programs sources are listed below. Find further explanation inline in the code.</p>
- <div class="fragment"></div><!-- fragment --> </p>
+<p>Running the example system, which consists of two ROS nodes <code>TrajctoryFollowerNode</code> and <code>TrajectoryAdapterNode</code> (which for simplicity here includes the planner), follows the usual ROS procedure. First one has to start the <code>roscore</code>, then run the simulator or the real robot, before one can start the actual navigation system. Finally one needs to start some component which can send navigation goals to the navigation system. The BRICS_RN library comes with the necessary tools bundled in the <code>examples</code> folder. This folder contains:</p>
+<ul>
+<li>The brics_rn_demo_common package. <br/>
+ This package holds launch files to bring up a simulated youBot and the example navigation nodes. It also has a simple GUI client to send navigation goals to the navigation system.</li>
+<li>The Stage simulator under amr/amr_stage <br/>
+ This is an enhanced version of the standard Stage-4.1 simulator from the ros stage package.</li>
+<li>Multiple worlds for Stage under amr/amr_stage_worlds <br/>
+ These are various world definitions for Stage. By default, the "apartment" world is used, which is appropriate for a navigation / exploration test.</li>
+</ul>
+<p>To run the example ROS nodes, using the Stage simulator and a simulated youBot, execute the following in sequence: </p>
+<h1>Execute <code>rosmake</code> <code>brics_rn_demo_common</code>, if not done before. This builds</h1>
+<p>the GUI client and the Stage simulator and it dependencies. </p>
+<h1>Second, start the simulator: <code>roslaunch</code> <code>brics_rn_demo_common</code> <code>pathfollower_stage.launch</code>  Wait for Stage to fully load and initialize. Then run in a new terminal tab</h1>
+<p>or window: <code>rosservice</code> <code>call</code> <code>switch_ranger</code> <code>scan_front</code> lc true. This enables the front laser scanner of the simulated youBot. The laser scanner must be enabled before starting the navigation system, because the planner and trajectory adapter check if the front laser scanner is present and throw an error if not. </p>
+<h1>Start the actual navigation system: <code>roslaunch</code> <code>navigation_trajectory_follower</code>  <code>trajectory_follower.launch</code> and <code>roslaunch</code> <code>navigation_trajectory_planner</code> <code>trajectory_planner.launch}</code>. Start the GUI to enter navigation goals: <code>rosrun</code> <code>brics_rn_demo_common</code>  <code>pub_goal_gui.py</code>. After entering goal coordinates in the GUI window and pressing "Send", the robot should start moving in the Stage window. The inner working of the system can be monitored by for example listening on the topics between the planner and the follower, e.g. running @c rostopic <code>echo</code> <code>path</code>. Other interesting topics instead of "path" include the <code>simplifiedPath</code> topic and the <code>cmd_vel</code> topic. </h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Apr 22 2013 04:03:51 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 11:48:02 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
