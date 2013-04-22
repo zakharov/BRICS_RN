@@ -27,6 +27,8 @@ rosbuild_add_library(trajectory_common
     src/TwistWithId.cpp
     src/TrajectoryWithId.cpp
     src/Stopwatch.cpp
+    src/Pose2D.cpp
+    src/Twist2D.cpp
 )
 
 

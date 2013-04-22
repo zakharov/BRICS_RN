@@ -37,7 +37,7 @@
  *
  ******************************************************************************/
 
-#include "Twist2D.h"
+#include "navigation_trajectory_common/Twist2D.h"
 
 Twist2D::Twist2D() : x(0), y(0), theta(0) {
 

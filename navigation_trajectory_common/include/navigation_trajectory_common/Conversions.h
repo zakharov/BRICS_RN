@@ -52,6 +52,8 @@
 
 #include "navigation_trajectory_common/FrameWithId.h"
 #include "navigation_trajectory_common/TwistWithId.h"
+#include "navigation_trajectory_common/Pose2D.h"
+#include "navigation_trajectory_common/Twist2D.h"
 #include "navigation_trajectory_common/KdlStream.h"
 
 /**

@@ -38,7 +38,7 @@
  ******************************************************************************/
 
 #include "OmniDriveKinematicsModel.h"
-#include "Pose2D.h"
+#include "navigation_trajectory_common/Pose2D.h"
 #include "Odometry.h"
 #include <cmath>
 

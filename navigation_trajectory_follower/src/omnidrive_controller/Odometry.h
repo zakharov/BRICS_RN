@@ -40,8 +40,8 @@
 #ifndef ODOMETRY_H
 #define	ODOMETRY_H
 
-#include "Twist2D.h"
-#include "Pose2D.h"
+#include "navigation_trajectory_common/Twist2D.h"
+#include "navigation_trajectory_common/Pose2D.h"
 
 /**
  * @brief Class represents odometry data, which is an aggregation of Twist2D and Pose2D.
