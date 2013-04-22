@@ -24,9 +24,13 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/trajectory_generator)
 #common commands for building c++ executables and libraries
 rosbuild_add_executable(trajectory_follower_node 
     src/TrajectoryFollowerNode.cpp 
-    
-    
 )
+
+rosbuild_add_executable(trajectory_generator_node 
+    src/TrajectoryGeneratorNode.cpp 
+)
+
 target_link_libraries(trajectory_follower_node  trajectory_generator)
 target_link_libraries(trajectory_follower_node  omnidrive_controller)
 
+target_link_libraries(trajectory_generator_node  trajectory_generator)
