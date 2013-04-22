@@ -126,12 +126,12 @@
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    out.clear();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> counter = 0;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classDouglasPeuckerApproximation.html#a9d3d11c6606c89ddd214b8a301d293a3" title="Reduces the number of points of an input path by Ramer–Douglas–Peucker algorithm.">douglasPeucker</a>(inputCopy, out, counter, epsilon);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifdef DEBUG  </span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifdef DEBUG_0</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>    stopwatch.<a class="code" href="classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch.">stop</a>();</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;Douglas-Peucker approximation algorithm:&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - input size: %lu&quot;</span>, inputCopy.size());</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - input size: %u&quot;</span>, inputCopy.size());</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - epsilon: %f&quot;</span>, epsilon);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - output size: %lu&quot;</span>, out.size());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - output size: %u&quot;</span>, out.size());</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - iterations : %d&quot;</span>, counter);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="Logger_8h.html#a9003ea3ce8820662c77c762d8e98733b" title="simple printf() style logging.">LOG</a>(<span class="stringliteral">&quot;  - duration : %f ms&quot;</span>, stopwatch.<a class="code" href="classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds">getElapsedTime</a>());</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -180,7 +180,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 01:37:40 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 04:03:51 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

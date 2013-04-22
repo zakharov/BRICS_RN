@@ -2,6 +2,6 @@
 <area shape="rect" id="node2" href="$classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite." alt="" coords="269,5,485,46"/>
 <area shape="rect" id="node4" href="$classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="269,70,485,111"/>
 <area shape="rect" id="node5" href="$classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation." alt="" coords="269,135,485,177"/>
-<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="556,12,727,39"/>
-<area shape="rect" id="node6" href="$classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle." alt="" coords="533,135,749,177"/>
+<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="541,12,712,39"/>
+<area shape="rect" id="node6" href="$namespaceutilities.html#ac8f1c8f5f15b48a5a6d568fe3315b0bd" title="Computes shortest angle." alt="" coords="533,143,720,169"/>
 </map>

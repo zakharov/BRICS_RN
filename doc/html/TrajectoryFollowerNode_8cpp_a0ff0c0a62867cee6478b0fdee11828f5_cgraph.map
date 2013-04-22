@@ -1,8 +1,12 @@
 <map id="pathCallback" name="pathCallback">
-<area shape="rect" id="node2" href="$classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory." alt="" coords="157,5,373,46"/>
-<area shape="rect" id="node3" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="165,71,366,97"/>
-<area shape="rect" id="node7" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow." alt="" coords="189,122,341,163"/>
-<area shape="rect" id="node4" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="422,63,618,105"/>
-<area shape="rect" id="node5" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="667,71,882,97"/>
-<area shape="rect" id="node6" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="931,71,1101,97"/>
+<area shape="rect" id="node2" href="$TrajectoryFollowerNode_8cpp.html#aa6ce229fa17981e7cc3fe96d2acc3a29" title="computePathComposite" alt="" coords="673,28,850,54"/>
+<area shape="rect" id="node4" href="$classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312" title="Interface for trajectory generation." alt="" coords="183,64,335,106"/>
+<area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html#a4b4dd0cf361ac342ed3c9bb4218c0129" title="interpolateRotation" alt="" coords="187,130,331,157"/>
+<area shape="rect" id="node7" href="$namespaceconversions.html#a64014570cd9c648f6866b50a5ef6c513" title="Conversion of a geometry_msgs::PoseStamped vector to FrameWithId vector (a path)." alt="" coords="158,181,359,208"/>
+<area shape="rect" id="node11" href="$classIPositionController.html#aa63fdf343638b876488b90e7af2e9d08" title="Sets a trajectory to follow." alt="" coords="183,232,335,274"/>
+<area shape="rect" id="node3" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="949,57,1120,84"/>
+<area shape="rect" id="node6" href="$namespaceutilities.html#ac8f1c8f5f15b48a5a6d568fe3315b0bd" title="Computes shortest angle." alt="" coords="413,122,600,149"/>
+<area shape="rect" id="node8" href="$namespaceconversions.html#ab3936a8899dd2232e0b39df95e932aac" title="Conversion from geometry_msgs::PoseStamped ROS message to FrameWithId data type." alt="" coords="409,174,605,215"/>
+<area shape="rect" id="node9" href="$namespaceconversions.html#aec5feacdac6b6a033a1fba9505b846dd" title="Conversion from geometry_msgs::Pose ROS message to FrameWithId data type." alt="" coords="654,122,869,149"/>
+<area shape="rect" id="node10" href="$namespaceconversions.html#a3d5b6dc953c61c1a96da1cdc377933e7" title="Conversion from geometry_msgs::Pose ROS message to KDL::Frame data type." alt="" coords="917,122,1152,149"/>
 </map>

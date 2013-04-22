@@ -1,0 +1,5 @@
+<map id="pose2dToPoseRos" name="pose2dToPoseRos">
+<area shape="rect" id="node2" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="192,5,328,32"/>
+<area shape="rect" id="node3" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="205,56,315,83"/>
+<area shape="rect" id="node4" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="207,107,313,133"/>
+</map>

@@ -1,4 +1,5 @@
 <map id="navigation_trajectory_follower/src/trajectory_generator/OmniDriveTrajectoryGenerator.h" name="navigation_trajectory_follower/src/trajectory_generator/OmniDriveTrajectoryGenerator.h">
 <area shape="rect" id="node2" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="5,109,320,165"/>
 <area shape="rect" id="node3" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="345,109,561,165"/>
+<area shape="rect" id="node4" href="$TrajectoryGeneratorNode_8cpp.html" title="Implementation of a ROS wrapper around ITrajectoryGenerator interface." alt="" coords="586,109,816,165"/>
 </map>

@@ -1,14 +1,15 @@
 <map id="navigation_trajectory_follower/src/TrajectoryFollowerNode.cpp" name="navigation_trajectory_follower/src/TrajectoryFollowerNode.cpp">
-<area shape="rect" id="node2" href="$OmniDrivePositionController_8h.html" title="omnidrive_controller\l/OmniDrivePositionController.h" alt="" coords="395,117,611,158"/>
-<area shape="rect" id="node10" href="$OmniDriveTrajectoryGenerator_8h.html" title="trajectory_generator\l/OmniDriveTrajectoryGenerator.h" alt="" coords="139,117,369,158"/>
-<area shape="rect" id="node12" href="$Conversions_8h.html" title="navigation_trajectory\l_common/Conversions.h" alt="" coords="1511,117,1691,158"/>
-<area shape="rect" id="node19" href="$TrajectoryFollowerNode_8h.html" title="navigation_trajectory\l_follower/TrajectoryFollower\lNode.h" alt="" coords="1001,109,1196,165"/>
-<area shape="rect" id="node3" href="$IPositionController_8h.html" title="IPositionController.h" alt="" coords="411,221,559,248"/>
-<area shape="rect" id="node5" href="$Odometry_8h.html" title="Odometry.h" alt="" coords="51,221,148,248"/>
-<area shape="rect" id="node8" href="$TrajectoryWithId_8h.html" title="navigation_trajectory\l_common/TrajectoryWithId.h" alt="" coords="584,214,787,255"/>
-<area shape="rect" id="node6" href="$Twist2D_8h.html" title="Twist2D.h" alt="" coords="5,304,88,331"/>
-<area shape="rect" id="node7" href="$Pose2D_8h.html" title="Pose2D.h" alt="" coords="112,304,195,331"/>
-<area shape="rect" id="node11" href="$ITrajectoryGenerator_8h.html" title="ITrajectoryGenerator.h" alt="" coords="173,221,336,248"/>
-<area shape="rect" id="node17" href="$FrameWithId_8h.html" title="navigation_trajectory\l_common/FrameWithId.h" alt="" coords="1547,214,1728,255"/>
-<area shape="rect" id="node18" href="$TwistWithId_8h.html" title="navigation_trajectory\l_common/TwistWithId.h" alt="" coords="1952,214,2123,255"/>
+<area shape="rect" id="node2" href="$OmniDrivePositionController_8h.html" title="omnidrive_controller\l/OmniDrivePositionController.h" alt="" coords="356,117,572,158"/>
+<area shape="rect" id="node10" href="$OmniDriveTrajectoryGenerator_8h.html" title="trajectory_generator\l/OmniDriveTrajectoryGenerator.h" alt="" coords="37,117,267,158"/>
+<area shape="rect" id="node12" href="$Conversions_8h.html" title="navigation_trajectory\l_common/Conversions.h" alt="" coords="1785,117,1964,158"/>
+<area shape="rect" id="node25" href="$Utilities_8h.html" title="navigation_trajectory\l_common/Utilities.h" alt="" coords="2579,117,2735,158"/>
+<area shape="rect" id="node26" href="$TrajectoryFollowerNode_8h.html" title="navigation_trajectory\l_follower/TrajectoryFollower\lNode.h" alt="" coords="2979,109,3173,165"/>
+<area shape="rect" id="node3" href="$IPositionController_8h.html" title="IPositionController.h" alt="" coords="243,221,391,248"/>
+<area shape="rect" id="node5" href="$Odometry_8h.html" title="Odometry.h" alt="" coords="415,221,512,248"/>
+<area shape="rect" id="node8" href="$TrajectoryWithId_8h.html" title="navigation_trajectory\l_common/TrajectoryWithId.h" alt="" coords="537,214,740,255"/>
+<area shape="rect" id="node6" href="$Twist2D_8h.html" title="navigation_trajectory\l_common/Twist2D.h" alt="" coords="1673,305,1828,346"/>
+<area shape="rect" id="node7" href="$Pose2D_8h.html" title="navigation_trajectory\l_common/Pose2D.h" alt="" coords="755,305,911,346"/>
+<area shape="rect" id="node11" href="$ITrajectoryGenerator_8h.html" title="ITrajectoryGenerator.h" alt="" coords="5,221,168,248"/>
+<area shape="rect" id="node22" href="$FrameWithId_8h.html" title="navigation_trajectory\l_common/FrameWithId.h" alt="" coords="2635,214,2816,255"/>
+<area shape="rect" id="node23" href="$TwistWithId_8h.html" title="navigation_trajectory\l_common/TwistWithId.h" alt="" coords="2157,214,2328,255"/>
 </map>

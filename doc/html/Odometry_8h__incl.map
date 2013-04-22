@@ -1,4 +1,4 @@
 <map id="navigation_trajectory_follower/src/omnidrive_controller/Odometry.h" name="navigation_trajectory_follower/src/omnidrive_controller/Odometry.h">
-<area shape="rect" id="node2" href="$Twist2D_8h.html" title="Twist2D.h" alt="" coords="5,109,88,136"/>
-<area shape="rect" id="node3" href="$Pose2D_8h.html" title="Pose2D.h" alt="" coords="112,109,195,136"/>
+<area shape="rect" id="node2" href="$Twist2D_8h.html" title="navigation_trajectory\l_common/Twist2D.h" alt="" coords="5,110,160,151"/>
+<area shape="rect" id="node3" href="$Pose2D_8h.html" title="navigation_trajectory\l_common/Pose2D.h" alt="" coords="185,110,340,151"/>
 </map>

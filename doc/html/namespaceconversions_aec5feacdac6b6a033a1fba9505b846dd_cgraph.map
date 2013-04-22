@@ -1,3 +1,4 @@
 <map id="conversions::poseRosToFrame" name="conversions::poseRosToFrame">
-<area shape="rect" id="node2" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="269,5,440,32"/>
+<area shape="rect" id="node2" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="301,5,472,32"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#a3d5b6dc953c61c1a96da1cdc377933e7" title="Conversion from geometry_msgs::Pose ROS message to KDL::Frame data type." alt="" coords="269,56,504,83"/>
 </map>

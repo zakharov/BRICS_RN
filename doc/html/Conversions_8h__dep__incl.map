@@ -3,4 +3,5 @@
 <area shape="rect" id="node3" href="$PathPlannerRos_8cpp.html" title="navigation_trajectory\l_planner/src/PathPlannerRos.cpp" alt="" coords="243,117,473,158"/>
 <area shape="rect" id="node4" href="$TrajectoryAdapterNode_8cpp.html" title="navigation_trajectory\l_planner/src/TrajectoryAdapter\lNode.cpp" alt="" coords="498,109,715,165"/>
 <area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="739,109,956,165"/>
+<area shape="rect" id="node6" href="$TrajectoryGeneratorNode_8cpp.html" title="Implementation of a ROS wrapper around ITrajectoryGenerator interface." alt="" coords="981,109,1211,165"/>
 </map>

@@ -7,8 +7,9 @@
 <area shape="rect" id="node9" href="$classStopwatch.html#aa0266311b7392b948061bb985b49cff4" title="Stop a stop watch." alt="" coords="692,247,817,273"/>
 <area shape="rect" id="node10" href="$classStopwatch.html#ad5c8540836d2fe5200ac94edfb83bc6b" title="return elapsed time in milliseconds" alt="" coords="655,297,854,324"/>
 <area shape="rect" id="node4" href="$namespaceutilities.html#a02b162e5d837e7bcbae3642c3b5bb227" title="Calculates and returns perpendicular distance form the given point to the line (for 2D space)..." alt="" coords="673,5,836,46"/>
-<area shape="rect" id="node5" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="913,41,1084,68"/>
+<area shape="rect" id="node5" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="940,16,1111,43"/>
 <area shape="rect" id="node8" href="$classLinearInterpolation.html#ad5a1aeda5e23b6fa915671f70cd9b850" title="An implementation of the linear path approximation algorithms." alt="" coords="682,181,827,222"/>
-<area shape="rect" id="node11" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="910,297,1087,324"/>
+<area shape="rect" id="node11" href="$classStopwatch.html#a96a5a1aee1c1e878d485c98f8f2cf5b6" title="Stopwatch::convertToMs" alt="" coords="937,297,1114,324"/>
 <area shape="rect" id="node13" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="649,71,861,97"/>
+<area shape="rect" id="node14" href="$namespaceconversions.html#ae6dabefa083c02bcf022739c8a7a872c" title="Conversion from KDL::Frame data type to geometry_msgs::Pose ROS message." alt="" coords="910,71,1141,97"/>
 </map>

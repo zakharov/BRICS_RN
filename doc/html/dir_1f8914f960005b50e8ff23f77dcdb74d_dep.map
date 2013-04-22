@@ -2,12 +2,12 @@
 <area shape="rect" id="node2" href="dir_f05590083d5df3a2a790d94286a8db59.html" title="omnidrive_controller" alt="" coords="37,159,189,207"/>
 <area shape="rect" id="edge1-headlabel" href="dir_000007_000008.html" title="1" alt="" coords="172,150,181,165"/>
 <area shape="rect" id="node3" href="dir_131677c7ad37af4b548e273865e43de4.html" title="trajectory_generator" alt="" coords="214,159,367,207"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000007_000009.html" title="1" alt="" coords="294,133,304,148"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000007_000009.html" title="2" alt="" coords="294,133,304,148"/>
 <area shape="rect" id="node5" href="dir_dd5d01178680de221b5459867f0b3c09.html" title="include" alt="" coords="400,159,472,207"/>
 <area shape="rect" id="edge3-headlabel" href="dir_000007_000005.html" title="1" alt="" coords="385,134,394,149"/>
 <area shape="rect" id="node4" href="dir_dd93f74f1e5b0372e000384be9d08831.html" title="navigation_trajectory_common" alt="" coords="91,255,311,303"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000008_000000.html" title="1" alt="" coords="169,228,178,243"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000009_000000.html" title="2" alt="" coords="237,240,246,255"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000008_000000.html" title="4" alt="" coords="169,228,178,243"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000009_000000.html" title="3" alt="" coords="237,240,246,255"/>
 <area shape="rect" id="clust2" href="dir_1f8914f960005b50e8ff23f77dcdb74d.html" alt="" coords="27,52,379,217"/>
 <area shape="rect" id="clust1" href="dir_dc9bd7de1189f2f3c206e586fb6e3fad.html" title="navigation_trajectory_follower" alt="" coords="16,16,389,228"/>
 </map>

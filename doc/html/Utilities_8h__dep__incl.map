@@ -1,4 +1,6 @@
 <map id="navigation_trajectory_common/include/navigation_trajectory_common/Utilities.h" name="navigation_trajectory_common/include/navigation_trajectory_common/Utilities.h">
 <area shape="rect" id="node2" href="$CollisionCheckingRos_8cpp.html" title="navigation_trajectory\l_planner/src/CollisionChecking\lRos.cpp" alt="" coords="5,109,219,165"/>
 <area shape="rect" id="node3" href="$DouglasPeuckerApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/DouglasPeucker\lApproximation.cpp" alt="" coords="243,109,449,165"/>
+<area shape="rect" id="node4" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="474,109,789,165"/>
+<area shape="rect" id="node5" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="814,109,1031,165"/>
 </map>

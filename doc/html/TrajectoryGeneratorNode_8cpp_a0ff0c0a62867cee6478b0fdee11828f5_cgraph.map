@@ -1,0 +1,6 @@
+<map id="pathCallback" name="pathCallback">
+<area shape="rect" id="node2" href="$classITrajectoryGenerator.html#ab6bd8876bc379e3dc45335340bc9b312" title="Interface for trajectory generation." alt="" coords="192,5,344,46"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#aa07d91583f3bf36777e20565f9d4f08a" title="Conversion of a nav_msgs::Path ROS message to KDL::Path_Composite KDL path data type." alt="" coords="158,71,378,97"/>
+<area shape="rect" id="node5" href="$namespaceconversions.html#a42c208402de7c90e392a45cf170aa837" title="Conversion of a KDL::Trajectory_Composite to a ROS message." alt="" coords="175,122,361,163"/>
+<area shape="rect" id="node4" href="$namespaceconversions.html#a3d5b6dc953c61c1a96da1cdc377933e7" title="Conversion from geometry_msgs::Pose ROS message to KDL::Frame data type." alt="" coords="427,71,661,97"/>
+</map>

@@ -61,7 +61,7 @@ Inheritance diagram for ITrajectoryGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classITrajectoryGenerator__inherit__graph.png" border="0" usemap="#ITrajectoryGenerator_inherit__map" alt="Inheritance graph"/></div>
 <map name="ITrajectoryGenerator_inherit__map" id="ITrajectoryGenerator_inherit__map">
-<area shape="rect" id="node2" href="classDifferentialDriveTrajectoryGenerator.html" title="{DifferentialDriveTrajectory\lGenerator\n||+ DifferentialDriveTrajectory\lGenerator()\l+ DifferentialDriveTrajectory\lGenerator()\l+ ~DifferentialDriveTrajectory\lGenerator()\l+ computeTrajectroy()\l}" alt="" coords="5,131,216,311"/><area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base..." alt="" coords="241,131,492,311"/></map>
+<area shape="rect" id="node2" href="classDifferentialDriveTrajectoryGenerator.html" title="{DifferentialDriveTrajectory\lGenerator\n||+ DifferentialDriveTrajectory\lGenerator()\l+ DifferentialDriveTrajectory\lGenerator()\l+ ~DifferentialDriveTrajectory\lGenerator()\l+ computeTrajectroy()\l}" alt="" coords="5,131,216,311"/><area shape="rect" id="node3" href="classOmniDriveTrajectoryGenerator.html" title="Implementation of the interface class for trajectory generation for omnidrive mobile base..." alt="" coords="241,139,492,304"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for ITrajectoryGenerator:</div>
@@ -113,15 +113,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Interface for trajectory generation. </p>
+<p>This call adds a velocity profile to the path, turning it into a trajectory. The velocity profile is implementation dependen and set by other means of the actual implementation. This interface expects a <a class="el" href="namespaceKDL.html">KDL</a> path including orientation information, i.e. made from poses, not positions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>- input path (sequence of poses) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">trajectory</td><td>- calculated trajectory </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implemented in <a class="el" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5">OmniDriveTrajectoryGenerator</a>.</p>
+
+<p>Referenced by <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00140">pathCallback()</a>.</p>
 
 </div>
 </div>
@@ -131,7 +134,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 01:37:40 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 04:03:51 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

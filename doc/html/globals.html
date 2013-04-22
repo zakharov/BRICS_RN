@@ -55,6 +55,7 @@
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
@@ -87,6 +88,9 @@
 <li>collisionChecker
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a306d1c52b0901b24926365cb436d0937">TrajectoryAdapterNode.cpp</a>
 </li>
+<li>computePathComposite()
+: <a class="el" href="TrajectoryFollowerNode_8cpp.html#aa6ce229fa17981e7cc3fe96d2acc3a29">TrajectoryFollowerNode.cpp</a>
+</li>
 <li>controller
 : <a class="el" href="TrajectoryFollowerNode_8cpp.html#a173b9fb02204c118775b529a34968685">TrajectoryFollowerNode.cpp</a>
 </li>
@@ -105,11 +109,21 @@
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>generator
+: <a class="el" href="TrajectoryGeneratorNode_8cpp.html#a5fc1f2a767cce13d32c604da42d10e68">TrajectoryGeneratorNode.cpp</a>
+</li>
 <li>goalCallback()
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a2fc180559b92aff97cf462c09ad1d007">TrajectoryAdapterNode.cpp</a>
 </li>
 <li>goalPose
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a20b44254f0b33d867899162586c03aca">TrajectoryAdapterNode.cpp</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>interpolateRotation()
+: <a class="el" href="TrajectoryFollowerNode_8cpp.html#a4b4dd0cf361ac342ed3c9bb4218c0129">TrajectoryFollowerNode.cpp</a>
 </li>
 </ul>
 
@@ -124,6 +138,7 @@
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">TrajectoryAdapterNode.cpp</a>
+, <a class="el" href="TrajectoryGeneratorNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">TrajectoryGeneratorNode.cpp</a>
 , <a class="el" href="TrajectoryFollowerNode_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">TrajectoryFollowerNode.cpp</a>
 </li>
 </ul>
@@ -149,6 +164,7 @@
 </li>
 <li>pathCallback()
 : <a class="el" href="TrajectoryFollowerNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">TrajectoryFollowerNode.cpp</a>
+, <a class="el" href="TrajectoryGeneratorNode_8cpp.html#a0ff0c0a62867cee6478b0fdee11828f5">TrajectoryGeneratorNode.cpp</a>
 </li>
 <li>pathPlanner
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a306238f09fd6e605174a0979752b7277">TrajectoryAdapterNode.cpp</a>
@@ -156,14 +172,8 @@
 <li>pathPublisher
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a57cc257041214f674031eb049f9916f3">TrajectoryAdapterNode.cpp</a>
 </li>
-<li>pose2dToFrameKdl()
-: <a class="el" href="ConversionUtils_8h.html#a27990c6f99474663b94bd6bb7fc587cf">ConversionUtils.h</a>
-</li>
-<li>pose2dToPoseRos()
-: <a class="el" href="TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99">TrajectoryFollowerNode.cpp</a>
-</li>
-<li>poseRosToPose2d()
-: <a class="el" href="TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9">TrajectoryFollowerNode.cpp</a>
+<li>pathRos
+: <a class="el" href="TrajectoryAdapterNode_8cpp.html#acf563575cac8043f0bde69f7d7412d8d">TrajectoryAdapterNode.cpp</a>
 </li>
 <li>publishOdometry()
 : <a class="el" href="TrajectoryFollowerNode_8cpp.html#a615277b18891b1d5ef0dc29b9ef6d71f">TrajectoryFollowerNode.cpp</a>
@@ -178,6 +188,9 @@
 <li>simplifiedPathPublisher
 : <a class="el" href="TrajectoryAdapterNode_8cpp.html#a6f653c47796771842da45a5f8b87fa3a">TrajectoryAdapterNode.cpp</a>
 </li>
+<li>simplifiedPathRos
+: <a class="el" href="TrajectoryAdapterNode_8cpp.html#afd1d28cca1fd6719a874dc5fa4f927fe">TrajectoryAdapterNode.cpp</a>
+</li>
 <li>startTime
 : <a class="el" href="TrajectoryFollowerNode_8cpp.html#a173ef16294487319a1c572ee77872167">TrajectoryFollowerNode.cpp</a>
 </li>
@@ -185,23 +198,20 @@
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>twist2dToTwistKdl()
-: <a class="el" href="ConversionUtils_8h.html#a51deae14a4c9a48e7a934f48983d7fd5">ConversionUtils.h</a>
+<li>trajectoryGenerator
+: <a class="el" href="TrajectoryFollowerNode_8cpp.html#a9a0bc6ad09556aaf9732501a7c04346d">TrajectoryFollowerNode.cpp</a>
 </li>
-<li>twist2dToTwistRos()
-: <a class="el" href="TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56">TrajectoryFollowerNode.cpp</a>
+<li>trajectoryPublisher
+: <a class="el" href="TrajectoryGeneratorNode_8cpp.html#a0f25139217305e8cee112c715f8f7df5">TrajectoryGeneratorNode.cpp</a>
 </li>
 <li>twistPublisher
 : <a class="el" href="TrajectoryFollowerNode_8cpp.html#af3f1d3251b5e7dbe57182e6b7485594b">TrajectoryFollowerNode.cpp</a>
-</li>
-<li>twistRosToTwist2d()
-: <a class="el" href="TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f">TrajectoryFollowerNode.cpp</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 01:37:40 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 04:03:52 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

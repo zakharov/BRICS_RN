@@ -1,7 +1,8 @@
 <map id="navigation_trajectory_follower/src/trajectory_generator/ITrajectoryGenerator.h" name="navigation_trajectory_follower/src/trajectory_generator/ITrajectoryGenerator.h">
 <area shape="rect" id="node2" href="$DifferentialDriveTrajectoryGenerator_8h.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/DifferentialDriveTrajectory\lGenerator.h" alt="" coords="7,110,267,181"/>
-<area shape="rect" id="node4" href="$OmniDriveTrajectoryGenerator_8h.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.h" alt="" coords="296,117,597,173"/>
+<area shape="rect" id="node4" href="$OmniDriveTrajectoryGenerator_8h.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.h" alt="" coords="441,117,743,173"/>
 <area shape="rect" id="node3" href="$DifferentialDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/DifferentialDriveTrajectory\lGenerator.cpp" alt="" coords="5,230,264,301"/>
 <area shape="rect" id="node5" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="289,237,604,293"/>
 <area shape="rect" id="node6" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="629,237,845,293"/>
+<area shape="rect" id="node7" href="$TrajectoryGeneratorNode_8cpp.html" title="Implementation of a ROS wrapper around ITrajectoryGenerator interface." alt="" coords="870,237,1100,293"/>
 </map>

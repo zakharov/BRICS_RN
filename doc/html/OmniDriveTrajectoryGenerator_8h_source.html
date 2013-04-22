@@ -111,26 +111,24 @@
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a5bf13c0d17c61b1f8f26a46914ea1e36" title="Destructor.">~OmniDriveTrajectoryGenerator</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a59cd7881fef04c139ee9a98da5d1c398" title="Computes shortest angle.">getShortestAngle</a>(<span class="keywordtype">float</span> goalAngle, <span class="keywordtype">float</span> actualAngle);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite.">computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation.">interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; path, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; path, KDL::Trajectory_Composite&amp; trajectory);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; path, KDL::Trajectory_Composite&amp; trajectory);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* OMNIDRIVETRAJECTORYGENERATOR_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#a0cc926d7b8e3e71fd692e5999f5993ff" title="Converts vector of FrameWithId to KDL::Path_Composite.">computePathComposite</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; <a class="code" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, KDL::Path_Composite&amp; pathComposite);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#aae76d044b48371818a00a242f4b18e35" title="Calculates rotation.">interpolateRotation</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt;&amp; path, std::vector&lt;FrameWithId&gt;&amp; pathWithRotation);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> KDL::Path_Composite&amp; path, KDL::Trajectory_Composite&amp; trajectory);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOmniDriveTrajectoryGenerator.html#acc46ed1c7634bc3ce8e2070c0c79c2d5" title="Implementation if an interface for computing a trajectory.">computeTrajectroy</a>(<span class="keyword">const</span> std::vector&lt;FrameWithId&gt; path, KDL::Trajectory_Composite&amp; trajectory);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* OMNIDRIVETRAJECTORYGENERATOR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 01:37:40 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 04:03:51 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

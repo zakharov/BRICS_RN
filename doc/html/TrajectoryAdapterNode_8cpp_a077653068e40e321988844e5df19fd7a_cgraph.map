@@ -4,8 +4,9 @@
 <area shape="rect" id="node4" href="$classIPathPlanner.html#a6746f803b5473e43074cdca64c593ad9" title="An interface for path planning." alt="" coords="171,136,367,163"/>
 <area shape="rect" id="node5" href="$classTrajectoryAdapterNodeState.html#ac0617814dc172ff9ae781b8e16ff8182" title="TrajectoryAdapterNodeState::get" alt="" coords="153,187,386,213"/>
 <area shape="rect" id="node6" href="$namespaceconversions.html#a78eaeb50d6a1fdec5e7a003e4e0b0f0d" title="Conversion of a FrameWithId vector (a path) to vector of geometry_msgs::PoseStamped ROS messages..." alt="" coords="169,237,370,264"/>
-<area shape="rect" id="node10" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="153,288,385,315"/>
+<area shape="rect" id="node11" href="$classTrajectoryAdapterNodeState.html#a52aea05b5140752387179417f4a2b757" title="TrajectoryAdapterNodeState::set" alt="" coords="153,288,385,315"/>
 <area shape="rect" id="node7" href="$namespaceconversions.html#a9bdd48e7ed847ccd2af1bd1a20d1999f" title="Conversion from FrameWithId data type to geometry_msgs::PoseStamped ROS message." alt="" coords="435,230,624,271"/>
 <area shape="rect" id="node8" href="$namespaceconversions.html#a1b5dc16268c4546ba5bd02f2d325d5f5" title="Conversion from FrameWithId data type to geometry_msgs::Pose ROS message." alt="" coords="673,237,885,264"/>
-<area shape="rect" id="node9" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="933,237,1104,264"/>
+<area shape="rect" id="node9" href="$namespaceconversions.html#ae6dabefa083c02bcf022739c8a7a872c" title="Conversion from KDL::Frame data type to geometry_msgs::Pose ROS message." alt="" coords="934,212,1165,239"/>
+<area shape="rect" id="node10" href="$classFrameWithId.html#ad2355970fa56daec211e147f020c7ae8" title="Returns an underlying KDL::Frame as a const reference." alt="" coords="964,263,1135,289"/>
 </map>

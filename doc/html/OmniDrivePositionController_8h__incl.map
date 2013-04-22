@@ -1,7 +1,7 @@
 <map id="navigation_trajectory_follower/src/omnidrive_controller/OmniDrivePositionController.h" name="navigation_trajectory_follower/src/omnidrive_controller/OmniDrivePositionController.h">
 <area shape="rect" id="node2" href="$IPositionController_8h.html" title="IPositionController.h" alt="" coords="5,117,152,144"/>
 <area shape="rect" id="node4" href="$Odometry_8h.html" title="Odometry.h" alt="" coords="229,117,325,144"/>
-<area shape="rect" id="node7" href="$TrajectoryWithId_8h.html" title="navigation_trajectory\l_common/TrajectoryWithId.h" alt="" coords="351,110,553,151"/>
-<area shape="rect" id="node5" href="$Twist2D_8h.html" title="Twist2D.h" alt="" coords="191,200,273,227"/>
-<area shape="rect" id="node6" href="$Pose2D_8h.html" title="Pose2D.h" alt="" coords="297,200,380,227"/>
+<area shape="rect" id="node7" href="$TrajectoryWithId_8h.html" title="navigation_trajectory\l_common/TrajectoryWithId.h" alt="" coords="387,110,589,151"/>
+<area shape="rect" id="node5" href="$Twist2D_8h.html" title="navigation_trajectory\l_common/Twist2D.h" alt="" coords="134,201,289,242"/>
+<area shape="rect" id="node6" href="$Pose2D_8h.html" title="navigation_trajectory\l_common/Pose2D.h" alt="" coords="314,201,469,242"/>
 </map>

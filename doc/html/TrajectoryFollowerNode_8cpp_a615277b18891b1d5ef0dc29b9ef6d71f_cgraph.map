@@ -1,12 +1,12 @@
 <map id="publishOdometry" name="publishOdometry">
-<area shape="rect" id="node2" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="185,5,349,32"/>
-<area shape="rect" id="node3" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="185,56,348,83"/>
-<area shape="rect" id="node4" href="$TrajectoryFollowerNode_8cpp.html#aba0d467f2a4acf38c9ba7b09c6985f99" title="pose2dToPoseRos" alt="" coords="198,107,335,133"/>
-<area shape="rect" id="node8" href="$TrajectoryFollowerNode_8cpp.html#a83b3f8c703ff38ad6f55dd656bdf9e56" title="twist2dToTwistRos" alt="" coords="199,208,334,235"/>
-<area shape="rect" id="node5" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="397,31,533,57"/>
-<area shape="rect" id="node6" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="410,81,521,108"/>
-<area shape="rect" id="node7" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="412,132,519,159"/>
-<area shape="rect" id="node9" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="411,183,520,209"/>
-<area shape="rect" id="node10" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="412,233,519,260"/>
-<area shape="rect" id="node11" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="398,284,533,311"/>
+<area shape="rect" id="node2" href="$classOdometry.html#ad1a474a340d44e986df9758237e36c3e" title="Class represents an odometry data." alt="" coords="213,5,377,32"/>
+<area shape="rect" id="node3" href="$classOdometry.html#afc1172d4008b39a70bd1e4b3b3b11b8a" title="Class represents an odometry data." alt="" coords="213,56,376,83"/>
+<area shape="rect" id="node4" href="$namespaceconversions.html#a12253511a3f1e7a87b8513c3d11853b2" title="Conversion from Pose2D type to geometry_msgs::Pose ROS message." alt="" coords="184,107,405,133"/>
+<area shape="rect" id="node8" href="$namespaceconversions.html#a7a853e3ad239d649413fceffdb47bc92" title="Conversion from Twist2D data type to geometry_msgs::Twist ROS message." alt="" coords="185,208,404,235"/>
+<area shape="rect" id="node5" href="$classPose2D.html#a87e15eb851203c08751ef434f8659fc8" title="Getting x coordinate." alt="" coords="466,31,577,57"/>
+<area shape="rect" id="node6" href="$classPose2D.html#ad9b300489ddd64c7a868c337c50e8dc1" title="Getting y coordinate." alt="" coords="468,81,575,108"/>
+<area shape="rect" id="node7" href="$classPose2D.html#ac5b8c15d1ae30aa1a5b792bac5cc7dd2" title="Getting theta angle." alt="" coords="453,132,589,159"/>
+<area shape="rect" id="node9" href="$classTwist2D.html#a4ec229ccb2e5626bba87c215e3cec3d1" title="Getting x coordinate." alt="" coords="467,183,576,209"/>
+<area shape="rect" id="node10" href="$classTwist2D.html#a74ee1a24f333685f68cdc232af614eb9" title="Getting y coordinate." alt="" coords="468,233,575,260"/>
+<area shape="rect" id="node11" href="$classTwist2D.html#abd1e7750442822646867ce62718b8d40" title="Getting theta coordinate." alt="" coords="454,284,589,311"/>
 </map>

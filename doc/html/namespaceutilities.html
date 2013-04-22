@@ -61,10 +61,61 @@ Functions</h2></td></tr>
 <tr class="memitem:a6399b646b80e573ab57ed58c9ed63b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities.html#a6399b646b80e573ab57ed58c9ed63b41">prunePath</a> (const std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;<a class="el" href="TrajectoryAdapterNode_8cpp.html#a730349de825a23292691cefc60d5c6cb">path</a>, const <a class="el" href="classFrameWithId.html">FrameWithId</a> &amp;point, std::vector&lt; <a class="el" href="classFrameWithId.html">FrameWithId</a> &gt; &amp;prunedPath)</td></tr>
 <tr class="memdesc:a6399b646b80e573ab57ed58c9ed63b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates pruned path, starting from <code>point</code> to the end of the original path.  <a href="#a6399b646b80e573ab57ed58c9ed63b41">More...</a><br/></td></tr>
 <tr class="separator:a6399b646b80e573ab57ed58c9ed63b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f1c8f5f15b48a5a6d568fe3315b0bd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceutilities.html#ac8f1c8f5f15b48a5a6d568fe3315b0bd">getShortestAngle</a> (float goalAngle, float actualAngle)</td></tr>
+<tr class="memdesc:ac8f1c8f5f15b48a5a6d568fe3315b0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes shortest angle.  <a href="#ac8f1c8f5f15b48a5a6d568fe3315b0bd">More...</a><br/></td></tr>
+<tr class="separator:ac8f1c8f5f15b48a5a6d568fe3315b0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Some commonly used routines. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ac8f1c8f5f15b48a5a6d568fe3315b0bd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float utilities::getShortestAngle </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>goalAngle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>actualAngle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes shortest angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">goalAngle</td><td>- 1st angle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actualAngle</td><td>- 2nd angle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>shortest angle </dd></dl>
+
+<p>Definition at line <a class="el" href="Utilities_8h_source.html#l00131">131</a> of file <a class="el" href="Utilities_8h_source.html">Utilities.h</a>.</p>
+
+<p>Referenced by <a class="el" href="OmniDriveTrajectoryGenerator_8cpp_source.html#l00092">OmniDriveTrajectoryGenerator::interpolateRotation()</a>, and <a class="el" href="TrajectoryFollowerNode_8cpp_source.html#l00108">interpolateRotation()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a02b162e5d837e7bcbae3642c3b5bb227"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +252,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 19 2013 01:37:40 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 22 2013 04:03:51 for BRICS_RN&nbsp;(Robust&nbsp;Navigation&nbsp;Library) by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

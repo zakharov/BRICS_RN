@@ -1,14 +1,15 @@
 <map id="navigation_trajectory_common/include/navigation_trajectory_common/FrameWithId.h" name="navigation_trajectory_common/include/navigation_trajectory_common/FrameWithId.h">
-<area shape="rect" id="node2" href="$Conversions_8h.html" title="navigation_trajectory\l_common/include/navigation\l_trajectory_common/Conversions.h" alt="" coords="576,109,824,165"/>
-<area shape="rect" id="node7" href="$Utilities_8h.html" title="navigation_trajectory\l_common/include/navigation\l_trajectory_common/Utilities.h" alt="" coords="234,109,451,165"/>
-<area shape="rect" id="node9" href="$FrameWithId_8cpp.html" title="navigation_trajectory\l_common/src/FrameWithId.cpp" alt="" coords="899,117,1117,158"/>
-<area shape="rect" id="node10" href="$ChaikinCurveApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/ChaikinCurveApproximation.cpp" alt="" coords="1141,117,1448,158"/>
-<area shape="rect" id="node8" href="$DouglasPeuckerApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/DouglasPeucker\lApproximation.cpp" alt="" coords="5,213,211,269"/>
-<area shape="rect" id="node11" href="$LinearInterpolation_8cpp.html" title="navigation_trajectory\l_planner/src/LinearInterpolation.cpp" alt="" coords="1472,117,1723,158"/>
-<area shape="rect" id="node12" href="$PathIterator_8cpp.html" title="navigation_trajectory\l_planner/src/PathIterator.cpp" alt="" coords="1747,117,1953,158"/>
-<area shape="rect" id="node4" href="$PathPlannerRos_8cpp.html" title="navigation_trajectory\l_planner/src/PathPlannerRos.cpp" alt="" coords="474,221,704,262"/>
-<area shape="rect" id="node5" href="$TrajectoryAdapterNode_8cpp.html" title="navigation_trajectory\l_planner/src/TrajectoryAdapter\lNode.cpp" alt="" coords="970,213,1187,269"/>
-<area shape="rect" id="node13" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="1978,109,2293,165"/>
-<area shape="rect" id="node3" href="$CollisionCheckingRos_8cpp.html" title="navigation_trajectory\l_planner/src/CollisionChecking\lRos.cpp" alt="" coords="235,213,449,269"/>
-<area shape="rect" id="node6" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="729,213,945,269"/>
+<area shape="rect" id="node2" href="$Conversions_8h.html" title="navigation_trajectory\l_common/include/navigation\l_trajectory_common/Conversions.h" alt="" coords="932,109,1180,165"/>
+<area shape="rect" id="node8" href="$Utilities_8h.html" title="navigation_trajectory\l_common/include/navigation\l_trajectory_common/Utilities.h" alt="" coords="575,109,792,165"/>
+<area shape="rect" id="node11" href="$FrameWithId_8cpp.html" title="navigation_trajectory\l_common/src/FrameWithId.cpp" alt="" coords="1305,117,1524,158"/>
+<area shape="rect" id="node12" href="$ChaikinCurveApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/ChaikinCurveApproximation.cpp" alt="" coords="1548,117,1855,158"/>
+<area shape="rect" id="node9" href="$DouglasPeuckerApproximation_8cpp.html" title="navigation_trajectory\l_planner/src/DouglasPeucker\lApproximation.cpp" alt="" coords="5,213,211,269"/>
+<area shape="rect" id="node13" href="$LinearInterpolation_8cpp.html" title="navigation_trajectory\l_planner/src/LinearInterpolation.cpp" alt="" coords="1879,117,2129,158"/>
+<area shape="rect" id="node14" href="$PathIterator_8cpp.html" title="navigation_trajectory\l_planner/src/PathIterator.cpp" alt="" coords="2154,117,2360,158"/>
+<area shape="rect" id="node4" href="$PathPlannerRos_8cpp.html" title="navigation_trajectory\l_planner/src/PathPlannerRos.cpp" alt="" coords="1310,221,1540,262"/>
+<area shape="rect" id="node5" href="$TrajectoryAdapterNode_8cpp.html" title="navigation_trajectory\l_planner/src/TrajectoryAdapter\lNode.cpp" alt="" coords="1565,213,1781,269"/>
+<area shape="rect" id="node10" href="$OmniDriveTrajectoryGenerator_8cpp.html" title="navigation_trajectory\l_follower/src/trajectory\l_generator/OmniDriveTrajectoryGenerator.cpp" alt="" coords="235,213,551,269"/>
+<area shape="rect" id="node3" href="$CollisionCheckingRos_8cpp.html" title="navigation_trajectory\l_planner/src/CollisionChecking\lRos.cpp" alt="" coords="817,213,1031,269"/>
+<area shape="rect" id="node6" href="$TrajectoryFollowerNode_8cpp.html" title="navigation_trajectory\l_follower/src/TrajectoryFollower\lNode.cpp" alt="" coords="575,213,792,269"/>
+<area shape="rect" id="node7" href="$TrajectoryGeneratorNode_8cpp.html" title="Implementation of a ROS wrapper around ITrajectoryGenerator interface." alt="" coords="1055,213,1285,269"/>
 </map>

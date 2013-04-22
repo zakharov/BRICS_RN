@@ -1,4 +1,4 @@
 <map id="odomCallback" name="odomCallback">
-<area shape="rect" id="node2" href="$TrajectoryFollowerNode_8cpp.html#a780e27fb168d4c4fb80d7876351501d9" title="poseRosToPose2d" alt="" coords="166,5,303,32"/>
-<area shape="rect" id="node3" href="$TrajectoryFollowerNode_8cpp.html#a59a151aff7df17a7831ccd7c0de0a00f" title="twistRosToTwist2d" alt="" coords="167,56,302,83"/>
+<area shape="rect" id="node2" href="$namespaceconversions.html#a9c4f0ee64ea99ae949e4e91dfcff87a2" title="Conversion from geometry_msgs::Pose ROS message to Pose2D data type." alt="" coords="165,5,387,32"/>
+<area shape="rect" id="node3" href="$namespaceconversions.html#a294ba7063d5de975dbcfe943ac9dd707" title="Conversion from geometry_msgs::Twist ROS message to Twist2D data type." alt="" coords="167,56,385,83"/>
 </map>
